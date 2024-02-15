@@ -97,7 +97,8 @@
                                         class="fa fa-eye text-dark fa-4x mb-5 pb-2"></i></span>
                                 <div class="ms-4">
                                     <h5>Visi</h5>
-                                    <p>{{ strip_tags($visi->konten) }}</p>
+                                    <p>{{ strip_tags($visi->konten ?? 'Peran penting masjid dalam masyarakat Indonesia sebagai pusat kegiatan keagamaan, sosial, dan budaya') }}
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -107,7 +108,8 @@
                                         class="fa fa-flag text-dark fa-4x mb-5 pb-2"></i></span>
                                 <div class="ms-4">
                                     <h5>Misi</h5>
-                                    <p>{{ strip_tags($misi->konten) }}</p>
+                                    <p>{{ strip_tags($misi->konten ?? 'Memberdayakan agama, pendidikan Islam, kesejahteraan, toleransi, kebudayaan, seni, dan konservasi lingkungan.') }}
+                                    </p>
                                 </div>
                             </div>
                         </div>

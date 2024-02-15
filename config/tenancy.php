@@ -192,6 +192,7 @@ return [
      */
     'seeder_parameters' => [
         '--class' => 'DatabaseSeeder', // root seeder class
+        '--class' => 'TenantDatabaseSeeder', // role seeder class
         // '--force' => true,
     ],
 ];

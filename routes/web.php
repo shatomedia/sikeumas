@@ -2,7 +2,10 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\ResellerController;
 use App\Http\Controllers\TenantController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,5 +36,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::resource('tenant', TenantController::class);
+    Route::resource('users', UserController::class);
+    Route::resource('resellers', ResellerController::class);
     Route::resource('profile', UserProfileController::class);
+    Route::resource('permission', PermissionController::class);
 });

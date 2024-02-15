@@ -74,7 +74,7 @@
                     </div>
                     <div class="float-end">
                         <p>Crafted with <span class="text-danger"><i class="bi bi-heart-fill icon-mid"></i></span>
-                            by <a href="https://saugi.me">Saugi</a></p>
+                            by <a href="https://shatomedia.com" target="_blank">Shatomedia</a></p>
                     </div>
                 </div>
             </footer>
@@ -93,6 +93,8 @@
     <script src="{{ asset('assets/static/js/pages/summernote.js') }}"></script>
     <script src="{{ asset('assets/extensions/flatpickr/flatpickr.min.js') }}"></script>
     <script src="{{ asset('assets/static/js/pages/date-picker.js') }}"></script>
+    <script src="{{ asset('assets/extensions/parsleyjs/parsley.min.js') }}"></script>
+    <script src="{{ asset('assets/static/js/pages/parsley.js') }}"></script>
 
     <!-- Need: Apexcharts -->
     <script src="{{ asset('assets/extensions/apexcharts/apexcharts.min.js') }}"></script>

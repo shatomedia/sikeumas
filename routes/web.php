@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ResellerController;
+use App\Http\Controllers\RolesController;
 use App\Http\Controllers\TenantController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserProfileController;
@@ -40,4 +41,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('resellers', ResellerController::class);
     Route::resource('profile', UserProfileController::class);
     Route::resource('permission', PermissionController::class);
+    Route::resource('roles', RolesController::class);
 });

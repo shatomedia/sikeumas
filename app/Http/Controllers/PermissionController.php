@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Permission;
 
 class PermissionController extends Controller
 {
@@ -11,7 +12,8 @@ class PermissionController extends Controller
      */
     public function index()
     {
-        return view('permission.index');
+        $permissions = Permission::get();
+        return view('permission.index', compact('permissions'));
     }
 
     /**
@@ -19,7 +21,7 @@ class PermissionController extends Controller
      */
     public function create()
     {
-        //
+        return view('permission.create');
     }
 
     /**
@@ -27,7 +29,12 @@ class PermissionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|unique:permissions,name'
+        ]);
+
+        Permission::create(['name' => $request->name]);
+        return redirect()->route('permissions.index')->with('success', 'Permission created successfully');
     }
 
     /**
@@ -43,7 +50,7 @@ class PermissionController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('permission.edit');
     }
 
     /**

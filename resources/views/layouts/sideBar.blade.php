@@ -42,6 +42,7 @@
         </div>
         <div class="sidebar-menu">
             <ul class="menu">
+
                 <li class="sidebar-title">Menu</li>
 
                 <li class="sidebar-item  {{ request()->routeIs('dashboard') ? 'active' : '' }}">
@@ -59,13 +60,20 @@
                 </li>
 
                 <li class="sidebar-title">Role & Permission</li>
+
                 <li class="sidebar-item {{ request()->routeIs('permission.*') ? 'active' : '' }}">
                     <a href="{{ route('permission.index') }}" class='sidebar-link'>
-                        <i class="fas fa-users"></i>
+                        <i class="fas fa-clipboard"></i>
                         <span>Hak Akses</span>
                     </a>
                 </li>
 
+                <li class="sidebar-item {{ request()->routeIs('roles.*') ? 'active' : '' }}">
+                    <a href="{{ route('roles.index') }}" class='sidebar-link'>
+                        <i class="fas fa-user-lock"></i>
+                        <span>Roles (Peran)</span>
+                    </a>
+                </li>
 
                 <li class="sidebar-title">User Manajemen</li>
 
@@ -75,6 +83,7 @@
                         <span>Data Staff</span>
                     </a>
                 </li>
+
                 <li class="sidebar-item {{ request()->routeIs('resellers.*') ? 'active' : '' }}">
                     <a href="{{ route('resellers.index') }}" class='sidebar-link'>
                         <i class="bi bi-journal-check"></i>

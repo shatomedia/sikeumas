@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Tenant;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 
 class DashboardController extends Controller
 {
@@ -12,6 +13,7 @@ class DashboardController extends Controller
     {
         $data['tenant'] = Tenant::get();
         $data['user'] = User::get();
+        $data['resellers'] = Role::where('name', 'reseller')->get();
         return view('dashboard.index', $data);
     }
 }

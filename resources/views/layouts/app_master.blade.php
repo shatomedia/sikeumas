@@ -73,7 +73,7 @@
                     </div>
                     <div class="float-end">
                         <p>Crafted with <span class="text-danger"><i class="bi bi-heart-fill icon-mid"></i></span>
-                            by <a href="https://saugi.me">Saugi</a></p>
+                            by <a href="https://shatomedia.com" target="_blank">Shatomedia</a></p>
                     </div>
                 </div>
             </footer>

@@ -53,11 +53,33 @@
 
                 <li class="sidebar-item {{ request()->routeIs('tenant.*') ? 'active' : '' }}">
                     <a href="{{ route('tenant.index') }}" class='sidebar-link'>
-                        <i class="fas fa-users"></i>
-                        <span>Data Pengguna</span>
+                        <i class="fas fa-mosque"></i>
+                        <span>Data Masjid</span>
                     </a>
+                </li>
+
+                <li class="sidebar-title">Role & Permission</li>
+                <li class="sidebar-item {{ request()->routeIs('permission.*') ? 'active' : '' }}">
+                    <a href="{{ route('permission.index') }}" class='sidebar-link'>
+                        <i class="fas fa-users"></i>
+                        <span>Hak Akses</span>
+                    </a>
+                </li>
 
 
+                <li class="sidebar-title">User Manajemen</li>
+
+                <li class="sidebar-item {{ request()->routeIs('users.*') ? 'active' : '' }}">
+                    <a href="{{ route('users.index') }}" class='sidebar-link'>
+                        <i class="fas fa-users"></i>
+                        <span>Data Staff</span>
+                    </a>
+                </li>
+                <li class="sidebar-item {{ request()->routeIs('resellers.*') ? 'active' : '' }}">
+                    <a href="{{ route('resellers.index') }}" class='sidebar-link'>
+                        <i class="bi bi-journal-check"></i>
+                        <span>Data Resellers</span>
+                    </a>
                 </li>
 
                 <li class="sidebar-item {{ request()->routeIs('profile.*') ? 'active' : '' }}">

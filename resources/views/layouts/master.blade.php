@@ -26,9 +26,44 @@
         @include('layouts.sideBar')
         <div id="main" class='layout-navbar navbar-fixed'>
             @include('layouts.navbar')
-            {{-- @include('layouts.navBar') --}}
             <div id="main-content">
+                {{-- Start Menampilkan Alert Success --}}
+                @if (session()->has('success'))
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                {{ session('success') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                            </div>
+                            <script>
+                                setTimeout(function() {
+                                    document.querySelector('.alert').remove();
+                                }, 5000); // Menutup alert setelah 5000 milidetik (5 detik)
+                            </script>
+                        </div>
+                    </div>
+                @endif
+                {{-- End Menampilkan Alert Success --}}
 
+                {{-- Start Menampilkan Alert Error --}}
+                @if (session()->has('error'))
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="alert alert-light-warning alert-dismissible fade show" role="alert">
+                                {{ session('error') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                            </div>
+                            <script>
+                                setTimeout(function() {
+                                    document.querySelector('.alert').remove();
+                                }, 5000); // Menutup alert setelah 5000 milidetik (5 detik)
+                            </script>
+                        </div>
+                    </div>
+                @endif
+                {{-- End Menampilkan Alert Error --}}
                 @yield('content')
 
             </div>

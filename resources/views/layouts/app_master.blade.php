@@ -57,7 +57,7 @@
                             <script>
                                 setTimeout(function() {
                                     document.querySelector('.alert').remove();
-                                }, 8000); // Menutup alert setelah 5000 milidetik (5 detik)
+                                }, 5000); // Menutup alert setelah 5000 milidetik (5 detik)
                             </script>
                         </div>
                     </div>

@@ -3,7 +3,7 @@
 @section('auth-content')
     <div class="col-lg-5 col-12">
         <div id="auth-left">
-            <h2 class="text-center">Sistem Manajemen Keuangan Masjid</h2>
+            <h2 class="text-center">Admin Sistem Manajemen Keuangan Masjid</h2>
             <p class="mb-5 text-center">Silahkan masuk untuk mengelola data Pengguna</p>
 
             <form action="{{ route('login.authenticate') }}" method="POST">

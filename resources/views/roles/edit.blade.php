@@ -5,14 +5,14 @@
         <div class="page-title">
             <div class="row mb-3">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>Buat Hak Akses</h3>
+                    <h3>Edit Role(Peran)</h3>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                Buat Hak Akses
+                                Edit Role
                             </li>
                         </ol>
                     </nav>
@@ -26,19 +26,20 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Hak Akses</h4>
+                            <h4 class="card-title">Role(Peran)</h4>
                         </div>
                         <div class="card-content">
                             <div class="card-body">
-                                <form class="form" action="{{ route('permission.store') }}" method="POST"
+                                <form class="form" action="{{ route('roles.update', $role->id) }}" method="POST"
                                     data-parsley-validate>
                                     @csrf
+                                    @method('PUT')
                                     <div class="row mb-3">
                                         <div class="col-md-6 col-12">
                                             <div class="form-group mandatory">
                                                 <label for="name" class="form-label">Nama</label>
                                                 <input type="text" id="name" class="form-control" name="name"
-                                                    data-parsley-required="true" />
+                                                    data-parsley-required="true" value="{{ $role->name }}" />
                                             </div>
                                         </div>
                                     </div>

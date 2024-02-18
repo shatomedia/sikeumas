@@ -34,10 +34,10 @@ class UserSeeder extends Seeder
         $role = Role::create(['name' => 'staff']);
         $role = Role::create(['name' => 'reseller']);
 
-        $permission = Permission::create(['name' => 'create user']);
-        $permission = Permission::create(['name' => 'read user']);
-        $permission = Permission::create(['name' => 'update user']);
-        $permission = Permission::create(['name' => 'delete user']);
+        $permission = Permission::create(['name' => 'create-user']);
+        $permission = Permission::create(['name' => 'read-user']);
+        $permission = Permission::create(['name' => 'update-user']);
+        $permission = Permission::create(['name' => 'delete-user']);
 
         $admin->assignRole('admin');
         $reseller->assignRole('reseller');

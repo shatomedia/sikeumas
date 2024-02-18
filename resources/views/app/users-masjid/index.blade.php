@@ -5,14 +5,14 @@
         <div class="page-title">
             <div class="row mb-3">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>Data Resellers</h3>
+                    <h3>Data Users</h3>
 
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="">Dashboard</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Data Resellers</li>
+                            <li class="breadcrumb-item active" aria-current="page">Data Users</li>
                         </ol>
                     </nav>
                 </div>
@@ -23,7 +23,7 @@
         <section class="section">
             <div class="card">
                 <div class="card-header">
-                    <a href="{{ route('resellers.create') }}" class="btn btn-primary float-end">Tambah Resellers</a>
+                    <a href="{{ route('user-masjid.create') }}" class="btn btn-primary float-end">Tambah User</a>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -31,30 +31,34 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
+                                    <th>Role(Peran)</th>
                                     <th>Nama</th>
                                     <th>Alamat</th>
                                     <th>Email</th>
                                     <th>No Hp</th>
-                                    <th>Status</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($resellers as $reseller)
+                                @foreach ($users as $user)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $reseller->name }}</td>
-                                        <td>{{ $reseller->alamat }}</td>
-                                        <td>{{ $reseller->email }}</td>
-                                        <td>{{ $reseller->telp }}</td>
+                                        <td>{{ ucfirst($user->roles->first()->name) }}</td>
+                                        <td>{{ ucfirst($user->name) }}</td>
+                                        <td>{{ $user->alamat }}</td>
+                                        <td>{{ $user->email }}</td>
+                                        <td>{{ $user->telp }}</td>
                                         <td class="d-flex">
-                                            <a href="{{ route('resellers.edit', $reseller->id) }}"
+                                            <a href="{{ route('user-masjid.edit', $user->id) }}"
                                                 class="btn btn-sm btn-primary" style="margin-right: 5px">Edit</a>
-                                            <form action="{{ route('resellers.destroy', $reseller->id) }}" method="POST">
-                                                @method('DELETE')
-                                                @csrf
-                                                <input type="submit" class="btn btn-sm btn-secondary" value="Hapus">
+                                            @if (auth()->user()->id != $user->id)
+                                                <form action="{{ route('user-masjid.destroy', $user->id) }}" method="POST">
+                                                    @method('DELETE')
+                                                    @csrf
+                                                    <input type="submit" class="btn btn-sm btn-secondary" value="Hapus">
 
-                                            </form>
+                                                </form>
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach

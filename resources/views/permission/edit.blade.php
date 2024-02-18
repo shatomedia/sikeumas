@@ -1,4 +1,5 @@
 @extends('layouts.master')
+
 @section('content')
     <div class="page-heading">
         <div class="page-title">
@@ -29,8 +30,8 @@
                         </div>
                         <div class="card-content">
                             <div class="card-body">
-                                <form class="form" action="{{ route('permission.update') }}" method="POST"
-                                    data-parsley-validate>
+                                <form class="form" action="{{ route('permission.update', $permission->id) }}"
+                                    method="POST" data-parsley-validate>
                                     @csrf
                                     @method('PUT')
                                     <div class="row mb-3">
@@ -38,7 +39,7 @@
                                             <div class="form-group mandatory">
                                                 <label for="name" class="form-label">Nama</label>
                                                 <input type="text" id="name" class="form-control" name="name"
-                                                    data-parsley-required="true" />
+                                                    data-parsley-required="true" value="{{ $permission->name }}" />
                                             </div>
                                         </div>
                                     </div>

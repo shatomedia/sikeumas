@@ -50,7 +50,7 @@
                                             <a href="{{ route('users.edit', $user->id) }}" class="btn btn-sm btn-primary"
                                                 style="margin-right: 5px">Edit</a>
                                             @if (auth()->user()->id != $user->id)
-                                                <form action="" method="POST">
+                                                <form action="{{ route('users.destroy', $user->id) }}" method="POST">
                                                     @method('DELETE')
                                                     @csrf
                                                     <input type="submit" class="btn btn-sm btn-secondary" value="Hapus">

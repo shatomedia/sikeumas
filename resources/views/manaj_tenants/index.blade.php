@@ -6,7 +6,6 @@
             <div class="row mb-3">
                 <div class="col-12 col-md-6 order-md-1 order-last">
                     <h3>Data Pengguna</h3>
-
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
@@ -31,6 +30,7 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
+                                    <th>Dibuat Oleh</th>
                                     <th>Nama</th>
                                     <th>Alamat</th>
                                     <th>Masjid</th>
@@ -44,6 +44,7 @@
                                 @foreach ($listTenant as $tenant)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
+                                        <td></td>
                                         <td>{{ $tenant->nama }}</td>
                                         <td>{{ $tenant->alamat }}</td>
                                         <td>{{ $tenant->nama_masjid }}</td>
@@ -61,7 +62,6 @@
                                                 @method('DELETE')
                                                 @csrf
                                                 <input type="submit" class="btn btn-sm btn-secondary" value="Hapus">
-
                                             </form>
                                         </td>
                                     </tr>

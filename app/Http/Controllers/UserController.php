@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
@@ -13,7 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = Role::whereIn('name', ['admin', 'staff'])->with('users')->get()->pluck('users')->flatten();;
+        $users = Role::where('name', 'staff')->first()->users;
         return view('users.index', compact('users'));
     }
 
@@ -30,7 +31,16 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $dataUser = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:8',
+        ]);
+
+        $reseller = User::create($dataUser);
+        $reseller->assignRole('staff');
+
+        return redirect()->route('users.index')->with('success', 'User created successfully');
     }
 
     /**
@@ -46,7 +56,8 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        return view('users.edit');
+        $user = User::role('staff')->findOrFail($id);
+        return view('users.edit', compact('user'));
     }
 
     /**
@@ -54,7 +65,16 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $dataUser = $request->validate([
+            'name' => 'required',
+            'email' => ['required', 'email', Rule::unique('users')->ignore($id)],
+            'password' => 'nullable|min:8',
+        ]);
+
+        $user = User::findOrFail($id);
+        $user->update($dataUser);
+
+        return redirect()->route('users.index')->with('success', 'User updated successfully');
     }
 
     /**
@@ -62,6 +82,9 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        return redirect()->route('users.index')->with('success', 'User deleted successfully');
     }
 }

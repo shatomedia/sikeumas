@@ -1,6 +1,6 @@
-@extends('layouts.master')
+@extends('layouts.app_master')
 
-@section('content')
+@section('content-tenant')
     <div class="page-heading">
         <div class="page-title">
             <div class="row mb-3">
@@ -30,11 +30,7 @@
                                     </div>
                                     <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                                         <h6 class="text-muted font-semibold">Hak Akses {{ ucfirst($role->name) }}</h6>
-                                        {{-- <h6 class="font-extrabold mb-1">0</h6> --}}
 
-                                        {{-- <button type="button" data-bs-target="#large"
-                                            class="btn icon icon-left btn-primary"><i data-feather="edit"></i>
-                                            Edit</button> --}}
                                         <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
                                             data-bs-target="#large">
                                             edit
@@ -86,7 +82,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <a href="{{ route('roles.create') }}" class="btn btn-primary float-end">Tambah Role</a>
+                    <a href="{{ route('roles-masjid.create') }}" class="btn btn-primary float-end">Tambah Role</a>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -104,9 +100,9 @@
                                         <td class="col-md-1">{{ $loop->iteration }}</td>
                                         <td class="col-md-3">{{ $role->name }}</td>
                                         <td class="d-flex justify-content-center">
-                                            <a href="{{ route('roles.edit', $role->id) }}" class="btn btn-sm btn-primary"
-                                                style="margin-right: 5px">Edit</a>
-                                            <form action="{{ route('roles.destroy', $role->id) }}" method="POST">
+                                            <a href="{{ route('roles-masjid.edit', $role->id) }}"
+                                                class="btn btn-sm btn-primary" style="margin-right: 5px">Edit</a>
+                                            <form action="{{ route('roles-masjid.destroy', $role->id) }}" method="POST">
                                                 @method('DELETE')
                                                 @csrf
                                                 <input type="submit" class="btn btn-sm btn-secondary" value="Hapus">

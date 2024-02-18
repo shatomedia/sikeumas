@@ -12,8 +12,8 @@ class DashboardController extends Controller
     public function index()
     {
         $data['tenant'] = Tenant::get();
-        $data['user'] = User::get();
-        $data['resellers'] = Role::where('name', 'reseller')->get();
+        $data['staffs'] = Role::where('name', 'staff')->first();
+        $data['resellers'] = Role::where('name', 'reseller')->first();
         return view('dashboard.index', $data);
     }
 }

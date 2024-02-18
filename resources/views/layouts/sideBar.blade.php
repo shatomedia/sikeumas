@@ -61,17 +61,17 @@
 
                 <li class="sidebar-title">Role & Permission</li>
 
-                <li class="sidebar-item {{ request()->routeIs('permission.*') ? 'active' : '' }}">
-                    <a href="{{ route('permission.index') }}" class='sidebar-link'>
-                        <i class="fas fa-clipboard"></i>
-                        <span>Hak Akses</span>
-                    </a>
-                </li>
-
                 <li class="sidebar-item {{ request()->routeIs('roles.*') ? 'active' : '' }}">
                     <a href="{{ route('roles.index') }}" class='sidebar-link'>
                         <i class="fas fa-user-lock"></i>
                         <span>Roles (Peran)</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item {{ request()->routeIs('permission.*') ? 'active' : '' }}">
+                    <a href="{{ route('permission.index') }}" class='sidebar-link'>
+                        <i class="fas fa-clipboard"></i>
+                        <span>Hak Akses</span>
                     </a>
                 </li>
 

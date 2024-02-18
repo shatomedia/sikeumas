@@ -64,7 +64,36 @@
                 <li class="sidebar-item {{ request()->routeIs('profile-masjid.*') ? 'active' : '' }}">
                     <a href="{{ route('profile-masjid.index') }}" class='sidebar-link'>
                         <i class="fas fa-place-of-worship"></i>
-                        <span>Profil Masjid</span>
+                        <span>Informasi Masjid</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item {{ request()->routeIs('masjid-bank.*') ? 'active' : '' }}">
+                    <a href="{{ route('masjid-bank.index') }}" class='sidebar-link'>
+                        <i class="bi bi-credit-card-fill"></i>
+                        <span>Data Bank</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-title">Role & Permission</li>
+                <li class="sidebar-item {{ request()->routeIs('roles-masjid.*') ? 'active' : '' }}">
+                    <a href="{{ route('roles-masjid.index') }}" class='sidebar-link'>
+                        <i class="fas fa-user-lock"></i>
+                        <span>Role (Peran)</span>
+                    </a>
+                </li>
+                <li class="sidebar-item {{ request()->routeIs('permission-masjid.*') ? 'active' : '' }}">
+                    <a href="{{ route('permission-masjid.index') }}" class='sidebar-link'>
+                        <i class="fas fa-clipboard"></i>
+                        <span>Hak Akses</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-title">Manajemen User</li>
+                <li class="sidebar-item {{ request()->routeIs('user-masjid.*') ? 'active' : '' }}">
+                    <a href="{{ route('user-masjid.index') }}" class='sidebar-link'>
+                        <i class="fas fa-users"></i>
+                        <span>Data Pengguna</span>
                     </a>
                 </li>
                 <li class="sidebar-item {{ request()->routeIs('profile.*') ? 'active' : '' }}">

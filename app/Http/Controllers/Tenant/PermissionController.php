@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Tenant;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
 
@@ -13,7 +14,7 @@ class PermissionController extends Controller
     public function index()
     {
         $permissions = Permission::get();
-        return view('permission.index', compact('permissions'));
+        return view('app.permission.index', compact('permissions'));
     }
 
     /**
@@ -21,7 +22,7 @@ class PermissionController extends Controller
      */
     public function create()
     {
-        return view('permission.create');
+        return view('app.permission.create');
     }
 
     /**
@@ -34,7 +35,7 @@ class PermissionController extends Controller
         ]);
 
         Permission::create(['name' => $request->name]);
-        return redirect()->route('permission.index')->with('success', 'Permission created successfully');
+        return redirect()->route('permission-masjid.index')->with('success', 'Permission created successfully');
     }
 
     /**
@@ -50,7 +51,7 @@ class PermissionController extends Controller
      */
     public function edit(Permission $permission)
     {
-        return view('permission.edit', compact('permission'));
+        return view('app.permission.edit', compact('permission'));
     }
 
     /**
@@ -64,7 +65,7 @@ class PermissionController extends Controller
 
         $permission = Permission::findOrFail($id);
         $permission->update(['name' => $request->name]);
-        return redirect()->route('permission.index')->with('success', 'Permission updated successfully');
+        return redirect()->route('permission-masjid.index')->with('success', 'Permission updated successfully');
     }
 
     /**
@@ -74,6 +75,6 @@ class PermissionController extends Controller
     {
         $permission = Permission::findOrFail($id);
         $permission->delete();
-        return redirect()->route('permission.index')->with('success', 'Permission deleted successfully');
+        return redirect()->route('permission-masjid.index')->with('success', 'Permission deleted successfully');
     }
 }

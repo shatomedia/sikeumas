@@ -1,18 +1,18 @@
-@extends('layouts.master')
+@extends('layouts.app_master')
 
-@section('content')
+@section('content-tenant')
     <div class="page-heading">
         <div class="page-title">
             <div class="row mb-3">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>Tambah Staff</h3>
+                    <h3>Tambah User</h3>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                Tambah Staff
+                                Tambah User
                             </li>
                         </ol>
                     </nav>
@@ -26,11 +26,11 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Tambah Staff</h4>
+                            <h4 class="card-title">Tambah User</h4>
                         </div>
                         <div class="card-content">
                             <div class="card-body">
-                                <form class="form" action="{{ route('users.store') }}" method="POST"
+                                <form class="form" action="{{ route('user-masjid.store') }}" method="POST"
                                     data-parsley-validate>
                                     @csrf
                                     <div class="row mb-3">

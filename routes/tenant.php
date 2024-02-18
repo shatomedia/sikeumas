@@ -6,9 +6,13 @@ use App\Http\Controllers\Tenant\DashboardController;
 use App\Http\Controllers\Tenant\InfaqController;
 use App\Http\Controllers\Tenant\KasController;
 use App\Http\Controllers\Tenant\LoginController;
+use App\Http\Controllers\Tenant\MasjidBankController;
 use App\Http\Controllers\Tenant\MasjidController;
+use App\Http\Controllers\Tenant\PermissionController;
 use App\Http\Controllers\Tenant\ProfilMasjidController;
+use App\Http\Controllers\Tenant\RolesController;
 use App\Http\Controllers\Tenant\UserProfilController;
+use App\Http\Controllers\Tenant\UsersMasjidController;
 use App\Http\Controllers\Tenant\WelcomeController;
 use Illuminate\Support\Facades\Route;
 use Stancl\Tenancy\Middleware\InitializeTenancyByDomain;
@@ -50,6 +54,14 @@ Route::middleware([
         Route::resource('infaq', InfaqController::class);
 
         Route::resource('profile-masjid', ProfilMasjidController::class);
+
+        Route::resource('masjid-bank', MasjidBankController::class);
+
+        Route::resource('permission-masjid', PermissionController::class);
+
+        Route::resource('roles-masjid', RolesController::class);
+
+        Route::resource('user-masjid', UsersMasjidController::class);
 
         Route::resource('profile', UserProfilController::class);
     });

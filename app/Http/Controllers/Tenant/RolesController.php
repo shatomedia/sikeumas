@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Tenant;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 
@@ -13,7 +14,7 @@ class RolesController extends Controller
     public function index()
     {
         $roles = Role::get();
-        return view('roles.index', compact('roles'));
+        return view('app.roles.index', compact('roles'));
     }
 
     /**
@@ -21,7 +22,7 @@ class RolesController extends Controller
      */
     public function create()
     {
-        return view('roles.create');
+        return view('app.roles.create');
     }
 
     /**
@@ -34,7 +35,7 @@ class RolesController extends Controller
         ]);
 
         Role::create(['name' => $request->name]);
-        return redirect()->route('roles.index')->with('success', 'Role created successfully');
+        return redirect()->route('roles-masjid.index')->with('success', 'Role created successfully');
     }
 
     /**
@@ -50,7 +51,7 @@ class RolesController extends Controller
      */
     public function edit(Role $role)
     {
-        return view('roles.edit', compact('role'));
+        return view('app.roles.edit', compact('role'));
     }
 
     /**
@@ -64,7 +65,7 @@ class RolesController extends Controller
 
         $role = Role::findOrFail($id);
         $role->update(['name' => $request->name]);
-        return redirect()->route('roles.index')->with('success', 'Role updated successfully');
+        return redirect()->route('roles-masjid.index')->with('success', 'Role updated successfully');
     }
 
     /**
@@ -74,6 +75,6 @@ class RolesController extends Controller
     {
         $role = Role::findOrFail($id);
         $role->delete();
-        return redirect()->route('roles.index')->with('success', 'Role deleted successfully');
+        return redirect()->route('roles-masjid.index')->with('success', 'Role deleted successfully');
     }
 }

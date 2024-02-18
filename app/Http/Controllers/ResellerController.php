@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Spatie\Permission\Models\Role;
 
 class ResellerController extends Controller
@@ -21,7 +23,7 @@ class ResellerController extends Controller
      */
     public function create()
     {
-        //
+        return view('reseller.create');
     }
 
     /**
@@ -29,7 +31,16 @@ class ResellerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $dataUser = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:8',
+        ]);
+
+        $reseller = User::create($dataUser);
+        $reseller->assignRole('reseller');
+
+        return redirect()->route('resellers.index')->with('success', 'Reseller created successfully');
     }
 
     /**
@@ -45,7 +56,8 @@ class ResellerController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $user = User::role('reseller')->findOrFail($id);
+        return view('reseller.edit', compact('user'));
     }
 
     /**
@@ -53,7 +65,16 @@ class ResellerController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $dataUser = $request->validate([
+            'name' => 'required',
+            'email' => ['required', 'email', Rule::unique('users')->ignore($id)],
+            'password' => 'nullable|min:8',
+        ]);
+
+        $user = User::findOrFail($id);
+        $user->update($dataUser);
+
+        return redirect()->route('resellers.index')->with('success', 'Reseller updated successfully');
     }
 
     /**
@@ -61,6 +82,9 @@ class ResellerController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        return redirect()->route('resellers.index')->with('success', 'Reseller deleted successfully');
     }
 }

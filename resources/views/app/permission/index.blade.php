@@ -1,6 +1,6 @@
-@extends('layouts.master')
+@extends('layouts.app_master')
 
-@section('content')
+@section('content-tenant')
     <div class="page-heading">
         <div class="page-title">
             <div class="row mb-3">
@@ -22,7 +22,7 @@
         <section class="section">
             <div class="card">
                 <div class="card-header">
-                    <a href="{{ route('permission.create') }}" class="btn btn-primary float-end">Tambah Hak Akses</a>
+                    <a href="{{ route('permission-masjid.create') }}" class="btn btn-primary float-end">Tambah Hak Akses</a>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -41,9 +41,9 @@
                                         <td class="col-md-3">{{ $permission->name }}</td>
 
                                         <td class="d-flex justify-content-center">
-                                            <a href="{{ route('permission.edit', $permission->id) }}"
+                                            <a href="{{ route('permission-masjid.edit', $permission->id) }}"
                                                 class="btn btn-sm btn-primary" style="margin-right: 5px">Edit</a>
-                                            <form action="{{ route('permission.destroy', $permission->id) }}"
+                                            <form action="{{ route('permission-masjid.destroy', $permission->id) }}"
                                                 method="POST">
                                                 @method('DELETE')
                                                 @csrf

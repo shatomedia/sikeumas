@@ -18,48 +18,55 @@
     <!-- Hero End -->
 
     <!-- saldo Start -->
-    <div class="container py-5">
+    <div id="donate" class="container py-5">
         <div class="container py-3 wow fadeIn" data-wow-delay="0.1s">
             <div class="row g-4">
                 <div class="col-lg-8">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Keterangan</th>
-                                <th scope="col">Tanggal</th>
-                                <th scope="col">Jenis</th>
-                                <th scope="col">Jumlah</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @forelse ($kas as $item)
-                                <tr>
-                                    <td>{{ $item->keterangan }}</td>
-                                    <td>{{ $item->tanggal->translatedFormat('d-m-y') }}</td>
-                                    <td>
-                                        @if (strtolower($item->jenis) === 'masuk')
-                                            <span>Masuk</span>
-                                        @elseif(strtolower($item->jenis) === 'keluar')
-                                            <span>Keluar</span>
-                                        @endif
-                                    </td>
-                                    <td>{{ formatRupiah($item->jumlah, true) }}</td>
-                                </tr>
-                            @empty
-                                <tr>
-                                    <td colspan="4" class="text-center">Data tidak ada</td>
-                                </tr>
-                            @endforelse
-                        </tbody>
-                    </table>
+                    <div class="card bg-light text-dark">
+                        <div class="card-body">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Keterangan</th>
+                                        <th scope="col">Tanggal</th>
+                                        <th scope="col">Pemasukan</th>
+                                        <th scope="col">Pengeluaran</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @forelse ($kas as $item)
+                                        <tr>
+                                            <td>{{ $item->keterangan }}</td>
+                                            <td>{{ $item->tanggal->translatedFormat('d-m-y') }}</td>
+                                            <td>
+                                                {{ $item->jenis == 'masuk' ? formatRupiah($item->jumlah) : '-' }}</td>
+                                            <td>
+                                                {{ $item->jenis == 'keluar' ? formatRupiah($item->jumlah) : '-' }}
+                                            </td>
+
+                                        </tr>
+                                    @empty
+                                        <tr>
+                                            <td colspan="4" class="text-center">Data tidak ada</td>
+                                        </tr>
+                                    @endforelse
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-lg-4">
-                    <p class="fs-4 text-dark">Laporan Keuangan</p>
                     <h5 class="fs-4 text-dark">Saldo: <span
                             class="text-primary">{{ formatRupiah($saldoAkhir, true) }}</span>
                     </h5>
-                    <p class="fs-4 text-dark">Rekening Masjid: <span>Bank ABC</span></p>
-                    <p class="fs-4 text-dark">No. Rekening: <span>1234567890</span></p>
+                    <div class="card bg-light text-dark">
+                        <div class="card-body">
+                            <h6>Rekening Masjid: <span>{{ $banks->nama_bank }}</span></h6>
+                            <h6>Kode Bank: <span>{{ $banks->kode_bank }}</span></h6>
+                            <h6>Atas Nama: <span>{{ $banks->nama_rekening }}</span></h6>
+                            <h6>No. Rekening: <span>{{ $banks->nomor_rekening }}</span></h6>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -157,10 +164,8 @@
                         <i class="fa fa-mosque fa-4x text-dark"></i>
                         <div class="ms-4">
                             <h4>Pembangunan Masjid</h4>
-                            <p class="mb-4">Lorem ipsum dolor sit amet elit. Donec tempus eros vel dolor
-                                mattis
-                                aliquam.</p>
-                            {{-- <a href="" class="btn btn-primary px-3">Read More</a> --}}
+                            <p class="mb-4">Membangun masjid memberi manfaat sebagai pusat ibadah, pembelajaran, dan
+                                pelayanan.</p>
                         </div>
                     </div>
                 </div>
@@ -169,10 +174,9 @@
                         <i class="fa fa-donate fa-4x text-dark"></i>
                         <div class="ms-4">
                             <h4>Amal & Donasi</h4>
-                            <p class="mb-4">Lorem ipsum dolor sit amet elit. Donec tempus eros vel dolor
-                                mattis
-                                aliquam.</p>
-                            {{-- <a href="" class="btn btn-primary px-3">Read More</a> --}}
+                            <p class="mb-4">
+                                Mari bersama-sama beramal dan berdonasi untuk memberi manfaat kepada sesama.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -181,10 +185,7 @@
                         <i class="fa fa-quran fa-4x text-dark"></i>
                         <div class="ms-4">
                             <h4>Pendidikan Alquran</h4>
-                            <p class="mb-4">Lorem ipsum dolor sit amet elit. Donec tempus eros vel dolor
-                                mattis
-                                aliquam.</p>
-                            {{-- <a href="" class="btn btn-primary px-3">Read More</a> --}}
+                            <p class="mb-4">Pendidikan Alquran adalah kunci kesuksesan spiritual dan moral.</p>
                         </div>
                     </div>
                 </div>
@@ -193,10 +194,8 @@
                         <i class="fa fa-book fa-4x text-dark"></i>
                         <div class="ms-4">
                             <h4>Hadits & Sunnah</h4>
-                            <p class="mb-4">Lorem ipsum dolor sit amet elit. Donec tempus eros vel dolor
-                                mattis
-                                aliquam.</p>
-                            {{-- <a href="" class="btn btn-primary px-3">Read More</a> --}}
+                            <p class="mb-4">Studi Hadits & Sunnah menghidupkan ajaran Rasulullah dalam kehidupan
+                                sehari-hari.</p>
                         </div>
                     </div>
                 </div>
@@ -205,10 +204,7 @@
                         <i class="fa fa-book-open fa-4x text-dark"></i>
                         <div class="ms-4">
                             <h4>Pendidikan Orang Tua</h4>
-                            <p class="mb-4">Lorem ipsum dolor sit amet elit. Donec tempus eros vel dolor
-                                mattis
-                                aliquam.</p>
-                            {{-- <a href="" class="btn btn-primary px-3">Read More</a> --}}
+                            <p class="mb-4">Pendidikan orang tua adalah pondasi kuat bagi perkembangan anak-anak.</p>
                         </div>
                     </div>
                 </div>
@@ -217,10 +213,7 @@
                         <i class="fa fa-hands fa-4x text-dark"></i>
                         <div class="ms-4">
                             <h4>Bantuan Anak Yatim</h4>
-                            <p class="mb-4">Lorem ipsum dolor sit amet elit. Donec tempus eros vel dolor
-                                mattis
-                                aliquam.</p>
-                            {{-- <a href="" class="btn btn-primary px-3">Read More</a> --}}
+                            <p class="mb-4">Bantu anak yatim untuk masa depan yang lebih baik.</p>
                         </div>
                     </div>
                 </div>

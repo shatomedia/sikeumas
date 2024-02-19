@@ -2,14 +2,11 @@
 
 namespace App\Models\Tenant;
 
-use App\Traits\HasCreatedBy;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class MasjidBank extends Model
+class Bank extends Model
 {
     use HasFactory;
-    use HasCreatedBy;
-
     protected $guarded = [];
 }

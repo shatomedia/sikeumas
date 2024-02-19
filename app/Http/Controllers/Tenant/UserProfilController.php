@@ -13,4 +13,34 @@ class UserProfilController extends Controller
         $user = User::find(auth()->user()->id);
         return view('app.profile.index', compact('user'));
     }
+
+    public function update(Request $request)
+    {
+        $requestData = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'nullable|min:8',
+        ]);
+
+        if ($request->password != '') {
+            $requestData['password'] = bcrypt($request->password);
+        } else {
+            unset($requestData['password']);
+        }
+
+        $user = User::find(auth()->user()->id);
+        $user->fill($requestData);
+        $user->save();
+
+        return redirect()->back()->with('success', 'Profil berhasil diupdate');
+    }
+
+    public function updatePassword(Request $request)
+    {
+        $user = User::find(auth()->user()->id);
+        $user->update([
+            'password' => bcrypt($request->password)
+        ]);
+        return redirect()->back()->with('success', 'Password berhasil diupdate');
+    }
 }

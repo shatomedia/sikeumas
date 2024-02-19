@@ -1,6 +1,6 @@
-@extends('layouts.master')
+@extends('layouts.app_master')
 
-@section('content')
+@section('content-tenant')
     <div class="page-heading">
         <div class="page-title">
             <div class="row mb-3">
@@ -31,9 +31,8 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Role(Peran)</th>
+                                    <th>Role (Peran)</th>
                                     <th>Nama</th>
-                                    <th>Alamat</th>
                                     <th>Email</th>
                                     <th>No Hp</th>
                                     <th>Aksi</th>
@@ -45,7 +44,6 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ ucfirst($user->roles->first()->name) }}</td>
                                         <td>{{ ucfirst($user->name) }}</td>
-                                        <td>{{ $user->alamat }}</td>
                                         <td>{{ $user->email }}</td>
                                         <td>{{ $user->telp }}</td>
                                         <td class="d-flex">

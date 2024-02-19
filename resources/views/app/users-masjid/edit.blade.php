@@ -5,14 +5,14 @@
         <div class="page-title">
             <div class="row mb-3">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>Tambah User</h3>
+                    <h3>Edit User</h3>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                Tambah User
+                                Edit User
                             </li>
                         </ol>
                     </nav>
@@ -26,11 +26,11 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Tambah User</h4>
+                            <h4 class="card-title">Edit User</h4>
                         </div>
                         <div class="card-content">
                             <div class="card-body">
-                                <form class="form" action="{{ route('user-masjid.store') }}" method="POST"
+                                <form class="form" action="{{ route('user-masjid.update', $user->id) }}" method="POST"
                                     data-parsley-validate>
                                     @csrf
                                     <div class="row mb-3">
@@ -38,7 +38,7 @@
                                             <div class="form-group mandatory">
                                                 <label for="name" class="form-label">Nama</label>
                                                 <input type="text" id="name" class="form-control" name="name"
-                                                    data-parsley-required="true" />
+                                                    data-parsley-required="true" value="{{ $user->name }}" />
                                             </div>
                                         </div>
                                     </div>
@@ -47,19 +47,23 @@
                                             <div class="form-group mandatory">
                                                 <label for="role" class="form-label">Role (Peran)</label>
                                                 <select class="form-select" name="role" id="role">
-                                                    @foreach ($listRoles as $role => $name)
-                                                        <option value="{{ $role }}">{{ ucfirst($name) }}</option>
+                                                    @foreach ($listRoles as $role)
+                                                        <option value="{{ $role }}"
+                                                            {{ $user->hasRole($role) ? 'selected' : '' }}>
+                                                            {{ ucfirst($role) }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
+
+
                                     <div class="row mb-3">
                                         <div class="col-md-6 col-12">
                                             <div class="form-group mandatory">
                                                 <label for="email" class="form-label">Email</label>
                                                 <input type="email" id="email" class="form-control" name="email"
-                                                    data-parsley-required="true" />
+                                                    data-parsley-required="true" value="{{ $user->email }}" />
                                             </div>
                                         </div>
                                     </div>
@@ -67,16 +71,8 @@
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="telp" class="form-label">No Hp</label>
-                                                <input type="text" id="telp" class="form-control" name="telp" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row mb-3">
-                                        <div class="col-md-6 col-12">
-                                            <div class="form-group mandatory">
-                                                <label for="password" class="form-label">Password</label>
-                                                <input type="password" id="password" class="form-control" name="password"
-                                                    data-parsley-required="true" />
+                                                <input type="text" id="telp" class="form-control" name="telp"
+                                                    value="{{ $user->telp }}" />
                                             </div>
                                         </div>
                                     </div>

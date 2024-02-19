@@ -93,7 +93,7 @@
                         <a href="#events" class="nav-item nav-link">Acara</a>
                         <a href="" class="nav-item nav-link">Kontak</a>
                     </div>
-                    <a href="" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block">Donasi</a>
+                    <a href="#donate" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block">Donasi</a>
                 </div>
             </nav>
         </div>
@@ -126,9 +126,10 @@
                 <div class="col-4">
                     <div class="footer-item mt-5">
                         <h4 class="text-light mb-4"><span class="text-primary">{{ $masjids->nama }}</span></h4>
-                        <p class="mb-4 text-secondary">Nostrud exertation ullamco labor nisi aliquip ex ea commodo
-                            consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
-                        <a href="" class="btn btn-primary py-2 px-4">Donate Now</a>
+                        <p class="mb-4 text-secondary">"Barang siapa yang membangun masjid semata-mata mencari keridhaan
+                            Allah, maka Allah akan membangunkan baginya tempat tinggal seperti itu di syurga". (HR.
+                            Bukhari, 450)</p>
+                        <a href="#donate" class="btn btn-primary py-2 px-4">Donate Now</a>
                     </div>
                 </div>
                 <div class="col-4">

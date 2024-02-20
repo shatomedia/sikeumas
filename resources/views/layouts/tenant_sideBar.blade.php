@@ -74,6 +74,12 @@
                         <span>Data Bank</span>
                     </a>
                 </li>
+                <li class="sidebar-item {{ request()->routeIs('kurban.*') ? 'active' : '' }}">
+                    <a href="{{ route('kurban.index') }}" class='sidebar-link'>
+                        <i class="fas fa-scroll"></i>
+                        <span>Informasi Kurban</span>
+                    </a>
+                </li>
 
                 <li class="sidebar-title">Role & Permission</li>
                 <li class="sidebar-item {{ request()->routeIs('roles-masjid.*') ? 'active' : '' }}">

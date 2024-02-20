@@ -14,7 +14,6 @@ class ProfilMasjidController extends Controller
      */
     public function index()
     {
-
         $profile = ProfilMasjid::latest()->paginate(10);
         return view('app.profile_masjid.index', compact('profile'));
     }

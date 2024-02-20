@@ -5,6 +5,7 @@ declare(strict_types=1);
 use App\Http\Controllers\Tenant\DashboardController;
 use App\Http\Controllers\Tenant\InfaqController;
 use App\Http\Controllers\Tenant\KasController;
+use App\Http\Controllers\Tenant\KurbanController;
 use App\Http\Controllers\Tenant\LoginController;
 use App\Http\Controllers\Tenant\MasjidBankController;
 use App\Http\Controllers\Tenant\MasjidController;
@@ -48,21 +49,14 @@ Route::middleware([
         Route::get('/dashboard-masjid', [DashboardController::class, 'index'])->name('dashboard-masjid');
 
         Route::resource('masjid', MasjidController::class);
-
         Route::resource('kas', KasController::class);
-
         Route::resource('infaq', InfaqController::class);
-
         Route::resource('profile-masjid', ProfilMasjidController::class);
-
+        Route::resource('kurban', KurbanController::class);
         Route::resource('masjid-bank', MasjidBankController::class);
-
         Route::resource('permission-masjid', PermissionController::class);
-
         Route::resource('roles-masjid', RolesController::class);
-
         Route::resource('user-masjid', UsersMasjidController::class);
-
         Route::resource('profile', UserProfilController::class);
     });
 });

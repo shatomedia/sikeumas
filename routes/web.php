@@ -42,4 +42,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('profile', UserProfileController::class);
     Route::resource('permission', PermissionController::class);
     Route::resource('roles', RolesController::class);
+    Route::get('roles/{roleId}/assign-permission', [RolesController::class, 'addPermissionToRole'])->name('roles.assign-permission');
+    Route::put('roles/{roleId}/assign-permission', [RolesController::class, 'givePermissionToRole'])->name('roles.give-permission');
 });

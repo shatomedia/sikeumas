@@ -1,8 +1,22 @@
 @extends('layouts.master')
 @section('js')
     <script>
+        // Menambahkan event listener ke semua kotak centang dengan nama 'permission[]'
+        var checkboxes = document.querySelectorAll('[name="permission[]"]');
+        checkboxes.forEach(function(checkbox) {
+            checkbox.addEventListener('change', function() {
+                var allChecked = true;
+                checkboxes.forEach(function(cb) {
+                    if (!cb.checked) {
+                        allChecked = false;
+                    }
+                });
+                document.getElementById('select-all').checked = allChecked;
+            });
+        });
+
+        // Menambahkan event listener ke kotak centang 'Pilih Semua'
         document.getElementById('select-all').addEventListener('change', function() {
-            var checkboxes = document.querySelectorAll('[name="permission[]"]');
             checkboxes.forEach(function(checkbox) {
                 checkbox.checked = document.getElementById('select-all').checked;
             });
@@ -64,8 +78,10 @@
                                                         @method('PUT')
                                                         <div class="modal-body">
                                                             <div class="form-check mb-2">
-                                                                <input type="checkbox" class="form-check-input"
-                                                                    id="select-all">
+                                                                <input type="checkbox"
+                                                                    class="form-check-input form-check-primary form-check-glow"
+                                                                    id="select-all"
+                                                                    {{ $role->permissions->count() === $permissions->count() ? 'checked' : '' }}>
                                                                 <label class="form-check-label" for="select-all">Pilih
                                                                     Semua</label>
                                                             </div>

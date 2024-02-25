@@ -7,6 +7,14 @@ use Illuminate\Http\Request;
 
 class TenantController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:masjid', ['only' => ['index']]);
+        $this->middleware('permission:create-masjid', ['only' => ['create', 'store']]);
+        $this->middleware('permission:edit-masjid', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:delete-masjid', ['only' => ['destroy']]);
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -43,14 +51,6 @@ class TenantController extends Controller
         $tenant->domains()->create(['domain' => $requestData['domain'] . '.' . env('APP_CENTRAL_DOMAIN')]);
 
         return redirect()->route('tenant.index')->with('success', 'Tenant created successfully.');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Tenant $tenant)
-    {
-        //
     }
 
     /**

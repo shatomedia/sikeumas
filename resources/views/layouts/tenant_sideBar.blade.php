@@ -53,7 +53,7 @@
                         <span>Donate</span>
                     </a>
                 </li>
-
+                <li class="sidebar-title">Informasi Masjid</li>
                 <li class="sidebar-item {{ request()->routeIs('masjid.*') ? 'active' : '' }}">
                     <a href="{{ route('masjid.index') }}" class='sidebar-link'>
                         <i class="fas fa-mosque"></i>
@@ -64,7 +64,7 @@
                 <li class="sidebar-item {{ request()->routeIs('profile-masjid.*') ? 'active' : '' }}">
                     <a href="{{ route('profile-masjid.index') }}" class='sidebar-link'>
                         <i class="fas fa-place-of-worship"></i>
-                        <span>Informasi Masjid</span>
+                        <span>Profil Masjid</span>
                     </a>
                 </li>
 

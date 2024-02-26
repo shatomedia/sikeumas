@@ -29,6 +29,7 @@
                     </ul>
                 </div>
             @endif
+
             <div class="card-body">
                 <form class="form form-horizontal" action="{{ route('profile-masjid.store') }}" method="POST">
                     @csrf
@@ -44,7 +45,6 @@
                                     @endforeach
                                 </select>
                             </div>
-
                             <div class="col-md-3">
                                 <label for="judul">Judul</label>
                             </div>
@@ -52,7 +52,13 @@
                                 <input type="text" id="judul" class="form-control mb-3" name="judul"
                                     placeholder="Judul">
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-12">
+                                <label for="media">Gambar</label>
+                            </div>
+                            <div class="col-12 col-md-6 form-group">
+                                <input type="file" id="media" class="image-preview-filepond">
+                            </div>
+                            <div class="col-md-12">
                                 <label for="konten">Konten / Isi Profil</label>
                             </div>
                             <div class="col-md-12 form-group">

@@ -58,5 +58,7 @@ Route::middleware([
         Route::resource('roles-masjid', RolesController::class);
         Route::resource('user-masjid', UsersMasjidController::class);
         Route::resource('profile', UserProfilController::class);
+        Route::get('roles/{roleId}/assign-permission', [RolesController::class, 'addPermissionToRole'])->name('roles.assign-permission');
+        Route::put('roles/{roleId}/assign-permission', [RolesController::class, 'givePermissionToRole'])->name('roles.give-permission');
     });
 });

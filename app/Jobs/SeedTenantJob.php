@@ -10,6 +10,8 @@ use Illuminate\Queue\SerializesModels;
 use App\Models\Tenant;
 use App\Models\Tenant\Masjid;
 use App\Models\User;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class SeedTenantJob implements ShouldQueue
 {
@@ -36,7 +38,13 @@ class SeedTenantJob implements ShouldQueue
                 'password' => $this->tenant->password,
             ]);
 
-            $user->assignRole('ketua');
+            $role = Role::where('name', 'ketua')->first();
+
+            // Tetapkan peran "ketua" kepada pengguna
+            $user->assignRole($role);
+
+            // Sinkronkan daftar permission untuk peran "ketua"
+            $role->syncPermissions(Permission::all());
 
             Masjid::create([
                 'nama' => $this->tenant->nama_masjid,
@@ -45,5 +53,14 @@ class SeedTenantJob implements ShouldQueue
                 'email' => $this->tenant->email,
             ]);
         });
+    }
+
+    protected function addAllPermissions($user)
+    {
+        // Ambil semua permission yang tersedia
+        $permissions = Permission::all();
+
+        // Tambahkan setiap permission kepada pengguna dengan peran "ketua"
+        $user->givePermissionTo($permissions);
     }
 }

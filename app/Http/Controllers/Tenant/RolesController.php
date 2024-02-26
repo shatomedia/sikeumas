@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Tenant;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
 class RolesController extends Controller
@@ -14,7 +15,8 @@ class RolesController extends Controller
     public function index()
     {
         $roles = Role::get();
-        return view('app.roles.index', compact('roles'));
+        $permissions = Permission::get();
+        return view('app.roles.index', compact('roles', 'permissions'));
     }
 
     /**
@@ -76,5 +78,22 @@ class RolesController extends Controller
         $role = Role::findOrFail($id);
         $role->delete();
         return redirect()->route('roles-masjid.index')->with('success', 'Role deleted successfully');
+    }
+
+    public function addPermissionToRole($roleId)
+    {
+        $role = Role::findOrFail($roleId);
+        $permissions = Permission::get();
+        return view('roles.assign-permission', compact('role', 'permissions'));
+    }
+
+    public function givePermissionToRole(Request $request, $roleId)
+    {
+        $request->validate([
+            'permission' => 'required',
+        ]);
+        $role = Role::findOrFail($roleId);
+        $role->syncPermissions($request->permission);
+        return redirect()->route('roles.index')->with('success', 'Permission assigned to role successfully');
     }
 }

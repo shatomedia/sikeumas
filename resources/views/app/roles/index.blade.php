@@ -1,5 +1,28 @@
 @extends('layouts.app_master')
+@section('js')
+    <script>
+        // Menambahkan event listener ke semua kotak centang dengan nama 'permission[]'
+        var checkboxes = document.querySelectorAll('[name="permission[]"]');
+        checkboxes.forEach(function(checkbox) {
+            checkbox.addEventListener('change', function() {
+                var allChecked = true;
+                checkboxes.forEach(function(cb) {
+                    if (!cb.checked) {
+                        allChecked = false;
+                    }
+                });
+                document.getElementById('select-all').checked = allChecked;
+            });
+        });
 
+        // Menambahkan event listener ke kotak centang 'Pilih Semua'
+        document.getElementById('select-all').addEventListener('change', function() {
+            checkboxes.forEach(function(checkbox) {
+                checkbox.checked = document.getElementById('select-all').checked;
+            });
+        });
+    </script>
+@endsection
 @section('content-tenant')
     <div class="page-heading">
         <div class="page-title">
@@ -31,45 +54,105 @@
                                     <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                                         <h6 class="text-muted font-semibold">Hak Akses {{ ucfirst($role->name) }}</h6>
 
-                                        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
-                                            data-bs-target="#large">
-                                            edit
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#inlineForm{{ $role->id }}">
+                                            Edit
                                         </button>
-                                        <!--large size Modal -->
-                                        <div class="modal fade text-left" id="large" tabindex="-1" role="dialog"
-                                            aria-labelledby="myModalLabel17" aria-hidden="true">
+
+                                        <!--list permission form Modal -->
+                                        <div class="modal fade text-left" id="inlineForm{{ $role->id }}" tabindex="-1"
+                                            role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg"
                                                 role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h4 class="modal-title" id="myModalLabel17">Permission / Hak Akses
-                                                            {{ ucfirst($role->name) }}</h4>
+                                                        <h4 class="modal-title" id="myModalLabel33">
+                                                            Permission / Hak Akses {{ $role->name }} </h4>
                                                         <button type="button" class="close" data-bs-dismiss="modal"
                                                             aria-label="Close">
                                                             <i data-feather="x"></i>
                                                         </button>
                                                     </div>
-                                                    <div class="modal-body">
-                                                        I love tart cookie cupcake. I love chupa chups biscuit. I love
-                                                        marshmallow apple pie wafer
-                                                        liquorice. Marshmallow cotton candy chocolate. Apple pie muffin
-                                                        tart.
-                                                        Marshmallow halvah pie
-                                                        marzipan lemon drops jujubes. Macaroon sugar plum cake icing toffee.
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-light-secondary"
-                                                            data-bs-dismiss="modal">
-                                                            <i class="bx bx-x d-block d-sm-none"></i>
-                                                            <span class="d-none d-sm-block">Close</span>
-                                                        </button>
-                                                        <button type="button" class="btn btn-primary ms-1"
-                                                            data-bs-dismiss="modal">
-                                                            <i class="bx bx-check d-block d-sm-none"></i>
-                                                            <span class="d-none d-sm-block">Accept</span>
-                                                        </button>
-                                                    </div>
+                                                    <form action="{{ route('roles.give-permission', $role->id) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('PUT')
+                                                        <div class="modal-body">
+                                                            <div class="form-check mb-2">
+                                                                <input type="checkbox"
+                                                                    class="form-check-input form-check-primary form-check-glow"
+                                                                    id="select-all"
+                                                                    {{ $role->permissions->count() === $permissions->count() ? 'checked' : '' }}>
+                                                                <label class="form-check-label" for="select-all">Pilih
+                                                                    Semua</label>
+                                                            </div>
+                                                            <div class="row">
+                                                                @foreach ($permissions as $permission)
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-check">
+                                                                            <div class="custom-control custom-checkbox">
+                                                                                <input type="checkbox"
+                                                                                    class="form-check-input form-check-primary form-check-glow"
+                                                                                    {{ $role->hasPermissionTo($permission->name) ? 'checked' : '' }}
+                                                                                    name="permission[]"
+                                                                                    value="{{ $permission->name }}"
+                                                                                    id="permission_{{ $role->id }}_{{ $permission->id }}">
+                                                                                <label class="form-check-label"
+                                                                                    for="permission_{{ $role->id }}_{{ $permission->id }}">{{ $permission->name }}</label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                @endforeach
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="submit" class="btn btn-primary ms-1"
+                                                                data-bs-dismiss="modal">
+                                                                <i class="bx bx-check d-block d-sm-none"></i>
+                                                                <span class="d-none d-sm-block">Simpan</span>
+                                                            </button>
+                                                        </div>
+                                                    </form>
                                                 </div>
+
+                                                {{-- <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title" id="myModalLabel33">
+                                                            Permission / Hak Akses {{ $role->name }} </h4>
+                                                        <button type="button" class="close" data-bs-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <i data-feather="x"></i>
+                                                        </button>
+                                                    </div>
+                                                    <form action="{{ route('roles.give-permission', $role->id) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('PUT')
+                                                        @foreach ($permissions as $permission)
+                                                            <div class="modal-body">
+                                                                <div class="form-check">
+                                                                    <div class="custom-control custom-checkbox">
+                                                                        <input type="checkbox"
+                                                                            class="form-check-input form-check-primary form-check-glow"
+                                                                            {{ $role->hasPermissionTo($permission->name) ? 'checked' : '' }}
+                                                                            name="permission[]"
+                                                                            value="{{ $permission->name }}"
+                                                                            id="permission_{{ $role->id }}_{{ $permission->id }}">
+                                                                        <label class="form-check-label"
+                                                                            for="permission_{{ $role->id }}_{{ $permission->id }}">{{ $permission->name }}</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        @endforeach
+                                                        <div class="modal-footer">
+                                                            <button type="submit" class="btn btn-primary ms-1"
+                                                                data-bs-dismiss="modal">
+                                                                <i class="bx bx-check d-block d-sm-none"></i>
+                                                                <span class="d-none d-sm-block">Simpan</span>
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </div> --}}
                                             </div>
                                         </div>
                                     </div>

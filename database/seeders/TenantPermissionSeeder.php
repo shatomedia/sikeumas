@@ -2,12 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Tenant\Bank;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class BankSeeder extends Seeder
+class TenantPermissionSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,18 +14,18 @@ class BankSeeder extends Seeder
     public function run(): void
     {
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-        DB::table('banks')->truncate();
+        DB::table('permissions')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
-        $file = database_path('import/bank.csv');
+        $file = database_path('import/tenant-permissions.csv');
         $handle = fopen($file, "r");
 
         if ($handle) {
             $header = fgetcsv($handle, 1000, ",");
             while (($data = fgetcsv($handle, 1000, ",", '"')) !== FALSE) {
-                DB::table('banks')->insert([
-                    'sandi_bank' => $data[0],
-                    'nama_bank' => $data[1],
+                DB::table('permissions')->insert([
+                    'name' => $data[0],
+                    'guard_name' => 'web',
                     'created_at' => now(),
                     'updated_at' => now(),
                 ]);

@@ -61,10 +61,10 @@
                     </h5>
                     <div class="card bg-light text-dark">
                         <div class="card-body">
-                            <h6>Rekening Masjid: <span>{{ $banks->nama_bank }}</span></h6>
-                            <h6>Kode Bank: <span>{{ $banks->kode_bank }}</span></h6>
-                            <h6>Atas Nama: <span>{{ $banks->nama_rekening }}</span></h6>
-                            <h6>No. Rekening: <span>{{ $banks->nomor_rekening }}</span></h6>
+                            <h6>Rekening Masjid: <span>{{ $banks ? $banks->nama_bank : 'belum disetting' }}</span></h6>
+                            <h6>Kode Bank: <span>{{ $banks ? $banks->kode_bank : 'belum disetting' }}</span></h6>
+                            <h6>Atas Nama: <span>{{ $banks ? $banks->nama_rekening : 'belum disetting' }}</span></h6>
+                            <h6>No. Rekening: <span>{{ $banks ? $banks->nomor_rekening : 'belum disetting' }}</span></h6>
                         </div>
                     </div>
                 </div>

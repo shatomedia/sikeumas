@@ -34,11 +34,6 @@ class UserSeeder extends Seeder
         $role = Role::create(['name' => 'staff']);
         $role = Role::create(['name' => 'reseller']);
 
-        // $permission = Permission::create(['name' => 'user']);
-        // $permission = Permission::create(['name' => 'create-user']);
-        // $permission = Permission::create(['name' => 'edit-user']);
-        // $permission = Permission::create(['name' => 'delete-user']);
-
         $admin->assignRole('admin');
         $reseller->assignRole('reseller');
     }

@@ -15,4 +15,7 @@ class Kurban extends Model
 
     protected $contentName = 'konten';
     protected $guarded = [];
+    protected $casts = [
+        'tanggal_akhir_pendaftaran' => 'date',
+    ];
 }

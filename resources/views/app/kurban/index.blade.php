@@ -32,9 +32,9 @@
                             <tr>
                                 <th class="text-center">No</th>
                                 <th class="text-center">Diinput Oleh</th>
-                                <th class="text-center">Hijriah</th>
-                                <th class="text-center">Masehi</th>
+                                <th class="text-center">Tahun Kurban</th>
                                 <th class="text-center">Konten</th>
+                                <th class="text-center">Tgl Akhir Pendaftaran</th>
                                 <th class="text-center">
                                     Aksi</th>
                             </tr>
@@ -44,9 +44,10 @@
                                 <tr>
                                     <td class="text-center">{{ $loop->iteration }}</td>
                                     <td class="text-center">{{ $item->createdBy->name }}</td>
-                                    <td class="text-center">{{ $item->tahun_hijriah }}</td>
-                                    <td class="text-center">{{ $item->tahun_masehi }}</td>
+                                    <td class="text-center">{{ $item->tahun_hijriah }}H / {{ $item->tahun_masehi }}M</td>
                                     <td class="text-center">{{ strip_tags($item->konten) }}</td>
+                                    <td class="text-center">
+                                        {{ $item->tanggal_akhir_pendaftaran->translatedFormat('d-m-Y') }}</td>
                                     <td class="d-flex justify-content-center">
                                         <a href="{{ route('kurban.edit', $item->id) }}" class="btn btn-sm btn-primary"
                                             style="margin-right: 5px">Edit</a>

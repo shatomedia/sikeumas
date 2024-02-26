@@ -46,6 +46,8 @@ class KurbanController extends Controller
     public function update(Request $request, Kurban $kurban)
     {
         $resuestData = $request->validate([
+            'tahun_hijriah' => 'required',
+            'tahun_masehi' => 'required',
             'tanggal_akhir_pendaftaran' => 'required',
             'konten' => 'required',
         ]);

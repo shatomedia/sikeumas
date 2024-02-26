@@ -62,7 +62,7 @@
                 <li class="sidebar-item">
                     <a href="#" class='sidebar-link'>
                         <i class="fas fa-user-lock"></i>
-                        <span>Roles (Peran)</span>
+                        <span>Beranda</span>
                     </a>
                 </li>
                 @can('create-role')

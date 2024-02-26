@@ -74,6 +74,18 @@
                         <span>Data Bank</span>
                     </a>
                 </li>
+                <li class="sidebar-item {{ request()->routeIs('kategori.*') ? 'active' : '' }}">
+                    <a href="{{ route('kategori.index') }}" class='sidebar-link'>
+                        <i class="fas fa-book"></i>
+                        <span>Kategori Informasi</span>
+                    </a>
+                </li>
+                <li class="sidebar-item {{ request()->routeIs('informasi.*') ? 'active' : '' }}">
+                    <a href="{{ route('informasi.index') }}" class='sidebar-link'>
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Agenda / Acara</span>
+                    </a>
+                </li>
                 <li class="sidebar-item {{ request()->routeIs('kurban.*') ? 'active' : '' }}">
                     <a href="{{ route('kurban.index') }}" class='sidebar-link'>
                         <i class="fas fa-scroll"></i>

@@ -2,8 +2,10 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\Tenant\CategoryController;
 use App\Http\Controllers\Tenant\DashboardController;
 use App\Http\Controllers\Tenant\InfaqController;
+use App\Http\Controllers\Tenant\InformasiController;
 use App\Http\Controllers\Tenant\KasController;
 use App\Http\Controllers\Tenant\KurbanController;
 use App\Http\Controllers\Tenant\LoginController;
@@ -54,6 +56,8 @@ Route::middleware([
         Route::resource('profile-masjid', ProfilMasjidController::class);
         Route::resource('kurban', KurbanController::class);
         Route::resource('masjid-bank', MasjidBankController::class);
+        Route::resource('kategori', CategoryController::class);
+        Route::resource('informasi', InformasiController::class);
         Route::resource('permission-masjid', PermissionController::class);
         Route::resource('roles-masjid', RolesController::class);
         Route::resource('user-masjid', UsersMasjidController::class);

@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('informasis', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('parent_id')->index()->default(0);
+            $table->foreignId('kategori_id')->index()->default(0);
             $table->string('slug');
-            $table->string('nama');
-            $table->string('keterangan')->nullable();
+            $table->dateTime('tanggal')->nullable();
+            $table->string('judul');
+            $table->longText('konten');
+            $table->string('gambar')->nullable();
             $table->foreignId('created_by')->index();
             $table->timestamps();
         });
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('informasis');
     }
 };

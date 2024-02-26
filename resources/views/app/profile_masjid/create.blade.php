@@ -53,16 +53,10 @@
                                     placeholder="Judul">
                             </div>
                             <div class="col-md-12">
-                                <label for="media">Gambar</label>
-                            </div>
-                            <div class="col-12 col-md-6 form-group">
-                                <input type="file" id="media" class="image-preview-filepond">
-                            </div>
-                            <div class="col-md-12">
                                 <label for="konten">Konten / Isi Profil</label>
                             </div>
                             <div class="col-md-12 form-group">
-                                <textarea class="form-control mb-3" id="summernote" name="konten"></textarea>
+                                <textarea class="form-control" id="konten" name="konten" rows="3"></textarea>
                             </div>
 
                             <div class="col-sm-12 d-flex justify-content-start">

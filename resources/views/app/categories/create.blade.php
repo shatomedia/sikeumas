@@ -5,13 +5,13 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>Edit Profil Masjid</h3>
+                    <h3>Tambah Kategori Informasi</h3>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Edit Profil Masjid</li>
+                            <li class="breadcrumb-item active" aria-current="page">Tambah Kategori</li>
                         </ol>
                     </nav>
                 </div>
@@ -30,38 +30,23 @@
                 </div>
             @endif
             <div class="card-body">
-                <form class="form form-horizontal" action="{{ route('profile-masjid.update', $data['profile']->id) }}"
-                    method="POST">
+                <form class="form form-horizontal" action="{{ route('kategori.store') }}" method="POST">
                     @csrf
-                    @method('PUT')
                     <div class="form-body">
                         <div class="row">
-                            <div class="col-md-3">
-                                <label for="kategori">Kategori</label>
+                            <div class="col-md-8">
+                                <label for="nama">Nama Kategori ( Misalnya: Agenda, Informasi Pengajian dan kategori
+                                    lainnya )</label>
                             </div>
                             <div class="col-md-12 form-group">
-                                <select class="form-select" id="kategori" name="kategori">
-                                    @foreach ($data['listKategori'] as $key => $value)
-                                        <option value="{{ $key }}"
-                                            {{ $key == $data['profile']->kategori ? 'selected' : '' }}>
-                                            {{ $value }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                            </div>
-
-                            <div class="col-md-3">
-                                <label for="judul">Judul</label>
-                            </div>
-                            <div class="col-md-12 form-group">
-                                <input type="text" id="judul" class="form-control mb-3" name="judul"
-                                    placeholder="Judul" value="{{ old('judul', $data['profile']->judul) }}">
+                                <input type="text" id="nama" class="form-control mb-3" name="nama"
+                                    placeholder="Nama Kategori">
                             </div>
                             <div class="col-md-3">
-                                <label for="konten">Konten / Isi Profil</label>
+                                <label for="keterangan">Keterangan</label>
                             </div>
                             <div class="col-md-12 form-group">
-                                <textarea class="form-control" id="konten" name="konten" rows="3">{{ strip_tags($data['profile']->konten) }}</textarea>
+                                <textarea class="form-control" id="keterangan" name="keterangan" rows="3"></textarea>
                             </div>
 
                             <div class="col-sm-12 d-flex justify-content-start">

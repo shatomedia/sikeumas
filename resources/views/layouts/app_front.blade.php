@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Sikeumas | {{ $masjids->nama }}</title>
+    <title>{{ $masjids->nama }}</title>
     <link rel="shortcut icon" href="{{ asset('assets/compiled/svg/mosque-fav.svg') }}" type="image/x-icon">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="auhtor" name="Sistem Manajamen Masjid">

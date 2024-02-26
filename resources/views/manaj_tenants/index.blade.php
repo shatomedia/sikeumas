@@ -26,7 +26,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table" id="table1">
+                        <table class="table display nowrap" id="table1">
                             <thead>
                                 <tr>
                                     <th>No</th>
@@ -44,7 +44,7 @@
                                 @foreach ($listTenant as $tenant)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td></td>
+                                        <td>{{ $tenant->createdBy->name }}</td>
                                         <td>{{ $tenant->nama }}</td>
                                         <td>{{ $tenant->alamat }}</td>
                                         <td>{{ $tenant->nama_masjid }}</td>
@@ -56,8 +56,8 @@
                                             @endforeach
                                         </td>
                                         <td class="d-flex">
-                                            <a href="{{ route('tenant.edit', $tenant->id) }}" class="btn btn-sm btn-primary"
-                                                style="margin-right: 5px">Edit</a>
+                                            <a href="{{ route('tenant.edit', $tenant->id) }}"
+                                                class="btn btn-sm btn-primary" style="margin-right: 5px">Edit</a>
                                             <form action="{{ route('tenant.destroy', $tenant->id) }}" method="POST">
                                                 @method('DELETE')
                                                 @csrf

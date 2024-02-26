@@ -19,6 +19,8 @@ class UserProfilController extends Controller
         $requestData = $request->validate([
             'name' => 'required',
             'email' => 'required|email',
+            'telp' => 'nullable|numeric|digits_between:10,15',
+            'alamat' => 'nullable',
             'password' => 'nullable|min:8',
         ]);
 

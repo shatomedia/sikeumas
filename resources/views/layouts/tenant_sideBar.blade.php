@@ -80,28 +80,31 @@
                         <span>Informasi Kurban</span>
                     </a>
                 </li>
-
-                <li class="sidebar-title">Role & Permission</li>
-                <li class="sidebar-item {{ request()->routeIs('roles-masjid.*') ? 'active' : '' }}">
-                    <a href="{{ route('roles-masjid.index') }}" class='sidebar-link'>
-                        <i class="fas fa-user-lock"></i>
-                        <span>Role (Peran)</span>
-                    </a>
-                </li>
-                <li class="sidebar-item {{ request()->routeIs('permission-masjid.*') ? 'active' : '' }}">
-                    <a href="{{ route('permission-masjid.index') }}" class='sidebar-link'>
-                        <i class="fas fa-clipboard"></i>
-                        <span>Hak Akses</span>
-                    </a>
-                </li>
+                @can('create-role')
+                    <li class="sidebar-title">Role & Permission</li>
+                    <li class="sidebar-item {{ request()->routeIs('roles-masjid.*') ? 'active' : '' }}">
+                        <a href="{{ route('roles-masjid.index') }}" class='sidebar-link'>
+                            <i class="fas fa-user-lock"></i>
+                            <span>Role (Peran)</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item {{ request()->routeIs('permission-masjid.*') ? 'active' : '' }}">
+                        <a href="{{ route('permission-masjid.index') }}" class='sidebar-link'>
+                            <i class="fas fa-clipboard"></i>
+                            <span>Hak Akses</span>
+                        </a>
+                    </li>
+                @endcan
 
                 <li class="sidebar-title">Manajemen User</li>
-                <li class="sidebar-item {{ request()->routeIs('user-masjid.*') ? 'active' : '' }}">
-                    <a href="{{ route('user-masjid.index') }}" class='sidebar-link'>
-                        <i class="fas fa-users"></i>
-                        <span>Data Pengguna</span>
-                    </a>
-                </li>
+                @can('create-user')
+                    <li class="sidebar-item {{ request()->routeIs('user-masjid.*') ? 'active' : '' }}">
+                        <a href="{{ route('user-masjid.index') }}" class='sidebar-link'>
+                            <i class="fas fa-users"></i>
+                            <span>Data Pengguna</span>
+                        </a>
+                    </li>
+                @endcan
                 <li class="sidebar-item {{ request()->routeIs('profile.*') ? 'active' : '' }}">
                     <a href="{{ route('profile.index') }}" class='sidebar-link'>
                         <i class="bi bi-person-circle"></i>

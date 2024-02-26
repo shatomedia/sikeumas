@@ -50,8 +50,8 @@
                                         placeholder="Your Email" value="{{ $user->email }}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="phone" class="form-label">No Hp</label>
-                                    <input type="text" name="phone" id="phone" class="form-control"
+                                    <label for="telp" class="form-label">No Hp</label>
+                                    <input type="text" name="telp" id="telp" class="form-control"
                                         placeholder="No Hp" value="{{ $user->telp }}">
                                 </div>
                                 <div class="form-group">

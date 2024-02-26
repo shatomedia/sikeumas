@@ -10,6 +10,14 @@ use Illuminate\Support\Carbon;
 
 class KasController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:kas', ['only' => ['index']]);
+        $this->middleware('permission:create-kas', ['only' => ['create', 'store']]);
+        $this->middleware('permission:edit-kas', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:delete-kas', ['only' => ['destroy']]);
+    }
+
     /**
      * Display a listing of the resource.
      */

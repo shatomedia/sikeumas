@@ -36,7 +36,7 @@
     <section class="section">
         <div class="card">
             <div class="card-header">
-                <div class="d-flex bd-highlight mb-3 align-items-center">
+                <div class="d-flex flex-wrap bd-highlight mb-3 align-items-center">
                     <div class="me-auto bd-highlight">
                         <a href="{{ route('infaq.create') }}" class="btn btn-primary">Tambah Data</a>
                     </div>
@@ -59,7 +59,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive datatable-minimal">
-                    <table class="table" id="table2">
+                    <table class="table display nowrap" id="table2">
                         <thead>
                             <tr>
                                 <th class="text-center" width="1%">No</th>

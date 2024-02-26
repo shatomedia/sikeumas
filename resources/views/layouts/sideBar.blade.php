@@ -50,45 +50,53 @@
                         <span>Dashboard</span>
                     </a>
                 </li>
-
-                <li class="sidebar-item {{ request()->routeIs('tenant.*') ? 'active' : '' }}">
-                    <a href="{{ route('tenant.index') }}" class='sidebar-link'>
-                        <i class="fas fa-mosque"></i>
-                        <span>Data Masjid</span>
-                    </a>
-                </li>
-
-                <li class="sidebar-title">Role & Permission</li>
-
-                <li class="sidebar-item {{ request()->routeIs('roles.*') ? 'active' : '' }}">
-                    <a href="{{ route('roles.index') }}" class='sidebar-link'>
+                @can('create-masjid')
+                    <li class="sidebar-item {{ request()->routeIs('tenant.*') ? 'active' : '' }}">
+                        <a href="{{ route('tenant.index') }}" class='sidebar-link'>
+                            <i class="fas fa-mosque"></i>
+                            <span>Data Masjid</span>
+                        </a>
+                    </li>
+                @endcan
+                <li class="sidebar-title">Company Profile</li>
+                <li class="sidebar-item">
+                    <a href="#" class='sidebar-link'>
                         <i class="fas fa-user-lock"></i>
                         <span>Roles (Peran)</span>
                     </a>
                 </li>
+                @can('create-role')
+                    <li class="sidebar-title">Role & Permission</li>
+                    <li class="sidebar-item {{ request()->routeIs('roles.*') ? 'active' : '' }}">
+                        <a href="{{ route('roles.index') }}" class='sidebar-link'>
+                            <i class="fas fa-user-lock"></i>
+                            <span>Roles (Peran)</span>
+                        </a>
+                    </li>
 
-                <li class="sidebar-item {{ request()->routeIs('permission.*') ? 'active' : '' }}">
-                    <a href="{{ route('permission.index') }}" class='sidebar-link'>
-                        <i class="fas fa-clipboard"></i>
-                        <span>Hak Akses</span>
-                    </a>
-                </li>
+                    <li class="sidebar-item {{ request()->routeIs('permission.*') ? 'active' : '' }}">
+                        <a href="{{ route('permission.index') }}" class='sidebar-link'>
+                            <i class="fas fa-clipboard"></i>
+                            <span>Hak Akses</span>
+                        </a>
+                    </li>
+                @endcan
 
                 <li class="sidebar-title">User Manajemen</li>
-
-                <li class="sidebar-item {{ request()->routeIs('users.*') ? 'active' : '' }}">
-                    <a href="{{ route('users.index') }}" class='sidebar-link'>
-                        <i class="fas fa-users"></i>
-                        <span>Data Staff</span>
-                    </a>
-                </li>
-
-                <li class="sidebar-item {{ request()->routeIs('resellers.*') ? 'active' : '' }}">
-                    <a href="{{ route('resellers.index') }}" class='sidebar-link'>
-                        <i class="bi bi-journal-check"></i>
-                        <span>Data Resellers</span>
-                    </a>
-                </li>
+                @can('create-user')
+                    <li class="sidebar-item {{ request()->routeIs('users.*') ? 'active' : '' }}">
+                        <a href="{{ route('users.index') }}" class='sidebar-link'>
+                            <i class="fas fa-users"></i>
+                            <span>Data Staff</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item {{ request()->routeIs('resellers.*') ? 'active' : '' }}">
+                        <a href="{{ route('resellers.index') }}" class='sidebar-link'>
+                            <i class="bi bi-journal-check"></i>
+                            <span>Data Resellers</span>
+                        </a>
+                    </li>
+                @endcan
 
                 <li class="sidebar-item {{ request()->routeIs('profile.*') ? 'active' : '' }}">
                     <a href="{{ route('profile.index') }}" class='sidebar-link'>

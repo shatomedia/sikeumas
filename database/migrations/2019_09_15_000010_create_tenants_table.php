@@ -24,6 +24,7 @@ class CreateTenantsTable extends Migration
             $table->string('telp');
             $table->string('domain');
             $table->string('password');
+            $table->foreignId('created_by')->index();
             $table->timestamps();
             $table->json('data')->nullable();
         });

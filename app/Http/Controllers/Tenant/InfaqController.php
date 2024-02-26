@@ -9,6 +9,15 @@ use Illuminate\Support\Facades\DB;
 
 class InfaqController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('permission:infaq', ['only' => ['index']]);
+        $this->middleware('permission:create-infaq', ['only' => ['create', 'store']]);
+        $this->middleware('permission:edit-infaq', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:delete-infaq', ['only' => ['destroy']]);
+    }
+
     /**
      * Display a listing of the resource.
      */

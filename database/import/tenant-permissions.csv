@@ -12,6 +12,10 @@ masjid
 create-masjid
 edit-masjid
 delete-masjid
+informasi
+create-informasi
+edit-informasi
+delete-informasi
 role
 create-role
 edit-role

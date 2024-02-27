@@ -114,45 +114,6 @@
                                                         </div>
                                                     </form>
                                                 </div>
-
-                                                {{-- <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h4 class="modal-title" id="myModalLabel33">
-                                                            Permission / Hak Akses {{ $role->name }} </h4>
-                                                        <button type="button" class="close" data-bs-dismiss="modal"
-                                                            aria-label="Close">
-                                                            <i data-feather="x"></i>
-                                                        </button>
-                                                    </div>
-                                                    <form action="{{ route('roles.give-permission', $role->id) }}"
-                                                        method="POST">
-                                                        @csrf
-                                                        @method('PUT')
-                                                        @foreach ($permissions as $permission)
-                                                            <div class="modal-body">
-                                                                <div class="form-check">
-                                                                    <div class="custom-control custom-checkbox">
-                                                                        <input type="checkbox"
-                                                                            class="form-check-input form-check-primary form-check-glow"
-                                                                            {{ $role->hasPermissionTo($permission->name) ? 'checked' : '' }}
-                                                                            name="permission[]"
-                                                                            value="{{ $permission->name }}"
-                                                                            id="permission_{{ $role->id }}_{{ $permission->id }}">
-                                                                        <label class="form-check-label"
-                                                                            for="permission_{{ $role->id }}_{{ $permission->id }}">{{ $permission->name }}</label>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        @endforeach
-                                                        <div class="modal-footer">
-                                                            <button type="submit" class="btn btn-primary ms-1"
-                                                                data-bs-dismiss="modal">
-                                                                <i class="bx bx-check d-block d-sm-none"></i>
-                                                                <span class="d-none d-sm-block">Simpan</span>
-                                                            </button>
-                                                        </div>
-                                                    </form>
-                                                </div> --}}
                                             </div>
                                         </div>
                                     </div>

@@ -49,14 +49,6 @@ class RolesController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      */
     public function edit(Role $role)
@@ -88,13 +80,6 @@ class RolesController extends Controller
         return redirect()->route('roles-masjid.index')->with('success', 'Role deleted successfully');
     }
 
-    public function addPermissionToRole($roleId)
-    {
-        $role = Role::findOrFail($roleId);
-        $permissions = Permission::get();
-        return view('roles.assign-permission', compact('role', 'permissions'));
-    }
-
     public function givePermissionToRole(Request $request, $roleId)
     {
         $request->validate([
@@ -102,6 +87,6 @@ class RolesController extends Controller
         ]);
         $role = Role::findOrFail($roleId);
         $role->syncPermissions($request->permission);
-        return redirect()->route('roles.index')->with('success', 'Permission assigned to role successfully');
+        return redirect()->route('roles-masjid.index')->with('success', 'Permission assigned to role successfully');
     }
 }

@@ -1,0 +1,56 @@
+:root {
+    --primary-color: #F5811E;
+    --secondary-color: #000000;
+}
+
+@media (min-width: 992px) {
+    .rounded-lg-3 { border-radius: .3rem; }
+}
+
+body {
+    font-family: "Nunito Sans", sans-serif;
+}
+
+
+/* Navbar */
+
+nav{
+    font-family: "Nunito Sans", sans-serif;
+}
+.nav-link {
+    font-size: 16px;
+    color: var(--secondary-color);
+}
+.nav-link:hover{
+    color: var(--primary-color);
+}
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+    transition: 0.5s;
+}
+.dropdown-menu .dropdown-item:hover {
+    color: var(--primary-color);
+}
+.navbar-nav .nav-link.active {
+    font-weight: 700;
+    color: var(--primary-color)
+}
+
+
+
+.gallery-container .row .image .img-fluid {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* border-radius: 0; */
+    position: relative;
+    /* -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0; */
+}
+
+/* support section start */
+.footer-container{
+    background-color: aliceblue;
+}

@@ -58,13 +58,15 @@
                         </a>
                     </li>
                 @endcan
-                <li class="sidebar-title">Company Profile</li>
-                <li class="sidebar-item {{ request()->routeIs('produk.*') ? 'active' : '' }}">
-                    <a href="{{ route('produk.index') }}" class='sidebar-link'>
-                        <i class="fas fa-boxes"></i>
-                        <span>Produk</span>
-                    </a>
-                </li>
+                @can('create-product')
+                    <li class="sidebar-title">Company Profile</li>
+                    <li class="sidebar-item {{ request()->routeIs('produk.*') ? 'active' : '' }}">
+                        <a href="{{ route('produk.index') }}" class='sidebar-link'>
+                            <i class="fas fa-boxes"></i>
+                            <span>Produk</span>
+                        </a>
+                    </li>
+                @endcan
                 @can('create-role')
                     <li class="sidebar-title">Role & Permission</li>
                     <li class="sidebar-item {{ request()->routeIs('roles.*') ? 'active' : '' }}">

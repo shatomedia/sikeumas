@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Helpers\ResponseFormatter;
 use App\Http\Controllers\Controller;
+use App\Models\Tenant;
 use Illuminate\Http\Request;
 use Stancl\Tenancy\Database\Models\Domain;
 
@@ -13,7 +14,7 @@ class DomainController extends Controller
     public function index()
     {
         try {
-            $domains = Domain::all();
+            $domains = Tenant::all();
 
             return ResponseFormatter::success($domains, 'Data domain berhasil diambil');
         } catch (\Throwable $th) {

@@ -4,6 +4,10 @@ masjid
 create-masjid
 edit-masjid
 delete-masjid
+product
+create-product
+edit-product
+delete-product
 role
 create-role
 edit-role

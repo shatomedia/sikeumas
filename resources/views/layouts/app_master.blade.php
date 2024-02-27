@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistem Manajemen Keuangan - Dashboard</title>
 
+
     <link rel="shortcut icon" href="{{ asset('assets/compiled/svg/mosque-fav.svg') }}" type="image/x-icon">
 
+    <link rel="stylesheet" crossorigin href="{{ asset('assets/compiled/css/app.css') }}">
+    <link rel="stylesheet" crossorigin href="{{ asset('assets/compiled/css/app-dark.css') }}">
     <link rel="stylesheet" href="assets/extensions/datatables.net-bs5/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="{{ asset('assets/compiled/css/table-datatable-jquery.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/compiled/css/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/compiled/css/app-dark.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/extensions/summernote/summernote-lite.css') }}">
     <link rel="stylesheet" crossorigin href="{{ asset('assets/compiled/css/form-editor-summernote.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/extensions/flatpickr/flatpickr.min.css') }}">
@@ -21,7 +22,6 @@
     <link rel="stylesheet"
         href="{{ asset('assets/extensions/filepond-plugin-image-preview/filepond-plugin-image-preview.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/extensions/toastify-js/src/toastify.css') }}">
-
 </head>
 
 <body>
@@ -31,6 +31,7 @@
         <div id="main" class='layout-navbar navbar-fixed'>
             @include('layouts.app_navbar')
             <div id="main-content">
+
                 {{-- Start Menampilkan Alert --}}
                 @if (session()->has('success'))
                     <div class="row">
@@ -83,12 +84,11 @@
             </footer>
         </div>
     </div>
-    <script src="{{ asset('assets/static/js/components/dark.js') }}"></script>
-    <script src="{{ asset('assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
+    <script src="assets/static/js/components/dark.js"></script>
+    <script src="assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 
-    <script src="{{ asset('assets/compiled/js/app.js') }}"></script>
+    <script src="assets/compiled/js/app.js"></script>
 
-    <script src="{{ asset('assets/compiled/js/app.js') }}"></script>
     <script src="{{ asset('assets/extensions/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/extensions/datatables.net/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('assets/extensions/datatables.net-bs5/js/dataTables.bootstrap5.min.js') }}"></script>

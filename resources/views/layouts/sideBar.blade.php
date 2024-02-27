@@ -59,10 +59,10 @@
                     </li>
                 @endcan
                 <li class="sidebar-title">Company Profile</li>
-                <li class="sidebar-item">
-                    <a href="#" class='sidebar-link'>
-                        <i class="fas fa-user-lock"></i>
-                        <span>Beranda</span>
+                <li class="sidebar-item {{ request()->routeIs('produk.*') ? 'active' : '' }}">
+                    <a href="{{ route('produk.index') }}" class='sidebar-link'>
+                        <i class="fas fa-boxes"></i>
+                        <span>Produk</span>
                     </a>
                 </li>
                 @can('create-role')

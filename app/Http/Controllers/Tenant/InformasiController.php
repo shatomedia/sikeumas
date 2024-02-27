@@ -44,12 +44,11 @@ class InformasiController extends Controller
             'konten' => 'required',
             'gambar' => 'required|max:2048'
         ]);
-        // dd($request->gambar);
+
         $fileName = time() . rand(1, 200) . '.' . $request->file('gambar')->getClientOriginalExtension();
         $request->file('gambar')->move(public_path('uploads'), $fileName);
 
         $requestData['gambar'] = $fileName;
-
         Informasi::create($requestData);
 
         return redirect()->route('informasi.index')->with('success', 'Informasi berhasil ditambahkan');

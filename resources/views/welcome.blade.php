@@ -128,7 +128,7 @@
                         <img src="{{ asset('company/img/png/WhatsApp-Image-2022-03-15-at-14.28.15.jpeg-1536x1152.jpg') }}"
                             alt="" />
                         <div class="card-body">
-                            <h4>Jam Sholat Digital JWS-M3</h4>
+                            <h4>Module KIT-JS01</h4>
                             <p class="text-description">
                                 Tampilan jadwal waktu sholat ( Shubuh, Dhuhur, Ashar, Maghrib,
                                 Isya ). Ditambah dengan waktu syuruq/imsyak dan tampilan
@@ -144,7 +144,7 @@
                         <img src="{{ asset('company/img/png/WhatsApp-Image-2022-03-15-at-14.28.15.jpeg-1536x1152.jpg') }}"
                             alt="" />
                         <div class="card-body">
-                            <h4>Jam Sholat Digital JWS-M3</h4>
+                            <h4>Taqwa Media Player</h4>
                             <p class="text-description">
                                 Tampilan jadwal waktu sholat ( Shubuh, Dhuhur, Ashar, Maghrib,
                                 Isya ). Ditambah dengan waktu syuruq/imsyak dan tampilan

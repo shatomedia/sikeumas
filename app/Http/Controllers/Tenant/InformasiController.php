@@ -67,17 +67,55 @@ class InformasiController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Informasi $informasi)
+    public function edit($id)
     {
-        //
+        $data['profile'] = Informasi::findorFail($id);
+        $data['route'] = 'informasi.update';
+        $data['method'] = 'PUT';
+        $data['listKategori'] = Category::pluck('nama', 'id');
+        return view('app.informasi.edit', compact('data'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateInformasiRequest $request, Informasi $informasi)
+    public function update(Request $request, Informasi $informasi)
     {
-        //
+        // Validasi input
+        $requestData = $request->validate([
+            'kategori_id' => 'required',
+            'tanggal' => 'required|date',
+            'judul' => 'required',
+            'konten' => 'required',
+            'gambar' => 'nullable|max:2048' // Tidak wajib diisi
+        ]);
+
+        // Ambil data yang sudah ada di database
+        $oldData = $informasi->refresh();
+
+        // Perbarui nilai-nilai yang tidak diubah
+        foreach ($requestData as $key => $value) {
+            if (!isset($requestData[$key]) || $requestData[$key] === $oldData->$key) {
+                $requestData[$key] = $oldData->$key;
+            }
+        }
+
+        // Jika ada gambar baru diunggah, proses gambar tersebut
+        if ($request->hasFile('gambar')) {
+            $fileName = time() . rand(1, 200) . '.' . $request->file('gambar')->getClientOriginalExtension();
+            $request->file('gambar')->move(public_path('uploads'), $fileName);
+            $requestData['gambar'] = $fileName;
+
+            // Hapus gambar lama
+            if (file_exists(public_path('uploads/' . $oldData->gambar))) {
+                unlink(public_path('uploads/' . $oldData->gambar));
+            }
+        }
+
+        // Lakukan pembaruan data
+        $informasi->update($requestData);
+
+        return redirect()->route('informasi.index')->with('success', 'Informasi berhasil diupdate');
     }
 
     /**

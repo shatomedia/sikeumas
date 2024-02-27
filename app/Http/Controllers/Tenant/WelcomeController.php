@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Tenant;
 
 use App\Http\Controllers\Controller;
+use App\Models\Tenant\Informasi;
 use App\Models\Tenant\Kas;
 use App\Models\Tenant\Masjid;
 use App\Models\Tenant\MasjidBank;
@@ -19,6 +20,7 @@ class WelcomeController extends Controller
         $data['banks'] = MasjidBank::get()->first();
         $data['visi'] = ProfilMasjid::where('kategori', 'visi')->first();
         $data['misi'] = ProfilMasjid::where('kategori', 'misi')->first();
+        $data['acara'] = Informasi::latest()->take(3)->get();
         return view('app.landing_page', $data);
     }
 }

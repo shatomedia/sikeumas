@@ -31,10 +31,10 @@
                         <thead>
                             <tr>
                                 <th class="text-center">No</th>
+                                <th class="text-center">Gambar</th>
                                 <th class="text-center">Diinput Oleh</th>
                                 <th class="text-center">Tanggal</th>
-                                <th class="text-center">Kategori</th>
-                                <th class="text-center">Gambar</th>
+                                {{-- <th class="text-center">Kategori</th> --}}
                                 <th class="text-center">Judul</th>
                                 <th class="text-center">Konten</th>
                                 <th class="text-center">
@@ -45,14 +45,13 @@
                             @foreach ($agendas as $item)
                                 <tr>
                                     <td class="text-center">{{ $loop->iteration }}</td>
-                                    <td class="text-center">{{ $item->createdBy->name }}</td>
-                                    <td class="text-center">{{ $item->tanggal->translatedFormat('d-m-Y') }}</td>
-                                    <td class="text-center">{{ $item->kategori_id }}</td>
                                     <td class="text-center">
                                         <img src="{{ asset('uploads/' . $item->gambar) }}" alt="Gambar"
                                             style="max-width: 100px; max-height: 100px;">
                                     </td>
-
+                                    <td class="text-center">{{ $item->createdBy->name }}</td>
+                                    <td class="text-center">{{ $item->tanggal->translatedFormat('d-m-Y') }}</td>
+                                    {{-- <td class="text-center">{{ $item->kategori_id }}</td> --}}
                                     <td class="text-center">{{ $item->judul }}</td>
                                     <td class="text-center">{{ strip_tags($item->konten) }}</td>
                                     <td class="d-flex justify-content-center">

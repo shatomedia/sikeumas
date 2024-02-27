@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\API\DomainController;
+use App\Http\Controllers\API\KasController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +19,6 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/domains', [DomainController::class, 'index']);
+Route::get('/domains/{id}', [DomainController::class, 'show']);

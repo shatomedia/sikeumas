@@ -13,10 +13,10 @@ class InformasiController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('permission:informasi', ['only' => ['index']]);
-        $this->middleware('permission:create-informasi', ['only' => ['create', 'store']]);
-        $this->middleware('permission:edit-informasi', ['only' => ['edit', 'update']]);
-        $this->middleware('permission:delete-informasi', ['only' => ['destroy']]);
+        $this->middleware('permission:agenda', ['only' => ['index']]);
+        $this->middleware('permission:create-agenda', ['only' => ['create', 'store']]);
+        $this->middleware('permission:edit-agenda', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:delete-agenda', ['only' => ['destroy']]);
     }
 
     /**

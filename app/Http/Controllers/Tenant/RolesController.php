@@ -45,7 +45,7 @@ class RolesController extends Controller
         ]);
 
         Role::create(['name' => $request->name]);
-        return redirect()->route('roles-masjid.index')->with('success', 'Role created successfully');
+        return redirect()->route('roles-masjid.index')->with('success', 'Berhasil menambahkan role baru');
     }
 
     /**
@@ -67,7 +67,7 @@ class RolesController extends Controller
 
         $role = Role::findOrFail($id);
         $role->update(['name' => $request->name]);
-        return redirect()->route('roles-masjid.index')->with('success', 'Role updated successfully');
+        return redirect()->route('roles-masjid.index')->with('success', 'Berhasil mengubah role');
     }
 
     /**
@@ -77,7 +77,7 @@ class RolesController extends Controller
     {
         $role = Role::findOrFail($id);
         $role->delete();
-        return redirect()->route('roles-masjid.index')->with('success', 'Role deleted successfully');
+        return redirect()->route('roles-masjid.index')->with('success', 'Berhasil menghapus role');
     }
 
     public function givePermissionToRole(Request $request, $roleId)
@@ -87,6 +87,6 @@ class RolesController extends Controller
         ]);
         $role = Role::findOrFail($roleId);
         $role->syncPermissions($request->permission);
-        return redirect()->route('roles-masjid.index')->with('success', 'Permission assigned to role successfully');
+        return redirect()->route('roles-masjid.index')->with('success', 'Berhasil menambahkan permission ke role');
     }
 }

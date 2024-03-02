@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 
 class KurbanController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:informasi-kurban', ['only' => ['index']]);
+        $this->middleware('permission:create-informasi-kurban', ['only' => ['create', 'store']]);
+        $this->middleware('permission:edit-informasi-kurban', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:delete-informasi-kurban', ['only' => ['destroy']]);
+    }
     public function index()
     {
         $kurbans = Kurban::latest()->paginate(10);

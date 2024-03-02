@@ -9,6 +9,13 @@ use Illuminate\Http\Request;
 
 class MasjidBankController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:bank', ['only' => ['index']]);
+        $this->middleware('permission:create-bank', ['only' => ['create', 'store']]);
+        $this->middleware('permission:edit-bank', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:delete-bank', ['only' => ['destroy']]);
+    }
     /**
      * Display a listing of the resource.
      */

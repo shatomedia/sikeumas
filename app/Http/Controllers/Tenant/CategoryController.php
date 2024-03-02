@@ -9,6 +9,13 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:kategori-informasi', ['only' => ['index']]);
+        $this->middleware('permission:create-kategori-informasi', ['only' => ['create', 'store']]);
+        $this->middleware('permission:edit-kategori-informasi', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:delete-kategori-informasi', ['only' => ['destroy']]);
+    }
     /**
      * Display a listing of the resource.
      */

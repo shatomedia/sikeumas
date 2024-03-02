@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class MasjidController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:masjid', ['only' => ['index']]);
+        $this->middleware('permission:edit-masjid', ['only' => ['edit', 'update']]);
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -15,14 +21,6 @@ class MasjidController extends Controller
     {
         $masjid = Masjid::all();
         return view('app.masjid.index', compact('masjid'));
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Masjid $masjid)
-    {
-        //
     }
 
     /**

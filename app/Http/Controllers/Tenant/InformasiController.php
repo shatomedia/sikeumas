@@ -11,6 +11,14 @@ use Illuminate\Http\Request;
 
 class InformasiController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:informasi', ['only' => ['index']]);
+        $this->middleware('permission:create-informasi', ['only' => ['create', 'store']]);
+        $this->middleware('permission:edit-informasi', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:delete-informasi', ['only' => ['destroy']]);
+    }
+
     /**
      * Display a listing of the resource.
      */

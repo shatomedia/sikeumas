@@ -33,19 +33,23 @@
                     </a>
 
                 </li>
+                @can('kas')
+                    <li class="sidebar-item {{ request()->routeIs('kas.*') ? 'active' : '' }}">
+                        <a href="{{ route('kas.index') }}" class='sidebar-link'>
+                            <i class="fas fa-wallet"></i>
+                            <span>Kas Masjid</span>
+                        </a>
+                    </li>
+                @endcan
 
-                <li class="sidebar-item {{ request()->routeIs('kas.*') ? 'active' : '' }}">
-                    <a href="{{ route('kas.index') }}" class='sidebar-link'>
-                        <i class="fas fa-wallet"></i>
-                        <span>Kas Masjid</span>
-                    </a>
-                </li>
-                <li class="sidebar-item  {{ request()->routeIs('infaq.*') ? 'active' : '' }}">
-                    <a href="{{ route('infaq.index') }}" class='sidebar-link'>
-                        <i class="bi bi-credit-card-fill"></i>
-                        <span> Data Infaq</span>
-                    </a>
-                </li>
+                @can('infaq')
+                    <li class="sidebar-item  {{ request()->routeIs('infaq.*') ? 'active' : '' }}">
+                        <a href="{{ route('infaq.index') }}" class='sidebar-link'>
+                            <i class="bi bi-credit-card-fill"></i>
+                            <span> Data Infaq</span>
+                        </a>
+                    </li>
+                @endcan
 
                 <li class="sidebar-item  ">
                     <a href="#" class='sidebar-link'>
@@ -54,44 +58,59 @@
                     </a>
                 </li>
                 <li class="sidebar-title">Informasi Masjid</li>
-                <li class="sidebar-item {{ request()->routeIs('masjid.*') ? 'active' : '' }}">
-                    <a href="{{ route('masjid.index') }}" class='sidebar-link'>
-                        <i class="fas fa-mosque"></i>
-                        <span>Data Masjid</span>
-                    </a>
-                </li>
+                @can('masjid')
+                    <li class="sidebar-item {{ request()->routeIs('masjid.*') ? 'active' : '' }}">
+                        <a href="{{ route('masjid.index') }}" class='sidebar-link'>
+                            <i class="fas fa-mosque"></i>
+                            <span>Data Masjid</span>
+                        </a>
+                    </li>
+                @endcan
+                @can('profil')
+                    <li class="sidebar-item {{ request()->routeIs('profile-masjid.*') ? 'active' : '' }}">
+                        <a href="{{ route('profile-masjid.index') }}" class='sidebar-link'>
+                            <i class="fas fa-place-of-worship"></i>
+                            <span>Profil Masjid</span>
+                        </a>
+                    </li>
+                @endcan
 
-                <li class="sidebar-item {{ request()->routeIs('profile-masjid.*') ? 'active' : '' }}">
-                    <a href="{{ route('profile-masjid.index') }}" class='sidebar-link'>
-                        <i class="fas fa-place-of-worship"></i>
-                        <span>Profil Masjid</span>
-                    </a>
-                </li>
+                @can('bank')
+                    <li class="sidebar-item {{ request()->routeIs('masjid-bank.*') ? 'active' : '' }}">
+                        <a href="{{ route('masjid-bank.index') }}" class='sidebar-link'>
+                            <i class="bi bi-credit-card-fill"></i>
+                            <span>Data Bank</span>
+                        </a>
+                    </li>
+                @endcan
 
-                <li class="sidebar-item {{ request()->routeIs('masjid-bank.*') ? 'active' : '' }}">
-                    <a href="{{ route('masjid-bank.index') }}" class='sidebar-link'>
-                        <i class="bi bi-credit-card-fill"></i>
-                        <span>Data Bank</span>
-                    </a>
-                </li>
-                <li class="sidebar-item {{ request()->routeIs('kategori.*') ? 'active' : '' }}">
-                    <a href="{{ route('kategori.index') }}" class='sidebar-link'>
-                        <i class="fas fa-book"></i>
-                        <span>Kategori Informasi</span>
-                    </a>
-                </li>
-                <li class="sidebar-item {{ request()->routeIs('informasi.*') ? 'active' : '' }}">
-                    <a href="{{ route('informasi.index') }}" class='sidebar-link'>
-                        <i class="fas fa-calendar-check"></i>
-                        <span>Agenda / Acara</span>
-                    </a>
-                </li>
-                <li class="sidebar-item {{ request()->routeIs('kurban.*') ? 'active' : '' }}">
-                    <a href="{{ route('kurban.index') }}" class='sidebar-link'>
-                        <i class="fas fa-scroll"></i>
-                        <span>Informasi Kurban</span>
-                    </a>
-                </li>
+                @can('kategori-informasi')
+                    <li class="sidebar-item {{ request()->routeIs('kategori.*') ? 'active' : '' }}">
+                        <a href="{{ route('kategori.index') }}" class='sidebar-link'>
+                            <i class="fas fa-book"></i>
+                            <span>Kategori Informasi</span>
+                        </a>
+                    </li>
+                @endcan
+
+                @can('informasi')
+                    <li class="sidebar-item {{ request()->routeIs('informasi.*') ? 'active' : '' }}">
+                        <a href="{{ route('informasi.index') }}" class='sidebar-link'>
+                            <i class="fas fa-calendar-check"></i>
+                            <span>Agenda / Acara</span>
+                        </a>
+                    </li>
+                @endcan
+
+                @can('informasi-kurban')
+                    <li class="sidebar-item {{ request()->routeIs('kurban.*') ? 'active' : '' }}">
+                        <a href="{{ route('kurban.index') }}" class='sidebar-link'>
+                            <i class="fas fa-scroll"></i>
+                            <span>Informasi Kurban</span>
+                        </a>
+                    </li>
+                @endcan
+
                 @can('create-role')
                     <li class="sidebar-title">Role & Permission</li>
                     <li class="sidebar-item {{ request()->routeIs('roles-masjid.*') ? 'active' : '' }}">

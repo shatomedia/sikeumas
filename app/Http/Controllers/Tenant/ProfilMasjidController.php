@@ -9,6 +9,14 @@ use Illuminate\Http\Request;
 
 class ProfilMasjidController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:profil', ['only' => ['index']]);
+        $this->middleware('permission:create-profil', ['only' => ['create', 'store']]);
+        $this->middleware('permission:edit-profil', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:delete-profil', ['only' => ['destroy']]);
+    }
+
     /**
      * Display a listing of the resource.
      */

@@ -31,7 +31,6 @@
                         <i class="bi bi-grid-fill"></i>
                         <span>Dashboard</span>
                     </a>
-
                 </li>
                 @can('kas')
                     <li class="sidebar-item {{ request()->routeIs('kas.*') ? 'active' : '' }}">
@@ -46,7 +45,7 @@
                     <li class="sidebar-item  {{ request()->routeIs('infaq.*') ? 'active' : '' }}">
                         <a href="{{ route('infaq.index') }}" class='sidebar-link'>
                             <i class="bi bi-credit-card-fill"></i>
-                            <span> Data Infaq</span>
+                            <span>Data Infaq</span>
                         </a>
                     </li>
                 @endcan
@@ -57,6 +56,7 @@
                         <span>Donate</span>
                     </a>
                 </li>
+
                 <li class="sidebar-title">Informasi Masjid</li>
                 @can('masjid')
                     <li class="sidebar-item {{ request()->routeIs('masjid.*') ? 'active' : '' }}">
@@ -66,6 +66,7 @@
                         </a>
                     </li>
                 @endcan
+
                 @can('profil')
                     <li class="sidebar-item {{ request()->routeIs('profile-masjid.*') ? 'active' : '' }}">
                         <a href="{{ route('profile-masjid.index') }}" class='sidebar-link'>
@@ -93,7 +94,7 @@
                     </li>
                 @endcan
 
-                @can('informasi')
+                @can('agenda')
                     <li class="sidebar-item {{ request()->routeIs('informasi.*') ? 'active' : '' }}">
                         <a href="{{ route('informasi.index') }}" class='sidebar-link'>
                             <i class="fas fa-calendar-check"></i>
@@ -102,6 +103,7 @@
                     </li>
                 @endcan
 
+                <li class="sidebar-title">Informasi Kurban</li>
                 @can('informasi-kurban')
                     <li class="sidebar-item {{ request()->routeIs('kurban.*') ? 'active' : '' }}">
                         <a href="{{ route('kurban.index') }}" class='sidebar-link'>

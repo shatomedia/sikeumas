@@ -24,34 +24,37 @@
                 <div class="col-lg-8">
                     <div class="card bg-light text-dark">
                         <div class="card-body">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Keterangan</th>
-                                        <th scope="col">Tanggal</th>
-                                        <th scope="col">Pemasukan</th>
-                                        <th scope="col">Pengeluaran</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @forelse ($kas as $item)
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
                                         <tr>
-                                            <td>{{ $item->keterangan }}</td>
-                                            <td>{{ $item->tanggal->translatedFormat('d-m-y') }}</td>
-                                            <td>
-                                                {{ $item->jenis == 'masuk' ? formatRupiah($item->jumlah) : '-' }}</td>
-                                            <td>
-                                                {{ $item->jenis == 'keluar' ? formatRupiah($item->jumlah) : '-' }}
-                                            </td>
+                                            <th scope="col">Keterangan</th>
+                                            <th scope="col">Tanggal</th>
+                                            <th scope="col">Pemasukan</th>
+                                            <th scope="col">Pengeluaran</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @forelse ($kas as $item)
+                                            <tr>
+                                                <td>{{ $item->keterangan }}</td>
+                                                <td>{{ $item->tanggal->translatedFormat('d-m-y') }}</td>
+                                                <td>
+                                                    {{ $item->jenis == 'masuk' ? formatRupiah($item->jumlah) : '-' }}</td>
+                                                <td>
+                                                    {{ $item->jenis == 'keluar' ? formatRupiah($item->jumlah) : '-' }}
+                                                </td>
 
-                                        </tr>
-                                    @empty
-                                        <tr>
-                                            <td colspan="4" class="text-center">Data tidak ada</td>
-                                        </tr>
-                                    @endforelse
-                                </tbody>
-                            </table>
+                                            </tr>
+                                        @empty
+                                            <tr>
+                                                <td colspan="4" class="text-center">Data tidak ada</td>
+                                            </tr>
+                                        @endforelse
+                                    </tbody>
+                                </table>
+                            </div>
+
                         </div>
                     </div>
                 </div>

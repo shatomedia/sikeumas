@@ -105,36 +105,19 @@
     <!-- Footer Start -->
     <div class="container-fluid footer pt-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
-            {{-- <div class="row py-5">
-                <div class="col-lg-7">
-                    <h1 class="text-light mb-0">Subscribe our newsletter</h1>
-                    <p class="text-secondary">Get the latest news and other tips</p>
-                </div>
-                <div class="col-lg-5">
-                    <div class="position-relative mx-auto">
-                        <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text"
-                            placeholder="Your email">
-                        <button type="button"
-                            class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">Subcribe</button>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="border-top border-secondary"></div>
-                </div>
-            </div> --}}
             <div class="row g-4 footer-inner">
-                <div class="col-4">
+                <div class="col-md-6 col-lg-6 col-xl-3">
                     <div class="footer-item mt-5">
                         <h4 class="text-light mb-4"><span class="text-primary">{{ $masjids->nama }}</span></h4>
-                        <p class="mb-4 text-secondary">"Barang siapa yang membangun masjid semata-mata mencari keridhaan
-                            Allah, maka Allah akan membangunkan baginya tempat tinggal seperti itu di syurga". (HR.
-                            Bukhari, 450)</p>
-                        <a href="#donate" class="btn btn-primary py-2 px-4">Donate Now</a>
+                        <p class="mb-4 text-secondary">"Barang siapa yang membangun masjid semata-mata mencari
+                            keridhaan Allah, maka Allah akan membangunkan baginya tempat tinggal seperti itu di syurga".
+                            (HR.Bukhari, 450)</p>
+                        <a href="#donate" class="btn btn-primary py-2 px-4">Donasi</a>
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-md-6 col-lg-6 col-xl-3">
                     <div class="footer-item mt-5">
-                        <h4 class="text-light mb-4">Our Mosque</h4>
+                        <h4 class="text-light mb-4">Kontak Kami</h4>
                         <div class="d-flex flex-column">
                             <h6 class="text-secondary mb-0">Alamat</h6>
                             <div class="d-flex align-items-center border-bottom py-4">
@@ -151,9 +134,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-md-6 col-lg-6 col-xl-3">
                     <div class="footer-item mt-5">
-                        <h4 class="text-light mb-4">Explore Link</h4>
+                        <h4 class="text-light mb-4">Menu</h4>
                         <div class="d-flex flex-column align-items-start">
                             <a class="text-body mb-2" href=""><i
                                     class="fa fa-check text-primary me-2"></i>Beranda</a>
@@ -176,6 +159,9 @@
             <div class="row">
                 <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
                     &copy; <a class="border-bottom" href="#">{{ $masjids->nama }}</a>, All Right Reserved.
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    Designed By <a class="border-bottom" target="_blanks" href="https://htmlcodex.com">HTML Codex</a>
                 </div>
             </div>
         </div>

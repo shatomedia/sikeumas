@@ -44,19 +44,18 @@ class UserSeeder extends Seeder
             'password' => Hash::make('password'),
         ]);
 
-        $reseller = User::create([
-            'name' => 'Reseller',
-            'email' => 'reseller@gmail.com',
-            'email_verified_at' => now(),
-            'password' => Hash::make('password'),
-        ]);
+        // $reseller = User::create([
+        //     'name' => 'Reseller',
+        //     'email' => 'reseller@gmail.com',
+        //     'email_verified_at' => now(),
+        //     'password' => Hash::make('password'),
+        // ]);
 
         $roleadmin = Role::create(['name' => 'admin']);
         $rolestaff = Role::create(['name' => 'staff']);
         $rolereseller = Role::create(['name' => 'reseller']);
 
         $admin->assignRole('admin');
-        $reseller->assignRole('reseller');
 
         // Assign permissions to roles
         $roleadmin->syncPermissions(Permission::all());

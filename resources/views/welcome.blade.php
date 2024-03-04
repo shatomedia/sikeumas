@@ -2,9 +2,14 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shatomedia - Technology Inspiration</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shatomedia | Technology Inspiration</title>
+    <meta name="description"
+        content="Shatomedia adalah Perusahaan Manufacturing Elektronik yang dapat memberikan bahan baku berkualitas, tahan lama dan pilihan teknologi terkini dengan balutan desain tampilan yang elegant  dan berani memberikan garansi perlindungan sampai 3 tahun.">
+    <meta name="keywords" content="Jam Digital Masjid, Running Text, Jadwal Waktu Sholat, Smart Mosque, Shatomedia">
+    <link rel="icon" type="image/png" href="{{ asset('company/img/favicon.ico') }}" />
+
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('company/dist/css/bootstrap.css') }}" />
     <link rel="stylesheet" href="{{ asset('company/css/styles.css') }}" />
@@ -25,7 +30,7 @@
                 <img src="{{ asset('company/img/png/navbar-logo.png') }}" width="159" height="43"
                     alt="Shatomedia" />
             </a>
-            <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -91,7 +96,7 @@
                             Kementerian Agama Republik Indonesia
                         </p>
                         <div class="d-grid gap-4 d-flex justify-content-md-start align-items-center">
-                            <a href="#bestContainer" type="button" id="btn-getNow" class="btn fw-bold">
+                            <a href="#bestContainer" type="button" id="btn-dapatkan" class="btn fw-bold">
                                 Dapatkan Sekarang
                             </a>
                             <label class="fw-bold" id="label">
@@ -421,7 +426,8 @@
                                 </li>
                             </ul>
                             <h5 class="fw-bold" id="Download">Unduh Aplikasi:</h5>
-                            <a href="https://play.google.com/store/apps/details?id=com.shatomedia.taqwa&pcampaignid=web_share" target="_blank" class="nav-link">
+                            <a href="https://play.google.com/store/apps/details?id=com.shatomedia.taqwa&pcampaignid=web_share"
+                                target="_blank" class="nav-link">
                                 <img src="{{ asset('company/img/svg/icon-google.svg') }}" id="google"
                                     alt="">
                             </a>

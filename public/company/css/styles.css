@@ -92,13 +92,13 @@ nav {
     line-height: 1.2; */
 }
 
-.first-container #btn-getNow {
+.first-container #btn-dapatkan {
     background-color: var(--primary-color);
     color: var(--white-color);
     transition: 0.5s;
 }
 
-.first-container #btn-getNow:hover {
+.first-container #btn-dapatkan:hover {
     color: var(--secondary-color);
     filter: brightness(1.2);
 }

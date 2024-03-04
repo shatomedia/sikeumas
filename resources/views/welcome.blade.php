@@ -114,54 +114,20 @@
             <div class="container align-items-center text-center px-4 py-5">
                 <h2 class="display-5 fw-bold mt-xl-3 mb-4">Koleksi Terbaik</h2>
                 <div class="row gy-4">
-                    <div class="collection col-lg-4">
-                        <div class="card" style="width: 360; height: 250">
-                            <img src="{{ asset('company/img/png/WhatsApp-Image-2022-03-15-at-14.28.15.jpeg-1536x1152.jpg') }}"
-                                alt="" />
-                            <div class="card-body">
-                                <h5 class="fw-bold text-body-emphasis" id="tittle">Jam Sholat Digital JWS-M3</h5>
-                                <p class="text-description" id="description">
-                                    Tampilan jadwal waktu sholat ( Shubuh, Dhuhur, Ashar, Maghrib,
-                                    Isya ). Ditambah dengan waktu syuruq/imsyak dan tampilan
-                                    tanggal, bulan, tahun, beserta jam dan menit secara Real Time
-                                    ,serta terdapat tambahan Running teks sebagai papan informasi.
-                                </p>
-                                <a href="#" class="btn" id="btn-buyNow">Beli Sekarang</a>
+                    @foreach ($bestProducts as $item)
+                        <div class="collection col-lg-4">
+                            <div class="card">
+                                <img src="{{ asset('products/' . $item->foto) }}" class="card-img-top" alt=""
+                                    style="object-fit: cover; width: 100%; height: 250px;">
+                                <div class="card-body">
+                                    <h5 class="fw-bold text-body-emphasis" id="tittle">{{ $item->nama }}
+                                    </h5>
+                                    <p class="text-description" id="description">{{ $item->deskripsi }}</p>
+                                    <a href="#" class="btn" id="btn-buyNow">Beli Sekarang</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="collection col-lg-4">
-                        <div class="card" style="width: 360; height: 250">
-                            <img src="{{ asset('company/img/png/WhatsApp-Image-2022-03-15-at-14.28.15.jpeg-1536x1152.jpg') }}"
-                                alt="" />
-                            <div class="card-body">
-                                <h5 class="fw-bold text-body-emphasis" id="tittle">Jam Sholat Digital JWS-M3</h5>
-                                <p class="text-description" id="description">
-                                    Tampilan jadwal waktu sholat ( Shubuh, Dhuhur, Ashar, Maghrib,
-                                    Isya ). Ditambah dengan waktu syuruq/imsyak dan tampilan
-                                    tanggal, bulan, tahun, beserta jam dan menit secara Real Time
-                                    ,serta terdapat tambahan Running teks sebagai papan informasi.
-                                </p>
-                                <a href="#" class="btn" id="btn-buyNow">Beli Sekarang</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="collection col-lg-4">
-                        <div class="card" style="width: 360; height: 250">
-                            <img src="{{ asset('company/img/png/WhatsApp-Image-2022-03-15-at-14.28.15.jpeg-1536x1152.jpg') }}"
-                                alt="" />
-                            <div class="card-body">
-                                <h5 class="fw-bold text-body-emphasis" id="tittle">Jam Sholat Digital JWS-M3</h5>
-                                <p class="text-description" id="description">
-                                    Tampilan jadwal waktu sholat ( Shubuh, Dhuhur, Ashar, Maghrib,
-                                    Isya ). Ditambah dengan waktu syuruq/imsyak dan tampilan
-                                    tanggal, bulan, tahun, beserta jam dan menit secara Real Time
-                                    ,serta terdapat tambahan Running teks sebagai papan informasi.
-                                </p>
-                                <a href="#" class="btn" id="btn-buyNow">Beli Sekarang</a>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </section>

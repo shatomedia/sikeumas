@@ -45,9 +45,8 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Jadwal Waktu Sholat</a></li>
                             <li><a class="dropdown-item" href="#">Kit Modul</a></li>
-                            <li>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </li>
+                            <li><a class="dropdown-item" href="#">Jam Digital</a></li>
+                            <li><a class="dropdown-item" href="#">Bell Otomatis</a></li>
                         </ul>
                     </li>
                     <li class="nav-item mx-2">
@@ -58,12 +57,12 @@
                     </li>
                 </ul>
                 <div class="btn-help d-none d-lg-block">
-                    <button class="btn btn-outline-warning" id="btn-contact">
+                    <button class="btn" id="btn-contact">
                         Hubungi Kami: 081821290098
                     </button>
                 </div>
                 <div class="btn-login mx-2">
-                    <a href="{{ route('login') }}" class="btn btn-outline-warning w-100" id="btn-login">
+                    <a href="{{ route('login') }}" class="btn w-100" id="btn-login">
                         Masuk
                     </a>
                 </div>
@@ -74,28 +73,28 @@
 
     <!-- main start -->
     <main>
-        <!-- first section start -->
-        <section class="first-container">
+        <!-- heroes section start -->
+        <section class="first-container" id="first-container">
             <div class="container align-items-center px-4 py-5">
                 <div class="row flex-lg-row-reverse justify-content-center align-items-center g-5 py-5">
                     <div class="col-10 col-sm-5 col-lg-6 mx-auto">
                         <img src="{{ asset('company/img/png/hero-img.png') }}" class="d-block mx-lg-auto img-fluid"
                             alt="Shatomedia" width="700" height="500" loading="lazy" />
                     </div>
-                    <div class="col-md-12 col-lg-6 justify-content-md-center">
-                        <h1 class="display-5 fw-bold text-body-emphasis lh-2 mb-4" id="tittle-heroes">
+                    <div class="col-lg-6">
+                        <h1 class="display-5 fw-bold text-body-emphasis lh-2 mb-3" id="tittle-heroes">
                             Koneksi Spiritual yang Lebih Kuat dengan Jadwal Sholat Digital
                             Terkini
                         </h1>
-                        <p class="lead mb-4">
+                        <p class="lead">
                             Mengacu pada Metode Hisab Ephemeris yang dikeluarkan oleh
-                            Kementrian Agama Republik Indonesia
+                            Kementerian Agama Republik Indonesia
                         </p>
-                        <div class="d-grid gap-4 d-flex bd-highlight align-items-center">
-                            <a href="#" type="button" id="btn-getNow" class="btn btn-warning fw-bold">
+                        <div class="d-grid gap-4 d-flex justify-content-md-start align-items-center">
+                            <a href="#bestContainer" type="button" id="btn-getNow" class="btn fw-bold">
                                 Dapatkan Sekarang
                             </a>
-                            <label class="fw-bold text-center">
+                            <label class="fw-bold" id="label">
                                 10.000+ Pelanggan
                             </label>
                         </div>
@@ -103,16 +102,16 @@
                 </div>
             </div>
         </section>
-        <!-- firts section end -->
+        <!-- heroes section end -->
 
         <!-- best section start -->
-        <section class="best-container">
-            <div class="container align-items-center text-center mt-xl-3 px-4 py-5">
-                <h2 class="display-5 fw-bold mb-4">Koleksi Terbaik</h2>
-                <div class="row justify-content-md-center gy-5">
+        <section class="best-container" id="bestContainer">
+            <div class="container align-items-center text-center px-4 py-5">
+                <h2 class="display-5 fw-bold mt-xl-3 mb-4">Koleksi Terbaik</h2>
+                <div class="row gy-4">
                     <div class="collection col-lg-4">
                         <div class="card" style="width: 360; height: 250">
-                            <img src="company/img/png/WhatsApp-Image-2022-03-15-at-14.28.15.jpeg-1536x1152.jpg"
+                            <img src="{{ asset('company/img/png/WhatsApp-Image-2022-03-15-at-14.28.15.jpeg-1536x1152.jpg') }}"
                                 alt="" />
                             <div class="card-body">
                                 <h5 class="fw-bold text-body-emphasis" id="tittle">Jam Sholat Digital JWS-M3</h5>
@@ -122,13 +121,13 @@
                                     tanggal, bulan, tahun, beserta jam dan menit secara Real Time
                                     ,serta terdapat tambahan Running teks sebagai papan informasi.
                                 </p>
-                                <a href="#" class="btn btn-primary" id="btn-buyNow">Beli Sekarang</a>
+                                <a href="#" class="btn" id="btn-buyNow">Beli Sekarang</a>
                             </div>
                         </div>
                     </div>
                     <div class="collection col-lg-4">
                         <div class="card" style="width: 360; height: 250">
-                            <img src="company/img/png/WhatsApp-Image-2022-03-15-at-14.28.15.jpeg-1536x1152.jpg"
+                            <img src="{{ asset('company/img/png/WhatsApp-Image-2022-03-15-at-14.28.15.jpeg-1536x1152.jpg') }}"
                                 alt="" />
                             <div class="card-body">
                                 <h5 class="fw-bold text-body-emphasis" id="tittle">Jam Sholat Digital JWS-M3</h5>
@@ -138,13 +137,13 @@
                                     tanggal, bulan, tahun, beserta jam dan menit secara Real Time
                                     ,serta terdapat tambahan Running teks sebagai papan informasi.
                                 </p>
-                                <a href="#" class="btn btn-primary" id="btn-buyNow">Beli Sekarang</a>
+                                <a href="#" class="btn" id="btn-buyNow">Beli Sekarang</a>
                             </div>
                         </div>
                     </div>
                     <div class="collection col-lg-4">
                         <div class="card" style="width: 360; height: 250">
-                            <img src="company/img/png/WhatsApp-Image-2022-03-15-at-14.28.15.jpeg-1536x1152.jpg"
+                            <img src="{{ asset('company/img/png/WhatsApp-Image-2022-03-15-at-14.28.15.jpeg-1536x1152.jpg') }}"
                                 alt="" />
                             <div class="card-body">
                                 <h5 class="fw-bold text-body-emphasis" id="tittle">Jam Sholat Digital JWS-M3</h5>
@@ -154,7 +153,7 @@
                                     tanggal, bulan, tahun, beserta jam dan menit secara Real Time
                                     ,serta terdapat tambahan Running teks sebagai papan informasi.
                                 </p>
-                                <a href="#" class="btn btn-primary" id="btn-buyNow">Beli Sekarang</a>
+                                <a href="#" class="btn" id="btn-buyNow">Beli Sekarang</a>
                             </div>
                         </div>
                     </div>
@@ -164,30 +163,33 @@
         <!-- best section end -->
 
         <!-- intro section start -->
-        <section class="intro-container">
+        <section class="intro-container" id="intro-container">
             <div class="container px-4 py-5">
                 <div class="row flex-lg-row align-items-center g-5 py-5">
                     <div class="col-10 col-sm-8 col-lg-6 mx-auto">
-                        <img src="company/img/png/Galaxy-Note-20-Ultra-768x576.png"
+                        <img src="{{ asset('company/img/png/Galaxy-Note-20-Ultra-768x576.png') }}"
                             class="d-block mx-lg-auto img-fluid" alt="Shatomedia" width="700" height="500"
                             loading="lazy" />
                     </div>
                     <div class="col-lg-6">
-                        <h1 class="display-5 fw-bold text-body-emphasis lh-2 mb-4">
+                        <h1 class="display-5 fw-bold text-body-emphasis py-2">
                             Kenalin, Taqwa Digital Prayer Time.
                         </h1>
-                        <p class="lead mb-4">
+                        <p class="lead py-2" id="description">
                             Pengelolaan jam digital menggunakan smartphone telah menghadirkan
                             kemudahan dan keterhubungan yang belum pernah terjadi sebelumnya.
                         </p>
-                        <p class="lead mb-4">
+                        <p class="lead py-2" id="description">
                             Digital Prayer Time adalah Aplikasi yang dapat melakukan
                             perhitungan awal masuk Waktu Sholat dengan mengacu pada metode
                             Ephemeris yang dikeluarkan oleh Kementrian Agama Republik
                             Indonesia.
                         </p>
                         <div class="col-lg-6">
-                            <button class="btn btn-secondary">Download App</button>
+                            <a href="https://play.google.com/store/apps/details?id=com.shatomedia.taqwa&pcampaignid=web_share"
+                                target="_blank" type="button" class="btn" id="btn-download">
+                                Download App
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -198,11 +200,12 @@
         <!-- manage time section end -->
         <section class="time-container">
             <div class="container mb-4 px-4 py-5">
-                <div class="card px-4" style="width: 1350; height: 426; background-color: brown">
+                <div class="card px-4" id="card">
                     <div class="row flex-row-reverse align-items-center mb-4">
                         <div class="col-10 col-lg-6 mx-auto">
-                            <img src="company/img/png/Group-1000011745-2.png" class="d-block mx-lg-auto img-fluid"
-                                alt="Shatomedia" width="700" height="500" loading="lazy" />
+                            <img src="{{ asset('company/img/png/Group-1000011745-2.png') }}"
+                                class="d-block mx-lg-auto img-fluid" alt="Shatomedia" width="700" height="500"
+                                loading="lazy" />
                         </div>
                         <div class="col-lg-6 mt-4">
                             <h1 class="display-5 fw-bold text-body-emphasis lh-2 mb-4 mb-sm-4">
@@ -222,25 +225,25 @@
         <!-- gallery section start -->
         <section class="gallery-container">
             <div class="container px-4 py-5">
-                <div class="title justify-content-md-center text-center">
-                    <h1 class="fw-bold" style="font-size: 40px">
+                <div class="title text-center mb-4">
+                    <h1 class="display-5 fw-bold lh-1 px-lg-5">
                         Tata Ruang Anda dengan Keindahan Kaligrafi dan Keterampilan Jam
                         Digital
                     </h1>
                 </div>
                 <div class="row">
                     <div class="image col-md-4 col-sm-6 mb-4">
-                        <img src="company/img/png/2.jpg" class="img-fluid" alt="jam" />
+                        <img src="{{ asset('company/img/png/1.jpg') }}" class="img-fluid" alt="jam" />
                     </div>
                     <div class="image col-md-4 col-sm-6 mb-4">
-                        <img src="company/img/png/1.jpg" class="img-fluid" alt="jam" />
+                        <img src="{{ asset('company/img/png/1.jpg') }}" class="img-fluid" alt="jam" />
                     </div>
                     <div class="image col-md-4 col-sm-6 mb-4">
-                        <img src="company/img/png/3.jpg" class="img-fluid" alt="jam" />
+                        <img src="{{ asset('company/img/png/3.jpg') }}" class="img-fluid" alt="jam" />
                     </div>
                 </div>
                 <div class="d-flex justify-content-center button-gallery">
-                    <button class="btn btn-outline-secondary">Dapatkan</button>
+                    <a href="#bestContainer" class="btn" id="btn-getNow">Dapatkan Sekarang</a>
                 </div>
             </div>
         </section>
@@ -249,16 +252,16 @@
         <!-- quality container start -->
         <section class="quality-container">
             <div class="container px-4 py-5">
-                <div class="row flex-lg-row align-items-center" style="width: 1350; height: 426">
+                <div class="row flex-lg-row justify-content-center align-items-center">
                     <div class="col-10 col-sm-8 col-lg-6">
-                        <img src="company/img/png/ketelitian.png" class="d-block mx-lg-auto img-fluid"
+                        <img src="{{ asset('company/img/png/ketelitian.png') }}" class="d-block mx-lg-auto img-fluid"
                             alt="Bootstrap Themes" width="700" height="500" loading="lazy" />
                     </div>
                     <div class="col-lg-6">
-                        <h1 class="fw-bold lh-1 mb-3">
+                        <h1 class="display-5 fw-bold lh-1 mb-3">
                             Ketelitian dalam Kerajinan, Kualitas yang Eksklusif.
                         </h1>
-                        <p class="lead">
+                        <p class="lead" id="description">
                             Setiap langkah dalam proses dilakukan dengan teliti dan penuh
                             perhatian terhadap detail, sehingga produk akhir memiliki estetika
                             yang mengagumkan. Kualitas eksklusif ini menciptakan daya tarik
@@ -275,17 +278,18 @@
         <section class="support-container">
             <div class="container py-5 px-4">
                 <div class="flex justify-content-center align-items-center text-lg-center">
-                    <h1 class="fw-bold lh-1 mb-3">
+                    <h1 class="display-5 fw-bold lh-2 mb-3">
                         Dukungan teknis perawatan jadwal waktu sholat digital.
                     </h1>
-                    <p class="lead">
+                    <p class="lead" id="description">
                         Setiap langkah dalam proses dilakukan dengan teliti dan penuh
                         perhatian terhadap detail, sehingga produk akhir memiliki estetika
                         yang mengagumkan. Kualitas eksklusif ini menciptakan daya tarik dan
                         nilai tambah yang tinggi bagi konsumen yang mencari produk yang
                         istimewa dan berbeda.
                     </p>
-                    <button class="btn btn-primary">Konsultasi Sekarang</button>
+                    <a href="https://wa.me/6285743909116" target="_blank" class="btn" type="button"
+                        id="btn-consultation">Konsultasi Sekarang</a>
                 </div>
             </div>
         </section>
@@ -295,16 +299,34 @@
         <section class="experience-container">
             <div class="container px-4 py-5">
                 <div class="flex justify-content-center text-center align-items-center">
-                    <h1 class="tittle lh-1 fw-bold">Sebagian Pengalaman Kami</h1>
+                    <h1 class="tittle lh-1 fw-bold mb-3">Sebagian Pengalaman Kami</h1>
                     <div class="row">
                         <div class="image col-md-4 col-sm-6 mb-4">
-                            <img src="company/img/png/2.jpg" class="img-fluid" alt="jam" />
+                            <img src="{{ asset('company/img/jpg/experience-1.jpg') }}" class="img-fluid rounded"
+                                alt="jam" />
+                        </div>
+                        <!-- <div class="image col-md-4 col-sm-6 mb-4">
+                            <img src="/company/img/jpg/experience-2.jpg" class="img-fluid rounded" alt="jam" />
+                        </div>                 -->
+                        <div class="image col-md-4 col-sm-6 mb-4">
+                            <img src="{{ asset('company/img/jpg/experience-3.jpg') }}" class="img-fluid rounded"
+                                alt="jam" />
                         </div>
                         <div class="image col-md-4 col-sm-6 mb-4">
-                            <img src="company/img/png/1.jpg" class="img-fluid" alt="jam" />
+                            <img src="{{ asset('company/img/jpg/experience-4.jpg') }}" class="img-fluid rounded"
+                                alt="jam" />
                         </div>
                         <div class="image col-md-4 col-sm-6 mb-4">
-                            <img src="company/img/png/3.jpg" class="img-fluid" alt="jam" />
+                            <img src="{{ asset('company/img/jpg/experience-5.jpg') }}" class="img-fluid rounded"
+                                alt="jam" />
+                        </div>
+                        <div class="image col-md-4 col-sm-6 mb-4">
+                            <img src="{{ asset('company/img/jpg/experience-6.jpg') }}" class="img-fluid rounded"
+                                alt="jam" />
+                        </div>
+                        <div class="image col-md-4 col-sm-6 mb-4">
+                            <img src="{{ asset('company/img/jpg/experience-7.jpg') }}" class="img-fluid rounded"
+                                alt="jam" />
                         </div>
                     </div>
                 </div>
@@ -313,7 +335,7 @@
         <!-- end experience section -->
 
         <!-- star footer section -->
-        <section class="footer-container">
+        <section class="footer-container bg-body-tertiary">
             <div class="container d-flex flex-column justify-content-between px-4 py-5">
                 <footer>
                     <div class="row justify-content-between row-cols-1 row-cols-sm-2 row-cols-md-5 py-2 my-2">
@@ -321,17 +343,16 @@
                             <h5 class="fw-bold mb-2">Kantor Pusat:</h5>
                             <ul class="nav flex-column mb-2">
                                 <li class="nav-item mb-2">
-                                    <a href="#" class="nav-link p-0 text-body-secondary"
-                                        style="text-align:left;">
+                                    <p class="nav-link p-0 text-body-secondary" style="text-align:left;">
                                         Jl. Wates KM.11 Perum GKP Blok BC.2/11, Sedayu, Kabupaten Bantul,Daerah Istimewa
                                         Yogyakarta, 55752
-                                    </a>
+                                    </p>
                                 </li>
                             </ul>
                             <h5 class="fw-bold mb-2">Kantor Cilacap:</h5>
-                            <a href="#" class="nav-link p-0 text-body-secondary" style="text-align:left;">
+                            <p class="nav-link p-0 text-body-secondary" style="text-align:left;">
                                 Jl. Kemerdekaan Timur No. 2, Kesugihan, Kabupaten Cilacap, Jawa Tengah 53272
-                            </a>
+                            </p>
                         </div>
 
                         <div class="col mb-3">
@@ -373,35 +394,37 @@
 
                         <div class="col mb-3">
                             <h5 class="fw-bold">Sosial Media:</h5>
-                            <ul class="nav flex-column">
-                                <li class="nav-item mb-2">
-                                    <a href="#" class="nav-link p-0 text-body-secondary"><svg class="bi"
-                                            width="24" height="24">
-                                            <use xlink:href="#facebook" />
-                                        </svg></a>
+                            <ul class="nav flex gap-2" id="icons">
+                                <li class="nav-item mb-2 p-1" id="icon-social">
+                                    <a href="#" class="nav-link p-0 text-body-secondary">
+                                        <img src="{{ asset('company/img/svg/icon-instagram.svg') }}" alt=""
+                                            width="30" height="30">
+                                    </a>
                                 </li>
-                                <li class="nav-item mb-2">
-                                    <a href="#" class="nav-link p-0 text-body-secondary"><svg class="bi"
-                                            width="24" height="24">
-                                            <use xlink:href="#facebook" />
-                                        </svg></a>
+                                <li class="nav-item mb-2 p-1" id="icon-social">
+                                    <a href="#" class="nav-link p-0 text-body-secondary">
+                                        <img src="{{ asset('company/img/svg/icon-youtube.svg') }}" alt=""
+                                            width="30" height="30">
+                                    </a>
                                 </li>
-                                <li class="nav-item mb-2">
-                                    <a href="#" class="nav-link p-0 text-body-secondary"><svg class="bi"
-                                            width="24" height="24">
-                                            <use xlink:href="#facebook" />
-                                        </svg></a>
+                                <li class="nav-item mb-2 p-1" id="icon-social">
+                                    <a href="#" class="nav-link p-0 text-body-secondary">
+                                        <img src="{{ asset('company/img/svg/icon-facebook.svg') }}" alt=""
+                                            width="30" height="30">
+                                    </a>
                                 </li>
-                            </ul>
-                            <h5 class="fw-bold">Unduh Aplikasi:</h5>
-                            <ul class="nav flex-column">
-                                <li class="nav-item mb-2">
-                                    <a href="#" class="nav-link p-0 text-body-secondary"><svg class="bi"
-                                            width="24" height="24">
-                                            <use xlink:href="#facebook" />
-                                        </svg></a>
+                                <li class="nav-item mb-2 p-1" id="icon-social">
+                                    <a href="#" class="nav-link p-0 text-body-secondary">
+                                        <img src="{{ asset('company/img/svg/icon-tiktok.svg') }}" alt=""
+                                            width="30" height="30">
+                                    </a>
                                 </li>
                             </ul>
+                            <h5 class="fw-bold" id="Download">Unduh Aplikasi:</h5>
+                            <a href="https://play.google.com/store/apps/details?id=com.shatomedia.taqwa&pcampaignid=web_share" target="_blank" class="nav-link">
+                                <img src="{{ asset('company/img/svg/icon-google.svg') }}" id="google"
+                                    alt="">
+                            </a>
                         </div>
                     </div>
 
@@ -416,10 +439,8 @@
         <!-- end footer section -->
     </main>
     <!-- main end -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     </script>
-    <script src="company/dist/js/bootstrap.bundle.js"></script>
+    <script src="{{ asset('company/dist/js/bootstrap.bundle.js') }}"></script>
 </body>
 
 </html>

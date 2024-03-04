@@ -50,12 +50,12 @@
                                     </td>
                                     <td class="text-center">{{ $item->createdBy->name }}</td>
                                     <td class="text-center">{{ $item->nama }}</td>
-                                    <td class="text-center">{{ $item->deskripsi }}</td>
-                                    <td class="text-center">{{ $item->spesifikasi }}</td>
+                                    <td class="text-center">{{ Str::limit($item->deskripsi, 30) }}</td>
+                                    <td class="text-center">{{ Str::words(strip_tags($item->spesifikasi), 8, '...') }}</td>
                                     <td class="d-flex justify-content-center">
-                                        <a href="{{ route('informasi.edit', $item->id) }}" class="btn btn-sm btn-primary"
+                                        <a href="{{ route('produk.edit', $item->id) }}" class="btn btn-sm btn-primary"
                                             style="margin-right: 5px">Edit</a>
-                                        <form action="{{ route('informasi.destroy', $item->id) }}" method="POST">
+                                        <form action="{{ route('produk.destroy', $item->id) }}" method="POST">
                                             @method('DELETE')
                                             @csrf
                                             <input type="submit" class="btn btn-sm btn-secondary" value="Hapus">

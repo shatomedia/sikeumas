@@ -8,6 +8,14 @@ product
 create-product
 edit-product
 delete-product
+artikel
+create-artikel
+edit-artikel
+delete-artikel
+category-artikel
+create-category-artikel
+edit-category-artikel
+delete-category-artikel
 role
 create-role
 edit-role

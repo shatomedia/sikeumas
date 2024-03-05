@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->longText('konten');
             $table->string('gambar');
-            $table->string('penulis');
+            $table->foreignId('created_by')->index();
             $table->integer('views')->default(0);
             $table->string('status');
             $table->date('publish_date');

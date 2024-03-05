@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Shatomedia | Technology Inspiration</title>
     <meta name="description"
         content="Shatomedia adalah Perusahaan Manufacturing Elektronik yang dapat memberikan bahan baku berkualitas, tahan lama dan pilihan teknologi terkini dengan balutan desain tampilan yang elegant  dan berani memberikan garansi perlindungan sampai 3 tahun.">
@@ -28,7 +28,7 @@
         <div class="container">
             <a class="navbar-brand" href="#">
                 <img src="{{ asset('company/img/png/navbar-logo.png') }}" width="159" height="43"
-                    alt="Shatomedia" />
+                    alt="Shatomedia">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation">
@@ -401,8 +401,8 @@
                     </div>
 
                     <div class="d-flex flex-column flex-sm-row justify-content-between mt-2 border-top">
-                        <p>&copy; 2024 Company, Inc. All rights reserved.</p>
-
+                        <p>&copy; 2024 shatomedia.com</p>
+                        <p>All rights reserved.</p>
                     </div>
                 </footer>
             </div>

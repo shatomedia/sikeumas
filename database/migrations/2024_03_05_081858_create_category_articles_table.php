@@ -11,17 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('articles', function (Blueprint $table) {
+        Schema::create('category_articles', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('category_id')->index();
-            $table->string('judul');
+            $table->string('nama');
             $table->string('slug')->unique();
-            $table->longText('konten');
-            $table->string('gambar');
-            $table->string('penulis');
-            $table->integer('views')->default(0);
-            $table->string('status');
-            $table->date('publish_date');
             $table->timestamps();
         });
     }
@@ -31,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('articles');
+        Schema::dropIfExists('category_articles');
     }
 };

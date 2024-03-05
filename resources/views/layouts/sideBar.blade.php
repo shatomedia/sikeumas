@@ -66,6 +66,18 @@
                             <span>Produk</span>
                         </a>
                     </li>
+                    <li class="sidebar-item {{ request()->routeIs('article.*') ? 'active' : '' }}">
+                        <a href="{{ route('article.index') }}" class='sidebar-link'>
+                            <i class="fas fa-boxes"></i>
+                            <span>Artikel</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item {{ request()->routeIs('category-article.*') ? 'active' : '' }}">
+                        <a href="{{ route('category-article.index') }}" class='sidebar-link'>
+                            <i class="fas fa-boxes"></i>
+                            <span>Kategori Artikel</span>
+                        </a>
+                    </li>
                 @endcan
                 @can('create-role')
                     <li class="sidebar-title">Role & Permission</li>

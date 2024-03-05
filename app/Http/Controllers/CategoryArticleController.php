@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\CategoryArticle;
 use App\Http\Requests\StoreCategoryArticleRequest;
 use App\Http\Requests\UpdateCategoryArticleRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class CategoryArticleController extends Controller
 {
@@ -13,7 +15,8 @@ class CategoryArticleController extends Controller
      */
     public function index()
     {
-        //
+        $categoryArticles = CategoryArticle::all();
+        return view('category-article.index', compact('categoryArticles'));
     }
 
     /**
@@ -21,15 +24,22 @@ class CategoryArticleController extends Controller
      */
     public function create()
     {
-        //
+        return view('category-article.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCategoryArticleRequest $request)
+    public function store(Request $request)
     {
-        //
+        $requestData = $request->validate([
+            'nama' => 'required',
+        ]);
+
+        $requestData['slug'] = Str::slug($request->nama);
+
+        CategoryArticle::create($requestData);
+        return redirect()->route('category-article.index')->with('success', 'Category Article created successfully.');
     }
 
     /**
@@ -43,24 +53,35 @@ class CategoryArticleController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(CategoryArticle $categoryArticle)
+    public function edit($id)
     {
-        //
+        $categoryArticle = CategoryArticle::find($id);
+        return view('category-article.edit', compact('categoryArticle'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCategoryArticleRequest $request, CategoryArticle $categoryArticle)
+    public function update(Request $request, string $id)
     {
-        //
+        $requestData = $request->validate([
+            'name' => 'required',
+        ]);
+
+        $requestData['slug'] = Str::slug($request->nama);
+
+        $categoryArticle = CategoryArticle::find($id);
+        $categoryArticle->update($requestData);
+        return redirect()->route('category-article.index')->with('success', 'Category Article updated successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(CategoryArticle $categoryArticle)
+    public function destroy($id)
     {
-        //
+        $categoryArticle = CategoryArticle::find($id);
+        $categoryArticle->delete();
+        return redirect()->route('category-article.index')->with('success', 'Category Article deleted successfully.');
     }
 }

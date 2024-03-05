@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CategoryArticleController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\LoginController;
@@ -38,6 +40,8 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::resource('tenant', TenantController::class);
     Route::resource('produk', ProductController::class);
+    Route::resource('article', ArticleController::class);
+    Route::resource('category-article', CategoryArticleController::class);
     Route::resource('users', UserController::class);
     Route::resource('resellers', ResellerController::class);
     Route::resource('profile', UserProfileController::class);

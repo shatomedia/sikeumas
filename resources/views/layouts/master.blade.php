@@ -21,8 +21,6 @@
     <link rel="stylesheet"
         href="{{ asset('assets/extensions/filepond-plugin-image-preview/filepond-plugin-image-preview.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/extensions/toastify-js/src/toastify.css') }}">
-
-
 </head>
 
 <body>
@@ -30,7 +28,7 @@
     <div id="app">
         @include('layouts.sideBar')
         <div id="main" class='layout-navbar navbar-fixed'>
-            @include('layouts.navbar')
+            @include('layouts.navBar')
             <div id="main-content">
                 {{-- Start Menampilkan Alert Success --}}
                 @if (session()->has('success'))

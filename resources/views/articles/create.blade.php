@@ -54,12 +54,12 @@
                                 <label for="konten">Isi Artikel</label>
                             </div>
                             <div class="col-md-12 form-group">
-                                <textarea class="form-control" id="konten" name="konten" rows="3"></textarea>
+                                <div id="hint"></div>
                             </div>
                             <div class="col-md-12">
                                 <label for="foto">Gambar</label>
                             </div>
-                            <div class="col-12 col-md-6 form-group">
+                            <div class="col-12 col-md-8 form-group">
                                 <input type="file" id="foto" name="foto" class="image-preview-filepond">
                             </div>
 

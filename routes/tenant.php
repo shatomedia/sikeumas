@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\API\GetInformasiController;
 use App\Http\Controllers\API\GetKasController;
+use App\Http\Controllers\API\GetKategoriInformasiController;
 use App\Http\Controllers\Tenant\CategoryController;
 use App\Http\Controllers\Tenant\DashboardController;
 use App\Http\Controllers\Tenant\InfaqController;
@@ -74,4 +76,6 @@ Route::middleware([
     PreventAccessFromCentralDomains::class,
 ])->group(function () {
     Route::get('/get-kas', [GetKasController::class, 'index'])->name('get-kas');
+    Route::get('/get-kategori-informasi', [GetKategoriInformasiController::class, 'index'])->name('get-kategori-informasi');
+    Route::get('/get-informasi', [GetInformasiController::class, 'index'])->name('get-informasi');
 });

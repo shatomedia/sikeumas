@@ -17,4 +17,9 @@ class Informasi extends Model
 
     protected $contentName = 'konten';
     protected $guarded = [];
+
+    public function kategori()
+    {
+        return $this->belongsTo(Category::class, 'kategori_id');
+    }
 }

@@ -2,7 +2,7 @@
     --primary-color: #f5811e;
     --secondary-color: #000000;
     --white-color: #ffff;
-    --peach-color: ##FFCEA4;
+    --peach-color: ##ffcea4;
 }
 
 @media (min-width: 992px) {
@@ -35,11 +35,9 @@ nav {
 .dropdown:hover .dropdown-menu {
     display: block;
 }
-
 .dropdown-menu .dropdown-item {
     transition: 0.5s;
 }
-
 .dropdown-menu .dropdown-item:hover {
     color: var(--primary-color);
 }
@@ -76,14 +74,10 @@ nav {
     font-size: 14px;
     transition: 0.5s;
 }
-
 .btn-login #btn-login:hover {
-    color: var(--secondary-color);
-    /* Meningkatkan kecerahan saat hover */
+    color: var(--secondary-color); /* Meningkatkan kecerahan saat hover */
 }
-
 /* navbar section end */
-
 
 /* section heroes start */
 .first-container #tittle-heroes {
@@ -91,20 +85,17 @@ nav {
     /* font-weight: 700;
     line-height: 1.2; */
 }
-
-.first-container #btn-dapatkan {
+.first-container #btn-getNow {
     background-color: var(--primary-color);
     color: var(--white-color);
     transition: 0.5s;
 }
-
-.first-container #btn-dapatkan:hover {
+.first-container #btn-getNow:hover {
     color: var(--secondary-color);
     filter: brightness(1.2);
 }
 
 /* section heroes end */
-
 
 /* best section start*/
 .best-container .collection .card {
@@ -112,52 +103,46 @@ nav {
     transition: 0.5s;
     border-radius: 10px 10px 10px 10px;
 }
-
 .best-container .card:hover {
     scale: 1.05;
 }
-
 .best-container .card img {
-    height: 100%;
     border-radius: 10px 10px 0 0;
-    object-fit: cover;
 }
-
 .best-container #description {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    /*Aturjumlahbarismaksimumyanginginditampilkan*/
+    -webkit-box-orient: vertical;
     text-align: justify;
 }
-
 .best-container #btn-buyNow {
     background-color: var(--primary-color);
     color: var(--white-color);
 }
-
 /* best section end */
 
 /* intro section start */
 .intro-container #description {
     text-align: justify;
 }
-
 .intro-container #btn-download {
     background-color: var(--primary-color);
     color: var(--white-color);
     transition: 0.5s;
 }
-
 .intro-container #btn-download:hover {
     color: var(--secondary-color);
 }
-
 /* intro section end */
 
 /* time section start */
 .time-container #card {
-    background-color: #FFCEA4;
+    background-color: #ffcea4;
     border: none;
     border-radius: 10px;
 }
-
 /* time section end */
 
 /* gallery section start */
@@ -170,7 +155,6 @@ nav {
     position: relative;
     transition: 0.5s;
 }
-
 .gallery-container .row .image .img-fluid:hover {
     scale: 1.05;
 }
@@ -179,37 +163,30 @@ nav {
     background-color: var(--primary-color);
     color: var(--white-color);
 }
-
 .gallery-container #btn-getNow:hover {
     color: var(--secondary-color);
 }
-
 /* gallery section end */
 
 /* quality section start */
 .quality-container #description {
     text-align: justify;
 }
-
 /* quality section end */
 
 /* support section start */
 .support-container #description {
     text-align: justify;
 }
-
 .support-container #btn-consultation {
     background-color: var(--primary-color);
     color: var(--white-color);
     transition: 0.4s;
 }
-
 .support-container #btn-consultation:hover {
     color: var(--secondary-color);
 }
-
 /* support section end */
-
 
 /* experience section start */
 
@@ -226,30 +203,178 @@ nav {
     width: 100%;
     height: 100%;
 }
-
 .experience-container .row .image .img-fluid:hover {
     scale: 1.05;
 }
-
 /* experience section end */
 
 /* footer section start */
 .footer-container #icons {
     max-width: 180px;
 }
-
 .footer-container #icon-social {
     background-color: var(--primary-color);
     border-radius: 10px;
     align-items: center;
 }
-
 .footer-container #google {
     max-width: 235px;
 }
-
 /* .footer-container #Download{
     padding-bottom: 1vh;
 } */
 
-/* footer section end */
+/* jadwal waktu sholat html start*/
+
+/* section hero start */
+.hero-container {
+    background-image: url(/assets/img/png/jws-bg.png);
+}
+/* section hero end */
+
+.help-container #card {
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 10px;
+}
+
+.help-container #btn-consultation {
+    background-color: var(--white-color);
+    color: var(--secondary-color);
+    transition: 0.4s;
+}
+
+.help-container #btn-consultation:hover {
+    color: var(--primary-color);
+    scale: 1.1;
+}
+/* jadwal waktu sholat html end*/
+
+/* jadwal waktu sholat produk start*/
+
+/* section product start */
+.product-hero {
+    background-image: url(/assets/img/png/support.jpg);
+}
+.product-hero #description {
+    color: var(--white-color);
+}
+.product-hero #tittle {
+    color: var(--white-color);
+}
+.product-hero .container .row {
+    min-height: 500px;
+}
+
+.ratio-16x9 {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* Rasio 16:9 */
+}
+
+.ratio-16x9 iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    /*UbahnilaisesuaikeinginanAnda*/
+}
+
+.neumorphic-card {
+    background-color: #f0f0f0; /* Warna latar belakang */
+    border-radius: 20px; /* Border radius */
+    box-shadow: 5px 5px 15px #bebebe, -5px -5px 15px #ffffff; /* Bayangan neumorphic */
+    padding: 20px; /* Padding */
+    transition: box-shadow 0.3s ease; /* Animasi bayangan */
+    border: none;
+}
+
+/* Hover effect */
+.neumorphic-card:hover {
+    box-shadow: 10px 10px 20px #bebebe, -10px -10px 20px #ffffff; /* Bayangan yang lebih besar saat dihover */
+}
+
+/* Styling untuk gambar di dalam kartu */
+.neumorphic-card .card-img-top {
+    border-radius: 10px; /* Border radius gambar */
+}
+
+/* Styling untuk judul */
+.neumorphic-card .card-title {
+    font-size: 1.5rem; /* Ukuran font judul */
+}
+
+/* Styling untuk harga */
+.neumorphic-card #product-price {
+    font-size: 1.2rem; /* Ukuran font harga */
+}
+/* Styling untuk tombol */
+.neumorphic-btn {
+    background-color: #f0f0f0; /* Warna latar belakang */
+    color: #000000;
+    border: none; /* Tidak ada border */
+    border-radius: 10px; /* Border radius */
+    padding: 10px 20px; /* Padding */
+    transition: all 0.3s ease; /* Animasi transisi */
+    cursor: pointer; /* Kursor pointer */
+    box-shadow: 5px 5px 15px #bebebe, -5px -5px 15px #ffffff; /* Bayangan neumorphic */
+}
+
+/* Hover effect */
+.neumorphic-btn:hover {
+    box-shadow: 10px 10px 20px #bebebe, -10px -10px 20px #ffffff; /* Bayangan yang lebih besar saat dihover */
+    transform: translateY(-2px); /* Efek naik sedikit saat dihover */
+}
+
+/* Styling untuk gambar di dalam tombol */
+.neumorphic-btn img {
+    float: left;
+    margin-left: 30px; /* Jarak antara ikon dan teks */
+}
+.btn-whatsapp:hover {
+    background-color: #25d366;
+    color: #f0f0f0;
+}
+.btn-shopee:hover {
+    background-color: #ee4d2d;
+    color: #f0f0f0;
+}
+.btn-tokopedia:hover {
+    background-color: #41b549;
+    color: #f0f0f0;
+}
+.btn-lazada:hover {
+    background-color: #000083;
+    color: #f0f0f0;
+}
+/* section product end */
+/* jadwal waktu sholat produk end*/
+
+/* pages blog start */
+
+/* section blog=container start */
+.blog-container .row h3 {
+    border-bottom: 1px solid #000000;
+}
+.features-card {
+    flex: 1;
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px #bebebe, -5px -5px 15px #ffffff;
+    /*padding: 5px;
+    */
+    transition: box-shadow 0.3s ease;
+    border: none;
+}
+.features-card:hover {
+    box-shadow: 10px 10px 20px #bebebe, -10px -10px 20px #ffffff;
+}
+.features-card .card-img-top {
+    border-radius: 10px;
+}
+.features-card .card-title {
+    text-align: justify;
+    line-height: 1rem;
+}

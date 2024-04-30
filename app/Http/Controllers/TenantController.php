@@ -72,8 +72,11 @@ class TenantController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Tenant $tenant)
+    public function destroy(String $id)
     {
-        //
+        $tenant = Tenant::findOrFail($id);
+        $tenant->delete();
+
+        return redirect()->route('tenant.index')->with('success', 'Tenant deleted successfully.');
     }
 }

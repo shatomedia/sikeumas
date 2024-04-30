@@ -25,7 +25,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [LandingController::class, 'index']);
+Route::get('/', [LandingController::class, 'index'])->name('beranda');
+Route::get('/tentang-kami', [LandingController::class, 'aboutUs'])->name('about-us');
+Route::get('/produk', [LandingController::class, 'product'])->name('product');
+Route::get('/produk/{slug}', [LandingController::class, 'productDetail'])->name('product-detail');
+Route::get('/artikel', [LandingController::class, 'article'])->name('blog');
+Route::get('/artikel/{slug}', [LandingController::class, 'articleDetail'])->name('article-detail');
+Route::get('/kontak', [LandingController::class, 'contact'])->name('contact');
 
 Route::group(['middleware' => ['web']], function () {
     Route::get('/login', [LoginController::class, 'index'])->name('login');

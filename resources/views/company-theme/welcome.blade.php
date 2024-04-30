@@ -19,7 +19,7 @@
                         Kementerian Agama Republik Indonesia
                     </p>
                     <div class="d-grid gap-4 d-flex justify-content-md-start align-items-center">
-                        <a href="#bestContainer" type="button" id="btn-dapatkan" class="btn fw-bold">
+                        <a href="#bestContainer" type="button" id="btn-getNow" class="btn fw-bold">
                             Dapatkan Sekarang
                         </a>
                         <label class="fw-bold" id="label">

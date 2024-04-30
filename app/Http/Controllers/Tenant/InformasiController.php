@@ -50,17 +50,25 @@ class InformasiController extends Controller
             'tanggal' => 'required|date',
             'judul' => 'required',
             'konten' => 'required',
-            'gambar' => 'required|max:2048'
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048' // Perbarui aturan validasi untuk file gambar
         ]);
 
-        $fileName = time() . rand(1, 200) . '.' . $request->file('gambar')->getClientOriginalExtension();
-        $request->file('gambar')->move(public_path('uploads'), $fileName);
+        // Periksa apakah ada file gambar yang diunggah
+        if ($request->hasFile('gambar')) {
+            // Simpan file gambar
+            $fileName = time() . rand(1, 200) . '.' . $request->file('gambar')->getClientOriginalExtension();
+            $request->file('gambar')->move(public_path('uploads'), $fileName);
+            $requestData['gambar'] = $fileName; // Simpan nama file gambar ke dalam data yang akan disimpan
+        } else {
+            // Jika tidak ada file gambar yang diunggah, atur nilai gambar menjadi null atau sesuai dengan kebutuhan aplikasi Anda
+            $requestData['gambar'] = null;
+        }
 
-        $requestData['gambar'] = $fileName;
         Informasi::create($requestData);
 
         return redirect()->route('informasi.index')->with('success', 'Informasi berhasil ditambahkan');
     }
+
 
 
     /**

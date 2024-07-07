@@ -1,11 +1,11 @@
 <?php
 
-function formatRupiah($nomial, $prefix = false)
+function formatRupiah($nominal, $prefix = false)
 {
-  if ($prefix != null) {
-    return "Rp. " . number_format($nomial, 0, ',', '.');
+  if ($prefix !== false) {
+    return "Rp. " . number_format($nominal, 0, ',', '.');
   } else {
-    return  number_format($nomial, 0, ',', '.');
+    return number_format($nominal, 0, ',', '.');
   }
 }
 
@@ -26,5 +26,5 @@ function ubahAngkaToBulan($bulanAngka)
     '11' => 'November',
     '12' => 'Desember'
   ];
-  return $bulanArray[$bulanAngka + 0];
+  return $bulanArray[$bulanAngka];
 }

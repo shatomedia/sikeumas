@@ -6,8 +6,8 @@
         <div class="container align-items-center px-4 py-lg-5">
             <div class="row flex-lg-row-reverse justify-content-center align-items-center g-5 py-lg-5">
                 <div class="col-lg-5 col-md-8 mx-auto">
-                    <img src="/assets/img/png/hero-about-1.png" class="d-block mx-lg-auto img-fluid" alt="Shatomedia"
-                        width="700" height="500" loading="lazy" />
+                    <img src="{{ asset('company/img/png/hero-about-1.png') }}" class="d-block mx-lg-auto img-fluid"
+                        alt="Shatomedia" width="700" height="500" loading="lazy" />
                 </div>
                 <div class="col-lg-7 col-md-12">
 

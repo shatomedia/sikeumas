@@ -15,7 +15,7 @@
                         href="{{ route('beranda') }}">Beranda</a>
                 </li>
                 <li class="nav-item mx-2">
-                    <a class="nav-link {{ Request::is('/tentang-kami') }}" aria-current="page"
+                    <a class="nav-link {{ Request::is('tentang-kami') }}" aria-current="page"
                         href="{{ route('about-us') }}">Tentang Kami</a>
                 </li>
                 <li class="nav-item mx-2 dropdown">

@@ -23,7 +23,7 @@
     <section class="section">
         <div class="card">
             <div class="card-header">
-                <a href="{{ route('produk.create') }}" class="btn btn-primary float-end">Tambah Produk</a>
+                <a href="{{ route('product.create') }}" class="btn btn-primary float-end">Tambah Produk</a>
             </div>
             <div class="card-body">
                 <div class="table-responsive datatable-minimal">
@@ -53,9 +53,9 @@
                                     <td class="text-center">{{ Str::limit($item->deskripsi, 30) }}</td>
                                     <td class="text-center">{{ Str::words(strip_tags($item->spesifikasi), 8, '...') }}</td>
                                     <td class="d-flex justify-content-center">
-                                        <a href="{{ route('produk.edit', $item->id) }}" class="btn btn-sm btn-primary"
+                                        <a href="{{ route('product.edit', $item->id) }}" class="btn btn-sm btn-primary"
                                             style="margin-right: 5px">Edit</a>
-                                        <form action="{{ route('produk.destroy', $item->id) }}" method="POST">
+                                        <form action="{{ route('product.destroy', $item->id) }}" method="POST">
                                             @method('DELETE')
                                             @csrf
                                             <input type="submit" class="btn btn-sm btn-secondary" value="Hapus">

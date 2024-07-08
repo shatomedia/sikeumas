@@ -15,16 +15,8 @@ class CategoryArticleController extends Controller
      */
     public function index()
     {
-        $categoryArticles = CategoryArticle::all();
+        $categoryArticles = CategoryArticle::OrderBy('id', 'DESC')->get();
         return view('category-article.index', compact('categoryArticles'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        return view('category-article.create');
     }
 
     /**
@@ -51,22 +43,14 @@ class CategoryArticleController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit($id)
-    {
-        $categoryArticle = CategoryArticle::find($id);
-        return view('category-article.edit', compact('categoryArticle'));
-    }
-
-    /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
     {
         $requestData = $request->validate([
-            'name' => 'required',
+            'nama' => 'required',
         ]);
+        
 
         $requestData['slug'] = Str::slug($request->nama);
 

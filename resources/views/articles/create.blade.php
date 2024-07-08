@@ -44,23 +44,30 @@
                                     placeholder="Judul">
                             </div>
                             <div class="col-md-3">
-                                <label for="judul">Kategori</label>
+                                <label for="kategori">Kategori</label>
                             </div>
                             <div class="col-md-12 form-group">
-                                <input type="text" id="judul" class="form-control mb-3" name="judul"
-                                    placeholder="Judul">
+                                <select id="kategori" class="form-control" name="kategori">
+                                    <option value="">Pilih Kategori</option>
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}">{{ $category->nama }}</option>
+                                    @endforeach
+                                </select>
                             </div>
+
                             <div class="col-md-12">
                                 <label for="konten">Isi Artikel</label>
                             </div>
                             <div class="col-md-12 form-group">
-                                <div id="hint"></div>
+                                <textarea id="dark" cols="30" rows="10"></textarea>
                             </div>
                             <div class="col-md-12">
                                 <label for="foto">Gambar</label>
                             </div>
                             <div class="col-12 col-md-8 form-group">
-                                <input type="file" id="foto" name="foto" class="image-preview-filepond">
+                                {{-- <input type="file" id="foto" name="foto" class="image-preview-filepond"> --}}
+                                <!-- Auto resize image file uploader -->
+                                <input type="file" class="image-resize-filepond">
                             </div>
 
                             <div class="col-sm-12 d-flex justify-content-start">

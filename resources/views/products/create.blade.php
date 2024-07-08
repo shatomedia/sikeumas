@@ -31,7 +31,7 @@
             @endif
 
             <div class="card-body">
-                <form class="form form-horizontal" action="{{ route('produk.store') }}" method="POST"
+                <form class="form form-horizontal" action="{{ route('product.store') }}" method="POST"
                     enctype="multipart/form-data">
                     @csrf
                     <div class="form-body">

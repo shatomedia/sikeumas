@@ -3,13 +3,14 @@
         <div class="sidebar-header position-relative">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="logo">
-                    <a href="{{ route('dashboard') }}"><img src="{{ asset('assets/compiled/svg/logo.svg') }}"
-                            alt="Logo" srcset=""></a>
+                    <a href="{{ route('dashboard') }}">
+                        <h5>Sikeumas</h5>
+                    </a>
                 </div>
                 <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                        aria-hidden="true" role="img" class="iconify iconify--system-uicons" width="20"
-                        height="20" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+                        role="img" class="iconify iconify--system-uicons" width="20" height="20"
+                        preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21">
                         <g fill="none" fill-rule="evenodd" stroke="currentColor" stroke-linecap="round"
                             stroke-linejoin="round">
                             <path
@@ -60,21 +61,21 @@
                 @endcan
                 @can('create-product')
                     <li class="sidebar-title">Company Profile</li>
-                    <li class="sidebar-item {{ request()->routeIs('produk.*') ? 'active' : '' }}">
-                        <a href="{{ route('produk.index') }}" class='sidebar-link'>
+                    <li class="sidebar-item {{ request()->routeIs('product.*') ? 'active' : '' }}">
+                        <a href="{{ route('product.index') }}" class='sidebar-link'>
                             <i class="fas fa-boxes"></i>
                             <span>Produk</span>
                         </a>
                     </li>
                     <li class="sidebar-item {{ request()->routeIs('article.*') ? 'active' : '' }}">
                         <a href="{{ route('article.index') }}" class='sidebar-link'>
-                            <i class="fas fa-boxes"></i>
+                            <i class="fas fa-feather-alt"></i>
                             <span>Artikel</span>
                         </a>
                     </li>
                     <li class="sidebar-item {{ request()->routeIs('category-article.*') ? 'active' : '' }}">
                         <a href="{{ route('category-article.index') }}" class='sidebar-link'>
-                            <i class="fas fa-boxes"></i>
+                            <i class="fas fa-signature"></i>
                             <span>Kategori Artikel</span>
                         </a>
                     </li>

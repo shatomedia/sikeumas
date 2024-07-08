@@ -11,4 +11,9 @@ class Article extends Model
     use HasFactory;
     use HasCreatedBy;
     protected $guraded = [];
+
+    public function categoryArtikel()
+    {
+        return $this->belongsTo(CategoryArticle::class);
+    }
 }

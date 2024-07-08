@@ -45,7 +45,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::resource('tenant', TenantController::class);
-    Route::resource('produk', ProductController::class);
+    Route::resource('product', ProductController::class);
     Route::resource('article', ArticleController::class);
     Route::resource('category-article', CategoryArticleController::class);
     Route::resource('users', UserController::class);

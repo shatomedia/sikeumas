@@ -121,6 +121,8 @@
     <!-- Need: Apexcharts -->
     <script src="{{ asset('assets/extensions/apexcharts/apexcharts.min.js') }}"></script>
     <script src="{{ asset('assets/static/js/pages/dashboard.js') }}"></script>
+    <script src="{{ asset('assets/extensions/tinymce/tinymce.min.js') }}"></script>
+    <script src="{{ asset('assets/static/js/pages/tinymce.js') }}"></script>
 
     <script>
         $document.ready(function() {

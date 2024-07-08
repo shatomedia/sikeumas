@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Http\Requests\StoreArticleRequest;
 use App\Http\Requests\UpdateArticleRequest;
+use App\Models\CategoryArticle;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -23,7 +24,9 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view('articles.create');
+        $categories = CategoryArticle::all();
+
+        return view('articles.create', compact('categories'));
     }
 
     /**

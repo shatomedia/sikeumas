@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('category_id')->index();
+            $table->unsignedBigInteger('category_id');
             $table->string('judul');
             $table->string('slug')->unique();
             $table->longText('konten');
@@ -23,6 +23,8 @@ return new class extends Migration
             $table->string('status');
             $table->date('publish_date');
             $table->timestamps();
+
+            $table->foreign('category_id')->references('id')->on('category_articles')->onDelete('cascade');
         });
     }
 

@@ -1,8 +1,8 @@
 :root {
     --primary-color: #f5811e;
     --secondary-color: #000000;
-    --white-color: #ffff;
-    --peach-color: ##ffcea4;
+    --white-color:#ffff;
+    --peach-color:##FFCEA4;
 }
 
 @media (min-width: 992px) {
@@ -35,7 +35,7 @@ nav {
 .dropdown:hover .dropdown-menu {
     display: block;
 }
-.dropdown-menu .dropdown-item {
+.dropdown-menu .dropdown-item{
     transition: 0.5s;
 }
 .dropdown-menu .dropdown-item:hover {
@@ -75,71 +75,72 @@ nav {
     transition: 0.5s;
 }
 .btn-login #btn-login:hover {
-    color: var(--secondary-color); /* Meningkatkan kecerahan saat hover */
+    color: var(--secondary-color) ; /* Meningkatkan kecerahan saat hover */
 }
 /* navbar section end */
 
+
 /* section heroes start */
-.first-container #tittle-heroes {
+.first-container #tittle-heroes{
     color: var(--secondary-color);
     /* font-weight: 700;
     line-height: 1.2; */
 }
-.first-container #btn-getNow {
+.first-container #btn-getNow{
     background-color: var(--primary-color);
     color: var(--white-color);
     transition: 0.5s;
 }
-.first-container #btn-getNow:hover {
+.first-container #btn-getNow:hover{
     color: var(--secondary-color);
     filter: brightness(1.2);
 }
 
 /* section heroes end */
 
+
 /* best section start*/
-.best-container .collection .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+.best-container .collection .card{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.5s;
     border-radius: 10px 10px 10px 10px;
 }
 .best-container .card:hover {
     scale: 1.05;
 }
-.best-container .card img {
+.best-container .card img{
     border-radius: 10px 10px 0 0;
 }
 .best-container #description {
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 5;
-    /*Aturjumlahbarismaksimumyanginginditampilkan*/
-    -webkit-box-orient: vertical;
+    /*Aturjumlahbarismaksimumyanginginditampilkan*/-webkit-box-orient: vertical;
     text-align: justify;
 }
-.best-container #btn-buyNow {
+.best-container #btn-buyNow{
     background-color: var(--primary-color);
     color: var(--white-color);
 }
 /* best section end */
 
 /* intro section start */
-.intro-container #description {
+.intro-container #description{
     text-align: justify;
 }
-.intro-container #btn-download {
+.intro-container #btn-download{
     background-color: var(--primary-color);
     color: var(--white-color);
     transition: 0.5s;
 }
-.intro-container #btn-download:hover {
+.intro-container #btn-download:hover{
     color: var(--secondary-color);
 }
 /* intro section end */
 
 /* time section start */
-.time-container #card {
-    background-color: #ffcea4;
+.time-container #card{
+    background-color: #FFCEA4;
     border: none;
     border-radius: 10px;
 }
@@ -148,7 +149,7 @@ nav {
 /* gallery section start */
 .gallery-container .row .image .img-fluid {
     border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -159,34 +160,35 @@ nav {
     scale: 1.05;
 }
 
-.gallery-container #btn-getNow {
+.gallery-container #btn-getNow{
     background-color: var(--primary-color);
     color: var(--white-color);
 }
-.gallery-container #btn-getNow:hover {
+.gallery-container #btn-getNow:hover{
     color: var(--secondary-color);
 }
 /* gallery section end */
 
 /* quality section start */
-.quality-container #description {
+.quality-container #description{
     text-align: justify;
 }
 /* quality section end */
 
 /* support section start */
-.support-container #description {
+.support-container #description{
     text-align: justify;
 }
-.support-container #btn-consultation {
+.support-container #btn-consultation{
     background-color: var(--primary-color);
     color: var(--white-color);
     transition: 0.4s;
 }
-.support-container #btn-consultation:hover {
+.support-container #btn-consultation:hover{
     color: var(--secondary-color);
 }
 /* support section end */
+
 
 /* experience section start */
 
@@ -194,57 +196,57 @@ nav {
     max-height: 300px;
 } */
 .experience-container .row .image .img-fluid {
-    position: relative;
+    position:relative;
     object-fit: fill;
     box-shadow: 0 5px 9px 0 rgba(0, 0, 0, 0.2);
     /*object-fit: contain;
-    */
-    transition: 0.5s;
+    */transition: 0.5s;
     width: 100%;
     height: 100%;
 }
-.experience-container .row .image .img-fluid:hover {
+.experience-container .row .image .img-fluid:hover{
     scale: 1.05;
 }
 /* experience section end */
 
 /* footer section start */
-.footer-container #icons {
+.footer-container #icons{
     max-width: 180px;
 }
-.footer-container #icon-social {
+.footer-container #icon-social{
     background-color: var(--primary-color);
     border-radius: 10px;
     align-items: center;
 }
-.footer-container #google {
+.footer-container #google{
     max-width: 235px;
 }
 /* .footer-container #Download{
     padding-bottom: 1vh;
 } */
 
+
 /* jadwal waktu sholat html start*/
 
 /* section hero start */
-.hero-container {
+.hero-container{
     background-image: url(/assets/img/png/jws-bg.png);
 }
 /* section hero end */
 
-.help-container #card {
+.help-container #card{
     background-color: var(--primary-color);
     border: none;
     border-radius: 10px;
 }
 
-.help-container #btn-consultation {
+.help-container #btn-consultation{
     background-color: var(--white-color);
     color: var(--secondary-color);
     transition: 0.4s;
 }
 
-.help-container #btn-consultation:hover {
+.help-container #btn-consultation:hover{
     color: var(--primary-color);
     scale: 1.1;
 }
@@ -253,17 +255,17 @@ nav {
 /* jadwal waktu sholat produk start*/
 
 /* section product start */
-.product-hero {
+.product-hero{
     background-image: url(/assets/img/png/support.jpg);
 }
-.product-hero #description {
+.product-hero #description{
     color: var(--white-color);
 }
-.product-hero #tittle {
+.product-hero #tittle{
     color: var(--white-color);
 }
-.product-hero .container .row {
-    min-height: 500px;
+.product-hero .container .row{
+    min-height: 565px;
 }
 
 .ratio-16x9 {
@@ -310,7 +312,7 @@ nav {
 .neumorphic-card #product-price {
     font-size: 1.2rem; /* Ukuran font harga */
 }
-/* Styling untuk tombol */
+ /* Styling untuk tombol */
 .neumorphic-btn {
     background-color: #f0f0f0; /* Warna latar belakang */
     color: #000000;
@@ -333,19 +335,19 @@ nav {
     float: left;
     margin-left: 30px; /* Jarak antara ikon dan teks */
 }
-.btn-whatsapp:hover {
+.btn-whatsapp:hover{
     background-color: #25d366;
     color: #f0f0f0;
 }
-.btn-shopee:hover {
-    background-color: #ee4d2d;
+.btn-shopee:hover{
+    background-color: #EE4D2D;
     color: #f0f0f0;
 }
-.btn-tokopedia:hover {
+.btn-tokopedia:hover{
     background-color: #41b549;
     color: #f0f0f0;
 }
-.btn-lazada:hover {
+.btn-lazada:hover{
     background-color: #000083;
     color: #f0f0f0;
 }
@@ -355,18 +357,21 @@ nav {
 /* pages blog start */
 
 /* section blog=container start */
-.blog-container .row h3 {
+.blog-container .row h3{
     border-bottom: 1px solid #000000;
 }
-.features-card {
+.features-card{
     flex: 1;
     background-color: #f0f0f0;
     border-radius: 15px;
     box-shadow: 5px 5px 15px #bebebe, -5px -5px 15px #ffffff;
     /*padding: 5px;
-    */
-    transition: box-shadow 0.3s ease;
+    */transition: box-shadow 0.3s ease;
     border: none;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
 }
 .features-card:hover {
     box-shadow: 10px 10px 20px #bebebe, -10px -10px 20px #ffffff;
@@ -374,7 +379,145 @@ nav {
 .features-card .card-img-top {
     border-radius: 10px;
 }
-.features-card .card-title {
+.features-card .card-title{
     text-align: justify;
     line-height: 1rem;
 }
+/* section blog=container end */
+/* pages blog end */
+
+/* pages about start */
+
+/* section about start */
+.about-hero{
+    background-image: url(/assets/img/png/jws-bg.png);
+}
+.about-hero #tittle-heroes{
+    font-size: 3rem;
+    color: var(--primary-color);
+}
+/* section about end */
+
+/* section history start */
+
+/* The actual timeline (the vertical ruler) */
+.main-timeline {
+    position: relative;
+}
+
+/* The actual timeline (the vertical ruler) */
+.main-timeline::after {
+    content: "";
+    position: absolute;
+    width: 6px;
+    background-color: #939597;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+}
+
+/* Container around content */
+.timeline {
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+}
+
+/* The circles on the timeline */
+.timeline::after {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -13px;
+    background-color: #939597;
+    border: 5px solid #f5df4d;
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* Place the container to the left */
+.left {
+    padding: 0px 40px 20px 0px;
+    left: 0;
+}
+
+/* Place the container to the right */
+.right {
+    padding: 0px 0px 20px 40px;
+    left: 50%;
+}
+
+/* Add arrows to the left container (pointing right) */
+.left::before {
+    content: " ";
+    position: absolute;
+    top: 18px;
+    z-index: 1;
+    right: 30px;
+    border: medium solid white;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent white;
+}
+
+/* Add arrows to the right container (pointing left) */
+.right::before {
+    content: " ";
+    position: absolute;
+    top: 18px;
+    z-index: 1;
+    left: 30px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+}
+
+/* Fix the circle for containers on the right side */
+.right::after {
+    left: -12px;
+}
+
+/* Media queries - Responsive timeline on screens less than 600px wide */
+@media screen and (max-width: 600px) {
+
+    /* Place the timelime to the left */
+    .main-timeline::after {
+        left: 31px;
+    }
+
+    /* Full-width containers */
+    .timeline {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+
+    /* Make sure that all arrows are pointing leftwards */
+    .timeline::before {
+        left: 60px;
+        border: medium solid white;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent white transparent transparent;
+    }
+
+    /* Make sure all circles are at the same spot */
+    .left::after,
+    .right::after {
+        left: 18px;
+    }
+
+    .left::before {
+        right: auto;
+    }
+
+    /* Make all right containers behave like the left ones */
+    .right {
+        left: 0%;
+    }
+}
+/* section history end */
+
+/* about end */
+

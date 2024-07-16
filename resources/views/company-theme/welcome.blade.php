@@ -34,19 +34,25 @@
 
     <!-- best section start -->
     <section class="best-container" id="bestContainer">
-        <div class="container align-items-center text-center px-4 py-5">
-            <h2 class="display-5 fw-bold mt-xl-3 mb-4">Koleksi Terbaik</h2>
+        <div class="container align-items-center text-center px-4 py-lg-5">
+            <h1 class="fw-bold mt-xl-3 mb-4">Koleksi Terbaik</h1>
             <div class="row gy-4">
                 @foreach ($bestProducts as $item)
-                    <div class="collection col-lg-4">
-                        <div class="card">
-                            <img src="{{ asset('products/' . $item->foto) }}" class="card-img-top" alt=""
-                                style="object-fit: cover; width: 100%; height: 250px;">
+                    <div class="collection col-lg-4 col-md-6">
+                        <div class="card h-100">
+                            <img src="{{ asset('products/' . $item->foto) }}" alt="" />
                             <div class="card-body">
-                                <h5 class="fw-bold text-body-emphasis" id="tittle">{{ $item->nama }}
+                                <h5 class="fw-bold text-body-emphasis" id="tittle">
+                                    {{ $item->nama }}
                                 </h5>
-                                <p class="text-description" id="description">{{ $item->deskripsi }}</p>
-                                <a href="#" class="btn" id="btn-buyNow">Beli Sekarang</a>
+                                <p class="text-description" id="description">
+                                    {{ $item->deskripsi }}
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="#" type="button" class="btn btn-primery" id="btn-buyNow">
+                                    Beli Sekarang
+                                </a>
                             </div>
                         </div>
                     </div>

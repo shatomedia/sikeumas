@@ -26,7 +26,9 @@
 <body>
     <script src="{{ asset('assets/static/js/initTheme.js') }}"></script>
     <div id="app">
-        @include('layouts.sideBar')
+        <div id="sidebar">
+            @include('layouts.sideBar')
+        </div>
         <div id="main" class='layout-navbar navbar-fixed'>
             @include('layouts.navBar')
             <div id="main-content">

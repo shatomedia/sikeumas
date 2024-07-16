@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('nama');
             $table->string('foto');
             $table->text('deskripsi');
-            $table->string('spesifikasi');
+            $table->longText('spesifikasi');
             $table->foreignId('created_by')->index();
             $table->timestamps();
         });

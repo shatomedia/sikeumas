@@ -11,16 +11,16 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item mx-2">
-                    <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" aria-current="page"
+                    <a class="nav-link {{ Request::routeIs('beranda') ? 'active' : '' }}" aria-current="page"
                         href="{{ route('beranda') }}">Beranda</a>
                 </li>
                 <li class="nav-item mx-2">
-                    <a class="nav-link {{ Request::is('tentang-kami') }}" aria-current="page"
+                    <a class="nav-link {{ Request::routeIs('about-us') ? 'active' : '' }}" aria-current="page"
                         href="{{ route('about-us') }}">Tentang Kami</a>
                 </li>
                 <li class="nav-item mx-2 dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
+                    <a class="nav-link {{ Request::routeIs('product') ? 'active' : '' }} dropdown-toggle" href="#"
+                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Produk
                     </a>
                     <ul class="dropdown-menu">
@@ -32,10 +32,15 @@
                     </ul>
                 </li>
                 <li class="nav-item mx-2">
-                    <a class="nav-link" href="{{ route('blog') }}">Blog</a>
+                    <a class="nav-link {{ Request::routeIs('blog') ? 'active' : '' }}" href="{{ route('blog') }}">
+                        Blog
+                    </a>
                 </li>
                 <li class="nav-item mx-2">
-                    <a class="nav-link" href="{{ route('contact') }}">Kontak Kami</a>
+                    <a class="nav-link {{ Request::routeIs('contact') ? 'active' : '' }}"
+                        href="{{ route('contact') }}">
+                        Kontak Kami
+                    </a>
                 </li>
             </ul>
             <div class="btn-help d-none d-lg-block">

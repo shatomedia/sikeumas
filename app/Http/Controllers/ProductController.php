@@ -52,7 +52,7 @@ class ProductController extends Controller
         $requestData['foto'] = $fileName;
         Product::create($requestData);
 
-        return redirect()->route('produk.index')->with('success', 'Product created successfully');
+        return redirect()->route('product.index')->with('success', 'Product created successfully');
     }
 
     /**
@@ -94,7 +94,7 @@ class ProductController extends Controller
 
         $product->update($requestData);
 
-        return redirect()->route('produk.index')->with('success', 'Product updated successfully');
+        return redirect()->route('products.index')->with('success', 'Product updated successfully');
     }
 
 
@@ -106,6 +106,6 @@ class ProductController extends Controller
         $product = Product::find($id);
         $product->delete();
 
-        return redirect()->route('produk.index')->with('success', 'Product deleted successfully');
+        return redirect()->route('products.index')->with('success', 'Product deleted successfully');
     }
 }

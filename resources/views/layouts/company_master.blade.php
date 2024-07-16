@@ -11,7 +11,8 @@
         content="Jam Sholat Digital, Jam Waktu Sholat Otomatis, Jam Azan Digital, Jam Adzan Elektronik, Jam Digital untuk Masjid">
     <meta name="author" content="Shatomedia" />
     <!-- CSS -->
-    <link rel="stylesheet" href="{{ asset('company/dist/css/bootstrap.cs') }}s" />
+    <link rel="stylesheet" href="{{ asset('company/dist/css/bootstrap.css') }}" />
+    <link rel="stylesheet" href="{{ asset('company/dist/css/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('company/css/styles.css') }}" />
 
     <!-- Font Nunito -->

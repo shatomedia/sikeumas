@@ -31,7 +31,7 @@
             @endif
 
             <div class="card-body">
-                <form class="form form-horizontal" action="{{ route('produk.update', $product->id) }}" method="POST"
+                <form class="form form-horizontal" action="{{ route('product.update', $product->id) }}" method="POST"
                     enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
@@ -56,12 +56,15 @@
                             <div class="col-md-12 form-group">
                                 <textarea class="form-control" id="summernote" name="spesifikasi">{{ $product->spesifikasi }}</textarea>
                             </div>
-                            <div class="col-md-12">
-                                <label for="foto">Gambar</label>
-                            </div>
                             <div class="col-12 col-md-6 form-group">
+                                <label for="foto">Gambar</label>
+                                <div class="mb-3">
+                                    <img src="{{ asset('products/' . $product->foto) }}" alt="Foto Produk"
+                                        style="max-width: 100%;">
+                                </div>
                                 <input type="file" id="foto" name="foto" class="image-preview-filepond">
                             </div>
+
 
                             <div class="col-sm-12 d-flex justify-content-start">
                                 <button type="submit" class="btn btn-primary me-1 mb-1">Simpan</button>

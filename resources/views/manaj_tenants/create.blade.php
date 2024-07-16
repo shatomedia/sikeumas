@@ -21,12 +21,9 @@
 
         <!-- Basic Vertical form layout section start -->
         <section id="basic-vertical-layouts">
-            <div class="row match-height">
-                <div class="col-md-6 col-12">
+            <div class="row match-height justify-content-center">
+                <div class="col-md-7 col-12">
                     <div class="card">
-                        {{-- <div class="card-header">
-                            <h4 class="card-title">Vertical Form</h4>
-                        </div> --}}
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
@@ -66,14 +63,14 @@
                                                         data-parsley-required="true" />
                                                 </div>
                                             </div>
-                                            <div class="col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="email" class="form-label">Email</label>
                                                     <input type="email" id="email" class="form-control" name="email"
                                                         placeholder="Email" data-parsley-required="true" />
                                                 </div>
                                             </div>
-                                            <div class="col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="telp" class="form-label">No Hp</label>
                                                     <input type="text" id="telp" class="form-control" name="telp"
@@ -90,13 +87,6 @@
                                                         <span class="input-group-text">.shatomedia.com</span>
                                                     </div>
                                                 </div>
-
-                                                {{-- <div class="form-group">
-                                                    <label for="domain" class="form-label">Domain</label>
-                                                    <input type="text" id="domain" class="form-control" name="domain"
-                                                        placeholder="Domain" data-parsley-required="true" />
-                                                    <span class="input-group-text" id="domain">@example.com</span>
-                                                </div> --}}
                                             </div>
                                             <div class="col-12">
                                                 <div class="form-group">

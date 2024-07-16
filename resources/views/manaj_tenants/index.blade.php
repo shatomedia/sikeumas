@@ -5,7 +5,7 @@
         <div class="page-title">
             <div class="row mb-3">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>Data Pengguna</h3>
+                    <h3>Data Masjid</h3>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
@@ -51,8 +51,15 @@
                                         <td>{{ $tenant->email }}</td>
                                         <td>{{ $tenant->telp }}</td>
                                         <td>
-                                            @foreach ($tenant->domains as $domain)
+                                            {{-- @foreach ($tenant->domains as $domain)
                                                 {{ $domain->domain }}{{ $loop->last ? '' : ', ' }}
+                                            @endforeach --}}
+                                            @foreach ($tenant->domains as $domain)
+                                                @foreach ($tenant->domains as $domain)
+                                                    <a href="http://{{ $domain->domain }}" target="_blank">
+                                                        {{ $domain->domain }}
+                                                    </a>{{ $loop->last ? '' : ', ' }}
+                                                @endforeach
                                             @endforeach
                                         </td>
                                         <td class="d-flex">
@@ -75,6 +82,5 @@
 
         </section>
         <!-- Basic Tables end -->
-
     </div>
 @endsection

@@ -61,22 +61,28 @@
                 @endcan
                 @can('create-product')
                     <li class="sidebar-title">Company Profile</li>
+                    <li class="sidebar-item {{ request()->routeIs('category-product.*') ? 'active' : '' }}">
+                        <a href="{{ route('category-product.index') }}" class='sidebar-link'>
+                            <i class="fas fa-boxes"></i>
+                            <span>Kategori Produk</span>
+                        </a>
+                    </li>
                     <li class="sidebar-item {{ request()->routeIs('product.*') ? 'active' : '' }}">
                         <a href="{{ route('product.index') }}" class='sidebar-link'>
                             <i class="fas fa-boxes"></i>
                             <span>Produk</span>
                         </a>
                     </li>
-                    <li class="sidebar-item {{ request()->routeIs('article.*') ? 'active' : '' }}">
-                        <a href="{{ route('article.index') }}" class='sidebar-link'>
-                            <i class="fas fa-feather-alt"></i>
-                            <span>Artikel</span>
-                        </a>
-                    </li>
                     <li class="sidebar-item {{ request()->routeIs('category-article.*') ? 'active' : '' }}">
                         <a href="{{ route('category-article.index') }}" class='sidebar-link'>
                             <i class="fas fa-signature"></i>
                             <span>Kategori Artikel</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item {{ request()->routeIs('article.*') ? 'active' : '' }}">
+                        <a href="{{ route('article.index') }}" class='sidebar-link'>
+                            <i class="fas fa-feather-alt"></i>
+                            <span>Artikel</span>
                         </a>
                     </li>
                 @endcan

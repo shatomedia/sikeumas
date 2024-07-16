@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ResellerController;
 use App\Http\Controllers\RolesController;
@@ -45,9 +46,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::resource('tenant', TenantController::class);
+    Route::resource('category-product', ProductCategoryController::class);
     Route::resource('product', ProductController::class);
-    Route::resource('article', ArticleController::class);
     Route::resource('category-article', CategoryArticleController::class);
+    Route::resource('article', ArticleController::class);
     Route::resource('users', UserController::class);
     Route::resource('resellers', ResellerController::class);
     Route::resource('profile', UserProfileController::class);

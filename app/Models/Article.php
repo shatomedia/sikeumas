@@ -5,14 +5,25 @@ namespace App\Models;
 use App\Traits\HasCreatedBy;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Article extends Model
 {
     use HasFactory;
     use HasCreatedBy;
-    protected $guraded = [];
+    protected $fillable = [
+        'category_id',
+        'judul',
+        'slug',
+        'konten',
+        'gambar',
+        'created_by',
+        'views',
+        'status',
+        'publish_date',
+    ];
 
-    public function categoryArtikel()
+    public function categoryArtikel(): BelongsTo
     {
         return $this->belongsTo(CategoryArticle::class);
     }

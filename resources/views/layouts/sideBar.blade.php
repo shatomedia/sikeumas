@@ -69,7 +69,7 @@
                     </li>
                     <li class="sidebar-item {{ request()->routeIs('product.*') ? 'active' : '' }}">
                         <a href="{{ route('product.index') }}" class='sidebar-link'>
-                            <i class="fas fa-boxes"></i>
+                            <i class="fas fa-box"></i>
                             <span>Produk</span>
                         </a>
                     </li>

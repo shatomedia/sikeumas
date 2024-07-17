@@ -7,6 +7,9 @@ use App\Http\Requests\StoreArticleRequest;
 use App\Http\Requests\UpdateArticleRequest;
 use App\Models\CategoryArticle;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Exception;
+use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
 {
@@ -34,20 +37,37 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        $requestData = $request->validate([
-            'kategori_id' => 'required',
-            'judul' => 'required',
-            'konten' => 'required',
-            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
+        try {
+                $requestData = $request->validate([
+                'category_id' => 'required',
+                'judul' => 'required',
+                'konten' => 'required',
+                'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            ]);
+            
+            DB::beginTransaction();
+            // Generate unique slug from judul
+            $slug = Str::slug($requestData['judul']);
 
-        $fileName = time() . rand(1, 200) . '.' . $request->file('gambar')->getClientOriginalExtension();
-        $request->file('gambar')->move(public_path('blogs'), $fileName);
+            // Check for existing slug to ensure uniqueness
+            $count = Article::where('slug', $slug)->count();
+            if ($count > 0) {
+                $slug .= '-' . time();
+            }
 
-        $requestData['gambar'] = $fileName;
-        Article::create($requestData);
+            $fileName = time() . rand(1, 200) . '.' . $request->file('gambar')->getClientOriginalExtension();
+            $request->file('gambar')->move(public_path('blogs'), $fileName);
 
-        return redirect()->route('article.index')->with('success', 'Article created successfully');
+            $requestData['slug'] = $slug;
+            $requestData['gambar'] = $fileName;
+            Article::create($requestData);
+
+            DB::commit();
+
+            return redirect()->route('article.index')->with('success', 'Article created successfully');
+        } catch (Exception $e) {
+            return redirect()->back()->withInput()->with('error', 'Failed to create article: ' . $e->getMessage());
+        }
     }
 
     /**

@@ -9,6 +9,7 @@ use App\Models\CategoryArticle;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Exception;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
@@ -18,7 +19,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::all();
+        $articles = Article::with('CategoryArtikel')->latest()->get();
         return view('articles.index', compact('articles'));
     }
 
@@ -37,8 +38,9 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
+
         try {
-                $requestData = $request->validate([
+            $requestData = $request->validate([
                 'category_id' => 'required',
                 'judul' => 'required',
                 'konten' => 'required',
@@ -60,6 +62,8 @@ class ArticleController extends Controller
 
             $requestData['slug'] = $slug;
             $requestData['gambar'] = $fileName;
+            $requestData['status'] = '0';
+            $requestData['publish_date'] = Carbon::now()->format('Y-m-d');
             Article::create($requestData);
 
             DB::commit();

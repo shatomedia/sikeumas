@@ -12,8 +12,6 @@
     <link rel="stylesheet" href="{{ asset('assets/compiled/css/table-datatable-jquery.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/compiled/css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/compiled/css/app-dark.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/extensions/summernote/summernote-lite.css') }}">
-    <link rel="stylesheet" crossorigin href="{{ asset('assets/compiled/css/form-editor-summernote.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/extensions/flatpickr/flatpickr.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/compiled/css/iconly.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/extensions/@fortawesome/fontawesome-free/css/all.min.css') }}">
@@ -125,6 +123,7 @@
     <script src="{{ asset('assets/static/js/pages/dashboard.js') }}"></script>
     <script src="{{ asset('assets/extensions/tinymce/tinymce.min.js') }}"></script>
     <script src="{{ asset('assets/static/js/pages/tinymce.js') }}"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/35.4.0/super-build/ckeditor.js"></script>
 
     <script>
         $document.ready(function() {

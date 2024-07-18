@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -32,12 +33,15 @@ class LandingController extends Controller
 
     public function article()
     {
-        return view('company-theme.blog.blog');
+        $data['articles'] = Article::get();
+        return view('company-theme.blog.blog', $data);
     }
 
     public function articleDetail($slug)
     {
-        return view('company-theme.blog.detail_blog');
+        $data['article'] = Article::where('slug', $slug)->first();
+        $data['latestArticles'] = Article::latest()->take(7)->get();
+        return view('company-theme.blog.detail_blog', $data);
     }
 
     public function contact()

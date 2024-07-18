@@ -33,10 +33,9 @@
                                 <th class="text-center">No</th>
                                 <th class="text-center">Gambar</th>
                                 <th class="text-center">Kategori</th>
-                                <th class="text-center">Judul</th>
+                                <th>Judul</th>
                                 <th class="text-center">Tanggal Publish</th>
                                 <th class="text-center">Penulis</th>
-                                <th class="text-center">Isi Artikel</th>
                                 <th class="text-center">Views</th>
                                 <th class="text-center">Status</th>
                                 <th class="text-center">Aksi</th>
@@ -47,17 +46,27 @@
                                 <tr>
                                     <td class="text-center">{{ $loop->iteration }}</td>
                                     <td class="text-center">
-                                        <img src="{{ asset('blog/' . $item->foto) }}" alt="Gambar"
+                                        <img src="{{ asset('blogs/' . $item->gambar) }}" alt="Gambar"
                                             style="max-width: 100px; max-height: 100px;">
                                     </td>
-                                    <td class="text-center">{{ $item->category_id }}</td>
-                                    <td class="text-center">{{ ucfirst($item->judul) }}</td>
-                                    <td class="text-center">{{ $item->publish_date->translatedFormat('d-m-Y') }}</td>
+                                    <td class="text-center">{{ ucwords($item->CategoryArtikel->nama) }}</td>
+                                    <td>{{ ucfirst($item->judul) }}</td>
+                                    <td>{{ \Carbon\Carbon::parse($item->publish_date)->translatedFormat('d F Y') }}</td>
                                     <td class="text-center">{{ $item->createdBy->name }}</td>
-                                    <td class="text-center">{{ $item->konten }}</td>
                                     <td class="text-center">{{ $item->views }}</td>
-                                    <td class="text-center">{{ $item->status }}</td>
+                                    @if ($item->status == '0')
+                                        <td class="text-center">
+                                            <span class="badge bg-danger">Draft</span>
+                                        </td>
+                                    @else
+                                        <td class="text-center">
+                                            <span class="badge bg-success">Published</span>
+                                        </td>
+                                    @endif
                                     <td class="d-flex justify-content-center">
+                                        <a href="{{ route('article.show', $item->id) }}" class="btn btn-sm btn-info"
+                                            style="margin-right: 5px">Detail</a>
+
                                         <a href="{{ route('article.edit', $item->id) }}" class="btn btn-sm btn-primary"
                                             style="margin-right: 5px">Edit</a>
                                         <form action="{{ route('article.destroy', $item->id) }}" method="POST">

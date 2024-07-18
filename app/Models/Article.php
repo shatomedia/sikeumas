@@ -23,8 +23,12 @@ class Article extends Model
         'publish_date',
     ];
 
-    public function categoryArtikel(): BelongsTo
+    public function CategoryArtikel(): BelongsTo
     {
-        return $this->belongsTo(CategoryArticle::class);
+        return $this->belongsTo(CategoryArticle::class, 'category_id');
     }
+
+    protected $casts = [
+        'publish_date' => 'datetime',
+    ];
 }

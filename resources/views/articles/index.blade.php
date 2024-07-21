@@ -50,7 +50,11 @@
                                             style="max-width: 100px; max-height: 100px;">
                                     </td>
                                     <td class="text-center">{{ ucwords($item->CategoryArtikel->nama) }}</td>
-                                    <td>{{ ucfirst($item->judul) }}</td>
+                                    {{-- <td>{{ ucfirst($item->judul) }}</td> --}}
+                                    <td class="text-truncate"
+                                        style="max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                                        {{ $item->judul }}
+                                    </td>
                                     <td>{{ \Carbon\Carbon::parse($item->publish_date)->translatedFormat('d F Y') }}</td>
                                     <td class="text-center">{{ $item->createdBy->name }}</td>
                                     <td class="text-center">{{ $item->views }}</td>
@@ -63,17 +67,19 @@
                                             <span class="badge bg-success">Published</span>
                                         </td>
                                     @endif
-                                    <td class="d-flex justify-content-center">
-                                        <a href="{{ route('article.show', $item->id) }}" class="btn btn-sm btn-info"
-                                            style="margin-right: 5px">Detail</a>
+                                    <td>
+                                        <div style="display: flex; gap: 5px;">
+                                            <a href="{{ route('article.show', $item->id) }}" class="btn btn-sm btn-info"
+                                                style="margin-right: 5px">Detail</a>
 
-                                        <a href="{{ route('article.edit', $item->id) }}" class="btn btn-sm btn-primary"
-                                            style="margin-right: 5px">Edit</a>
-                                        <form action="{{ route('article.destroy', $item->id) }}" method="POST">
-                                            @method('DELETE')
-                                            @csrf
-                                            <input type="submit" class="btn btn-sm btn-secondary" value="Hapus">
-                                        </form>
+                                            <a href="{{ route('article.edit', $item->id) }}" class="btn btn-sm btn-primary"
+                                                style="margin-right: 5px">Edit</a>
+                                            <form action="{{ route('article.destroy', $item->id) }}" method="POST">
+                                                @method('DELETE')
+                                                @csrf
+                                                <input type="submit" class="btn btn-sm btn-secondary" value="Hapus">
+                                            </form>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach

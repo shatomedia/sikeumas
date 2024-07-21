@@ -11,6 +11,7 @@ use Illuminate\Support\Str;
 use Exception;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class ArticleController extends Controller
 {
@@ -123,5 +124,19 @@ class ArticleController extends Controller
         } catch (\Throwable $th) {
             return redirect()->route('article.index')->with('error', 'Article failed to delete');
         }
+    }
+
+    public function uploadMedia(Request $request)
+    {
+        //code upload here
+        $post = new Article();
+        $post->id = 0;
+        $post->exists = true;
+
+        $images = $post->addMediaFromRequest('upload')->toMediaCollection('images');
+
+        return response()->json([
+            'url'=> $images->getUrl()
+        ]);
     }
 }

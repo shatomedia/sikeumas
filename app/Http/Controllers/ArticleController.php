@@ -20,7 +20,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::with('CategoryArtikel')->latest()->get();
+        $articles = Article::paginate(10);
         return view('articles.index', compact('articles'));
     }
 

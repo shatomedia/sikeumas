@@ -44,8 +44,8 @@ class ArticleController extends Controller
             $requestData = $request->validate([
                 'category_id' => 'required',
                 'judul' => 'required',
-                'konten' => 'required',
                 'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'konten' => 'required',
             ]);
             
             DB::beginTransaction();
@@ -88,8 +88,9 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
-        $article = Article::find($id);
-        return view('articles.edit', compact('article'));
+        $categories = CategoryArticle::all();
+        $article = Article::findOrFail($id);
+        return view('articles.edit', compact('article', 'categories'));
     }
 
     /**

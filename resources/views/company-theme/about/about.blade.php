@@ -35,7 +35,7 @@
         <div class="container align-items-center px-4 py-5 py-lg-5">
             <div class="row flex-lg-row justify-content-center align-items-center g-5 py-lg-5">
                 <div class="col-12 col-sm-5 col-lg-4 col-md-8 mx-auto">
-                    <img src="{{ asset('company/img/png/owner.png') }}" class="d-block mx-lg-auto img-fluid"
+                    <img src="{{ asset('company/img/png/image.png') }}" class="d-block mx-lg-auto img-fluid"
                         alt="Shatomedia" width="700" height="500" loading="lazy" />
                 </div>
                 <div class="col-lg-6 col-md-12">

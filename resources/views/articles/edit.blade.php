@@ -5,7 +5,7 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>Tambah Artikel</h3>
+                    <h3>Edit Artikel</h3>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
@@ -31,15 +31,20 @@
             @endif
 
             <div class="card-body">
-                <form class="form form-horizontal" action="{{ route('article.store') }}" method="POST"
+                <form class="form form-horizontal" action="{{ route('article.update', $article->id) }}" method="POST"
                     enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
                     <div class="form-body">
                         <div class="row">
                             <div class="col-md-12">
                                 <label for="foto">Gambar ( Maximal 2mb / 2048kb )</label>
                             </div>
                             <div class="col-12 col-md-8 form-group">
+                                @if ($article->gambar)
+                                    <img src="{{ asset('blogs/' . $article->gambar) }}" alt="Current Image"
+                                        style="max-width: 200px; margin-bottom: 10px;">
+                                @endif
                                 <input type="file" name="gambar" class="image-resize-filepond">
                                 @error('gambar')
                                     <div class="text-danger">{{ $message }}</div>
@@ -50,7 +55,7 @@
                             </div>
                             <div class="col-md-12 form-group">
                                 <input type="text" id="judul" class="form-control mb-3" name="judul"
-                                    placeholder="Judul" value="{{ old('judul') }}">
+                                    placeholder="Judul" value="{{ old('judul', $article->judul) }}">
                                 @error('judul')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
@@ -63,8 +68,9 @@
                                     <option value="">Pilih Kategori</option>
                                     @foreach ($categories as $category)
                                         <option value="{{ $category->id }}"
-                                            {{ old('category_id') == $category->id ? 'selected' : '' }}>
-                                            {{ $category->nama }}</option>
+                                            {{ old('category_id', $article->category_id) == $category->id ? 'selected' : '' }}>
+                                            {{ $category->nama }}
+                                        </option>
                                     @endforeach
                                 </select>
                                 @error('category_id')
@@ -76,11 +82,11 @@
                                 <label for="konten">Isi Artikel</label>
                             </div>
                             <div class="col-md-12 form-group">
-                                <textarea id="ckeditor" cols="30" name="konten" rows="10">{{ old('konten') }}</textarea>
+                                <textarea id="ckeditor" cols="30" name="konten" rows="10">{{ old('konten', $article->konten) }}</textarea>
                             </div>
 
                             <div class="col-sm-12 d-flex justify-content-start">
-                                <button type="submit" class="btn btn-primary me-1 mb-1">Simpan</button>
+                                <button type="submit" class="btn btn-primary me-1 mb-1">Update</button>
                             </div>
                         </div>
                     </div>

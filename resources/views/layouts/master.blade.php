@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Sistem Manajemen Keuangan - Dashboard</title>
 
     <link rel="shortcut icon" href="{{ asset('assets/compiled/svg/mosque-fav.svg') }}" type="image/x-icon">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="assets/extensions/datatables.net-bs5/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="{{ asset('assets/compiled/css/table-datatable-jquery.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/compiled/css/app.css') }}">
@@ -121,7 +121,7 @@
     <!-- Need: Apexcharts -->
     <script src="{{ asset('assets/extensions/apexcharts/apexcharts.min.js') }}"></script>
     <script src="{{ asset('assets/static/js/pages/dashboard.js') }}"></script>
-    <script src="https://cdn.ckeditor.com/ckeditor5/35.3.2/classic/ckeditor.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/35.4.0/super-build/ckeditor.js"></script>
 
     <script>
         $document.ready(function() {

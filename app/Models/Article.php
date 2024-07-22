@@ -6,12 +6,10 @@ use App\Traits\HasCreatedBy;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Spatie\MediaLibrary\HasMedia;
-use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Article extends Model implements HasMedia
+class Article extends Model
 {
-    use HasFactory, HasCreatedBy, InteractsWithMedia;
+    use HasFactory, HasCreatedBy;
     protected $fillable = [
         'category_id',
         'judul',

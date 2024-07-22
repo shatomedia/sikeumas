@@ -126,18 +126,4 @@ class ArticleController extends Controller
             return redirect()->route('article.index')->with('error', 'Article failed to delete');
         }
     }
-
-    public function uploadMedia(Request $request)
-    {
-        //code upload here
-        $post = new Article();
-        $post->id = 0;
-        $post->exists = true;
-
-        $images = $post->addMediaFromRequest('upload')->toMediaCollection('images');
-
-        return response()->json([
-            'url'=> $images->getUrl()
-        ]);
-    }
 }

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategoryArticleController;
+use App\Http\Controllers\CkeditorController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\LoginController;
@@ -50,7 +51,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('product', ProductController::class);
     Route::resource('category-article', CategoryArticleController::class);
     Route::resource('article', ArticleController::class);
-    Route::post('/media/store', [ArticleController::class, 'uploadMedia'])->name('ckeditor.upload');
+    Route::post('/media/store', [CkeditorController::class, 'store'])->name('ckeditor.upload');
     Route::resource('users', UserController::class);
     Route::resource('resellers', ResellerController::class);
     Route::resource('profile', UserProfileController::class);

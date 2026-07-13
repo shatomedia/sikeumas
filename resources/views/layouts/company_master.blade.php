@@ -4,18 +4,17 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shatomedia | Technology Inspiration</title>
-    <meta name="description"
-        content="Shatomedia adalah produsen elektronik yang menyediakan bahan baku berkualitas, tahan lama, dan teknologi terkini dengan desain elegan. Kami memberikan garansi perlindungan hingga 3 tahun untuk kepuasan pelanggan.">
-    <meta name="keywords"
-        content="Jam Sholat Digital, Jam Waktu Sholat Otomatis, Jam Azan Digital, Jam Adzan Elektronik, Jam Digital untuk Masjid">
-    <meta name="author" content="Shatomedia" />
-    <!-- CSS -->
+    <title>@yield('title')</title>
+    <link rel="shortcut icon" href="{{ asset('company/img/favicon.ico') }}" type="image/x-icon">
+    <meta name="robots" content="index, follow" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    @stack('meta-seo')
+    @stack('styles')
+
     <link rel="stylesheet" href="{{ asset('company/dist/css/bootstrap.css') }}" />
     <link rel="stylesheet" href="{{ asset('company/dist/css/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('company/css/styles.css') }}" />
 
-    <!-- Font Nunito -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -124,11 +123,12 @@
                                 </li>
                             </ul>
                             <h5 class="fw-bold" id="Download">Unduh Aplikasi:</h5>
-                            <a href="https://play.google.com/store/apps/details?id=com.shatomedia.taqwa&pcampaignid=web_share"
+                            <a href="https://play.google.com/store/apps/details?id=com.shatomedia.taqwa_media"
                                 target="_blank" class="nav-link">
                                 <img src="{{ asset('company/img/svg/icon-google.svg') }}" id="google"
                                     alt="playstore">
                             </a>
+
                         </div>
                     </div>
 
@@ -147,3 +147,4 @@
 </body>
 
 </html>
+

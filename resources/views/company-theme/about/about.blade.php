@@ -1,5 +1,20 @@
 @extends('layouts.company_master')
 
+@section('title', 'Tentang Kami | Shatomedia')
+@push('meta-seo')
+    <meta name="description"
+        content="Shatomedia menyediakan layanan pengembalian/perbaikan komponen dan elektronik rakitan sebagai Original Equiment Manufacturer (OEM).">
+    <meta name="keywords"
+        content="jam sholat digital, jam digital, jam waktu sholat otomatis, jam adzan digital, jam adzan elektronik, jam digital untuk masjid, jam masjid, technology inspiration ">
+    <meta name="author" content="Shatomedia" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="{{ asset('company/img/png/hero-about-1.png') }}" />
+    <meta property="og:title" content="Tentang Kami | Shatomedia" />
+    <meta property="og:site_name" content="Shatomedia" />
+    <meta property="og:url" content="https://shatomedia.com" />
+    <meta property="og:description"
+        content="Shatomedia adalah produsen elektronik yang menyediakan bahan baku berkualitas, tahan lama, dan teknologi terkini dengan desain elegan. Kami memberikan garansi perlindungan hingga 3 tahun untuk kepuasan pelanggan." />
+@endpush
 @section('company-content')
     <!-- about section start -->
     <section class="about-hero mb-lg-5">
@@ -104,3 +119,4 @@
         </div>
     </section>
 @endsection
+

@@ -30,4 +30,37 @@ class GetInformasiController extends Controller
             return ResponseFormatter::error($th->getMessage(), 500);
         }
     }
+    
+    public function latest(Request $request)
+    {
+        try {
+            $query = Informasi::query();
+
+            // Opsional filter by kategori ?kategori=NamaKategori
+            if ($request->filled('kategori')) {
+                $nama_kategori = $request->input('kategori');
+                $query->whereHas('kategori', function ($q) use ($nama_kategori) {
+                    $q->where('nama', $nama_kategori);
+                });
+            }
+
+            // Ambil 1 paling terbaru berdasarkan created_at
+            $terbaru = $query->latest('created_at')->first();
+
+           if (!$terbaru) {
+            // tidak ada data, tetap konsisten kembalikan key "result"
+            return response()->json([
+                'result' => null,
+            ], 200);
+            }
+
+            // ✅ objek tunggal dalam key "result" dengan field asli model
+            return response()->json([
+                'result' => $terbaru,
+            ], 200);
+
+        } catch (\Throwable $th) {
+            return ResponseFormatter::error($th->getMessage(), 500);
+        }
+    }
 }

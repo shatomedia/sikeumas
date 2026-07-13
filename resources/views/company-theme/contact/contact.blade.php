@@ -1,5 +1,20 @@
 @extends('layouts.company_master')
 
+@section('title', 'Kontak Kami | Shatomedia')
+@push('meta-seo')
+    <meta name="description" content="Berkonsultasi dengan shatomedia">
+    <meta name="keywords"
+        content="jam sholat digital, jam digital, jam waktu sholat otomatis, jam adzan digital, jam adzan elektronik, jam digital untuk masjid, jam masjid, technology inspiration ">
+    <meta name="author" content="Shatomedia" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="{{ asset('company/img/png/hero-3.png') }}" />
+    <meta property="og:title" content="Kontak Kami | Shatomedia" />
+    <meta property="og:site_name" content="Shatomedia" />
+    <meta property="og:url" content="https://shatomedia.com" />
+    <meta property="og:description"
+        content="Shatomedia adalah produsen elektronik yang menyediakan bahan baku berkualitas, tahan lama, dan teknologi terkini dengan desain elegan. Kami memberikan garansi perlindungan hingga 3 tahun untuk kepuasan pelanggan." />
+@endpush
+
 @section('company-content')
     <section class="py-5 py-md-5 px-4">
         <div class="container">
@@ -165,3 +180,4 @@
         </div>
     </section>
 @endsection
+

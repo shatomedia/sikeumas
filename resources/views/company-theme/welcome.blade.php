@@ -1,4 +1,19 @@
 @extends('layouts.company_master')
+@section('title', 'Shatomedia | Technology Inspiration')
+@push('meta-seo')
+    <meta name="description"
+        content="Shatomedia adalah produsen elektronik yang menyediakan bahan baku berkualitas, tahan lama, dan teknologi terkini dengan desain elegan. Kami memberikan garansi perlindungan hingga 3 tahun untuk kepuasan pelanggan.">
+    <meta name="keywords"
+        content="jam sholat digital, jam digital, jam waktu sholat otomatis, jam adzan digital, jam adzan elektronik, jam digital untuk masjid, jam masjid, technology inspiration ">
+    <meta name="author" content="Shatomedia" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="{{ asset('company/img/png/hero-3.png') }}" />
+    <meta property="og:title" content="Shatomedia | Technology Inspiration" />
+    <meta property="og:site_name" content="Shatomedia" />
+    <meta property="og:url" content="https://shatomedia.com" />
+    <meta property="og:description"
+        content="Shatomedia adalah produsen elektronik yang menyediakan bahan baku berkualitas, tahan lama, dan teknologi terkini dengan desain elegan. Kami memberikan garansi perlindungan hingga 3 tahun untuk kepuasan pelanggan." />
+@endpush
 
 @section('company-content')
     <!-- heroes section start -->
@@ -6,8 +21,8 @@
         <div class="container align-items-center px-4 py-4">
             <div class="row flex-lg-row-reverse justify-content-center align-items-center g-5 py-5">
                 <div class="col-10 col-sm-5 col-lg-6 mx-auto">
-                    <img src="{{ asset('company/img/png/hero-3.png') }}" class="d-block mx-lg-auto img-fluid" alt="Shatomedia"
-                        width="700" height="500" loading="lazy" />
+                    <img src="{{ asset('company/img/png/hero-3.png') }}" class="d-block mx-lg-auto img-fluid"
+                        alt="Shatomedia" width="700" height="500" loading="lazy" />
                 </div>
                 <div class="col-lg-6">
                     <h1 class="display-5 fw-bold text-body-emphasis lh-2 mb-3" id="tittle-heroes">
@@ -231,3 +246,4 @@
     </section>
     <!-- end experience section -->
 @endsection
+

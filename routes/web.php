@@ -51,7 +51,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('product', ProductController::class);
     Route::resource('category-article', CategoryArticleController::class);
     Route::resource('article', ArticleController::class);
-    Route::post('/media/store', [CkeditorController::class, 'store'])->name('ckeditor.upload');
+    Route::patch('/article/{id}/toggle-status', [ArticleController::class, 'toggleStatus'])->name('article.toggleStatus');
+    Route::post('upload-image', [CkeditorController::class, 'store'])->name('ckeditor.upload');
     Route::resource('users', UserController::class);
     Route::resource('resellers', ResellerController::class);
     Route::resource('profile', UserProfileController::class);

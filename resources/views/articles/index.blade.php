@@ -36,8 +36,8 @@
                                 <th>Judul</th>
                                 <th class="text-center">Tanggal Publish</th>
                                 <th class="text-center">Penulis</th>
-                                <th class="text-center">Views</th>
                                 <th class="text-center">Status</th>
+                                <th class="text-center">Views</th>
                                 <th class="text-center">Aksi</th>
                             </tr>
                         </thead>
@@ -50,14 +50,12 @@
                                             style="max-width: 100px; max-height: 100px;">
                                     </td>
                                     <td class="text-center">{{ ucwords($item->CategoryArtikel->nama) }}</td>
-                                    {{-- <td>{{ ucfirst($item->judul) }}</td> --}}
                                     <td class="text-truncate"
                                         style="max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
                                         {{ $item->judul }}
                                     </td>
                                     <td>{{ \Carbon\Carbon::parse($item->publish_date)->translatedFormat('d F Y') }}</td>
                                     <td class="text-center">{{ $item->createdBy->name }}</td>
-                                    <td class="text-center">{{ $item->views }}</td>
                                     @if ($item->status == '0')
                                         <td class="text-center">
                                             <span class="badge bg-danger">Draft</span>
@@ -67,6 +65,7 @@
                                             <span class="badge bg-success">Published</span>
                                         </td>
                                     @endif
+                                    <td class="text-center">{{ $item->views }}</td>
                                     <td>
                                         <div style="display: flex; gap: 5px;">
                                             <a href="{{ route('article.show', $item->id) }}" class="btn btn-sm btn-info"
@@ -74,6 +73,15 @@
 
                                             <a href="{{ route('article.edit', $item->id) }}" class="btn btn-sm btn-primary"
                                                 style="margin-right: 5px">Edit</a>
+
+                                            <form action="{{ route('article.toggleStatus', $item->id) }}" method="POST">
+                                                @method('PATCH')
+                                                @csrf
+                                                <input type="submit"
+                                                    class="btn btn-sm {{ $item->status == '0' ? 'btn-success' : 'btn-warning' }}"
+                                                    value="{{ $item->status == '0' ? 'Publish' : 'Draft' }}">
+                                            </form>
+
                                             <form action="{{ route('article.destroy', $item->id) }}" method="POST">
                                                 @method('DELETE')
                                                 @csrf
@@ -91,3 +99,4 @@
     </section>
     <!-- Minimal jQuery Datatable end -->
 @endsection
+

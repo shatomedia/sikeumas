@@ -12,15 +12,25 @@ use Exception;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
+
 
 class ArticleController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('permission:article', ['only' => ['index']]);
+        $this->middleware('permission:create-article', ['only' => ['create', 'store']]);
+        $this->middleware('permission:edit-article', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:delete-article', ['only' => ['destroy']]);
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $articles = Article::paginate(10);
+        $articles = Article::get();
         return view('articles.index', compact('articles'));
     }
 
@@ -83,6 +93,16 @@ class ArticleController extends Controller
         //
     }
 
+    public function toggleStatus($id)
+    {
+        $article = Article::findOrFail($id);
+        $article->status = $article->status == '0' ? '1' : '0';
+        $article->save();
+
+        return redirect()->route('article.index')->with('success', 'Status artikel berhasil diubah.');
+    }
+
+
     /**
      * Show the form for editing the specified resource.
      */
@@ -97,22 +117,36 @@ class ArticleController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
-    {
+{
+    try {
         $requestData = $request->validate([
-            'kategori_id' => 'required',
-            'judul' => 'required',
+            'category_id' => 'required',
+            'judul' => 'required|unique:articles,judul,' . $id,
             'konten' => 'required',
-            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $fileName = time() . rand(1, 200) . '.' . $request->file('gambar')->getClientOriginalExtension();
-        $request->file('gambar')->move(public_path('blogs'), $fileName);
+        $article = Article::findOrFail($id);
 
-        $requestData['gambar'] = $fileName;
-        Article::find($id)->update($requestData);
+        if ($request->hasFile('gambar')) {
+            $fileName = time() . rand(1, 200) . '.' . $request->file('gambar')->getClientOriginalExtension();
+            $filePath = $request->file('gambar')->storeAs('blogs', $fileName, 'public');
+            $requestData['gambar'] = $filePath;
+
+            // Delete old image
+            if ($article->gambar) {
+                Storage::disk('public')->delete('blogs/' . $article->gambar);
+            }
+        }
+
+        $article->update($requestData);
 
         return redirect()->route('article.index')->with('success', 'Article updated successfully');
+    } catch (Exception $e) {
+        Log::error('Failed to update article: ' . $e->getMessage());
+        return redirect()->back()->withInput()->with('error', 'Failed to update article: ' . $e->getMessage());
     }
+}
 
     /**
      * Remove the specified resource from storage.
@@ -127,3 +161,4 @@ class ArticleController extends Controller
         }
     }
 }
+

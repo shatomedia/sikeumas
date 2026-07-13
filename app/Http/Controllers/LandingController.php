@@ -33,7 +33,7 @@ class LandingController extends Controller
 
     public function article()
     {
-        $data['articles'] = Article::get();
+        $data['articles'] = Article::with('CategoryArtikel')->latest()->get();
         return view('company-theme.blog.blog', $data);
     }
 

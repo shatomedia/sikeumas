@@ -73,7 +73,9 @@
                             <span>Produk</span>
                         </a>
                     </li>
-                    <li class="sidebar-item {{ request()->routeIs('category-article.*') ? 'active' : '' }}">
+                @endcan
+                @can('create-article')
+                <li class="sidebar-item {{ request()->routeIs('category-article.*') ? 'active' : '' }}">
                         <a href="{{ route('category-article.index') }}" class='sidebar-link'>
                             <i class="fas fa-signature"></i>
                             <span>Kategori Artikel</span>

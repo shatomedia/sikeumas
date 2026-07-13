@@ -49,13 +49,13 @@
                                         <img src="{{ asset('blogs/' . $item->gambar) }}" alt="Gambar"
                                             style="max-width: 100px; max-height: 100px;">
                                     </td>
-                                    <td class="text-center">{{ ucwords($item->CategoryArtikel->nama) }}</td>
+                                    <td class="text-center">{{ ucwords($item->CategoryArtikel->nama ?? '-') }}</td>
                                     <td class="text-truncate"
                                         style="max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
                                         {{ $item->judul }}
                                     </td>
                                     <td>{{ \Carbon\Carbon::parse($item->publish_date)->translatedFormat('d F Y') }}</td>
-                                    <td class="text-center">{{ $item->createdBy->name }}</td>
+                                    <td class="text-center">{{ $item->createdBy->name ?? '-' }}</td>
                                     @if ($item->status == '0')
                                         <td class="text-center">
                                             <span class="badge bg-danger">Draft</span>

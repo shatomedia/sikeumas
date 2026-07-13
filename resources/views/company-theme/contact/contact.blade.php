@@ -41,7 +41,7 @@
                                             <h4 class="mb-3">WhatsApp</h4>
                                             <p class="mb-0">
                                                 <a class="link-secondary text-decoration-none"
-                                                    href="https://wa.me/6285743909116" target="_blank">081821290098</a>
+                                                    href="https://wa.me/6285743909116" target="_blank">0857-4390-9116</a>
                                             </p>
                                         </div>
                                     </div>

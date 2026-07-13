@@ -49,11 +49,11 @@
                     Hubungi Kami: 085743909116
                 </a>
             </div>
-            {{-- <div class="btn-login mx-2">
+            <div class="btn-login mx-2 d-none d-lg-block">
                 <a href="{{ route('login') }}" class="btn w-100" id="btn-login">
                     Masuk
                 </a>
-            </div> --}}
+            </div>
         </div>
     </div>
 </nav>

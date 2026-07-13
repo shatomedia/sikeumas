@@ -363,3 +363,4 @@
     <!-- end experience section -->
 @endsection
 
+<!-- auto-deploy test Mon Jul 13 16:10:30 SEAST 2026 -->

@@ -1,132 +1,238 @@
-@extends('layouts.company_master')
-@section('title', 'Jadwal Waktu Sholat JWS-M3 | Shatomedia')
-@push('meta-seo')
-    <meta name="description"
-        content="Jam Sholat Digital JWS-M3: tampilan 7-segment untuk 5 waktu sholat, imsak, dan syuruq, dilengkapi alarm adzan otomatis dan running text pengumuman. Dipercaya 10.000+ pelanggan.">
-    <meta property="og:title" content="Jadwal Waktu Sholat JWS-M3" />
-    <meta property="og:image" content="{{ asset('products/1709590121148.jpg') }}" />
-@endpush
-
-@section('company-content')
-<style>
-    .jws {
-        --gold: #a16207;
-        --gold-bright: #f6bf35;
-        --white: #f7fbff;
-        --muted: rgba(60, 40, 10, 0.72);
-        --line: rgba(161, 98, 7, 0.28);
-        background: #fdf8ef;
-        color: #241a05;
-        font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jadwal Waktu Sholat JWS-M3 - Shatomedia</title>
+  <meta name="description" content="Jam Sholat Digital JWS-M3: tampilan 7-segment untuk 5 waktu sholat, imsak, dan syuruq, dilengkapi alarm adzan otomatis dan running text pengumuman. Dipercaya 10.000+ pelanggan.">
+  <style>
+    :root {
+      --ink: #241a05;
+      --muted: #6b5a35;
+      --amber-950: #241a05;
+      --amber-900: #5c3d0a;
+      --amber-800: #a16207;
+      --gold: #f6bf35;
+      --green: #16a34a;
+      --red: #dc2626;
+      --soft: #fdf8ef;
+      --line: #ecdfc0;
+      --white: #ffffff;
     }
 
-    .jws-slide {
-        position: relative;
-        padding: 72px 24px;
-        border-bottom: 1px solid var(--line);
-        background: linear-gradient(180deg, #fdf8ef 0%, #fbf1dc 100%);
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--ink); background: var(--white); font-family: Inter, "Segoe UI", Arial, sans-serif; line-height: 1.6; }
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+    .wrap { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
+
+    .nav { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.95); border-bottom: 1px solid var(--line); backdrop-filter: blur(10px); }
+    .nav-inner { min-height: 66px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 900; color: var(--amber-800); text-decoration: none; }
+    .nav-links { display: flex; align-items: center; gap: 18px; font-size: 14px; font-weight: 700; color: var(--amber-800); }
+    .nav-links a { text-decoration: none; }
+
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 18px; border-radius: 8px; border: 1px solid transparent; text-decoration: none; font-weight: 800; line-height: 1.2; text-align: center; }
+    .btn-primary { background: var(--green); color: #fff; }
+    .btn-amber { background: var(--amber-800); color: #fff; }
+    .btn-ghost { background: #fff; color: var(--amber-800); border-color: var(--line); }
+
+    .hero { background: linear-gradient(135deg, var(--amber-950), var(--amber-900) 52%, var(--amber-800)); color: #fff; overflow: hidden; }
+    .hero-grid { min-height: 600px; display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: center; padding: 74px 0; }
+    .eyebrow { display: inline-flex; align-items: center; min-height: 32px; padding: 0 12px; border-radius: 999px; background: rgba(255,255,255,.12); color: rgba(255,255,255,.88); font-size: 13px; font-weight: 800; margin-bottom: 18px; }
+    h1, h2, h3 { margin: 0; line-height: 1.1; }
+    h1 { font-size: clamp(34px, 5vw, 54px); max-width: 600px; }
+    h1 span { color: var(--gold); }
+    h2 { font-size: clamp(28px, 4vw, 40px); color: var(--amber-800); }
+    h3 { font-size: 20px; color: var(--amber-800); }
+    .lead { margin: 20px 0 0; max-width: 600px; color: rgba(255,255,255,.84); font-size: 18px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .hero-note { margin-top: 18px; color: rgba(255,255,255,.7); font-size: 14px; }
+
+    .browser { border-radius: 18px; background: #1a1203; padding: 12px; box-shadow: 0 30px 80px rgba(0,0,0,.35); transform: rotate(1.2deg); }
+    .browser img { border-radius: 10px; width: 100%; display: block; background: #fff; }
+
+    section { padding: 82px 0; }
+    .section-head { display: grid; grid-template-columns: .8fr 1fr; gap: 28px; align-items: end; margin-bottom: 28px; }
+    .section-head p { margin: 0; color: var(--muted); font-size: 16px; }
+    .soft { background: var(--soft); }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .box { border: 1px solid var(--line); border-radius: 8px; background: #fff; padding: 22px; }
+    .box p { margin: 10px 0 0; color: var(--muted); }
+    .problem b { color: var(--red); }
+
+    .flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; align-items: stretch; }
+    .step { min-height: 150px; border: 1px solid var(--line); border-radius: 8px; background: #fff; padding: 18px; position: relative; }
+    .num { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--amber-800); color: #fff; font-weight: 900; margin-bottom: 12px; }
+    .step p { margin: 8px 0 0; color: var(--muted); font-size: 14px; line-height: 1.45; }
+
+    .feature-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .feature { display: flex; gap: 12px; align-items: flex-start; border-bottom: 1px solid var(--line); padding: 14px 0; }
+    .check { flex: none; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; background: #fdf3e3; color: var(--amber-800); font-weight: 900; font-size: 13px; }
+    .feature b { display: block; color: var(--amber-800); }
+    .feature span { display: block; color: var(--muted); margin-top: 3px; font-size: 14px; }
+
+    .shot-card { overflow: hidden; padding: 0; }
+    .shot-card img { width: 100%; height: 220px; object-fit: cover; object-position: center; background: var(--soft); border-bottom: 1px solid var(--line); }
+    .shot-card div { padding: 16px; }
+
+    .stat { text-align: center; padding: 26px 18px; border: 1px solid var(--line); background: #fff; }
+    .stat b { display: block; font-size: 30px; color: var(--amber-800); }
+    .stat span { color: var(--muted); font-size: 14px; font-weight: 600; }
+
+    .faq details { border-bottom: 1px solid var(--line); padding: 18px 0; }
+    .faq summary { cursor: pointer; color: var(--amber-800); font-weight: 900; font-size: 18px; list-style: none; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq p { color: var(--muted); margin-bottom: 0; }
+
+    .cta { background: var(--amber-950); color: #fff; text-align: center; }
+    .cta h2 { color: #fff; max-width: 780px; margin: 0 auto; }
+    .cta p { max-width: 680px; margin: 18px auto 0; color: rgba(255,255,255,.76); font-size: 18px; }
+    .cta .hero-actions { justify-content: center; }
+
+    footer { padding: 28px 0; background: #120c02; color: rgba(255,255,255,.7); font-size: 14px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+
+    @media (max-width: 920px) {
+      .hero-grid, .section-head { grid-template-columns: 1fr; }
+      .grid-3, .grid-4 { grid-template-columns: 1fr 1fr; }
+      .flow { grid-template-columns: repeat(2, 1fr); }
+      .feature-list { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .browser { transform: none; }
     }
 
-    .jws-slide.dark {
-        background: linear-gradient(135deg, #241a05 0%, #1a1203 100%);
-        color: var(--white);
+    @media (max-width: 560px) {
+      section { padding: 58px 0; }
+      .hero-grid { padding: 54px 0; }
+      .flow, .grid-3, .grid-4 { grid-template-columns: 1fr; }
     }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top" aria-label="JWS-M3">
+        <span>Jadwal Waktu Sholat JWS-M3</span>
+      </a>
+      <div class="nav-links">
+        <a href="#fitur">Fitur</a>
+        <a href="#varian">Varian Lain</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn btn-primary" href="https://wa.me/6285743909116?text={{ urlencode('Halo, saya tertarik dengan Jadwal Waktu Sholat JWS-M3') }}" target="_blank" rel="noopener">Pesan via WhatsApp</a>
+      </div>
+    </div>
+  </nav>
 
-    .jws-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 2; }
-
-    .jws-brand { display: flex; align-items: center; gap: 14px; margin-bottom: 40px; }
-    .jws-brand b { display: block; color: var(--gold); font-size: 22px; line-height: 1; }
-    .jws-brand span { display: block; margin-top: 4px; color: var(--muted); font-size: 12px; font-weight: 800; }
-
-    .jws-kicker { color: var(--gold); font-size: 14px; font-weight: 950; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
-    .jws-slide.dark .jws-kicker { color: var(--gold-bright); }
-    .jws h1 { margin: 0 0 20px; font-size: clamp(30px, 5vw, 52px); line-height: 1.1; font-weight: 800; }
-    .jws h1 span { color: var(--gold); }
-    .jws-slide.dark h1 span { color: var(--gold-bright); }
-    .jws-lead { max-width: 700px; color: var(--muted); font-size: clamp(17px, 2vw, 21px); line-height: 1.4; font-weight: 550; margin-bottom: 36px; }
-    .jws-slide.dark .jws-lead { color: rgba(247, 251, 255, 0.78); }
-
-    .jws-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-    @media (max-width: 640px) { .jws-grid { grid-template-columns: 1fr; } }
-
-    .jws-card { padding: 22px; border: 1px solid var(--line); background: rgba(255, 255, 255, 0.6); }
-    .jws-slide.dark .jws-card { background: rgba(255,255,255,0.06); border-color: rgba(246,191,53,0.3); }
-    .jws-card b { display: block; margin-bottom: 8px; font-size: 19px; }
-    .jws-card p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.35; font-weight: 550; }
-    .jws-slide.dark .jws-card p { color: rgba(247, 251, 255, 0.7); }
-
-    .jws-hero-img { width: 100%; max-width: 620px; border-radius: 12px; margin: 0 auto 32px; display: block; box-shadow: 0 20px 60px rgba(0,0,0,0.25); }
-
-    .jws-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 20px; }
-    @media (max-width: 640px) { .jws-stats { grid-template-columns: 1fr; } }
-    .jws-stat { text-align: center; padding: 24px; border: 1px solid rgba(246,191,53,0.3); }
-    .jws-stat b { display: block; font-size: 32px; color: var(--gold-bright); }
-    .jws-stat span { color: rgba(247, 251, 255, 0.7); font-size: 14px; font-weight: 600; }
-
-    .jws-cta { margin-top: 40px; display: flex; flex-wrap: wrap; align-items: center; gap: 24px; padding: 28px; background: linear-gradient(135deg, #a16207, #d68910); color: #fff; }
-    .jws-cta h2 { margin: 0 0 8px; font-size: 28px; }
-    .jws-cta p { margin: 0; color: rgba(255,255,255,0.85); font-size: 17px; font-weight: 700; }
-    .jws-btn { display: inline-block; margin-top: 16px; padding: 14px 28px; background: #fff; color: #a16207; font-weight: 800; text-decoration: none; border-radius: 4px; }
-    .jws-btn:hover { background: #fdf8ef; color: #a16207; }
-</style>
-
-<div class="jws">
-
-    <!-- 1: Hero -->
-    <section class="jws-slide">
-        <div class="jws-inner">
-            <div class="jws-brand">
-                <div><b>Jadwal Waktu Sholat JWS-M3</b><span>7-Segment Digital Display</span></div>
-            </div>
-            <img class="jws-hero-img" src="{{ asset('products/1709590121148.jpg') }}" alt="Jam Sholat Digital JWS-M3 terpasang di masjid">
-            <div class="jws-kicker">Terpasang di masjid nyata di seluruh Indonesia</div>
-            <h1>Jadwal sholat masjid <span>tanpa ribet update manual.</span></h1>
-            <p class="jws-lead">Tampilan digital 7-segment terang untuk 5 waktu sholat, imsak, dan syuruq — dilengkapi tanggal, jam real-time, dan running text pengumuman. Nama & lokasi masjid Anda bisa dicetak di panel, seperti contoh di atas.</p>
+  <header id="top" class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Jadwal Waktu Sholat 7-Segment</span>
+        <h1>Jadwal Sholat Masjid <span>Tanpa Ribet Update Manual</span></h1>
+        <p class="lead">Tampilan digital 7-segment terang untuk 5 waktu sholat, imsak, dan syuruq — dilengkapi tanggal, jam real-time, dan running text pengumuman. Nama & lokasi masjid Anda bisa dicetak langsung di panel.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://wa.me/6285743909116?text={{ urlencode('Halo, saya tertarik dengan Jadwal Waktu Sholat JWS-M3') }}" target="_blank" rel="noopener">Pesan untuk Masjid Anda</a>
+          <a class="btn btn-ghost" href="#fitur">Lihat Fitur</a>
         </div>
-    </section>
+        <div class="hero-note">Dipercaya 10.000+ pelanggan di seluruh Indonesia.</div>
+      </div>
+      <div class="browser" aria-label="Foto JWS-M3 terpasang di masjid">
+        <img src="{{ asset('jws-full/jws-m3.jpg') }}" alt="Jam Sholat Digital JWS-M3 terpasang di masjid">
+      </div>
+    </div>
+  </header>
 
-    <!-- 2: Fitur -->
-    <section class="jws-slide">
-        <div class="jws-inner">
-            <div class="jws-kicker">Fitur lengkap dalam satu box</div>
-            <h1>Semua yang dibutuhkan <span>takmir masjid.</span></h1>
-            <div class="jws-grid">
-                <div class="jws-card"><b>Alarm Adzan Otomatis</b><p>Bisa di-on/off-kan sesuai kebutuhan, tidak perlu ada yang mengingatkan manual.</p></div>
-                <div class="jws-card"><b>Jeda Iqomah</b><p>Bisa diatur tersendiri untuk tiap waktu sholat.</p></div>
-                <div class="jws-card"><b>Pilihan Tilawah</b><p>Murottal bisa diputar otomatis sebelum masuk waktu sholat.</p></div>
-                <div class="jws-card"><b>Running Text</b><p>Papan informasi berjalan untuk pengumuman jamaah dan kegiatan masjid.</p></div>
-            </div>
-        </div>
-    </section>
+  <section class="soft">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Masih Andalkan Kertas Jadwal yang Ditempel?</h2>
+        <p>Masjid pada umumnya masih mengelola jadwal sholat dan pengumuman secara manual dan terpisah-pisah.</p>
+      </div>
+      <div class="grid-3">
+        <div class="box problem"><b>Jadwal cetak cepat usang</b><p>Kertas jadwal sholat perlu diganti tiap bulan mengikuti perubahan waktu.</p></div>
+        <div class="box problem"><b>Adzan terlewat</b><p>Tidak ada pengingat otomatis, rawan terlambat kalau tidak ada yang mengingatkan.</p></div>
+        <div class="box problem"><b>Pengumuman manual</b><p>Info kegiatan jamaah harus ditempel atau diumumkan lisan setiap kali ada perubahan.</p></div>
+      </div>
+    </div>
+  </section>
 
-    <!-- 3: Bukti/Trust -->
-    <section class="jws-slide dark">
-        <div class="jws-inner">
-            <div class="jws-kicker">Sudah dipercaya luas</div>
-            <h1>Bukan produk baru coba-coba.</h1>
-            <div class="jws-stats">
-                <div class="jws-stat"><b>10.000+</b><span>Pelanggan di seluruh Indonesia</span></div>
-                <div class="jws-stat"><b>3 Tahun</b><span>Garansi perlindungan produk</span></div>
-                <div class="jws-stat"><b>7-Segment</b><span>Angka terang, terbaca dari jauh</span></div>
-            </div>
-        </div>
-    </section>
+  <section id="fitur">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Semua yang Dibutuhkan Takmir</h2>
+        <p>Satu panel digital menggantikan kertas jadwal, pengingat manual, dan papan pengumuman.</p>
+      </div>
+      <div class="feature-list">
+        <div class="feature"><span class="check">OK</span><div><b>Alarm Adzan Otomatis</b><span>Bisa di-on/off-kan sesuai kebutuhan, tidak perlu ada yang mengingatkan manual.</span></div></div>
+        <div class="feature"><span class="check">OK</span><div><b>Jeda Iqomah</b><span>Bisa diatur tersendiri untuk tiap waktu sholat.</span></div></div>
+        <div class="feature"><span class="check">OK</span><div><b>Pilihan Tilawah</b><span>Murottal bisa diputar otomatis sebelum masuk waktu sholat.</span></div></div>
+        <div class="feature"><span class="check">OK</span><div><b>Running Text</b><span>Papan informasi berjalan untuk pengumuman jamaah dan kegiatan masjid.</span></div></div>
+        <div class="feature"><span class="check">OK</span><div><b>Tampilan 7-Segment Terang</b><span>Angka besar dan jelas, terbaca dari jarak jauh bahkan di ruangan terang.</span></div></div>
+        <div class="feature"><span class="check">OK</span><div><b>Nama Masjid Tercetak</b><span>Panel bisa dicetak dengan nama dan alamat masjid Anda.</span></div></div>
+      </div>
+    </div>
+  </section>
 
-    <!-- 4: CTA -->
-    <section class="jws-slide" style="border-bottom:none;">
-        <div class="jws-inner">
-            <div class="jws-kicker">Pesan untuk masjid Anda</div>
-            <h1>Nama masjid Anda bisa <span>dicetak di panel.</span></h1>
-            <p class="jws-lead">Konsultasikan kebutuhan ukuran dan desain panel masjid Anda langsung dengan tim kami.</p>
-            <div class="jws-cta">
-                <div style="flex:1; min-width:200px;">
-                    <h2>Konsultasi & Pemesanan</h2>
-                    <p>WA: +62 857-4390-9116</p>
-                    <a href="https://wa.me/6285743909116?text={{ urlencode('Halo, saya tertarik dengan Jadwal Waktu Sholat JWS-M3') }}" target="_blank" class="jws-btn">Chat WhatsApp Sekarang</a>
-                </div>
-            </div>
-        </div>
-    </section>
+  <section id="varian" class="soft">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Varian Lain di Lini JWS</h2>
+        <p>Pilih ukuran dan gaya panel sesuai kebutuhan ruang masjid Anda.</p>
+      </div>
+      <div class="grid-3">
+        <div class="box shot-card"><img src="{{ asset('jws-full/jws-m3.jpg') }}" alt="JWS-M3"><div><h3>JWS-M3</h3><p>Panel bingkai emas ukir, latar foto Masjidil Haram/Nabawi, 6 waktu sholat.</p></div></div>
+        <div class="box shot-card"><img src="{{ asset('jws-full/jws-01.jpeg') }}" alt="JWS-01"><div><h3>JWS-01</h3><p>Dilengkapi remote kontrol, opsional adzan dan tilawah otomatis.</p></div></div>
+        <div class="box shot-card"><img src="{{ asset('jws-full/jws-018.jpg') }}" alt="JWS-018"><div><h3>JWS-018</h3><p>Jam sholat digital dengan fungsi inti serupa JWS-01.</p></div></div>
+      </div>
+    </div>
+  </section>
 
-</div>
-@endsection
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Bukan Produk Baru Coba-Coba</h2>
+        <p>Sudah terbukti dan dipercaya luas di seluruh Indonesia.</p>
+      </div>
+      <div class="grid-4">
+        <div class="stat"><b>10.000+</b><span>Pelanggan di seluruh Indonesia</span></div>
+        <div class="stat"><b>3 Tahun</b><span>Garansi perlindungan produk</span></div>
+        <div class="stat"><b>7-Segment</b><span>Angka terang, terbaca dari jauh</span></div>
+        <div class="stat"><b>Custom</b><span>Nama & alamat masjid bisa dicetak</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="faq soft">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Pertanyaan Umum</h2>
+        <p>Yang biasanya ditanyakan sebelum pemesanan.</p>
+      </div>
+      <details open><summary>Apakah nama masjid saya bisa dicetak di panel?</summary><p>Bisa. Kirimkan nama dan alamat masjid Anda saat pemesanan, akan dicetak langsung di panel seperti contoh foto di atas.</p></details>
+      <details><summary>Berapa lama garansinya?</summary><p>3 tahun garansi perlindungan produk dari Shatomedia.</p></details>
+      <details><summary>Apakah perlu instalasi khusus?</summary><p>Tidak. Cukup dipasang di dinding dan disambungkan ke listrik — tidak perlu internet atau jaringan khusus.</p></details>
+      <details><summary>Bagaimana cara memesan?</summary><p>Hubungi kami via WhatsApp untuk konsultasi ukuran, desain panel, dan estimasi harga sesuai kebutuhan masjid Anda.</p></details>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap">
+      <h2>Pesan Jadwal Sholat Digital untuk Masjid Anda</h2>
+      <p>Konsultasikan ukuran dan desain panel masjid Anda langsung dengan tim kami.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://wa.me/6285743909116?text={{ urlencode('Halo, saya tertarik dengan Jadwal Waktu Sholat JWS-M3') }}" target="_blank" rel="noopener">Pesan via WhatsApp</a>
+        <a class="btn btn-ghost" href="mailto:shatomedia@gmail.com?subject=Pemesanan%20JWS-M3">Email Shatomedia</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>(c) 2026 Shatomedia - Jadwal Waktu Sholat JWS-M3</span>
+      <span>WhatsApp: +62 857-4390-9116 | Email: shatomedia@gmail.com</span>
+    </div>
+  </footer>
+</body>
+</html>

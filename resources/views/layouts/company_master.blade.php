@@ -53,17 +53,17 @@
                         <div class="col mb-3">
                             <h5 class="fw-bold">Produk:</h5>
                             <ul class="nav flex-column">
-                                <li class="nav-item mb-2"><a href="#"
+                                <li class="nav-item mb-2"><a href="{{ route('product') }}"
                                         class="nav-link p-0 text-body-secondary">Jadwal
                                         Waktu Sholat</a></li>
-                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Kit
+                                <li class="nav-item mb-2"><a href="{{ route('product') }}" class="nav-link p-0 text-body-secondary">Kit
                                         Modul</a></li>
-                                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Jam
+                                <li class="nav-item mb-2"><a href="{{ route('product') }}" class="nav-link p-0 text-body-secondary">Jam
                                         Digital</a></li>
-                                <li class="nav-item mb-2"><a href="#"
+                                <li class="nav-item mb-2"><a href="{{ route('product') }}"
                                         class="nav-link p-0 text-body-secondary">Bell
                                         Otomatis</a></li>
-                                <li class="nav-item mb-2"><a href="#"
+                                <li class="nav-item mb-2"><a href="{{ route('product') }}"
                                         class="nav-link p-0 text-body-secondary">Buku</a>
                                 </li>
                             </ul>
@@ -73,19 +73,19 @@
                             <h5 class="fw-bold">Bantuan:</h5>
                             <ul class="nav flex-column">
                                 <li class="nav-item mb-2">
-                                    <a href="#" class="nav-link p-0 text-body-secondary">Cara Pembelian</a>
+                                    <a href="https://wa.me/6285743909116" target="_blank" class="nav-link p-0 text-body-secondary">Cara Pembelian</a>
                                 </li>
                             </ul>
                             <h5 class="fw-bold">Perusahaan:</h5>
                             <ul class="nav flex-column">
                                 <li class="nav-item mb-2">
-                                    <a href="#" class="nav-link p-0 text-body-secondary">Tentang Kami</a>
+                                    <a href="{{ route('about-us') }}" class="nav-link p-0 text-body-secondary">Tentang Kami</a>
                                 </li>
                                 <li class="nav-item mb-2">
-                                    <a href="#" class="nav-link p-0 text-body-secondary">Syarat & Ketentuan</a>
+                                    <a href="{{ route('contact') }}" class="nav-link p-0 text-body-secondary">Syarat & Ketentuan</a>
                                 </li>
                                 <li class="nav-item mb-2">
-                                    <a href="#" class="nav-link p-0 text-body-secondary">Kebijakan Privasi</a>
+                                    <a href="{{ route('contact') }}" class="nav-link p-0 text-body-secondary">Kebijakan Privasi</a>
                                 </li>
                             </ul>
                         </div>

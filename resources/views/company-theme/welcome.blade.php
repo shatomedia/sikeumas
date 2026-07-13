@@ -65,8 +65,8 @@
                                 </p>
                             </div>
                             <div class="card-footer">
-                                <a href="#" type="button" class="btn btn-primery" id="btn-buyNow">
-                                    Beli Sekarang
+                                <a href="{{ route('product-detail', $item->slug) }}" type="button" class="btn btn-primery" id="btn-buyNow">
+                                    Lihat Detail
                                 </a>
                             </div>
                         </div>

@@ -24,11 +24,12 @@
                         Produk
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Jadwal Waktu
+                        <li><a class="dropdown-item" href="{{ route('product') }}">Semua Produk</a></li>
+                        <li><a class="dropdown-item" href="{{ route('product') }}">Jadwal Waktu
                                 Sholat</a></li>
-                        <li><a class="dropdown-item" href="#">Kit Modul</a></li>
-                        <li><a class="dropdown-item" href="#">Jam Digital</a></li>
-                        <li><a class="dropdown-item" href="#">Bell Otomatis</a></li>
+                        <li><a class="dropdown-item" href="{{ route('product') }}">Kit Modul</a></li>
+                        <li><a class="dropdown-item" href="{{ route('product') }}">Jam Digital</a></li>
+                        <li><a class="dropdown-item" href="{{ route('product') }}">Bell Otomatis</a></li>
                     </ul>
                 </li>
                 <li class="nav-item mx-2">

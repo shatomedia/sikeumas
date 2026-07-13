@@ -58,7 +58,7 @@
             <!-- TAQWA-Hub spotlight -->
             <div class="row align-items-center g-5 mb-5 pb-4">
                 <div class="col-lg-6">
-                    <img src="{{ asset('products/taqwa-hub.png') }}" class="img-fluid rounded-4 shadow" alt="TAQWA-Hub">
+                    <img src="{{ asset('products/taqwa-hub.jpg') }}" class="img-fluid rounded-4 shadow" alt="TAQWA-Hub">
                 </div>
                 <div class="col-lg-6">
                     <span class="badge rounded-pill mb-3 px-3 py-2" style="background:#1f6b4d; color:#fff;">Sistem Digital Masjid</span>

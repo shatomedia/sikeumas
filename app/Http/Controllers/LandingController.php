@@ -10,7 +10,7 @@ class LandingController extends Controller
 {
     public function index()
     {
-        $data['bestProducts'] = Product::get()->take(3);
+        $data['bestProducts'] = Product::latest()->take(3)->get();
         return view('company-theme.welcome', $data);
     }
 
@@ -27,8 +27,9 @@ class LandingController extends Controller
 
     public function productDetail($slug)
     {
-        $data['product'] = Product::where('slug', $slug)->first();
-        return view('company-theme.product-detail', $data);
+        $data['product'] = Product::with('category')->where('slug', $slug)->firstOrFail();
+        $data['otherProducts'] = Product::where('slug', '!=', $slug)->latest()->take(3)->get();
+        return view('company-theme.product.detail_product', $data);
     }
 
     public function article()

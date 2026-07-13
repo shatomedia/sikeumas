@@ -86,7 +86,7 @@
                         <i class="bi bi-patch-check-fill fs-4" style="color:#1f6b4d;"></i>
                         <span class="fw-semibold">458/458 test case lulus &middot; aktif di masjid produksi sejak Juni 2026</span>
                     </div>
-                    <a href="{{ route('product-detail', 'taqwa-hub') }}" class="btn" id="btn-buyNow">Selengkapnya</a>
+                    <a href="{{ route('taqwa-hub-landing') }}" class="btn" id="btn-buyNow">Selengkapnya</a>
                 </div>
             </div>
 

@@ -19,6 +19,11 @@ class LandingController extends Controller
         return view('company-theme.about.about');
     }
 
+    public function taqwaHub()
+    {
+        return view('company-theme.taqwa-hub-landing');
+    }
+
     public function product()
     {
         $data['products'] = Product::get();

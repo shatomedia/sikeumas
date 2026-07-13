@@ -30,6 +30,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [LandingController::class, 'index'])->name('beranda');
 Route::get('/tentang-kami', [LandingController::class, 'aboutUs'])->name('about-us');
 Route::get('/taqwa-hub', [LandingController::class, 'taqwaHub'])->name('taqwa-hub-landing');
+Route::get('/surgery-time', [LandingController::class, 'surgeryTime'])->name('surgery-time-landing');
+Route::get('/jws-m3', [LandingController::class, 'jwsM3'])->name('jws-m3-landing');
 Route::get('/produk', [LandingController::class, 'product'])->name('product');
 Route::get('/produk/{slug}', [LandingController::class, 'productDetail'])->name('product-detail');
 Route::get('/artikel', [LandingController::class, 'article'])->name('blog');

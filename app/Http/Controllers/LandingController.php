@@ -24,6 +24,16 @@ class LandingController extends Controller
         return view('company-theme.taqwa-hub-landing');
     }
 
+    public function surgeryTime()
+    {
+        return view('company-theme.surgery-time-landing');
+    }
+
+    public function jwsM3()
+    {
+        return view('company-theme.jws-m3-landing');
+    }
+
     public function product()
     {
         $data['products'] = Product::get();

@@ -121,7 +121,7 @@
                         <i class="bi bi-gift-fill fs-4" style="color:#1e40af;"></i>
                         <span class="fw-semibold">Mode DEMO gratis tersedia &middot; paket lengkap mulai Rp 4 juta/tahun</span>
                     </div>
-                    <a href="{{ route('product-detail', 'surgery-time') }}" class="btn" id="btn-buyNow">Selengkapnya</a>
+                    <a href="{{ route('surgery-time-landing') }}" class="btn" id="btn-buyNow">Selengkapnya</a>
                 </div>
             </div>
 
@@ -156,7 +156,7 @@
                         <i class="bi bi-people-fill fs-4" style="color:#a16207;"></i>
                         <span class="fw-semibold">Dipercaya 10.000+ pelanggan di seluruh Indonesia</span>
                     </div>
-                    <a href="{{ route('product-detail', '9bbb9dfa-e8eb-4bf0-b011-99afc14b6c1d') }}" class="btn" id="btn-buyNow">Selengkapnya</a>
+                    <a href="{{ route('jws-m3-landing') }}" class="btn" id="btn-buyNow">Selengkapnya</a>
                 </div>
             </div>
         </div>

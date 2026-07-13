@@ -1,180 +1,281 @@
-@extends('layouts.company_master')
-@section('title', 'Surgery Time — Sistem Manajemen Waktu Kamar Bedah | Shatomedia')
-@push('meta-seo')
-    <meta name="description"
-        content="Surgery Time: pantau, jadwalkan, dan laporkan seluruh kamar operasi dari satu layar — timer real-time, monitor kepala ruangan, laporan PDF instan, tanpa perlu staf IT.">
-    <meta property="og:title" content="Surgery Time — Sistem Manajemen Waktu Kamar Bedah" />
-    <meta property="og:image" content="{{ asset('surgery-time-assets/hero.png') }}" />
-@endpush
-
-@section('company-content')
-<style>
-    .srt {
-        --blue: #1e40af;
-        --blue-deep: #1e3a5f;
-        --gold: #f6bf35;
-        --white: #f7fbff;
-        --muted: rgba(230, 240, 255, 0.74);
-        --line: rgba(30, 64, 175, 0.28);
-        background: #050b16;
-        color: var(--white);
-        font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SurgeryTime - Sistem Manajemen Waktu Kamar Bedah</title>
+  <meta name="description" content="SurgeryTime membantu rumah sakit memantau jadwal operasi, timer tiap fase, monitor semua ruang OK, alarm overtime, dan laporan PDF dari satu sistem lokal.">
+  <style>
+    :root {
+      --ink: #102033;
+      --muted: #617083;
+      --blue-950: #0d1b2d;
+      --blue-900: #1e3a5f;
+      --blue-800: #1e40af;
+      --blue-100: #dbeafe;
+      --green: #16a34a;
+      --amber: #f59e0b;
+      --red: #dc2626;
+      --soft: #f3f6fb;
+      --line: #d7e0ea;
+      --white: #ffffff;
     }
 
-    .srt-slide {
-        position: relative;
-        padding: 72px 24px;
-        background:
-            radial-gradient(circle at 16% 10%, rgba(30, 64, 175, 0.28), transparent 28%),
-            radial-gradient(circle at 84% 20%, rgba(53, 130, 230, 0.16), transparent 24%),
-            linear-gradient(135deg, #0b1a33 0%, #0a1526 50%, #050b16 100%);
-        border-bottom: 1px solid var(--line);
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--ink); background: var(--white); font-family: Inter, "Segoe UI", Arial, sans-serif; line-height: 1.6; }
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+    .wrap { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
+
+    .nav { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.95); border-bottom: 1px solid var(--line); backdrop-filter: blur(10px); }
+    .nav-inner { min-height: 66px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 900; color: var(--blue-900); text-decoration: none; }
+    .mark { width: 36px; height: 36px; border-radius: 9px; display: grid; place-items: center; background: var(--blue-900); color: #fff; font-size: 14px; font-weight: 900; }
+    .nav-links { display: flex; align-items: center; gap: 18px; font-size: 14px; font-weight: 700; color: var(--blue-900); }
+    .nav-links a { text-decoration: none; }
+
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 18px; border-radius: 8px; border: 1px solid transparent; text-decoration: none; font-weight: 800; line-height: 1.2; text-align: center; }
+    .btn-primary { background: var(--green); color: #fff; }
+    .btn-blue { background: var(--blue-900); color: #fff; }
+    .btn-ghost { background: #fff; color: var(--blue-900); border-color: var(--line); }
+
+    .hero { background: linear-gradient(135deg, var(--blue-950), var(--blue-900) 52%, var(--blue-800)); color: #fff; overflow: hidden; }
+    .hero-grid { min-height: 660px; display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: center; padding: 74px 0; }
+    .eyebrow { display: inline-flex; align-items: center; min-height: 32px; padding: 0 12px; border-radius: 999px; background: rgba(255,255,255,.12); color: rgba(255,255,255,.88); font-size: 13px; font-weight: 800; margin-bottom: 18px; }
+    h1, h2, h3 { margin: 0; line-height: 1.08; }
+    h1 { font-size: clamp(40px, 6vw, 68px); max-width: 660px; }
+    h2 { font-size: clamp(30px, 4vw, 44px); color: var(--blue-900); }
+    h3 { font-size: 20px; color: var(--blue-900); }
+    .lead { margin: 20px 0 0; max-width: 620px; color: rgba(255,255,255,.84); font-size: 18px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .hero-note { margin-top: 18px; color: rgba(255,255,255,.7); font-size: 14px; }
+
+    .browser { border-radius: 18px; background: #0b1524; padding: 12px; box-shadow: 0 30px 80px rgba(0,0,0,.35); transform: rotate(1.2deg); }
+    .browser-bar { height: 30px; display: flex; align-items: center; gap: 7px; padding: 0 6px; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; background: #64748b; }
+    .browser img { border-radius: 10px; height: 380px; width: 100%; object-fit: cover; object-position: top left; background: #fff; }
+
+    section { padding: 82px 0; }
+    .section-head { display: grid; grid-template-columns: .8fr 1fr; gap: 28px; align-items: end; margin-bottom: 28px; }
+    .section-head p { margin: 0; color: var(--muted); font-size: 16px; }
+    .soft { background: var(--soft); }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+    .box { border: 1px solid var(--line); border-radius: 8px; background: #fff; padding: 22px; }
+    .box p { margin: 10px 0 0; color: var(--muted); }
+    .problem b { color: var(--red); }
+
+    .flow { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; align-items: stretch; }
+    .step { min-height: 176px; border: 1px solid var(--line); border-radius: 8px; background: #fff; padding: 18px; position: relative; }
+    .num { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--blue-800); color: #fff; font-weight: 900; margin-bottom: 12px; }
+    .step p { margin: 8px 0 0; color: var(--muted); font-size: 14px; line-height: 1.45; }
+
+    .feature-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .feature { display: flex; gap: 12px; align-items: flex-start; border-bottom: 1px solid var(--line); padding: 14px 0; }
+    .check { flex: none; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; background: #dcfce7; color: var(--green); font-weight: 900; }
+    .feature b { display: block; color: var(--blue-900); }
+    .feature span { display: block; color: var(--muted); margin-top: 3px; font-size: 14px; }
+
+    .shot-card { overflow: hidden; padding: 0; }
+    .shot-card img { width: 100%; height: 230px; object-fit: cover; object-position: top left; background: var(--soft); border-bottom: 1px solid var(--line); }
+    .shot-card div { padding: 16px; }
+
+    .price { display: flex; flex-direction: column; gap: 16px; }
+    .price strong { display: block; color: var(--blue-900); font-size: 24px; line-height: 1.2; }
+    .price ul { margin: 0; padding-left: 18px; color: var(--muted); }
+    .highlight { border: 2px solid var(--blue-800); background: #f8fbff; }
+
+    .faq details { border-bottom: 1px solid var(--line); padding: 18px 0; }
+    .faq summary { cursor: pointer; color: var(--blue-900); font-weight: 900; font-size: 18px; }
+    .faq p { color: var(--muted); margin-bottom: 0; }
+
+    .cta { background: var(--blue-950); color: #fff; text-align: center; }
+    .cta h2 { color: #fff; max-width: 780px; margin: 0 auto; }
+    .cta p { max-width: 680px; margin: 18px auto 0; color: rgba(255,255,255,.76); font-size: 18px; }
+    .cta .hero-actions { justify-content: center; }
+
+    footer { padding: 28px 0; background: #08111f; color: rgba(255,255,255,.7); font-size: 14px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+
+    @media (max-width: 920px) {
+      .hero-grid, .section-head, .grid-2 { grid-template-columns: 1fr; }
+      .grid-3 { grid-template-columns: 1fr; }
+      .flow { grid-template-columns: repeat(2, 1fr); }
+      .feature-list { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .browser { transform: none; }
     }
 
-    .srt-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 2; }
+    @media (max-width: 560px) {
+      section { padding: 58px 0; }
+      .hero-grid { padding: 54px 0; }
+      .flow { grid-template-columns: 1fr; }
+      .browser img { height: 260px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top" aria-label="SurgeryTime">
+        <span class="mark">ST</span>
+        <span>SurgeryTime</span>
+      </a>
+      <div class="nav-links">
+        <a href="#alur">Alur</a>
+        <a href="#fitur">Fitur</a>
+        <a href="#harga">Harga</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn btn-primary" href="https://wa.me/6285743909116?text=Halo%20Shatomedia%2C%20saya%20ingin%20demo%20SurgeryTime%20untuk%20rumah%20sakit%2Fklinik." target="_blank" rel="noopener">Demo WhatsApp</a>
+      </div>
+    </div>
+  </nav>
 
-    .srt-brand { display: flex; align-items: center; gap: 14px; margin-bottom: 40px; }
-    .srt-brand img { width: 52px; height: 52px; border-radius: 50%; background: #fff; box-shadow: 0 0 34px rgba(30, 64, 175, 0.4); }
-    .srt-brand b { display: block; color: #6ea8ff; font-size: 22px; line-height: 1; }
-    .srt-brand span { display: block; margin-top: 4px; color: var(--muted); font-size: 12px; font-weight: 800; }
-
-    .srt-kicker { color: var(--gold); font-size: 14px; font-weight: 950; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
-    .srt h1 { margin: 0 0 20px; font-size: clamp(30px, 5vw, 56px); line-height: 1.08; font-weight: 800; }
-    .srt h1 span { color: #6ea8ff; }
-    .srt-lead { max-width: 700px; color: var(--muted); font-size: clamp(17px, 2vw, 22px); line-height: 1.4; font-weight: 550; margin-bottom: 36px; }
-
-    .srt-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-    @media (max-width: 640px) { .srt-grid { grid-template-columns: 1fr; } }
-
-    .srt-card { padding: 22px; border: 1px solid var(--line); background: linear-gradient(145deg, rgba(30, 64, 175, 0.16), rgba(10, 21, 38, 0.6)); }
-    .srt-card b { display: block; margin-bottom: 8px; color: var(--white); font-size: 19px; }
-    .srt-card p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.35; font-weight: 550; }
-
-    .srt-screen { margin-top: 8px; border: 1px solid var(--line); overflow: hidden; background: #0b1a33; box-shadow: 0 20px 54px rgba(0, 0, 0, 0.32), 0 0 28px rgba(30, 64, 175, 0.2); }
-    .srt-screen img { width: 100%; display: block; }
-
-    .srt-chips { display: flex; gap: 10px; margin-top: 18px; flex-wrap: wrap; }
-    .srt-chip { padding: 9px 12px; border: 1px solid rgba(110, 168, 255, 0.4); background: rgba(10, 21, 38, 0.72); color: rgba(247, 251, 255, 0.88); font-size: 13px; font-weight: 900; text-transform: uppercase; }
-
-    .srt-hero-img { width: 100%; max-width: 420px; border-radius: 12px; margin: 0 auto 32px; display: block; box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
-
-    .srt-pkg { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 20px; }
-    @media (max-width: 640px) { .srt-pkg { grid-template-columns: 1fr; } }
-    .srt-pkg-card { padding: 24px; border: 1px solid var(--line); background: rgba(10, 21, 38, 0.7); }
-    .srt-pkg-card.featured { border-color: var(--gold); background: linear-gradient(145deg, rgba(246,191,53,0.1), rgba(10,21,38,0.7)); }
-    .srt-pkg-card b { display: block; font-size: 20px; margin-bottom: 6px; }
-    .srt-pkg-card .price { color: var(--gold); font-size: 26px; font-weight: 800; margin: 10px 0; }
-    .srt-pkg-card ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 14px; line-height: 1.6; }
-
-    .srt-cta { margin-top: 40px; display: flex; flex-wrap: wrap; align-items: center; gap: 24px; padding: 28px; background: linear-gradient(135deg, rgba(246, 191, 53, 0.98), rgba(255, 239, 170, 0.98)); color: #092238; }
-    .srt-cta h2 { margin: 0 0 8px; font-size: 28px; }
-    .srt-cta p { margin: 0; color: rgba(9, 34, 56, 0.76); font-size: 17px; font-weight: 800; }
-    .srt-qr { width: 108px; height: 108px; padding: 8px; background: #fff; border: 6px solid #092238; flex-shrink: 0; }
-    .srt-qr img { width: 100%; height: 100%; display: block; }
-    .srt-btn { display: inline-block; margin-top: 16px; padding: 14px 28px; background: #092238; color: #fff; font-weight: 800; text-decoration: none; border-radius: 4px; }
-    .srt-btn:hover { background: #123d5f; color: #fff; }
-</style>
-
-<div class="srt">
-
-    <!-- 1: Masalah -->
-    <section class="srt-slide">
-        <div class="srt-inner">
-            <div class="srt-brand">
-                <img src="{{ asset('surgery-time-assets/logo.png') }}" alt="Logo Surgery Time">
-                <div><b>Surgery Time</b><span>Sistem Manajemen Waktu Kamar Bedah</span></div>
-            </div>
-            <img class="srt-hero-img" src="{{ asset('surgery-time-assets/hero.png') }}" alt="Surgery Time">
-            <div class="srt-kicker">Apakah RS Anda masih mengalami ini?</div>
-            <h1>Waktu operasi masih dicatat di <span>papan tulis?</span></h1>
-            <p class="srt-lead">Pantau. Jadwalkan. Laporkan. Semua dari satu layar — mudah digunakan, tidak perlu keahlian teknis apapun.</p>
-            <div class="srt-grid">
-                <div class="srt-card"><b>Catatan manual</b><p>Waktu operasi dicatat di papan tulis atau kertas, rawan salah dan hilang.</p></div>
-                <div class="srt-card"><b>Sulit dipantau</b><p>Kepala ruangan kesulitan memantau semua kamar operasi sekaligus.</p></div>
-                <div class="srt-card"><b>Koordinasi terganggu</b><p>Pergantian shift sering membuat informasi terputus antar tim.</p></div>
-                <div class="srt-card"><b>Laporan lambat</b><p>Menyusun laporan operasi butuh waktu lama, keterlambatan tidak terdeteksi.</p></div>
-            </div>
+  <header id="top" class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Sistem Manajemen Waktu Kamar Bedah</span>
+        <h1>Pantau Jadwal, Timer, Alarm, dan Laporan Operasi dari Satu Sistem</h1>
+        <p class="lead">SurgeryTime membantu rumah sakit dan klinik memantau alur operasi secara real-time: mulai dari input jadwal, timer tiap fase, monitor kepala ruangan, alarm overtime, sampai laporan PDF siap cetak.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://wa.me/6285743909116?text=Halo%20Shatomedia%2C%20saya%20ingin%20demo%20SurgeryTime%20untuk%20rumah%20sakit%2Fklinik." target="_blank" rel="noopener">Minta Demo Gratis</a>
+          <a class="btn btn-ghost" href="#alur">Lihat Alur Penggunaan</a>
         </div>
-    </section>
+        <div class="hero-note">Berjalan lokal di jaringan RS. Dapat diakses dari PC, tablet, atau HP.</div>
+      </div>
+      <div class="browser" aria-label="Screenshot Portal SurgeryTime">
+        <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+        <img src="{{ asset('surgery-time-full/screenshots/portal.png') }}" alt="Portal utama SurgeryTime">
+      </div>
+    </div>
+  </header>
 
-    <!-- 2: Fitur utama -->
-    <section class="srt-slide">
-        <div class="srt-inner">
-            <div class="srt-kicker">Solusi digitalnya</div>
-            <h1>Semua fungsi kamar operasi <span>dalam satu sistem.</span></h1>
-            <p class="srt-lead">Terinstall di satu PC/server kecil di RS. Seluruh staf akses lewat browser tablet/laptop masing-masing — tanpa install apapun, tanpa internet.</p>
-            <div class="srt-grid">
-                <div class="srt-card"><b>Timer Real-Time</b><p>Countdown otomatis setiap fase operasi, alert kalau overtime.</p></div>
-                <div class="srt-card"><b>Monitor Kepala Ruangan</b><p>Semua kamar OK tampil dalam satu layar sekaligus.</p></div>
-                <div class="srt-card"><b>Laporan PDF Instan</b><p>Siap cetak dalam detik setelah operasi selesai.</p></div>
-                <div class="srt-card"><b>Penjadwalan Mudah</b><p>Input 4 langkah, atau import massal via Excel.</p></div>
-            </div>
+  <section class="soft">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Masalah yang Sering Terjadi di Kamar Operasi</h2>
+        <p>Banyak rumah sakit masih mengandalkan papan tulis, kertas, chat manual, atau file terpisah untuk memantau jadwal dan durasi operasi.</p>
+      </div>
+      <div class="grid-3">
+        <div class="box problem"><b>Jadwal tidak terpusat</b><p>Jadwal operasi tersebar di beberapa tempat sehingga sulit dilihat cepat oleh seluruh tim.</p></div>
+        <div class="box problem"><b>Overtime terlambat diketahui</b><p>Keterlambatan operasi sering baru terlihat setelah mengganggu jadwal berikutnya.</p></div>
+        <div class="box problem"><b>Laporan disusun ulang</b><p>Data durasi fase dan catatan operasi membutuhkan waktu untuk dirapikan setelah tindakan selesai.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="alur">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Alur Penggunaan SurgeryTime</h2>
+        <p>Dari input jadwal sampai laporan selesai, SurgeryTime mengikuti alur kerja yang mudah dipahami tim OK.</p>
+      </div>
+      <div class="flow">
+        <div class="step"><div class="num">1</div><h3>Input Operasi</h3><p>Masukkan pasien, tim medis, ruang OK, jadwal, estimasi, dan fase operasi.</p></div>
+        <div class="step"><div class="num">2</div><h3>Jadwal Tampil</h3><p>Operasi muncul di daftar, jadwal harian, mingguan, dan tampilan per dokter.</p></div>
+        <div class="step"><div class="num">3</div><h3>Mulai di OK</h3><p>Tim memilih operasi dari dashboard TV atau browser ruang operasi.</p></div>
+        <div class="step"><div class="num">4</div><h3>Timer Fase</h3><p>Setiap fase dipantau dengan countdown, progress, dan status durasi.</p></div>
+        <div class="step"><div class="num">5</div><h3>Monitor Semua OK</h3><p>Kepala ruangan melihat status semua kamar operasi dari satu layar.</p></div>
+        <div class="step"><div class="num">6</div><h3>Laporan PDF</h3><p>Setelah selesai, laporan siap dicetak untuk arsip dan administrasi.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fitur" class="soft">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Fitur Utama</h2>
+        <p>SurgeryTime dibangun untuk kebutuhan operasional kamar bedah: cepat dipahami, mudah diakses, dan relevan untuk staf medis maupun administrasi.</p>
+      </div>
+      <div class="feature-list">
+        <div class="feature"><span class="check">OK</span><div><b>Penjadwalan Operasi</b><span>Input data pasien, dokter, ruang OK, tanggal, jam, dan estimasi durasi.</span></div></div>
+        <div class="feature"><span class="check">OK</span><div><b>Timer Real-Time per Fase</b><span>Pantau durasi tiap fase operasi dan potensi overtime.</span></div></div>
+        <div class="feature"><span class="check">OK</span><div><b>Monitor Kepala Ruangan</b><span>Semua ruang operasi terlihat dalam satu layar monitoring.</span></div></div>
+        <div class="feature"><span class="check">OK</span><div><b>Alarm Overtime</b><span>Peringatan otomatis saat operasi melewati estimasi.</span></div></div>
+        <div class="feature"><span class="check">OK</span><div><b>Laporan PDF Siap Cetak</b><span>Data pasien, tim, durasi fase, catatan, dan area tanda tangan.</span></div></div>
+        <div class="feature"><span class="check">OK</span><div><b>Akses Jaringan Lokal</b><span>Dibuka dari PC, tablet, atau HP tanpa install aplikasi di setiap perangkat.</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Tampilan Aplikasi</h2>
+        <p>Screenshot asli aplikasi SurgeryTime untuk membantu calon pengguna memahami bentuk sistemnya.</p>
+      </div>
+      <div class="grid-2">
+        <div class="box shot-card"><img src="{{ asset('surgery-time-full/screenshots/input-operasi.png') }}" alt="Input Operasi SurgeryTime"><div><h3>Input Operasi Baru</h3><p>Form input untuk data pasien, tim medis, ruang OK, dan fase operasi.</p></div></div>
+        <div class="box shot-card"><img src="{{ asset('surgery-time-full/screenshots/monitor-kepala-ruangan.png') }}" alt="Monitor Kepala Ruangan SurgeryTime"><div><h3>Monitor Kepala Ruangan</h3><p>Semua kamar operasi terlihat dalam satu layar monitoring.</p></div></div>
+        <div class="box shot-card"><img src="{{ asset('surgery-time-full/screenshots/laporan-operasi.png') }}" alt="Laporan Operasi SurgeryTime"><div><h3>Laporan Operasi</h3><p>Laporan PDF siap cetak setelah tindakan selesai.</p></div></div>
+        <div class="box shot-card"><img src="{{ asset('surgery-time-full/screenshots/portal.png') }}" alt="Portal SurgeryTime"><div><h3>Portal Utama</h3><p>Ringkasan status ruang operasi dan akses cepat fitur utama.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="harga" class="soft">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Paket SurgeryTime</h2>
+        <p>Harga ditampilkan sebagai estimasi awal. Penawaran resmi dapat disesuaikan dengan kebutuhan implementasi, jumlah ruang, lokasi, dan dukungan.</p>
+      </div>
+      <div class="grid-3">
+        <div class="box price">
+          <h3>Demo</h3>
+          <strong>Gratis</strong>
+          <p>Untuk evaluasi awal dan demo alur penggunaan SurgeryTime.</p>
+          <ul><li>Simulasi input operasi</li><li>Simulasi monitor OK</li><li>Simulasi laporan</li></ul>
+          <a class="btn btn-blue" href="https://wa.me/6285743909116?text=Halo%20Shatomedia%2C%20saya%20ingin%20demo%20SurgeryTime." target="_blank" rel="noopener">Coba Demo</a>
         </div>
-    </section>
-
-    <!-- 3: Screenshot Monitor -->
-    <section class="srt-slide">
-        <div class="srt-inner">
-            <div class="srt-kicker">Screenshot nyata dashboard</div>
-            <h1>Kendali penuh <span>ruang operasi Anda.</span></h1>
-            <div class="srt-screen"><img src="{{ asset('surgery-time-assets/screenshot-monitor.png') }}" alt="Monitor Kepala Ruangan Surgery Time"></div>
-            <div class="srt-chips">
-                <span class="srt-chip">Status Ruang</span><span class="srt-chip">Alarm Aktif</span><span class="srt-chip">Sensor Suhu & Kelembapan</span>
-            </div>
+        <div class="box price highlight">
+          <h3>FULL Mandiri</h3>
+          <strong>Mulai Rp 4 juta tahun pertama</strong>
+          <p>Untuk RS/klinik yang sudah memiliki PC/server dan staf IT sendiri.</p>
+          <ul><li>Software SurgeryTime</li><li>Dongle ESP32</li><li>Sensor, RTC, dan buzzer</li></ul>
+          <a class="btn btn-primary" href="https://wa.me/6285743909116?text=Halo%20Shatomedia%2C%20saya%20ingin%20penawaran%20Paket%20FULL%20Mandiri%20SurgeryTime." target="_blank" rel="noopener">Minta Penawaran</a>
         </div>
-    </section>
-
-    <!-- 4: Screenshot Input -->
-    <section class="srt-slide">
-        <div class="srt-inner">
-            <div class="srt-kicker">Mudah dipakai, tanpa pelatihan panjang</div>
-            <h1>Input operasi baru <span>4 langkah sederhana.</span></h1>
-            <div class="srt-screen"><img src="{{ asset('surgery-time-assets/screenshot-input.png') }}" alt="Input Operasi Surgery Time"></div>
-            <div class="srt-chips">
-                <span class="srt-chip">Data Pasien</span><span class="srt-chip">Tim Medis</span><span class="srt-chip">Fase Operasi</span><span class="srt-chip">Konfirmasi</span>
-            </div>
+        <div class="box price">
+          <h3>FULL Lengkap</h3>
+          <strong>Mulai Rp 10 juta tahun pertama</strong>
+          <p>Untuk RS/klinik yang ingin sistem siap pakai tanpa menyiapkan server sendiri.</p>
+          <ul><li>Server OrangePi</li><li>SurgeryTime terinstall</li><li>Pelatihan dan dukungan awal</li></ul>
+          <a class="btn btn-blue" href="https://wa.me/6285743909116?text=Halo%20Shatomedia%2C%20saya%20ingin%20penawaran%20Paket%20FULL%20Lengkap%20SurgeryTime." target="_blank" rel="noopener">Minta Penawaran</a>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- 5: Paket & CTA -->
-    <section class="srt-slide" style="border-bottom:none;">
-        <div class="srt-inner">
-            <div class="srt-kicker">Paket & harga</div>
-            <h1>Mulai dari <span>Rp 4 juta/tahun.</span></h1>
-            <div class="srt-pkg">
-                <div class="srt-pkg-card">
-                    <b>Paket Mandiri</b>
-                    <p style="color:var(--muted); font-size:14px; margin:0;">Untuk RS yang sudah punya PC/server sendiri</p>
-                    <div class="price">± Rp 4.000.000<span style="font-size:14px;">/tahun pertama</span></div>
-                    <ul>
-                        <li>Dongle ESP32</li>
-                        <li>Software installer</li>
-                        <li>Buku manual PDF</li>
-                        <li>Dukungan WhatsApp</li>
-                    </ul>
-                </div>
-                <div class="srt-pkg-card featured">
-                    <b>Paket Lengkap ★ Rekomendasi</b>
-                    <p style="color:var(--muted); font-size:14px; margin:0;">Untuk RS tanpa staf IT — langsung jalan</p>
-                    <div class="price">± Rp 10.000.000<span style="font-size:14px;">/tahun pertama</span></div>
-                    <ul>
-                        <li>Server OrangePi siap pakai</li>
-                        <li>Dongle ESP32 + buku manual cetak</li>
-                        <li>Pelatihan 2 jam</li>
-                        <li>Dukungan remote</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="srt-cta">
-                <div style="flex:1; min-width:200px;">
-                    <h2>Minta demo gratis</h2>
-                    <p>WA: +62 857-4390-9116 &middot; Demo 15 menit, tanpa biaya</p>
-                    <a href="https://wa.me/6285743909116?text={{ urlencode('Halo, saya tertarik dengan Surgery Time') }}" target="_blank" class="srt-btn">Chat WhatsApp Sekarang</a>
-                </div>
-                <div class="srt-qr"><img src="{{ asset('surgery-time-assets/qr-wa.png') }}" alt="QR WhatsApp CS Surgery Time"></div>
-            </div>
-        </div>
-    </section>
+  <section id="faq" class="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Pertanyaan Umum</h2>
+        <p>Beberapa hal yang biasanya ditanyakan saat demo awal.</p>
+      </div>
+      <details open><summary>Apakah SurgeryTime harus terhubung internet?</summary><p>Tidak untuk operasional harian. SurgeryTime dapat berjalan di jaringan lokal rumah sakit. Internet hanya dibutuhkan untuk update atau dukungan remote jika diperlukan.</p></details>
+      <details><summary>Apakah setiap komputer harus diinstall aplikasi?</summary><p>Tidak. SurgeryTime cukup berjalan di satu server/PC/perangkat utama. Staf lain dapat mengakses dari browser di jaringan yang sama.</p></details>
+      <details><summary>Apakah bisa dibuka dari tablet atau HP?</summary><p>Bisa. SurgeryTime dapat diakses melalui browser dari PC, laptop, tablet, atau HP di jaringan rumah sakit.</p></details>
+      <details><summary>Apakah data operasi disimpan di server Shatomedia?</summary><p>Tidak. Data operasi tersimpan di perangkat atau server milik rumah sakit.</p></details>
+      <details><summary>Apakah bisa mencoba dulu?</summary><p>Bisa. Kami menyediakan demo untuk memperlihatkan alur SurgeryTime dari input jadwal sampai laporan PDF.</p></details>
+    </div>
+  </section>
 
-</div>
-@endsection
+  <section class="cta">
+    <div class="wrap">
+      <h2>Ingin Melihat SurgeryTime Bekerja di Alur Kamar Operasi Anda?</h2>
+      <p>Kami dapat menyiapkan demo singkat 15 menit untuk memperlihatkan alur penjadwalan, monitoring timer, alarm overtime, dan laporan operasi.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://wa.me/6285743909116?text=Halo%20Shatomedia%2C%20saya%20ingin%20demo%20SurgeryTime%20untuk%20rumah%20sakit%2Fklinik." target="_blank" rel="noopener">Minta Demo via WhatsApp</a>
+        <a class="btn btn-ghost" href="mailto:shatomedia@gmail.com?subject=Demo%20SurgeryTime">Email Shatomedia</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>(c) 2026 Shatomedia - SurgeryTime</span>
+      <span>WhatsApp: +62 857-4390-9116 | Email: shatomedia@gmail.com</span>
+    </div>
+  </footer>
+</body>
+</html>

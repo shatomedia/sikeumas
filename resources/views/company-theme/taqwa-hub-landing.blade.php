@@ -248,6 +248,43 @@
     }
 
     .tqh-btn:hover { background: #123d5f; color: #fff; }
+
+    .tqh-quote {
+        background: #123d2c;
+        border: 1px solid rgba(53, 230, 208, 0.24);
+        padding: 32px;
+        margin-top: 8px;
+    }
+    .tqh-quote p {
+        margin: 0 0 12px;
+        font-size: 20px;
+        line-height: 1.5;
+        font-weight: 600;
+        color: var(--white);
+    }
+    .tqh-quote span {
+        color: var(--muted);
+        font-size: 14px;
+    }
+
+    .tqh-faq details {
+        border-bottom: 1px solid rgba(73, 177, 255, 0.24);
+        padding: 18px 0;
+    }
+    .tqh-faq summary {
+        cursor: pointer;
+        color: var(--white);
+        font-weight: 800;
+        font-size: 17px;
+        list-style: none;
+    }
+    .tqh-faq summary::-webkit-details-marker { display: none; }
+    .tqh-faq p {
+        margin: 12px 0 0;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.5;
+    }
 </style>
 
 <div class="tqh">
@@ -311,6 +348,39 @@
             </div>
             <div class="tqh-chips">
                 <span class="tqh-chip">Jadwal Sholat</span><span class="tqh-chip">Iqomah</span><span class="tqh-chip">Event Banner</span><span class="tqh-chip">Info Jamaah</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 4.5: Manfaat, Testimoni, FAQ -->
+    <section class="tqh-slide">
+        <div class="tqh-inner">
+            <div class="tqh-kicker">Manfaat untuk takmir</div>
+            <h1>Semua beres, <span>tanpa harus ada orang jaga terus.</span></h1>
+            <p class="tqh-lead">Dibuat untuk pengurus masjid — bukan untuk teknisi.</p>
+            <div class="tqh-grid">
+                <div class="tqh-card"><b>Cukup dari HP</b><p>Tidak perlu komputer atau aplikasi rumit — buka lewat browser HP seperti membuka Instagram.</p></div>
+                <div class="tqh-card"><b>Update Sendiri</b><p>Kalau ada perbaikan atau fitur baru, tinggal satu tombol "Perbarui" — tidak perlu teknisi datang.</p></div>
+                <div class="tqh-card"><b>Atur Sekali di Awal</b><p>Isi nama masjid, jadwal kajian, dan nomor WhatsApp pengurus — selesai, sistem jalan sendiri.</p></div>
+                <div class="tqh-card"><b>Pantau dari Mana Saja</b><p>Cek status masjid, ganti pengumuman, atau nyalakan mode kajian — dari rumah sekalipun.</p></div>
+            </div>
+            <div class="tqh-quote">
+                <p>"Sejak pakai ini, jadwal sholat dan suara masjid jalan sendiri. Pengurus tidak perlu lagi bolak-balik cek amplifier tiap mau sholat."</p>
+                <span>— Pengalaman pengguna di masjid percontohan</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 4.6: FAQ -->
+    <section class="tqh-slide">
+        <div class="tqh-inner">
+            <div class="tqh-kicker">Pertanyaan umum</div>
+            <h1>Yang biasanya <span>ditanyakan takmir.</span></h1>
+            <div class="tqh-faq">
+                <details open><summary>Apakah harus ada internet?</summary><p>Tidak. Jadwal sholat, suara, dan tampilan TV tetap jalan tanpa internet. Internet hanya dipakai kalau ingin notifikasi WhatsApp otomatis.</p></details>
+                <details><summary>Apakah rumit dipakai untuk pengurus yang tidak paham teknologi?</summary><p>Tidak. Tampilan dibuat sesederhana membuka halaman web di HP — tombol besar, bahasa Indonesia, tanpa istilah teknis.</p></details>
+                <details><summary>Bagaimana kalau ada masalah atau alat rusak?</summary><p>Sistem otomatis mengirim peringatan ke WhatsApp grup pengurus kalau ada speaker atau bagian yang bermasalah — jadi bisa ditangani sebelum jamaah menyadari.</p></details>
+                <details><summary>Apakah bisa dipasang di masjid dengan speaker yang sudah ada?</summary><p>Bisa. Unit ini disambungkan ke sistem suara yang sudah terpasang di masjid, tidak perlu ganti speaker lama.</p></details>
             </div>
         </div>
     </section>

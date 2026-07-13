@@ -63,11 +63,6 @@
                     </div>
                     <div class="col-lg-5 text-end">
                         <div class="h-100 d-inline-flex align-items-center">
-                            <span class="text-body">Follow Us:</span>
-                            <a class="text-dark px-2" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="text-dark px-2" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="text-dark px-2" href=""><i class="fab fa-linkedin-in"></i></a>
-                            <a class="text-dark px-2" href=""><i class="fab fa-instagram"></i></a>
                             <a class="text-dark ps-4" href="{{ route('login-tenant') }}"><i
                                     class="fa fa-lock text-dark me-1"></i>
                                 Masuk</a>
@@ -91,7 +86,7 @@
                         <a href="#about" class="nav-item nav-link">Tentang</a>
                         <a href="#activities" class="nav-item nav-link">Kegiatan</a>
                         <a href="#events" class="nav-item nav-link">Acara</a>
-                        <a href="" class="nav-item nav-link">Kontak</a>
+                        <a href="https://wa.me/{{ $masjids->telp }}" target="_blank" class="nav-item nav-link">Kontak</a>
                     </div>
                     <a href="#donate" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block">Donasi</a>
                 </div>
@@ -123,13 +118,13 @@
                             <div class="d-flex align-items-center border-bottom py-4">
                                 <span class="flex-shrink-0 btn-square bg-primary me-3 p-4"><i
                                         class="fa fa-map-marker-alt text-dark"></i></span>
-                                <a href="" class="text-body">{{ $masjids->alamat }}</a>
+                                <a href="https://www.google.com/maps/search/?api=1&query={{ urlencode($masjids->alamat) }}" target="_blank" class="text-body">{{ $masjids->alamat }}</a>
                             </div>
                             <h6 class="text-secondary mt-4 mb-0">Telp / No Hp</h6>
                             <div class="d-flex align-items-center py-4">
                                 <span class="flex-shrink-0 btn-square bg-primary me-3 p-4"><i
                                         class="fa fa-phone-alt text-dark"></i></span>
-                                <a href="" class="text-body">{{ $masjids->telp }}</a>
+                                <a href="https://wa.me/{{ $masjids->telp }}" target="_blank" class="text-body">{{ $masjids->telp }}</a>
                             </div>
                         </div>
                     </div>
@@ -138,15 +133,15 @@
                     <div class="footer-item mt-5">
                         <h4 class="text-light mb-4">Menu</h4>
                         <div class="d-flex flex-column align-items-start">
-                            <a class="text-body mb-2" href=""><i
+                            <a class="text-body mb-2" href="{{ route('landing') }}"><i
                                     class="fa fa-check text-primary me-2"></i>Beranda</a>
-                            <a class="text-body mb-2" href=""><i
+                            <a class="text-body mb-2" href="{{ route('landing') }}#about"><i
                                     class="fa fa-check text-primary me-2"></i>Tentang</a>
-                            <a class="text-body mb-2" href=""><i
+                            <a class="text-body mb-2" href="{{ route('landing') }}#activities"><i
                                     class="fa fa-check text-primary me-2"></i>Kegiatan</a>
-                            <a class="text-body mb-2" href=""><i
+                            <a class="text-body mb-2" href="{{ route('landing') }}#events"><i
                                     class="fa fa-check text-primary me-2"></i>Acara</a>
-                            <a class="text-body mb-2" href=""><i
+                            <a class="text-body mb-2" href="https://wa.me/{{ $masjids->telp }}" target="_blank"><i
                                     class="fa fa-check text-primary me-2"></i>Kontak</a>
                         </div>
                     </div>
@@ -158,7 +153,7 @@
             <div class="border-top border-secondary pb-4"></div>
             <div class="row">
                 <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    &copy; <a class="border-bottom" href="#">{{ $masjids->nama }}</a>, All Right Reserved.
+                    &copy; <a class="border-bottom" href="{{ route('landing') }}">{{ $masjids->nama }}</a>, All Right Reserved.
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     Designed By <a class="border-bottom" target="_blanks" href="https://htmlcodex.com">HTML Codex</a>

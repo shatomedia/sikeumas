@@ -47,6 +47,122 @@
     </section>
     <!-- heroes section end -->
 
+    <!-- flagship products section start -->
+    <section class="py-5" style="background:#f8f9fb;">
+        <div class="container px-4 py-lg-4">
+            <div class="text-center mx-auto mb-5" style="max-width: 700px;">
+                <p class="fw-bold text-uppercase mb-1" style="color:#1f6b4d; letter-spacing:1px;">Produk Unggulan</p>
+                <h1 class="fw-bold">Teknologi yang Sudah Terbukti, Bukan Sekadar Janji</h1>
+            </div>
+
+            <!-- TAQWA-Hub spotlight -->
+            <div class="row align-items-center g-5 mb-5 pb-4">
+                <div class="col-lg-6">
+                    <img src="{{ asset('products/taqwa-hub.png') }}" class="img-fluid rounded-4 shadow" alt="TAQWA-Hub">
+                </div>
+                <div class="col-lg-6">
+                    <span class="badge rounded-pill mb-3 px-3 py-2" style="background:#1f6b4d; color:#fff;">Sistem Digital Masjid</span>
+                    <h2 class="fw-bold mb-3">TAQWA-Hub</h2>
+                    <p class="lead mb-4">Satu perangkat yang menyatukan jadwal sholat, kontrol audio, tampilan TV masjid, dan notifikasi pengurus — bekerja penuh tanpa internet.</p>
+                    <div class="row g-3 mb-4">
+                        <div class="col-sm-6 d-flex align-items-start">
+                            <i class="bi bi-soundwave fs-4 me-2" style="color:#1f6b4d;"></i>
+                            <span>Audio 8 kanal dengan DSP per kanal</span>
+                        </div>
+                        <div class="col-sm-6 d-flex align-items-start">
+                            <i class="bi bi-wifi-off fs-4 me-2" style="color:#1f6b4d;"></i>
+                            <span>Offline-first, tanpa internet</span>
+                        </div>
+                        <div class="col-sm-6 d-flex align-items-start">
+                            <i class="bi bi-tv fs-4 me-2" style="color:#1f6b4d;"></i>
+                            <span>TV masjid & overlay iqomah otomatis</span>
+                        </div>
+                        <div class="col-sm-6 d-flex align-items-start">
+                            <i class="bi bi-whatsapp fs-4 me-2" style="color:#1f6b4d;"></i>
+                            <span>Notifikasi WhatsApp ke pengurus</span>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center gap-2 mb-4 p-3 rounded-3" style="background:#eaf4ee;">
+                        <i class="bi bi-patch-check-fill fs-4" style="color:#1f6b4d;"></i>
+                        <span class="fw-semibold">458/458 test case lulus &middot; aktif di masjid produksi sejak Juni 2026</span>
+                    </div>
+                    <a href="{{ route('product-detail', 'taqwa-hub') }}" class="btn" id="btn-buyNow">Selengkapnya</a>
+                </div>
+            </div>
+
+            <!-- Surgery Time spotlight -->
+            <div class="row align-items-center g-5 mb-5 pb-4 flex-lg-row-reverse">
+                <div class="col-lg-6">
+                    <img src="{{ asset('products/surgery-time.png') }}" class="img-fluid rounded-4 shadow" alt="Surgery Time">
+                </div>
+                <div class="col-lg-6">
+                    <span class="badge rounded-pill mb-3 px-3 py-2" style="background:#1e40af; color:#fff;">Sistem Manajemen Rumah Sakit</span>
+                    <h2 class="fw-bold mb-3">Surgery Time</h2>
+                    <p class="lead mb-4">Pantau, jadwalkan, dan laporkan seluruh kamar operasi dari satu layar — tanpa perlu staf IT.</p>
+                    <div class="row g-3 mb-4">
+                        <div class="col-sm-6 d-flex align-items-start">
+                            <i class="bi bi-stopwatch fs-4 me-2" style="color:#1e40af;"></i>
+                            <span>Timer real-time per fase operasi</span>
+                        </div>
+                        <div class="col-sm-6 d-flex align-items-start">
+                            <i class="bi bi-grid-1x2 fs-4 me-2" style="color:#1e40af;"></i>
+                            <span>Monitor semua kamar OK sekaligus</span>
+                        </div>
+                        <div class="col-sm-6 d-flex align-items-start">
+                            <i class="bi bi-file-earmark-pdf fs-4 me-2" style="color:#1e40af;"></i>
+                            <span>Laporan PDF siap cetak instan</span>
+                        </div>
+                        <div class="col-sm-6 d-flex align-items-start">
+                            <i class="bi bi-qr-code fs-4 me-2" style="color:#1e40af;"></i>
+                            <span>Akses dari tablet/HP via QR code</span>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center gap-2 mb-4 p-3 rounded-3" style="background:#eaf0fb;">
+                        <i class="bi bi-gift-fill fs-4" style="color:#1e40af;"></i>
+                        <span class="fw-semibold">Mode DEMO gratis tersedia &middot; paket lengkap mulai Rp 4 juta/tahun</span>
+                    </div>
+                    <a href="{{ route('product-detail', 'surgery-time') }}" class="btn" id="btn-buyNow">Selengkapnya</a>
+                </div>
+            </div>
+
+            <!-- JWS-M3 spotlight -->
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <img src="{{ asset('products/1709590121148.jpg') }}" class="img-fluid rounded-4 shadow" alt="Jadwal Waktu Sholat JWS-M3">
+                </div>
+                <div class="col-lg-6">
+                    <span class="badge rounded-pill mb-3 px-3 py-2" style="background:#a16207; color:#fff;">Jadwal Waktu Sholat 7-Segment</span>
+                    <h2 class="fw-bold mb-3">Jadwal Waktu Sholat JWS-M3</h2>
+                    <p class="lead mb-4">Tampilan digital 7-segment untuk 5 waktu sholat, imsak, dan syuruq — dilengkapi tanggal, jam real-time, dan running text pengumuman.</p>
+                    <div class="row g-3 mb-4">
+                        <div class="col-sm-6 d-flex align-items-start">
+                            <i class="bi bi-bell fs-4 me-2" style="color:#a16207;"></i>
+                            <span>Alarm adzan otomatis, bisa di-on/off-kan</span>
+                        </div>
+                        <div class="col-sm-6 d-flex align-items-start">
+                            <i class="bi bi-hourglass-split fs-4 me-2" style="color:#a16207;"></i>
+                            <span>Jeda iqomah bisa diatur tiap waktu</span>
+                        </div>
+                        <div class="col-sm-6 d-flex align-items-start">
+                            <i class="bi bi-mic fs-4 me-2" style="color:#a16207;"></i>
+                            <span>Pilihan tilawah sebelum masuk waktu</span>
+                        </div>
+                        <div class="col-sm-6 d-flex align-items-start">
+                            <i class="bi bi-badge-3d fs-4 me-2" style="color:#a16207;"></i>
+                            <span>Angka 7-segment terang, terbaca dari jauh</span>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center gap-2 mb-4 p-3 rounded-3" style="background:#fdf3e3;">
+                        <i class="bi bi-people-fill fs-4" style="color:#a16207;"></i>
+                        <span class="fw-semibold">Dipercaya 10.000+ pelanggan di seluruh Indonesia</span>
+                    </div>
+                    <a href="{{ route('product-detail', '9bbb9dfa-e8eb-4bf0-b011-99afc14b6c1d') }}" class="btn" id="btn-buyNow">Selengkapnya</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- flagship products section end -->
+
     <!-- best section start -->
     <section class="best-container" id="bestContainer">
         <div class="container align-items-center text-center px-4 py-lg-5">

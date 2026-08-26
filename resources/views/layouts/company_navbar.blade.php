@@ -39,7 +39,7 @@
                 </li>
                 <li class="nav-item mx-2">
                     <a class="nav-link" href="{{ url('/buku-teknologi') }}" target="_blank">
-                        Buku Teknologi
+                        Buku
                     </a>
                 </li>
                 <li class="nav-item mx-2">

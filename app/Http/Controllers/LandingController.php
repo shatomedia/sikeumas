@@ -34,6 +34,11 @@ class LandingController extends Controller
         return view('company-theme.jws-m3-landing');
     }
 
+    public function bukuTeknologi()
+    {
+        return view('company-theme.buku-teknologi-landing');
+    }
+
     public function product()
     {
         $data['products'] = Product::get();

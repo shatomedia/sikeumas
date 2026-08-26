@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Buku Teknologi - Buku Cetak Java, Arduino, NodeMCU, dan Audio Masjid</title>
     <meta name="description" content="Buku cetak ready stock karya Safiq Rosad untuk belajar Java, Arduino, NodeMCU ESP8266, dan optimasi sistem audio masjid.">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ asset('buku-teknologi/style.css') }}">
   </head>
   <body>
     <header class="topbar">
@@ -36,16 +36,16 @@
 
         <div class="book-mockup-grid" aria-label="Mockup empat buku">
           <article class="book-tile tall">
-            <img src="assets-web/nodemcu-cover.jpg" alt="Cover buku Pemrograman NodeMCU ESP8266 Menggunakan Arduino IDE">
+            <img src="{{ asset('buku-teknologi/assets-web/nodemcu-cover.jpg') }}" alt="Cover buku Pemrograman NodeMCU ESP8266 Menggunakan Arduino IDE">
           </article>
           <article class="book-tile">
-            <img src="assets-web/java-cover.jpg" alt="Cover buku Bahasa Pemrograman Java Tingkat Dasar">
+            <img src="{{ asset('buku-teknologi/assets-web/java-cover.jpg') }}" alt="Cover buku Bahasa Pemrograman Java Tingkat Dasar">
           </article>
           <article class="book-tile">
-            <img src="assets-web/arduino-cover.jpg" alt="Cover buku Panduan Praktis Proyek Arduino">
+            <img src="{{ asset('buku-teknologi/assets-web/arduino-cover.jpg') }}" alt="Cover buku Panduan Praktis Proyek Arduino">
           </article>
           <article class="book-tile wide">
-            <img src="assets-web/audio-masjid-cover.jpg" alt="Cover buku Optimasi Sistem Audio Masjid">
+            <img src="{{ asset('buku-teknologi/assets-web/audio-masjid-cover.jpg') }}" alt="Cover buku Optimasi Sistem Audio Masjid">
           </article>
         </div>
       </section>
@@ -92,7 +92,7 @@
         <div class="catalog-grid">
           <article class="product-card">
             <div class="cover-frame">
-              <img src="assets-web/java-cover.jpg" alt="Bahasa Pemrograman Java Tingkat Dasar">
+              <img src="{{ asset('buku-teknologi/assets-web/java-cover.jpg') }}" alt="Bahasa Pemrograman Java Tingkat Dasar">
             </div>
             <div>
               <h3>Bahasa Pemrograman Java Tingkat Dasar</h3>
@@ -111,7 +111,7 @@
 
           <article class="product-card">
             <div class="cover-frame">
-              <img src="assets-web/nodemcu-cover.jpg" alt="Pemrograman NodeMCU ESP8266 Menggunakan Arduino IDE">
+              <img src="{{ asset('buku-teknologi/assets-web/nodemcu-cover.jpg') }}" alt="Pemrograman NodeMCU ESP8266 Menggunakan Arduino IDE">
             </div>
             <div>
               <h3>Pemrograman NodeMCU ESP8266 Menggunakan Arduino IDE</h3>
@@ -130,7 +130,7 @@
 
           <article class="product-card">
             <div class="cover-frame">
-              <img src="assets-web/arduino-cover.jpg" alt="Panduan Praktis Proyek Arduino">
+              <img src="{{ asset('buku-teknologi/assets-web/arduino-cover.jpg') }}" alt="Panduan Praktis Proyek Arduino">
             </div>
             <div>
               <h3>Panduan Praktis Proyek Arduino</h3>
@@ -149,7 +149,7 @@
 
           <article class="product-card">
             <div class="cover-frame">
-              <img src="assets-web/audio-masjid-cover.jpg" alt="Optimasi Sistem Audio Masjid">
+              <img src="{{ asset('buku-teknologi/assets-web/audio-masjid-cover.jpg') }}" alt="Optimasi Sistem Audio Masjid">
             </div>
             <div>
               <h3>Optimasi Sistem Audio Masjid</h3>
@@ -173,7 +173,7 @@
           <p class="eyebrow">Penulis</p>
           <h2>Safiq Rosad</h2>
           <div class="author-profile">
-            <img src="assets-web/safiq-rosad-profile.jpg" alt="Safiq Rosad">
+            <img src="{{ asset('buku-teknologi/assets-web/safiq-rosad-profile.jpg') }}" alt="Safiq Rosad">
             <div>
               <p>Safiq Rosad, S.T., M.Kom. adalah dosen tetap dan Kepala Program Studi Informatika UNUGHA Cilacap dengan kepakaran di bidang embedded system, cyber-physical system, Internet of Things, smart mosque, dan sistem audio masjid.</p>
               <p>Sejak 2008, Safiq memimpin SHATOMEDIA sebagai pengembang produk digital masjid, mulai dari jadwal salat digital, media player masjid, hingga solusi smart mosque. Ia juga menulis sejumlah buku teknis tentang Java, NodeMCU, Arduino, optimasi sistem audio masjid, dan digitalisasi masjid.</p>

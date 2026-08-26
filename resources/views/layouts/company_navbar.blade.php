@@ -38,7 +38,7 @@
                     </a>
                 </li>
                 <li class="nav-item mx-2">
-                    <a class="nav-link" href="{{ url('/buku-teknologi') }}" target="_blank">
+                    <a class="nav-link" href="{{ route('buku-teknologi-landing') }}" target="_blank">
                         Buku
                     </a>
                 </li>

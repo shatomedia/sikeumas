@@ -38,6 +38,11 @@
                     </a>
                 </li>
                 <li class="nav-item mx-2">
+                    <a class="nav-link" href="{{ url('/buku-teknologi') }}" target="_blank">
+                        Buku Teknologi
+                    </a>
+                </li>
+                <li class="nav-item mx-2">
                     <a class="nav-link {{ Request::routeIs('contact') ? 'active' : '' }}"
                         href="{{ route('contact') }}">
                         Kontak Kami

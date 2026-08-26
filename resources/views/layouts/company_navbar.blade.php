@@ -54,6 +54,9 @@
                     Masuk
                 </a>
             </div>
+            <button type="button" id="theme-toggle" class="mx-2" aria-label="Ganti tema gelap/terang">
+                <i class="bi bi-sun-fill" id="theme-icon"></i>
+            </button>
         </div>
     </div>
 </nav>

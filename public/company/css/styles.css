@@ -1,8 +1,41 @@
 :root {
-    --primary-color: #f5811e;
+    --primary-color: #d9a441;
     --secondary-color: #000000;
     --white-color: #ffff;
     --peach-color: ##ffcea4;
+
+    /* Dark tech theme (homepage + shared chrome) */
+    --tech-bg-0: #05070d;
+    --tech-bg-1: #0a0f1a;
+    --tech-bg-2: #0e1526;
+    --tech-surface: #121c30;
+    --tech-surface-2: #16223a;
+    --tech-line: rgba(255, 255, 255, 0.09);
+    --tech-ink: #eef3fb;
+    --tech-muted: #93a4c2;
+    --tech-gold: #d9a441;
+    --tech-gold-bright: #f0c766;
+    --tech-cyan: #35e2ff;
+    --tech-accent: #f0c766;
+    --tech-grid-line: rgba(255, 255, 255, 0.035);
+    --tech-highlight-bg: rgba(255, 255, 255, 0.05);
+    --tech-pill-bg: rgba(255, 255, 255, 0.04);
+}
+
+/* Light theme override — activated via <html data-theme="light"> */
+:root[data-theme="light"] {
+    --tech-bg-0: #ffffff;
+    --tech-bg-1: #f7f9fb;
+    --tech-bg-2: #eef2f6;
+    --tech-surface: #ffffff;
+    --tech-surface-2: #f1f4f8;
+    --tech-line: rgba(15, 23, 20, 0.1);
+    --tech-ink: #16241c;
+    --tech-muted: #56705f;
+    --tech-accent: #a1770f;
+    --tech-grid-line: rgba(15, 23, 20, 0.035);
+    --tech-highlight-bg: rgba(15, 23, 20, 0.035);
+    --tech-pill-bg: rgba(15, 23, 20, 0.03);
 }
 
 @media (min-width: 992px) {
@@ -78,6 +111,60 @@ nav {
     color: var(--secondary-color); /* Meningkatkan kecerahan saat hover */
 }
 /* navbar section end */
+
+/* navbar — dark tech override */
+nav.navbar {
+    background: linear-gradient(180deg, var(--tech-bg-1) 0%, var(--tech-bg-0) 100%);
+    border-bottom: 1px solid var(--tech-line);
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    padding-top: 0.65rem;
+    padding-bottom: 0.65rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+}
+nav.navbar .navbar-brand {
+    background: rgba(255, 255, 255, 0.97);
+    padding: 6px 14px;
+    border-radius: 10px;
+    line-height: 0;
+}
+nav.navbar .nav-link {
+    color: var(--tech-ink);
+}
+nav.navbar .nav-link:hover,
+nav.navbar .nav-link.active,
+nav.navbar .dropdown-menu .dropdown-item:hover {
+    color: var(--tech-accent);
+}
+nav.navbar .dropdown-menu {
+    background: var(--tech-surface);
+    border: 1px solid var(--tech-line);
+}
+nav.navbar .dropdown-menu .dropdown-item {
+    color: var(--tech-ink);
+}
+[data-theme="dark"] nav.navbar .navbar-toggler-icon {
+    filter: invert(1) brightness(2);
+}
+nav.navbar .btn-help #btn-contact {
+    color: var(--tech-ink);
+    border-color: var(--tech-gold);
+}
+nav.navbar .btn-help #btn-contact:hover {
+    background-color: var(--tech-gold);
+    color: #0a0f1a;
+}
+nav.navbar .btn-login #btn-login {
+    background: linear-gradient(135deg, var(--tech-gold-bright), var(--tech-gold));
+    color: #16130a;
+    font-weight: 700;
+}
+nav.navbar .btn-login #btn-login:hover {
+    color: #16130a;
+    filter: brightness(1.08);
+}
+/* navbar dark tech override end */
 
 /* section heroes start */
 .first-container #tittle-heroes {
@@ -223,6 +310,36 @@ nav {
 /* .footer-container #Download{
     padding-bottom: 1vh;
 } */
+
+/* footer — dark tech override */
+.footer-container.bg-body-tertiary {
+    background: linear-gradient(180deg, var(--tech-bg-1), var(--tech-bg-0)) !important;
+    border-top: 1px solid var(--tech-line);
+}
+.footer-container footer,
+.footer-container h5,
+.footer-container p {
+    color: var(--tech-ink);
+}
+.footer-container .nav-link {
+    color: var(--tech-muted) !important;
+}
+.footer-container .nav-link:hover {
+    color: var(--tech-accent) !important;
+}
+.footer-container .border-top {
+    border-top: 1px solid var(--tech-line) !important;
+    color: var(--tech-muted);
+}
+.footer-container #icon-social {
+    background-color: var(--tech-surface-2);
+    border: 1px solid var(--tech-line);
+    transition: 0.3s;
+}
+.footer-container #icon-social:hover {
+    background-color: var(--tech-gold);
+}
+/* footer dark tech override end */
 
 /* jadwal waktu sholat html start*/
 
@@ -519,3 +636,269 @@ nav {
 /* section history end */
 
 /* about end */
+
+/* ============================================================
+   HOME TECH THEME — dark, tech-oriented premium homepage
+   Scoped entirely under .site-tech so other pages are untouched.
+   ============================================================ */
+.site-tech {
+    background: var(--tech-bg-0);
+    color: var(--tech-ink);
+    position: relative;
+    overflow: hidden;
+}
+.site-tech::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(var(--tech-grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--tech-grid-line) 1px, transparent 1px);
+    background-size: 46px 46px;
+    -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,.9), rgba(0,0,0,.15) 60%, transparent);
+    mask-image: linear-gradient(180deg, rgba(0,0,0,.9), rgba(0,0,0,.15) 60%, transparent);
+}
+.site-tech section {
+    position: relative;
+    z-index: 1;
+}
+.site-tech h1,
+.site-tech h2,
+.site-tech h3,
+.site-tech h5,
+.site-tech .text-body-emphasis {
+    color: var(--tech-ink) !important;
+}
+.site-tech p,
+.site-tech .lead {
+    color: var(--tech-muted);
+}
+.site-tech .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1.6px;
+    font-weight: 800;
+    font-size: 0.78rem;
+    color: var(--tech-accent);
+    margin-bottom: 10px;
+}
+.site-tech .eyebrow::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--tech-gold-bright);
+    box-shadow: 0 0 10px 2px rgba(240, 199, 102, 0.7);
+}
+
+/* Hero */
+.site-tech .first-container {
+    background:
+        radial-gradient(1100px 520px at 85% -10%, rgba(53, 226, 255, 0.14), transparent 60%),
+        radial-gradient(900px 480px at 8% 15%, rgba(217, 164, 65, 0.16), transparent 55%);
+    padding-top: 24px;
+}
+.site-tech .first-container #tittle-heroes {
+    color: var(--tech-ink);
+}
+.site-tech .first-container #tittle-heroes,
+.site-tech .first-container .lead {
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
+}
+.site-tech .first-container #label {
+    color: var(--tech-muted);
+}
+.site-tech .first-container #btn-getNow {
+    background: linear-gradient(135deg, var(--tech-gold-bright), var(--tech-gold));
+    color: #16130a;
+    font-weight: 800;
+    box-shadow: 0 14px 34px rgba(217, 164, 65, 0.28);
+}
+.site-tech .first-container #btn-getNow:hover {
+    color: #16130a;
+    filter: brightness(1.06);
+}
+.site-tech .hero-image-wrap {
+    border-radius: 20px;
+    background: linear-gradient(160deg, var(--tech-surface), var(--tech-bg-1));
+    border: 1px solid var(--tech-line);
+    padding: 22px;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
+}
+.site-tech .hero-slide-label {
+    background: rgba(217, 164, 65, 0.92) !important;
+}
+.site-tech .hero-dot.active {
+    background: var(--tech-gold-bright) !important;
+}
+.site-tech .hero-dot {
+    background: rgba(255, 255, 255, 0.22);
+}
+
+/* Trust bar */
+.site-tech .trust-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+}
+.site-tech .trust-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 16px;
+    border-radius: 999px;
+    background: var(--tech-pill-bg);
+    border: 1px solid var(--tech-line);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--tech-ink);
+}
+.site-tech .trust-pill i {
+    color: var(--tech-accent);
+}
+
+/* Flagship product spotlight */
+.site-tech .product-spotlight {
+    background: linear-gradient(165deg, var(--tech-surface), var(--tech-bg-2));
+    border: 1px solid var(--tech-line);
+    border-radius: 22px;
+    padding: 40px;
+    transition: border-color 0.35s ease, box-shadow 0.35s ease;
+}
+.site-tech .product-spotlight:hover {
+    border-color: rgba(217, 164, 65, 0.5);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+}
+.site-tech .product-spotlight img {
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5) !important;
+}
+.site-tech .product-spotlight span.fw-semibold {
+    color: var(--tech-ink) !important;
+}
+.site-tech .product-spotlight .rounded-3[style*="background"] {
+    background: var(--tech-highlight-bg) !important;
+    border: 1px solid var(--tech-line);
+}
+.site-tech .product-spotlight #btn-buyNow {
+    background: transparent;
+    border: 1px solid var(--tech-gold);
+    color: var(--tech-accent);
+    font-weight: 700;
+    padding: 10px 22px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+.site-tech .product-spotlight #btn-buyNow:hover {
+    background: var(--tech-gold);
+    color: #16130a;
+}
+
+/* Best collection cards */
+.site-tech .best-container .card {
+    background: var(--tech-surface);
+    border: 1px solid var(--tech-line);
+    color: var(--tech-ink);
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.3);
+}
+.site-tech .best-container .card:hover {
+    border-color: rgba(217, 164, 65, 0.45);
+}
+.site-tech .best-container #description {
+    color: var(--tech-muted);
+}
+.site-tech .best-container #btn-buyNow {
+    background: linear-gradient(135deg, var(--tech-gold-bright), var(--tech-gold));
+    color: #16130a;
+    font-weight: 700;
+}
+
+/* Generic content sections (intro / time / gallery / quality / support / experience) */
+.site-tech .time-container #card {
+    background: linear-gradient(165deg, var(--tech-surface), var(--tech-bg-2)) !important;
+    border: 1px solid var(--tech-line) !important;
+}
+.site-tech .gallery-container .row .image .img-fluid,
+.site-tech .experience-container .row .image .img-fluid {
+    border: 1px solid var(--tech-line);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45) !important;
+}
+.site-tech .support-container {
+    background: radial-gradient(700px 340px at 50% 0%, rgba(217, 164, 65, 0.12), transparent 70%);
+    border-top: 1px solid var(--tech-line);
+    border-bottom: 1px solid var(--tech-line);
+}
+.site-tech .support-container #btn-consultation {
+    background: linear-gradient(135deg, var(--tech-gold-bright), var(--tech-gold));
+    color: #16130a;
+    font-weight: 800;
+    padding: 12px 28px;
+    box-shadow: 0 14px 34px rgba(217, 164, 65, 0.25);
+}
+.site-tech .support-container #btn-consultation:hover {
+    color: #16130a;
+    filter: brightness(1.06);
+}
+.site-tech img {
+    filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.35));
+}
+/* About page — timeline cards */
+.site-tech .history-time .timeline .card {
+    background: var(--tech-surface);
+    border: 1px solid var(--tech-line);
+    color: var(--tech-ink);
+}
+.site-tech .history-time .timeline .card p {
+    color: var(--tech-muted);
+}
+/* Product detail page */
+.site-tech .neumorphic-card {
+    background: var(--tech-surface) !important;
+    color: var(--tech-ink);
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.3) !important;
+}
+.site-tech .help-container #card {
+    background: linear-gradient(135deg, var(--tech-gold-bright), var(--tech-gold)) !important;
+}
+/* Contact page form card */
+.site-tech .bg-white.border.rounded.shadow-sm {
+    background: var(--tech-surface) !important;
+    border-color: var(--tech-line) !important;
+    color: var(--tech-ink);
+}
+.site-tech .bg-white.border.rounded.shadow-sm .form-control,
+.site-tech .bg-white.border.rounded.shadow-sm .input-group-text {
+    background: var(--tech-surface-2);
+    border-color: var(--tech-line);
+    color: var(--tech-ink);
+}
+.site-tech address,
+.site-tech .text-secondary,
+.site-tech .text-body-secondary {
+    color: var(--tech-muted) !important;
+}
+/* HOME TECH THEME end */
+
+/* Theme toggle button (navbar) */
+#theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid var(--tech-line);
+    background: var(--tech-pill-bg);
+    color: var(--tech-accent);
+    font-size: 1.05rem;
+    transition: 0.3s;
+}
+#theme-toggle:hover {
+    background: var(--tech-gold);
+    color: #16130a;
+    border-color: var(--tech-gold);
+}

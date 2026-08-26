@@ -16,13 +16,37 @@
 @endpush
 
 @section('company-content')
+<div class="site-tech">
     <!-- heroes section start -->
     <section class="first-container" id="first-container">
         <div class="container align-items-center px-4 py-4">
             <div class="row flex-lg-row-reverse justify-content-center align-items-center g-5 py-5">
-                <div class="col-10 col-sm-5 col-lg-6 mx-auto">
-                    <img src="{{ asset('company/img/png/hero-3.png') }}" class="d-block mx-lg-auto img-fluid"
-                        alt="Shatomedia" width="700" height="500" loading="lazy" />
+                <div class="col-10 col-sm-5 col-lg-6 mx-auto position-relative hero-image-wrap">
+                    <div class="hero-slideshow" id="hero-slideshow">
+                        <div class="hero-slide active">
+                            <img src="{{ asset('company/img/png/hero-3.png') }}" class="d-block mx-lg-auto img-fluid"
+                                alt="Shatomedia" width="700" height="500" loading="lazy" />
+                            <div class="hero-live-clock">
+                                <span class="dot"></span>
+                                <span id="hero-live-clock-time">--:--:--</span>
+                            </div>
+                        </div>
+                        <div class="hero-slide">
+                            <img src="{{ asset('products/taqwa-hub.jpg') }}" class="d-block mx-lg-auto img-fluid"
+                                alt="TAQWA-Hub" width="700" height="500" loading="lazy" />
+                            <span class="hero-slide-label">TAQWA-Hub</span>
+                        </div>
+                        <div class="hero-slide">
+                            <img src="{{ asset('products/surgery-time.png') }}" class="d-block mx-lg-auto img-fluid"
+                                alt="Surgery Time" width="700" height="500" loading="lazy" />
+                            <span class="hero-slide-label">Surgery Time</span>
+                        </div>
+                        <div class="hero-slide-dots">
+                            <span class="hero-dot active" data-slide="0"></span>
+                            <span class="hero-dot" data-slide="1"></span>
+                            <span class="hero-dot" data-slide="2"></span>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-lg-6">
                     <h1 class="display-5 fw-bold text-body-emphasis lh-2 mb-3" id="tittle-heroes">
@@ -38,8 +62,13 @@
                             Dapatkan Sekarang
                         </a>
                         <label class="fw-bold" id="label">
-                            10.000+ Pelanggan
+                            <span class="stat-counter" data-counter="10000" data-suffix="+">0+</span> Pelanggan
                         </label>
+                    </div>
+                    <div class="trust-bar">
+                        <span class="trust-pill"><i class="bi bi-shield-check"></i> Garansi hingga 3 Tahun</span>
+                        <span class="trust-pill"><i class="bi bi-cpu"></i> Rekayasa Perangkat Sendiri</span>
+                        <span class="trust-pill"><i class="bi bi-geo-alt"></i> Dukungan Teknis Nasional</span>
                     </div>
                 </div>
             </div>
@@ -48,15 +77,15 @@
     <!-- heroes section end -->
 
     <!-- flagship products section start -->
-    <section class="py-5" style="background:#f8f9fb;">
+    <section class="py-5">
         <div class="container px-4 py-lg-4">
             <div class="text-center mx-auto mb-5" style="max-width: 700px;">
-                <p class="fw-bold text-uppercase mb-1" style="color:#1f6b4d; letter-spacing:1px;">Produk Unggulan</p>
+                <p class="eyebrow d-inline-flex mx-auto">Produk Unggulan</p>
                 <h1 class="fw-bold">Teknologi yang Sudah Terbukti, Bukan Sekadar Janji</h1>
             </div>
 
             <!-- TAQWA-Hub spotlight -->
-            <div class="row align-items-center g-5 mb-5 pb-4">
+            <div class="row align-items-center g-5 mb-5 pb-4 product-spotlight reveal">
                 <div class="col-lg-6">
                     <img src="{{ asset('products/taqwa-hub.jpg') }}" class="img-fluid rounded-4 shadow" alt="TAQWA-Hub">
                 </div>
@@ -66,24 +95,24 @@
                     <p class="lead mb-4">Satu perangkat yang menyatukan jadwal sholat, kontrol audio, tampilan TV masjid, dan notifikasi pengurus — bekerja penuh tanpa internet.</p>
                     <div class="row g-3 mb-4">
                         <div class="col-sm-6 d-flex align-items-start">
-                            <i class="bi bi-soundwave fs-4 me-2" style="color:#1f6b4d;"></i>
+                            <i class="bi bi-soundwave fs-4 me-2" style="color:#34d399;"></i>
                             <span>Audio 8 kanal dengan DSP per kanal</span>
                         </div>
                         <div class="col-sm-6 d-flex align-items-start">
-                            <i class="bi bi-wifi-off fs-4 me-2" style="color:#1f6b4d;"></i>
+                            <i class="bi bi-wifi-off fs-4 me-2" style="color:#34d399;"></i>
                             <span>Offline-first, tanpa internet</span>
                         </div>
                         <div class="col-sm-6 d-flex align-items-start">
-                            <i class="bi bi-tv fs-4 me-2" style="color:#1f6b4d;"></i>
+                            <i class="bi bi-tv fs-4 me-2" style="color:#34d399;"></i>
                             <span>TV masjid & overlay iqomah otomatis</span>
                         </div>
                         <div class="col-sm-6 d-flex align-items-start">
-                            <i class="bi bi-whatsapp fs-4 me-2" style="color:#1f6b4d;"></i>
+                            <i class="bi bi-whatsapp fs-4 me-2" style="color:#34d399;"></i>
                             <span>Notifikasi WhatsApp ke pengurus</span>
                         </div>
                     </div>
                     <div class="d-flex align-items-center gap-2 mb-4 p-3 rounded-3" style="background:#eaf4ee;">
-                        <i class="bi bi-patch-check-fill fs-4" style="color:#1f6b4d;"></i>
+                        <i class="bi bi-patch-check-fill fs-4" style="color:#34d399;"></i>
                         <span class="fw-semibold">458/458 test case lulus &middot; aktif di masjid produksi sejak Juni 2026</span>
                     </div>
                     <a href="{{ route('taqwa-hub-landing') }}" class="btn" id="btn-buyNow">Selengkapnya</a>
@@ -91,7 +120,7 @@
             </div>
 
             <!-- Surgery Time spotlight -->
-            <div class="row align-items-center g-5 mb-5 pb-4 flex-lg-row-reverse">
+            <div class="row align-items-center g-5 mb-5 pb-4 flex-lg-row-reverse product-spotlight reveal">
                 <div class="col-lg-6">
                     <img src="{{ asset('products/surgery-time.png') }}" class="img-fluid rounded-4 shadow" alt="Surgery Time">
                 </div>
@@ -101,24 +130,24 @@
                     <p class="lead mb-4">Pantau, jadwalkan, dan laporkan seluruh kamar operasi dari satu layar — tanpa perlu staf IT.</p>
                     <div class="row g-3 mb-4">
                         <div class="col-sm-6 d-flex align-items-start">
-                            <i class="bi bi-stopwatch fs-4 me-2" style="color:#1e40af;"></i>
+                            <i class="bi bi-stopwatch fs-4 me-2" style="color:#60a5fa;"></i>
                             <span>Timer real-time per fase operasi</span>
                         </div>
                         <div class="col-sm-6 d-flex align-items-start">
-                            <i class="bi bi-grid-1x2 fs-4 me-2" style="color:#1e40af;"></i>
+                            <i class="bi bi-grid-1x2 fs-4 me-2" style="color:#60a5fa;"></i>
                             <span>Monitor semua kamar OK sekaligus</span>
                         </div>
                         <div class="col-sm-6 d-flex align-items-start">
-                            <i class="bi bi-file-earmark-pdf fs-4 me-2" style="color:#1e40af;"></i>
+                            <i class="bi bi-file-earmark-pdf fs-4 me-2" style="color:#60a5fa;"></i>
                             <span>Laporan PDF siap cetak instan</span>
                         </div>
                         <div class="col-sm-6 d-flex align-items-start">
-                            <i class="bi bi-qr-code fs-4 me-2" style="color:#1e40af;"></i>
+                            <i class="bi bi-qr-code fs-4 me-2" style="color:#60a5fa;"></i>
                             <span>Akses dari tablet/HP via QR code</span>
                         </div>
                     </div>
                     <div class="d-flex align-items-center gap-2 mb-4 p-3 rounded-3" style="background:#eaf0fb;">
-                        <i class="bi bi-gift-fill fs-4" style="color:#1e40af;"></i>
+                        <i class="bi bi-gift-fill fs-4" style="color:#60a5fa;"></i>
                         <span class="fw-semibold">Mode DEMO gratis tersedia &middot; paket lengkap mulai Rp 4 juta/tahun</span>
                     </div>
                     <a href="{{ route('surgery-time-landing') }}" class="btn" id="btn-buyNow">Selengkapnya</a>
@@ -126,7 +155,7 @@
             </div>
 
             <!-- JWS-M3 spotlight -->
-            <div class="row align-items-center g-5">
+            <div class="row align-items-center g-5 product-spotlight reveal">
                 <div class="col-lg-6">
                     <img src="{{ asset('products/1709590121148.jpg') }}" class="img-fluid rounded-4 shadow" alt="Jadwal Waktu Sholat JWS-M3">
                 </div>
@@ -136,24 +165,24 @@
                     <p class="lead mb-4">Tampilan digital 7-segment untuk 5 waktu sholat, imsak, dan syuruq — dilengkapi tanggal, jam real-time, dan running text pengumuman.</p>
                     <div class="row g-3 mb-4">
                         <div class="col-sm-6 d-flex align-items-start">
-                            <i class="bi bi-bell fs-4 me-2" style="color:#a16207;"></i>
+                            <i class="bi bi-bell fs-4 me-2" style="color:#fbbf24;"></i>
                             <span>Alarm adzan otomatis, bisa di-on/off-kan</span>
                         </div>
                         <div class="col-sm-6 d-flex align-items-start">
-                            <i class="bi bi-hourglass-split fs-4 me-2" style="color:#a16207;"></i>
+                            <i class="bi bi-hourglass-split fs-4 me-2" style="color:#fbbf24;"></i>
                             <span>Jeda iqomah bisa diatur tiap waktu</span>
                         </div>
                         <div class="col-sm-6 d-flex align-items-start">
-                            <i class="bi bi-mic fs-4 me-2" style="color:#a16207;"></i>
+                            <i class="bi bi-mic fs-4 me-2" style="color:#fbbf24;"></i>
                             <span>Pilihan tilawah sebelum masuk waktu</span>
                         </div>
                         <div class="col-sm-6 d-flex align-items-start">
-                            <i class="bi bi-badge-3d fs-4 me-2" style="color:#a16207;"></i>
+                            <i class="bi bi-badge-3d fs-4 me-2" style="color:#fbbf24;"></i>
                             <span>Angka 7-segment terang, terbaca dari jauh</span>
                         </div>
                     </div>
                     <div class="d-flex align-items-center gap-2 mb-4 p-3 rounded-3" style="background:#fdf3e3;">
-                        <i class="bi bi-people-fill fs-4" style="color:#a16207;"></i>
+                        <i class="bi bi-people-fill fs-4" style="color:#fbbf24;"></i>
                         <span class="fw-semibold">Dipercaya 10.000+ pelanggan di seluruh Indonesia</span>
                     </div>
                     <a href="{{ route('jws-m3-landing') }}" class="btn" id="btn-buyNow">Selengkapnya</a>
@@ -169,7 +198,7 @@
             <h1 class="fw-bold mt-xl-3 mb-4">Koleksi Terbaik</h1>
             <div class="row gy-4">
                 @foreach ($bestProducts as $item)
-                    <div class="collection col-lg-4 col-md-6">
+                    <div class="collection col-lg-4 col-md-6 reveal reveal-delay-{{ $loop->iteration % 3 + 1 }}">
                         <div class="card h-100">
                             <img src="{{ asset('products/' . $item->foto) }}" alt="" />
                             <div class="card-body">
@@ -196,7 +225,7 @@
     <!-- intro section start -->
     <section class="intro-container" id="intro-container">
         <div class="container px-4 py-5">
-            <div class="row flex-lg-row align-items-center g-5 py-5">
+            <div class="row flex-lg-row align-items-center g-5 py-5 reveal">
                 <div class="col-10 col-sm-8 col-lg-6 mx-auto">
                     <img src="{{ asset('company/img/png/Galaxy-Note-20-Ultra-768x576.png') }}"
                         class="d-block mx-lg-auto img-fluid" alt="Shatomedia" width="700" height="500"
@@ -231,7 +260,7 @@
     <!-- manage time section end -->
     <section class="time-container">
         <div class="container mb-4 px-4 py-5">
-            <div class="card px-4" id="card">
+            <div class="card px-4 reveal" id="card">
                 <div class="row flex-row-reverse align-items-center mb-4">
                     <div class="col-10 col-lg-6 mx-auto">
                         <img src="{{ asset('company/img/png/Group-1000011745-2.png') }}"
@@ -256,7 +285,7 @@
     <!-- gallery section start -->
     <section class="gallery-container">
         <div class="container px-4 py-5">
-            <div class="title text-center mb-4">
+            <div class="title text-center mb-4 reveal">
                 <h1 class="display-5 fw-bold lh-1 px-lg-5">
                     Tata Ruang Anda dengan Keindahan Kaligrafi dan Keterampilan Jam
                     Digital
@@ -283,7 +312,7 @@
     <!-- quality container start -->
     <section class="quality-container">
         <div class="container px-4 py-5">
-            <div class="row flex-lg-row justify-content-center align-items-center">
+            <div class="row flex-lg-row justify-content-center align-items-center reveal">
                 <div class="col-10 col-sm-8 col-lg-6">
                     <img src="{{ asset('company/img/png/ketelitian.png') }}" class="d-block mx-lg-auto img-fluid"
                         alt="Bootstrap Themes" width="700" height="500" loading="lazy" />
@@ -308,7 +337,7 @@
     <!-- support container start -->
     <section class="support-container">
         <div class="container py-5 px-4">
-            <div class="flex justify-content-center align-items-center text-lg-center">
+            <div class="flex justify-content-center align-items-center text-lg-center reveal">
                 <h1 class="display-5 fw-bold lh-2 mb-3">
                     Dukungan teknis perawatan jadwal waktu sholat digital.
                 </h1>
@@ -329,7 +358,7 @@
     <!-- start experience section -->
     <section class="experience-container">
         <div class="container px-4 py-5">
-            <div class="flex justify-content-center text-center align-items-center">
+            <div class="flex justify-content-center text-center align-items-center reveal">
                 <h1 class="tittle lh-1 fw-bold mb-3">Sebagian Pengalaman Kami</h1>
                 <div class="row">
                     <div class="image col-md-4 col-sm-6 mb-4">
@@ -361,5 +390,6 @@
         </div>
     </section>
     <!-- end experience section -->
+</div>
 @endsection
 

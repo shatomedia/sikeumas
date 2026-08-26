@@ -1,9 +1,15 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" data-theme="dark">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+        (function () {
+            var t = localStorage.getItem('shato-theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', t);
+        })();
+    </script>
     <title>@yield('title')</title>
     <link rel="shortcut icon" href="{{ asset('company/img/favicon.ico') }}" type="image/x-icon">
     <meta name="robots" content="index, follow" />
@@ -14,6 +20,7 @@
     <link rel="stylesheet" href="{{ asset('company/dist/css/bootstrap.css') }}" />
     <link rel="stylesheet" href="{{ asset('company/dist/css/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('company/css/styles.css') }}" />
+    <link rel="stylesheet" href="{{ asset('company/css/animate.css') }}?v=2" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -144,6 +151,25 @@
     </main>
     <!-- main end -->
     <script src="{{ asset('company/dist/js/bootstrap.bundle.js') }}"></script>
+    <script src="{{ asset('company/js/animate.js') }}?v=2"></script>
+    <script>
+        (function () {
+            var btn = document.getElementById('theme-toggle');
+            if (!btn) return;
+            var icon = document.getElementById('theme-icon');
+            function applyIcon(theme) {
+                icon.className = theme === 'dark' ? 'bi bi-sun-fill' : 'bi bi-moon-stars-fill';
+            }
+            applyIcon(document.documentElement.getAttribute('data-theme') || 'dark');
+            btn.addEventListener('click', function () {
+                var current = document.documentElement.getAttribute('data-theme') || 'dark';
+                var next = current === 'dark' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', next);
+                localStorage.setItem('shato-theme', next);
+                applyIcon(next);
+            });
+        })();
+    </script>
 </body>
 
 </html>

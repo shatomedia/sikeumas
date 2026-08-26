@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>TAQWA-Hub - Sistem Digital Manajemen Masjid</title>
-  <meta name="description" content="TAQWA-Hub: satu perangkat yang menyatukan jadwal sholat, kontrol audio 8-kanal, tampilan TV masjid, dan notifikasi WhatsApp pengurus — bekerja penuh tanpa internet.">
+  <meta name="description" content="TAQWA-Hub: satu perangkat yang menyatukan jadwal sholat, kontrol audio 8-kanal, tampilan TV masjid, notifikasi WhatsApp pengurus, dan kini Sistem Informasi Manajemen TPQ — bekerja penuh tanpa internet.">
   <style>
     :root {
       --ink: #16241c;
@@ -86,6 +86,39 @@
     .stat b { display: block; font-size: 30px; color: var(--gold-deep); }
     .stat span { color: var(--muted); font-size: 14px; font-weight: 600; }
 
+    .price-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .price-card { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 8px; background: #fff; padding: 22px; }
+    .price-card.featured { border-color: var(--gold); box-shadow: 0 16px 34px rgba(217,164,65,.2); }
+    .price-card .sub { color: var(--muted); font-size: 12px; font-weight: 800; text-transform: uppercase; margin-bottom: 8px; }
+    .price-card .price { font-size: 26px; font-weight: 900; color: var(--green-800); margin-bottom: 16px; }
+    .price-card.featured .price { color: var(--gold-deep); }
+    .price-card ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; flex: 1; }
+    .price-card li { font-size: 13px; line-height: 1.4; color: var(--muted); padding-left: 20px; position: relative; }
+    .price-card li::before { content: "\2713"; position: absolute; left: 0; top: 0; color: var(--green-800); font-weight: 900; }
+    .price-card.featured li::before { color: var(--gold-deep); }
+    .price-note { margin-top: 22px; padding: 18px 20px; border: 1px solid var(--line); border-radius: 8px; background: var(--soft); color: var(--muted); font-size: 14px; }
+    .price-note b { color: var(--green-800); }
+
+    .warranty-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .warranty-card { border: 1px solid var(--line); border-radius: 8px; background: #fff; padding: 22px; }
+    .warranty-card .icon { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: #fdf3e3; color: var(--gold-deep); font-weight: 900; margin-bottom: 12px; }
+    .warranty-card b { display: block; color: var(--green-800); font-size: 17px; margin-bottom: 6px; }
+    .warranty-card p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.45; }
+    .badge-draft { display: inline-block; margin-left: 6px; padding: 2px 8px; border-radius: 999px; background: #fee2e2; color: #b91c1c; font-size: 11px; font-weight: 800; text-transform: uppercase; vertical-align: 2px; }
+
+    .compare-table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
+    table.compare { width: 100%; border-collapse: collapse; min-width: 620px; }
+    table.compare th, table.compare td { padding: 16px 18px; text-align: left; font-size: 14px; border-bottom: 1px solid var(--line); }
+    table.compare thead th { background: var(--green-900); color: #fff; font-weight: 800; }
+    table.compare thead th:first-child { border-top-left-radius: 8px; }
+    table.compare thead th:last-child { border-top-right-radius: 8px; }
+    table.compare tbody th { color: var(--ink); font-weight: 800; white-space: nowrap; }
+    table.compare td.manual { color: var(--red); }
+    table.compare td.manual::before { content: "\2717  "; }
+    table.compare td.taqwa { color: var(--green-800); font-weight: 700; }
+    table.compare td.taqwa::before { content: "\2713  "; }
+    table.compare tbody tr:last-child th, table.compare tbody tr:last-child td { border-bottom: none; }
+
     .quote { background: var(--green-900); color: #f2ede0; border-radius: 16px; padding: 44px 40px; text-align: center; }
     .quote p { font-size: 22px; line-height: 1.5; font-weight: 600; max-width: 640px; margin: 0 auto 16px; }
     .quote span { font-size: 14px; opacity: .75; font-weight: 600; }
@@ -107,7 +140,7 @@
 
     @media (max-width: 920px) {
       .hero-grid, .section-head, .grid-2 { grid-template-columns: 1fr; }
-      .grid-3, .grid-4 { grid-template-columns: 1fr 1fr; }
+      .grid-3, .grid-4, .price-grid, .warranty-grid { grid-template-columns: 1fr 1fr; }
       .flow { grid-template-columns: repeat(2, 1fr); }
       .feature-list { grid-template-columns: 1fr; }
       .nav-links { display: none; }
@@ -117,7 +150,7 @@
     @media (max-width: 560px) {
       section { padding: 58px 0; }
       .hero-grid { padding: 54px 0; }
-      .flow, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+      .flow, .grid-3, .grid-4, .price-grid, .warranty-grid { grid-template-columns: 1fr; }
       .browser img { height: 260px; }
     }
   </style>
@@ -130,9 +163,13 @@
         <span>TAQWA-Hub</span>
       </a>
       <div class="nav-links">
-        <a href="#manfaat">Manfaat</a>
+        <a href="#fasilitas">Fasilitas</a>
+        <a href="#sim-tpq">SIM TPQ</a>
         <a href="#alur">Alur</a>
         <a href="#fitur">Fitur</a>
+        <a href="#harga">Harga</a>
+        <a href="#garansi">Garansi</a>
+        <a href="#perbandingan">Perbandingan</a>
         <a href="#faq">FAQ</a>
         <a class="btn btn-primary" href="https://wa.me/6285743909116?text={{ urlencode('Halo Shatomedia, saya ingin konsultasi TAQWA-Hub untuk masjid.') }}" target="_blank" rel="noopener">Konsultasi WhatsApp</a>
       </div>
@@ -144,7 +181,7 @@
       <div>
         <span class="eyebrow">Sistem Digital Manajemen Masjid</span>
         <h1>Urus Masjid <span>Lebih Tenang</span>, dari HP di Tangan</h1>
-        <p class="lead">TAQWA-Hub menyatukan jadwal sholat, kontrol audio 8-kanal, tampilan TV masjid, dan notifikasi WhatsApp pengurus — bekerja penuh tanpa internet, tanpa perlu ada operator yang selalu berjaga.</p>
+        <p class="lead">TAQWA-Hub menyatukan jadwal sholat, kontrol audio 8-kanal, tampilan TV masjid, dan notifikasi WhatsApp pengurus — bekerja penuh tanpa internet, tanpa perlu ada operator yang selalu berjaga. Kini dilengkapi juga Sistem Informasi Manajemen TPQ untuk masjid yang mengelola TPQ/TPA.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="https://wa.me/6285743909116?text={{ urlencode('Halo Shatomedia, saya ingin konsultasi TAQWA-Hub untuk masjid.') }}" target="_blank" rel="noopener">Konsultasi untuk Masjid Anda</a>
           <a class="btn btn-ghost" href="#alur">Lihat Cara Kerjanya</a>
@@ -169,6 +206,47 @@
         <div class="box problem"><b>Mixer rumit</b><p>Tidak semua takmir nyaman mengatur banyak kanal audio.</p></div>
         <div class="box problem"><b>TV terpisah</b><p>Banner, iqomah, dan informasi jamaah perlu operator sendiri.</p></div>
         <div class="box problem"><b>Tidak ada alert</b><p>Gangguan sering baru diketahui saat jamaah mulai merasakan.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fasilitas">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Fasilitas yang Didapat</h2>
+        <p>Semua bisa diakses dari dashboard takmir lewat HP, tablet, atau laptop — tanpa perlu operator khusus.</p>
+      </div>
+      <div class="grid-4">
+        <div class="box"><b>Dashboard Takmir</b><p>Menu audio, jadwal, TV, sistem, keamanan, backup, update, dan bantuan dalam satu tempat.</p></div>
+        <div class="box"><b>Jadwal Sholat</b><p>Perhitungan otomatis, iqomah, alarm, kalender Hijriyah, dan mode Jum'at.</p></div>
+        <div class="box"><b>Audio Masjid</b><p>Mixer digital, preset mode, gain/mute, bus dalam/luar, dan DSP sesuai paket.</p></div>
+        <div class="box"><b>TV Display</b><p>Jam, jadwal, countdown, overlay iqomah, banner event, background, dan QR infaq.</p></div>
+        <div class="box"><b>Tilawah</b><p>Murottal manual atau terjadwal sebelum sholat dan kegiatan masjid.</p></div>
+        <div class="box"><b>WhatsApp</b><p>Notifikasi pengurus dan OTP pemulihan PIN jika internet tersedia.</p></div>
+        <div class="box"><b>Zona Audio</b><p>Monitoring zona speaker dan Node Speaker untuk konfigurasi yang memakai sensor zona.</p></div>
+        <div class="box"><b>Dukungan Teknis</b><p>Diagnostik, log sistem, FAQ bantuan, backup-restore, dan update aplikasi.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sim-tpq" class="soft">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow" style="color:var(--green-800); background:#e6efe9;">Fitur Baru</span>
+          <h2>Sistem Informasi Manajemen TPQ</h2>
+        </div>
+        <p>Untuk masjid yang mengelola TPQ/TPA — data santri, presensi, hafalan, dan pembayaran dalam satu sistem, menggantikan buku catatan dan grup WhatsApp yang tercecer.</p>
+      </div>
+      <div class="grid-4">
+        <div class="box"><b>Manajemen Santri</b><p>Data lengkap santri, kelas, wali, dan status aktif/lulus/pindah.</p></div>
+        <div class="box"><b>Presensi Digital</b><p>Hadir, izin, sakit, alfa — rekap otomatis harian sampai per semester.</p></div>
+        <div class="box"><b>Perkembangan Bacaan</b><p>Catatan Iqra/Al-Qur'an, jilid, tajwid, dan makhraj per santri.</p></div>
+        <div class="box"><b>Hafalan & Doa Harian</b><p>Target dan capaian surat pendek, doa harian, serta bacaan shalat.</p></div>
+        <div class="box"><b>Pembayaran/Infaq</b><p>Rekap SPP, buku Iqra, seragam, dan status lunas/belum lunas.</p></div>
+        <div class="box"><b>Laporan Otomatis</b><p>Rekap santri, presensi, bacaan, hafalan, dan pembayaran siap cetak.</p></div>
+        <div class="box"><b>Kelas & Pengajar</b><p>Jadwal, kapasitas kelas, serta data ustadz/ustadzah yang mengajar.</p></div>
+        <div class="box"><b>Kabar Wali via WhatsApp</b><p>Info perkembangan santri dan pengingat pembayaran ke wali santri.</p></div>
       </div>
     </div>
   </section>
@@ -201,6 +279,7 @@
         <div class="feature"><span class="check">OK</span><div><b>Notifikasi WhatsApp</b><span>Kabar otomatis ke pengurus saat adzan, iqomah, atau ada node offline.</span></div></div>
         <div class="feature"><span class="check">OK</span><div><b>Telemetri Suara</b><span>Sensor SPL per zona speaker via ESP32, deteksi otomatis zona mati.</span></div></div>
         <div class="feature"><span class="check">OK</span><div><b>Update Satu Klik</b><span>Pembaruan aplikasi tanpa perlu teknisi datang ke lokasi.</span></div></div>
+        <div class="feature"><span class="check">OK</span><div><b>SIM TPQ</b><span>Data santri, presensi, hafalan, dan pembayaran TPQ dalam satu sistem.</span></div></div>
       </div>
     </div>
   </section>
@@ -235,6 +314,153 @@
       <div class="quote" style="margin-top:28px;">
         <p>"Sejak pakai ini, jadwal sholat dan suara masjid jalan sendiri. Pengurus tidak perlu lagi bolak-balik cek amplifier tiap mau sholat."</p>
         <span>— Pengalaman pengguna di masjid percontohan</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="harga" class="soft">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Spesifikasi & Harga Paket</h2>
+        <p>Beli perangkatnya sekali — kemampuannya terus berkembang lewat update software, tanpa ganti hardware.</p>
+      </div>
+      <div class="price-grid">
+        <div class="price-card">
+          <h3>Harga Perangkat</h3>
+          <div class="sub">Unit dasar</div>
+          <div class="price">Rp 3.500.000</div>
+          <ul>
+            <li>Mesin utama TAQWA-Hub</li>
+            <li>Fondasi awal digitalisasi masjid</li>
+            <li>Bisa tampil di TV masjid</li>
+            <li>Basis peningkatan fitur berikutnya</li>
+            <li>Cocok untuk mulai bertahap</li>
+            <li>Termasuk Sistem Informasi Manajemen TPQ</li>
+          </ul>
+        </div>
+        <div class="price-card">
+          <h3>Paket Ekonomis</h3>
+          <div class="sub">2 kanal produksi</div>
+          <div class="price">Rp 5.500.000</div>
+          <ul>
+            <li>Unit komputasi utama 2GB+ atau setara</li>
+            <li>USB soundcard 2 kanal</li>
+            <li>Mic 4-6 masuk mixer analog kecil</li>
+            <li>Output bus dalam dan luar/horn</li>
+            <li>Cocok untuk masjid kecil-menengah</li>
+            <li>Termasuk Sistem Informasi Manajemen TPQ</li>
+          </ul>
+        </div>
+        <div class="price-card featured">
+          <h3>Paket Rekomendasi</h3>
+          <div class="sub">4 kanal pilot/produksi</div>
+          <div class="price">Rp 7.000.000</div>
+          <ul>
+            <li>Unit komputasi utama 2GB+</li>
+            <li>USB soundcard 4 kanal</li>
+            <li>Imam, khatib, muadzin, kajian</li>
+            <li>Sample rate 48 kHz</li>
+            <li>Lebih terpisah, tetap ekonomis</li>
+            <li>Termasuk Sistem Informasi Manajemen TPQ</li>
+          </ul>
+        </div>
+        <div class="price-card">
+          <h3>Paket Advance</h3>
+          <div class="sub">8 kanal riset/besar</div>
+          <div class="price">Rp 9.500.000</div>
+          <ul>
+            <li>Unit komputasi utama atau setara kuat</li>
+            <li>Behringer UMC1820 atau setara</li>
+            <li>Imam, muadzin, khatib, pengumuman</li>
+            <li>Kajian 1/2, murottal, cadangan</li>
+            <li>Cocok untuk masjid besar/kompleks</li>
+            <li>Termasuk Sistem Informasi Manajemen TPQ</li>
+          </ul>
+        </div>
+      </div>
+      <div class="price-note"><b>Update software</b> dapat menambah fitur dan memperbaiki sistem tanpa ganti hardware — selama fitur baru tidak membutuhkan perangkat fisik tambahan. Contoh: stabilitas audio, TV display tambahan, AP fallback, OTP WhatsApp, tombol reboot, diagnostik, dan peningkatan notifikasi.</div>
+    </div>
+  </section>
+
+  <section id="garansi" class="soft">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Garansi dan Dukungan</h2>
+        <p>Ketentuan berikut masih draft dan bisa disesuaikan sebelum materi ini difinalkan.</p>
+      </div>
+      <div class="warranty-grid">
+        <div class="warranty-card">
+          <div class="icon">1Y</div>
+          <b>Garansi Perangkat</b>
+          <p>1 tahun sejak tanggal pemasangan, mencakup kerusakan hardware unit utama di luar kesalahan pemakaian.</p>
+        </div>
+        <div class="warranty-card">
+          <div class="icon">SW</div>
+          <b>Dukungan Software</b>
+          <p>Selama unit aktif digunakan. Update fitur dan perbaikan sistem dikirim gratis selamanya lewat pembaruan aplikasi — tidak ada biaya langganan.</p>
+        </div>
+        <div class="warranty-card">
+          <div class="icon">TK</div>
+          <b>Kunjungan Teknisi</b>
+          <p>Termasuk 1x kunjungan untuk pemasangan awal. Kunjungan lanjutan di luar garansi dikenakan biaya perjalanan<span class="badge-draft">Draft</span> — nominal menyusul.</p>
+        </div>
+        <div class="warranty-card">
+          <div class="icon">WA</div>
+          <b>Remote Support via WhatsApp</b>
+          <p>Konsultasi dan bantuan teknis jarak jauh melalui WhatsApp CS selama masa dukungan berjalan. Jam layanan dan target waktu respons<span class="badge-draft">Draft</span> — menyusul.</p>
+        </div>
+        <div class="warranty-card">
+          <div class="icon">UP</div>
+          <b>Update Gratis atau Berbayar?</b>
+          <p>Update software <b>gratis selamanya</b>, termasuk dalam harga perangkat. Perangkat fisik tambahan (jika suatu saat diperlukan fitur baru) dihitung terpisah.</p>
+        </div>
+        <div class="warranty-card">
+          <div class="icon">?</div>
+          <b>Di Luar Cakupan Garansi</b>
+          <p>Kerusakan akibat petir/tegangan tidak stabil, kesalahan instalasi pihak lain, dan bencana alam<span class="badge-draft">Draft</span> — daftar lengkap menyusul.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="perbandingan">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Perbandingan dengan Cara Manual</h2>
+        <p>Ringkasan perbedaan operasional sebelum dan sesudah memakai TAQWA-Hub.</p>
+      </div>
+      <div class="compare-table-wrap">
+        <table class="compare">
+          <thead>
+            <tr>
+              <th>Aspek</th>
+              <th>Cara Manual</th>
+              <th>Dengan TAQWA-Hub</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Kontrol Audio</th>
+              <td class="manual">Atur mixer manual tiap kanal, rawan salah setting saat buru-buru</td>
+              <td class="taqwa">Preset mode (Adzan, Sholat, Kajian, Jum'at) — tinggal pilih satu tombol</td>
+            </tr>
+            <tr>
+              <th scope="row">Jadwal Sholat</th>
+              <td class="manual">Jadwal tempel/cetak, rawan lupa update tiap bulan</td>
+              <td class="taqwa">Jadwal otomatis dari perhitungan ephemeris, selalu akurat tanpa update manual</td>
+            </tr>
+            <tr>
+              <th scope="row">Tampilan TV Masjid</th>
+              <td class="manual">TV statis atau tidak terpakai, info diumumkan lisan/manual</td>
+              <td class="taqwa">TV dinamis: jadwal, countdown iqomah, banner event, dan QR infaq bergantian otomatis</td>
+            </tr>
+            <tr>
+              <th scope="row">Gangguan Speaker</th>
+              <td class="manual">Diketahui telat, biasanya setelah jamaah komplain saat sholat</td>
+              <td class="taqwa">Notifikasi WhatsApp otomatis ke pengurus saat ada zona speaker bermasalah</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </section>

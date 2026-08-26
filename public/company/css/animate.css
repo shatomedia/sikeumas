@@ -1,0 +1,174 @@
+/* Scroll-reveal + micro-interaction animations */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+.reveal-delay-1.in-view { transition-delay: 0.1s; }
+.reveal-delay-2.in-view { transition-delay: 0.2s; }
+.reveal-delay-3.in-view { transition-delay: 0.3s; }
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+/* Hero */
+.first-container .hero-image-wrap {
+    animation: hero-float 4s ease-in-out infinite;
+}
+@keyframes hero-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+.first-container #tittle-heroes {
+    animation: hero-title-in 0.8s ease both;
+}
+.first-container .lead {
+    animation: hero-title-in 0.8s ease 0.15s both;
+}
+.first-container .d-grid {
+    animation: hero-title-in 0.8s ease 0.3s both;
+}
+@keyframes hero-title-in {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.first-container #btn-getNow {
+    position: relative;
+    overflow: hidden;
+}
+.first-container #btn-getNow::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: 0 0 0 0 rgba(245, 129, 30, 0.5);
+    animation: pulse-ring 2.2s ease-out infinite;
+    pointer-events: none;
+}
+@keyframes pulse-ring {
+    0% { box-shadow: 0 0 0 0 rgba(245, 129, 30, 0.45); }
+    70% { box-shadow: 0 0 0 14px rgba(245, 129, 30, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(245, 129, 30, 0); }
+}
+
+/* Hero slideshow */
+.hero-slideshow {
+    position: relative;
+    width: 100%;
+}
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.7s ease;
+}
+.hero-slide.active {
+    position: relative;
+    opacity: 1;
+    visibility: visible;
+}
+.hero-slide-label {
+    position: absolute;
+    top: 6%;
+    left: 6%;
+    background: rgba(245, 129, 30, 0.92);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 5px 14px;
+    border-radius: 999px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+.hero-slide-dots {
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 2;
+}
+.hero-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.18);
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+.hero-dot.active {
+    background: var(--primary-color, #f5811e);
+    transform: scale(1.2);
+}
+
+/* Live clock badge overlaid on the hero image */
+.hero-live-clock {
+    position: absolute;
+    bottom: 8%;
+    left: 6%;
+    background: rgba(15, 23, 20, 0.85);
+    color: #ffd77a;
+    font-family: "Courier New", monospace;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: clamp(0.85rem, 2vw, 1.1rem);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.hero-live-clock .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #4ade80;
+    animation: dot-pulse 1.6s ease-in-out infinite;
+}
+@keyframes dot-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.35; }
+}
+
+/* Animated stat counter */
+.stat-counter {
+    display: inline-block;
+}
+
+/* Product cards: consistent hover lift across the page */
+.product-spotlight img {
+    transition: transform 0.45s ease, box-shadow 0.45s ease;
+}
+.product-spotlight:hover img {
+    transform: translateY(-6px) scale(1.015);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
+}
+
+.best-container .collection .card {
+    will-change: transform;
+}
+
+/* Gallery images */
+.gallery-container .image img,
+.experience-container .image img {
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+.gallery-container .image img:hover,
+.experience-container .image img:hover {
+    transform: scale(1.04);
+    filter: brightness(1.03);
+}

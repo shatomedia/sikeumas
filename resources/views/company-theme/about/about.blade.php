@@ -16,6 +16,7 @@
         content="Shatomedia adalah produsen elektronik yang menyediakan bahan baku berkualitas, tahan lama, dan teknologi terkini dengan desain elegan. Kami memberikan garansi perlindungan hingga 3 tahun untuk kepuasan pelanggan." />
 @endpush
 @section('company-content')
+<div class="site-tech">
     <!-- about section start -->
     <section class="about-hero mb-lg-5">
         <div class="container align-items-center px-4 py-lg-5">
@@ -54,12 +55,12 @@
                         alt="Shatomedia" width="700" height="500" loading="lazy" />
                 </div>
                 <div class="col-lg-6 col-md-12">
-                    <h1 class="fw-bold lh-2" style="color: #f5811e;">Visi</h1>
+                    <h1 class="fw-bold lh-2" style="color: #d9a441;">Visi</h1>
                     <p class="lh-2 text-description" style="font-size: 18px; text-align: justify;">Menerapkan semua
                         keahlian yang ada serta berkomitmen tanpa kompromi terhadap kualitas, kehandalan dan layanan
                         pelanggan maupun kemaslahatan hidup bersama didalam lingkungan umat islam.
                     </p>
-                    <h1 class="fw-bold lh-2" style="color: #f5811e;">Misi</h1>
+                    <h1 class="fw-bold lh-2" style="color: #d9a441;">Misi</h1>
                     <ul class="text-description" style="font-size: 18px;">
                         <li>Memanfaatkan strategi peningkatan proses berkelanjutan untuk memastikan produk dan
                             layanan berkualitas tinggi.</li>
@@ -118,5 +119,6 @@
             </div>
         </div>
     </section>
+</div>
 @endsection
 

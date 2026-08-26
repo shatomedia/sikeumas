@@ -1,6 +1,7 @@
 @extends('layouts.company_master')
 
 @section('company-content')
+<div class="site-tech">
     <!-- heroes section start -->
     <section class="hero-container" id="first-container">
         <div class="container align-items-center px-4 py-5">
@@ -68,4 +69,5 @@
         </div>
     </section>
     <!-- help and contact section end -->
+</div>
 @endsection

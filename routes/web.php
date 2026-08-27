@@ -32,7 +32,7 @@ Route::get('/tentang-kami', [LandingController::class, 'aboutUs'])->name('about-
 Route::get('/taqwa-hub', [LandingController::class, 'taqwaHub'])->name('taqwa-hub-landing');
 Route::get('/surgery-time', [LandingController::class, 'surgeryTime'])->name('surgery-time-landing');
 Route::get('/jws-m3', [LandingController::class, 'jwsM3'])->name('jws-m3-landing');
-Route::get('/buku-teknologi', [LandingController::class, 'bukuTeknologi'])->name('buku-teknologi-landing');
+Route::get('/buku', [LandingController::class, 'bukuTeknologi'])->name('buku-teknologi-landing');
 Route::get('/produk', [LandingController::class, 'product'])->name('product');
 Route::get('/produk/{slug}', [LandingController::class, 'productDetail'])->name('product-detail');
 Route::get('/artikel', [LandingController::class, 'article'])->name('blog');

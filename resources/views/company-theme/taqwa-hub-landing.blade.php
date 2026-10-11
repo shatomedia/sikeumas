@@ -529,7 +529,7 @@
     <div class="wrap">
       <div class="section-head">
         <h2>Garansi dan Dukungan</h2>
-        <p>Ketentuan berikut masih draft dan bisa disesuaikan sebelum materi ini difinalkan.</p>
+        <p>Perangkat bergaransi, software didukung selama dipakai, dan bantuan teknis cukup lewat WhatsApp.</p>
       </div>
       <div class="warranty-grid">
         <div class="warranty-card">
@@ -545,12 +545,12 @@
         <div class="warranty-card">
           <div class="icon">TK</div>
           <b>Kunjungan Teknisi</b>
-          <p>Termasuk 1x kunjungan untuk pemasangan awal. Kunjungan lanjutan di luar garansi dikenakan biaya perjalanan<span class="badge-draft">Draft</span> — nominal menyusul.</p>
+          <p>Termasuk 1x kunjungan untuk pemasangan awal dan pelatihan singkat pengurus. Kunjungan perbaikan selama masa garansi gratis dalam radius 30 km dari kantor Shatomedia; di luar itu atau di luar masa garansi dikenakan biaya transport sesuai jarak, mulai Rp 150.000.</p>
         </div>
         <div class="warranty-card">
           <div class="icon">WA</div>
           <b>Remote Support via WhatsApp</b>
-          <p>Konsultasi dan bantuan teknis jarak jauh melalui WhatsApp CS selama masa dukungan berjalan. Jam layanan dan target waktu respons<span class="badge-draft">Draft</span> — menyusul.</p>
+          <p>Konsultasi dan bantuan teknis jarak jauh melalui WhatsApp CS, Senin–Sabtu pukul 08.00–17.00 WIB. Pesan dibalas paling lambat 1x24 jam kerja; gangguan yang membuat adzan atau sholat terganggu diprioritaskan.</p>
         </div>
         <div class="warranty-card">
           <div class="icon">UP</div>
@@ -560,7 +560,7 @@
         <div class="warranty-card">
           <div class="icon">?</div>
           <b>Di Luar Cakupan Garansi</b>
-          <p>Kerusakan akibat petir/tegangan tidak stabil, kesalahan instalasi pihak lain, dan bencana alam<span class="badge-draft">Draft</span> — daftar lengkap menyusul.</p>
+          <p>Kerusakan akibat petir, tegangan listrik tidak stabil, air/kelembapan, jatuh atau benturan, pembongkaran atau instalasi ulang oleh pihak lain, serta bencana alam. Perbaikan tetap dapat dilayani dengan biaya suku cadang dan jasa.</p>
         </div>
       </div>
     </div>

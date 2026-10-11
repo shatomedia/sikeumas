@@ -191,6 +191,25 @@
     .wa-float { position: fixed; right: 16px; bottom: 16px; z-index: 40; display: inline-flex; align-items: center; gap: 8px; min-height: 52px; padding: 0 18px; border-radius: 999px; background: #25d366; color: #062b14; font-weight: 900; text-decoration: none; box-shadow: 0 10px 30px rgba(0,0,0,.45); }
     .wa-float svg { width: 22px; height: 22px; }
 
+    .cond-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .cond { border: 1px solid var(--line); border-radius: 10px; background: var(--card); padding: 20px; }
+    .cond .q { font-size: 13px; font-weight: 800; color: var(--gold); text-transform: uppercase; letter-spacing: .04em; }
+    .cond h3 { font-size: 18px; margin: 6px 0 8px; }
+    .cond p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.5; }
+    .arch { display: grid; grid-template-columns: 1fr auto 1.3fr auto 1fr; gap: 12px; align-items: center; }
+    .arch-col { display: grid; gap: 10px; }
+    .arch-box { border: 1px solid var(--line); border-radius: 10px; background: var(--card); padding: 14px 16px; font-size: 14px; color: var(--muted); }
+    .arch-box b { display: block; color: var(--ink); font-size: 15px; }
+    .arch-box.core { border-color: var(--green-800); background: linear-gradient(135deg, #15241d, var(--card)); padding: 22px; }
+    .arch-box.core b { color: var(--green-800); font-size: 18px; }
+    .arch-box.core ul { margin: 10px 0 0; padding-left: 18px; }
+    .arrow { color: var(--green-800); font-size: 26px; font-weight: 900; text-align: center; }
+    .fit-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .fit { border: 1px solid var(--line); border-radius: 10px; background: var(--card); padding: 20px; display: flex; flex-direction: column; }
+    .fit b { color: var(--ink); font-size: 17px; }
+    .fit p { color: var(--muted); font-size: 14px; margin: 8px 0 12px; flex: 1; }
+    .fit span { font-size: 13px; font-weight: 800; color: var(--green-800); }
+
     footer { padding: 28px 0; background: #08090b; border-top: 1px solid var(--line); color: rgba(255,255,255,.7); font-size: 14px; }
     .footer-inner { display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
 
@@ -201,6 +220,9 @@
       .feature-list { grid-template-columns: 1fr; }
       .gallery { grid-template-columns: 1fr 1fr; }
       .trust-inner { grid-template-columns: 1fr 1fr; }
+      .cond-grid, .fit-grid { grid-template-columns: 1fr 1fr; }
+      .arch { grid-template-columns: 1fr; }
+      .arrow { transform: rotate(90deg); }
       .nav-links { display: none; }
       .browser { transform: none; }
     }
@@ -210,6 +232,7 @@
       .hero-grid { padding: 54px 0; }
       .flow, .grid-3, .grid-4, .price-grid, .warranty-grid, .gallery { grid-template-columns: 1fr; }
       .update { grid-template-columns: 1fr; gap: 4px; }
+      .cond-grid, .fit-grid { grid-template-columns: 1fr; }
       .wa-float span { display: none; }
       .wa-float { padding: 0 15px; }
       .browser img { height: 260px; }
@@ -225,6 +248,7 @@
       </a>
       <div class="nav-links">
         <a href="#pilar">3 Pilar</a>
+        <a href="#keandalan">Keandalan</a>
         <a href="#terbaru">Terbaru</a>
         <a href="#tampilan">Tampilan</a>
         <a href="#sim-tpq">SIM TPQ</a>
@@ -314,6 +338,64 @@
             <li>Pengguna &amp; hak akses berbasis peran, PIN, dan kode darurat</li>
             <li>Cadangan &amp; pemulihan, serta pembaruan aplikasi sekali klik</li>
           </ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="keandalan" class="soft">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Siap untuk Berbagai Kondisi Masjid</h2>
+        <p>Dirancang untuk kondisi nyata di lapangan: internet tidak stabil, listrik padam, tidak ada operator, dan speaker lama yang masih dipakai.</p>
+      </div>
+      <div class="cond-grid">
+        <div class="cond"><div class="q">Tidak ada internet?</div><h3>Tetap berjalan penuh</h3><p>Jadwal sholat dihitung sendiri di perangkat, termasuk adzan, iqomah, tilawah, TV, dan kontrol audio. Internet hanya dipakai untuk WhatsApp dan pemantauan jarak jauh.</p></div>
+        <div class="cond"><div class="q">Tidak ada router WiFi?</div><h3>Punya hotspot sendiri</h3><p>Unit dapat memancarkan WiFi "WiFi-TAQWA" sendiri. Jika WiFi masjid bermasalah, perangkat otomatis beralih ke hotspot sehingga dashboard tetap bisa dibuka dari HP.</p></div>
+        <div class="cond"><div class="q">Listrik padam?</div><h3>Hidup lagi dengan sendirinya</h3><p>Saat listrik kembali, sistem menyala dan berjalan otomatis tanpa perlu ditekan apa pun. Modul jam RTC opsional menjaga waktu tetap tepat walau tanpa internet.</p></div>
+        <div class="cond"><div class="q">Sistem macet?</div><h3>Pulih otomatis</h3><p>Watchdog memantau aplikasi dan menyalakan ulang bagian yang macet dalam hitungan detik. Koneksi ke Node speaker yang terputus juga tersambung ulang sendiri.</p></div>
+        <div class="cond"><div class="q">Takut data hilang?</div><h3>Backup harian otomatis</h3><p>Database dicadangkan setiap hari dan 7 cadangan terakhir disimpan. Pengaturan bisa diunduh sebagai satu berkas dan dipulihkan ke unit pengganti.</p></div>
+        <div class="cond"><div class="q">Teknisi jauh?</div><h3>Dipantau &amp; diperbarui dari jauh</h3><p>Unit bisa melapor kondisi (suhu, memori, uptime) ke dashboard pusat TAQWA-Central setiap 3 menit, dan pembaruan software dikirim tanpa kunjungan.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="arsitektur">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Cara Sistem Terhubung</h2>
+        <p>Satu Unit Utama di ruang sound system menjadi pusat kendali. Sistem suara yang sudah ada tetap dipakai, TAQWA-Hub menambahkan kecerdasannya.</p>
+      </div>
+      <div class="arch">
+        <div class="arch-col">
+          <div class="arch-box"><b>HP / Tablet Pengurus</b>Dashboard lewat browser, bisa dipasang seperti aplikasi (PWA)</div>
+          <div class="arch-box"><b>HP Jamaah</b>Halaman jamaah: jadwal &amp; info masjid</div>
+          <div class="arch-box"><b>Mikrofon</b>Imam, muadzin, khatib, kajian</div>
+        </div>
+        <div class="arrow">&rarr;</div>
+        <div class="arch-box core"><b>Unit Utama TAQWA-Hub</b>Komputer mini khusus + soundcard USB 2/4/8 kanal
+          <ul><li>Mixer digital &amp; DSP</li><li>Mesin jadwal sholat &amp; falak</li><li>Database masjid, TPQ &amp; keuangan</li><li>Watchdog, backup &amp; auto-restart</li></ul></div>
+        <div class="arrow">&rarr;</div>
+        <div class="arch-col">
+          <div class="arch-box"><b>Amplifier &amp; Speaker</b>Zona dalam, serambi, dan luar/horn</div>
+          <div class="arch-box"><b>TV Masjid (HDMI)</b>Jadwal, iqomah, falak, pengumuman</div>
+          <div class="arch-box"><b>Node Sensor ESP32</b>Memantau level suara tiap zona</div>
+          <div class="arch-box"><b>WhatsApp Pengurus</b>Notifikasi saat internet tersedia</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cocok" class="soft">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Cocok untuk Masjid Anda</h2>
+        <p>Dari mushola sampai masjid jami' dengan banyak zona. Pilih paket sesuai jumlah sumber suara, dan fitur software tetap sama lengkapnya.</p>
+      </div>
+      <div class="fit-grid">
+        <div class="fit"><b>Mushola &amp; Masjid Kecil</b><p>Satu imam/muadzin, speaker dalam dan luar, ingin jadwal dan TV yang rapi.</p><span>Harga Perangkat / Paket Ekonomis</span></div>
+        <div class="fit"><b>Masjid Jami' &amp; Perumahan</b><p>Sholat Jum'at, kajian rutin, beberapa mikrofon, dan pengurus yang bergantian.</p><span>Paket Rekomendasi (4 kanal)</span></div>
+        <div class="fit"><b>Masjid dengan TPQ/Madrasah</b><p>Mengelola santri, presensi, hafalan, dan SPP sekaligus operasional masjid.</p><span>Semua paket, SIM TPQ sudah termasuk</span></div>
+        <div class="fit"><b>Masjid Besar &amp; Kompleks</b><p>Banyak zona speaker, kajian paralel, serambi luas, dan kegiatan Ramadan padat.</p><span>Paket Advance (8 kanal)</span></div>
       </div>
     </div>
   </section>
@@ -446,7 +528,7 @@
       </div>
       <div class="grid-4">
         <div class="stat"><b>3 Pilar</b><span>Riayah, Imarah, Idarah dalam satu perangkat</span></div>
-        <div class="stat"><b>0</b><span>Dropout audio pada 8 kanal penuh</span></div>
+        <div class="stat"><b>509/509</b><span>Uji QA lulus (fungsional, keamanan, perangkat)</span></div>
         <div class="stat"><b>Sejak Jun 2026</b><span>Aktif di masjid produksi tanpa insiden kritis</span></div>
         <div class="stat"><b>3 Platform</b><span>SBC dibenchmark (RPi4, RPi3, Orange Pi Zero 3)</span></div>
       </div>
@@ -630,6 +712,8 @@
       <details><summary>Apakah bisa dipasang di masjid dengan speaker yang sudah ada?</summary><p>Bisa. Unit ini disambungkan ke sistem suara yang sudah terpasang di masjid, tidak perlu ganti speaker lama.</p></details>
       <details><summary>Apakah bisa lihat demo dulu?</summary><p>Bisa. Kami menyediakan demo 10 menit untuk memperlihatkan dashboard, kontrol audio, dan tampilan TV secara langsung.</p></details>
       <details><summary>Apakah pengurus lain bisa ikut mengakses tanpa membuka semua menu?</summary><p>Bisa. Setiap pengurus punya akun dengan PIN sendiri. Bendahara bisa diberi akses keuangan saja, ustadz TPQ akses SIM TPQ saja, dan seterusnya.</p></details>
+      <details><summary>Bagaimana kalau listrik padam atau internet mati?</summary><p>Saat listrik kembali, sistem menyala dan berjalan sendiri tanpa perlu disetel ulang. Tanpa internet semua fungsi inti tetap jalan. Hanya notifikasi WhatsApp dan pemantauan jarak jauh yang menunggu internet kembali.</p></details>
+      <details><summary>Masjid kami tidak punya WiFi, apakah bisa?</summary><p>Bisa. Unit memancarkan hotspot sendiri sehingga pengurus tetap bisa membuka dashboard dari HP di area masjid.</p></details>
       <details><summary>Apakah pemilik unit lama ikut mendapat fitur baru?</summary><p>Ya. Fitur Falak, Ramadan, keuangan, dan hak akses dikirim lewat pembaruan software gratis tanpa ganti perangkat.</p></details>
     </div>
   </section>

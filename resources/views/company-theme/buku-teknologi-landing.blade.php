@@ -39,7 +39,7 @@
           <div class="trust-row" aria-label="Ringkasan toko">
             <span>Ready stock</span>
             <span>Dikirim dari Kab. Bantul</span>
-            <span>SmartMosque</span>
+            <span><a href="{{ route('taqwa-hub-landing') }}" style="color:inherit">SmartMosque</a></span>
           </div>
         </div>
 
@@ -168,6 +168,7 @@
                 <li>Membahas perangkat dan persambungan audio</li>
                 <li>Sound jelas, jamaah antusias</li>
               </ul>
+              <p style="font-size:14px">Ingin sistem audio masjid yang terkontrol otomatis? Lihat <a href="{{ route('taqwa-hub-landing') }}">TAQWA-Hub</a>.</p>
               <div class="product-footer">
                 <span class="price">Rp120.000</span>
                 <a class="text-link" href="https://wa.me/6285743909116?text=Assalamu%27alaikum%2C%20saya%20ingin%20bertanya%20tentang%20buku%20Optimasi%20Sistem%20Audio%20Masjid." target="_blank" rel="noopener">Tanya via WhatsApp</a>
@@ -185,7 +186,7 @@
             <img src="{{ asset('buku-teknologi-assets/assets-web/safiq-rosad-profile.jpg') }}" alt="Safiq Rosad">
             <div>
               <p>Safiq Rosad, S.T., M.Kom. adalah dosen tetap dan Kepala Program Studi Informatika UNUGHA Cilacap dengan kepakaran di bidang embedded system, cyber-physical system, Internet of Things, smart mosque, dan sistem audio masjid.</p>
-              <p>Sejak 2008, Safiq memimpin SHATOMEDIA sebagai pengembang produk digital masjid, mulai dari jadwal salat digital, media player masjid, hingga solusi smart mosque. Ia juga menulis sejumlah buku teknis tentang Java, NodeMCU, Arduino, optimasi sistem audio masjid, dan digitalisasi masjid.</p>
+              <p>Sejak 2008, Safiq memimpin SHATOMEDIA sebagai pengembang produk digital masjid, mulai dari jadwal salat digital, media player masjid, hingga solusi <a href="{{ route('taqwa-hub-landing') }}">smart mosque</a>. Ia juga menulis sejumlah buku teknis tentang Java, NodeMCU, Arduino, optimasi sistem audio masjid, dan digitalisasi masjid.</p>
             </div>
           </div>
         </div>
@@ -198,7 +199,7 @@
     </main>
 
     <footer>
-      <p>Buku Teknologi by SmartMosque. Buku cetak ready stock dari Kab. Bantul.</p>
+      <p>Buku Teknologi by <a href="{{ route('taqwa-hub-landing') }}">SmartMosque</a>. Buku cetak ready stock dari Kab. Bantul.</p>
     </footer>
   </body>
 </html>

@@ -197,6 +197,10 @@
         <div class="box shot-card"><img src="{{ asset('jws-full/jws-01.jpeg') }}" alt="JWS-01"><div><h3>JWS-01</h3><p>Dilengkapi remote kontrol, opsional adzan dan tilawah otomatis.</p></div></div>
         <div class="box shot-card"><img src="{{ asset('jws-full/jws-018.jpg') }}" alt="JWS-018"><div><h3>JWS-018</h3><p>Jam sholat digital dengan fungsi inti serupa JWS-01.</p></div></div>
       </div>
+      <div class="box" style="margin-top:18px; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px;">
+        <div><b>Butuh lebih dari jadwal sholat?</b><p style="margin:4px 0 0;">TAQWA-Hub menyatukan jadwal sholat, kontrol audio 8 kanal, TV masjid, keuangan, dan SIM TPQ dalam satu perangkat.</p></div>
+        <a class="btn btn-amber" href="{{ route('taqwa-hub-landing') }}">Lihat TAQWA-Hub</a>
+      </div>
     </div>
   </section>
 

@@ -334,7 +334,7 @@
         <div class="box pillar imarah"><span class="tag">Imarah &middot; Kemakmuran</span><h3>Falak, Kegiatan &amp; TPQ</h3>
           <ul>
             <li>Paket Falak: kalender Hijriah, fase bulan, puasa sunnah, arah kiblat, Rashdul Kiblat, gerhana</li>
-            <li>Malam Rukyat, simulasi hilal, dan hasil rukyat MOONLIGHT yang tampil otomatis</li>
+            <li>Malam Rukyat, simulasi hilal, dan hasil rukyat <a href="{{ route('moonlight-landing') }}" style="color:var(--blue)">MOONLIGHT</a> yang tampil otomatis</li>
             <li>Pengumuman berita duka (lelayu) ke TV dan WhatsApp</li>
             <li>Jadwal petugas pekanan dan arsip rekaman kajian &amp; khutbah</li>
             <li>Paket Ramadan: imsakiyah, jadwal tarawih &amp; takjil, pendaftaran i'tikaf</li>
@@ -423,7 +423,7 @@
         <div class="update"><time>Okt 2026</time><div><b>Integrasi MOONLIGHT</b><p>Hasil rukyat dari teleskop <a href="{{ route('moonlight-landing') }}" style="color:var(--blue)">MOONLIGHT</a>, sistem observasi hilal Shatomedia, tampil otomatis di menu Imarah.</p></div></div>
         <div class="update"><time>Sep 2026</time><div><b>Navigasi 3 Pilar &amp; Hak Akses</b><p>Dashboard ditata ulang menjadi Riayah, Imarah, dan Idarah. Ada manajemen pengguna berbasis peran dan satu pintu login untuk PIN utama dan SIM TPQ.</p></div></div>
         <div class="update"><time>Sep 2026</time><div><b>Paket Falak</b><p>Kalender Hijriah, fase bulan, puasa sunnah, arah kiblat &amp; Rashdul Kiblat, Malam Rukyat, simulasi hilal, dan kalkulator gerhana, lengkap dengan slide TV dan pengumuman WhatsApp terjadwal.</p></div></div>
-        <div class="update"><time>Sep 2026</time><div><b>Perangkat &amp; TV</b><p>Tab Zona baru, tema, display 7-segment pada Node, slide aktivitas MOONLIGHT, dan TV kiosk yang otomatis memuat slide terbaru.</p></div></div>
+        <div class="update"><time>Sep 2026</time><div><b>Perangkat &amp; TV</b><p>Tab Zona baru, tema, display 7-segment pada Node, slide aktivitas <a href="{{ route('moonlight-landing') }}" style="color:var(--blue)">MOONLIGHT</a>, dan TV kiosk yang otomatis memuat slide terbaru.</p></div></div>
       </div>
     </div>
   </section>
@@ -479,7 +479,7 @@
         <div class="feature"><span class="check">OK</span><div><b>Telemetri Suara</b><span>Sensor SPL per zona speaker via ESP32, deteksi otomatis zona mati.</span></div></div>
         <div class="feature"><span class="check">OK</span><div><b>Update Satu Klik</b><span>Pembaruan aplikasi tanpa perlu teknisi datang ke lokasi.</span></div></div>
         <div class="feature"><span class="check">OK</span><div><b>SIM TPQ</b><span>Data santri, presensi, hafalan, dan pembayaran TPQ dalam satu sistem.</span></div></div>
-        <div class="feature"><span class="check">OK</span><div><b>Falak &amp; Rukyat</b><span>Kalender Hijriah, arah kiblat, gerhana, dan hasil rukyat MOONLIGHT.</span></div></div>
+        <div class="feature"><span class="check">OK</span><div><b>Falak &amp; Rukyat</b><span>Kalender Hijriah, arah kiblat, gerhana, dan hasil rukyat <a href="{{ route('moonlight-landing') }}" style="color:var(--blue)">MOONLIGHT</a>.</span></div></div>
         <div class="feature"><span class="check">OK</span><div><b>Keuangan Masjid</b><span>Saldo per dana, laporan bulanan Excel, dan Laporan Kas Jum'at.</span></div></div>
         <div class="feature"><span class="check">OK</span><div><b>Hak Akses Pengurus</b><span>Peran per pengguna, sehingga bendahara, takmir, dan ustadz TPQ hanya membuka menunya masing-masing.</span></div></div>
         <div class="feature"><span class="check">OK</span><div><b>Paket Ramadan</b><span>Imsakiyah, tarawih &amp; takjil, serta pendaftaran i'tikaf.</span></div></div>
@@ -517,7 +517,7 @@
       <p class="gallery-intro">Kegiatan, pendidikan, dan administrasi masjid. Data tersimpan di perangkat masjid sendiri dan ikut dicadangkan.</p>
       <div class="gallery">
         <div class="box shot-card"><img loading="lazy" src="{{ asset('taqwa-hub-full/screenshots/2026-10/falak.jpg') }}" alt="Falak — TAQWA-Hub"><div><span class="shot-loc">Imarah › Falak</span><h3>Falak</h3><p>Ilmu falak praktis untuk jamaah, tersaji otomatis di dashboard dan TV.</p><ul><li>Kalender Hijriah hari ini</li><li><b>Arah kiblat</b> dan jadwal Rashdul Kiblat berikutnya</li><li>Malam rukyat berikutnya serta perkiraan gerhana bulan dan matahari</li></ul></div></div>
-        <div class="box shot-card"><img loading="lazy" src="{{ asset('taqwa-hub-full/screenshots/2026-10/kegiatan.jpg') }}" alt="Kegiatan Masjid — TAQWA-Hub"><div><span class="shot-loc">Imarah › Kegiatan</span><h3>Kegiatan Masjid</h3><p>Satu tempat untuk semua informasi kegiatan yang perlu diumumkan.</p><ul><li><b>Berita duka (lelayu)</b> langsung tampil di TV dan terkirim ke WhatsApp</li><li>Hasil rukyat dari teleskop MOONLIGHT dan jadwal petugas pekanan</li><li>Arsip rekaman kajian &amp; khutbah serta imsakiyah Ramadan</li></ul></div></div>
+        <div class="box shot-card"><img loading="lazy" src="{{ asset('taqwa-hub-full/screenshots/2026-10/kegiatan.jpg') }}" alt="Kegiatan Masjid — TAQWA-Hub"><div><span class="shot-loc">Imarah › Kegiatan</span><h3>Kegiatan Masjid</h3><p>Satu tempat untuk semua informasi kegiatan yang perlu diumumkan.</p><ul><li><b>Berita duka (lelayu)</b> langsung tampil di TV dan terkirim ke WhatsApp</li><li>Hasil rukyat dari teleskop <a href="{{ route('moonlight-landing') }}" style="color:var(--blue)">MOONLIGHT</a> dan jadwal petugas pekanan</li><li>Arsip rekaman kajian &amp; khutbah serta imsakiyah Ramadan</li></ul></div></div>
         <div class="box shot-card"><img loading="lazy" src="{{ asset('taqwa-hub-full/screenshots/2026-10/sim-tpq.jpg') }}" alt="SIM TPQ — TAQWA-Hub"><div><span class="shot-loc">Imarah › TPQ</span><h3>SIM TPQ</h3><p>Sistem Informasi Manajemen TPQ terpadu, cukup satu kali login.</p><ul><li>Menu santri, kelas, pengajar, jadwal, presensi, hafalan, pembayaran, raport</li><li><b>Catatan perkembangan bacaan</b>: Iqra/Al-Qur'an, jilid, halaman, kelancaran, tajwid</li><li>Riwayat bacaan yang bisa diekspor ke CSV dan PDF</li></ul></div></div>
         <div class="box shot-card"><img loading="lazy" src="{{ asset('taqwa-hub-full/screenshots/2026-10/keuangan.jpg') }}" alt="Keuangan Masjid — TAQWA-Hub"><div><span class="shot-loc">Idarah › Keuangan</span><h3>Keuangan Masjid</h3><p>Pembukuan kas masjid yang rapi dan transparan.</p><ul><li><b>Saldo per dana</b>: infaq, lain-lain, wakaf (terikat), dan zakat (terikat)</li><li>Catat pemasukan/pengeluaran, laporan bulanan unduh Excel</li><li><b>Laporan Kas Jum'at</b> otomatis, siap disalin dan dibacakan</li></ul></div></div>
         <div class="box shot-card"><img loading="lazy" src="{{ asset('taqwa-hub-full/screenshots/2026-10/zakat.jpg') }}" alt="Panitia Zakat — TAQWA-Hub"><div><span class="shot-loc">Idarah › Program</span><h3>Panitia Zakat</h3><p>Pencatatan zakat yang tertib sesuai asnaf.</p><ul><li>Ringkasan jumlah data dan total dana</li><li>Input nama, <b>asnaf</b> (fakir, miskin, dan lainnya), jumlah, keterangan</li><li>Juga tersedia program Panitia Pembangunan dengan status pekerjaan</li></ul></div></div>
@@ -745,7 +745,7 @@
 
   <footer>
     <div class="wrap footer-inner">
-      <span>(c) 2026 <a href="{{ route('beranda') }}" style="color:#fff">Shatomedia</a> - TAQWA-Hub &middot; <a href="{{ route('product') }}">Produk lain</a></span>
+      <span>(c) 2026 <a href="{{ route('beranda') }}" style="color:#fff">Shatomedia</a> - TAQWA-Hub &middot; Terkait: <a href="{{ route('moonlight-landing') }}">MOONLIGHT</a>, <a href="{{ route('buku-teknologi-landing') }}">Buku Optimasi Sistem Audio Masjid</a></span>
       <span>WhatsApp: +62 857-4390-9116 | Email: shatomedia@gmail.com</span>
     </div>
   </footer>

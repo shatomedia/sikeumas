@@ -38,7 +38,7 @@
                     </a>
                 </li>
                 <li class="nav-item mx-2 dropdown">
-                    <a class="nav-link {{ Request::routeIs('taqwa-hub-landing', 'surgery-time-landing', 'jws-m3-landing', 'buku-teknologi-landing') ? 'active' : '' }} dropdown-toggle"
+                    <a class="nav-link {{ Request::routeIs('taqwa-hub-landing', 'surgery-time-landing', 'jws-m3-landing', 'moonlight-landing', 'buku-teknologi-landing') ? 'active' : '' }} dropdown-toggle"
                         href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Solusi
                     </a>
@@ -46,7 +46,7 @@
                         <li><a class="dropdown-item" href="{{ route('taqwa-hub-landing') }}">TAQWA-Hub &middot; Smart Mosque</a></li>
                         <li><a class="dropdown-item" href="{{ route('surgery-time-landing') }}">Surgery Time &middot; Kamar Operasi</a></li>
                         <li><a class="dropdown-item" href="{{ route('jws-m3-landing') }}">JWS-M3 &middot; Jadwal Sholat</a></li>
-                        <li><a class="dropdown-item" href="https://docs.shatomedia.com/moonlight/" target="_blank" rel="noopener">MOONLIGHT &middot; Observasi Hilal &#8599;</a></li>
+                        <li><a class="dropdown-item" href="{{ route('moonlight-landing') }}">MOONLIGHT &middot; Observasi Hilal</a></li>
                         <li><a class="dropdown-item" href="{{ route('buku-teknologi-landing') }}">Buku Teknologi</a></li>
                     </ul>
                 </li>

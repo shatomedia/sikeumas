@@ -39,6 +39,11 @@ class LandingController extends Controller
         return view('company-theme.buku-teknologi-landing');
     }
 
+    public function moonlight()
+    {
+        return view('company-theme.moonlight-landing');
+    }
+
     public function product()
     {
         $data['products'] = Product::get();

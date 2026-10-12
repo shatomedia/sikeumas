@@ -234,7 +234,7 @@
                         <i class="bi bi-moon-stars-fill fs-4" style="color:#6366f1;"></i>
                         <span class="fw-semibold">Status beta lapangan &middot; terbuka untuk kolaborasi riset, lembaga falak, dan demonstrasi rukyat</span>
                     </div>
-                    <a href="https://docs.shatomedia.com/moonlight/" class="btn" id="btn-buyNow" target="_blank" rel="noopener">Selengkapnya</a>
+                    <a href="{{ route('moonlight-landing') }}" class="btn" id="btn-buyNow">Selengkapnya</a>
                 </div>
             </div>
         </div>

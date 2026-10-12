@@ -30,7 +30,7 @@
       <a href="{{ route('taqwa-hub-landing') }}" class="{{ Request::routeIs('taqwa-hub-landing') ? 'smx-active' : '' }}">TAQWA-Hub</a>
       <a href="{{ route('surgery-time-landing') }}" class="{{ Request::routeIs('surgery-time-landing') ? 'smx-active' : '' }}">Surgery Time</a>
       <a href="{{ route('jws-m3-landing') }}" class="{{ Request::routeIs('jws-m3-landing') ? 'smx-active' : '' }}">JWS-M3</a>
-      <a href="https://docs.shatomedia.com/moonlight/" target="_blank" rel="noopener">MOONLIGHT &#8599;</a>
+      <a href="{{ route('moonlight-landing') }}" class="{{ Request::routeIs('moonlight-landing') ? 'smx-active' : '' }}">MOONLIGHT</a>
       <a href="{{ route('buku-teknologi-landing') }}" class="{{ Request::routeIs('buku-teknologi-landing') ? 'smx-active' : '' }}">Buku</a>
       <a href="{{ route('product') }}">Semua Produk</a>
     </nav>

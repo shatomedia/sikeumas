@@ -130,6 +130,7 @@
                         <span class="fw-semibold">509/509 uji QA lulus &middot; aktif di masjid produksi sejak Juni 2026 &middot; mulai Rp 3,5 juta</span>
                     </div>
                     <a href="{{ route('taqwa-hub-landing') }}" class="btn" id="btn-buyNow">Selengkapnya</a>
+                    <a href="https://taqwa-demo.shatomedia.com/login" class="btn ms-2" target="_blank" rel="noopener" style="border:2px solid #d9a441;color:#d9a441;font-weight:700;">Coba Demo &#8599;</a>
                 </div>
             </div>
 

@@ -89,7 +89,7 @@
   <div class="kicker">MOONLIGHT · Replay sesi nyata</div>
   <h1>Observasi Hilal <span>13 September 2026</span></h1>
   <div class="label-jujur">● Rekaman nyata sesi observasi di SHATOMEDIA, Sedayu, Bantul — diputar ulang, tidak terhubung ke teleskop.</div>
-  <p style="margin:10px 0 0;color:var(--muted);max-width:760px">54 foto teleskop pukul 16:43–19:32 WIB, masing-masing dengan telemetri yang tercatat saat itu. Tekan <b>Putar</b>, geser linimasa, atau langsung <b>lompat ke saat hilal terlihat</b>. <a href="{{ route('moonlight-landing') }}">← Kembali ke MOONLIGHT</a></p>
+  <p style="margin:10px 0 0;color:var(--muted);max-width:760px">54 foto teleskop pukul 16:43–19:32 WIB, masing-masing dengan telemetri yang tercatat saat itu. Tekan <b>Putar</b>, geser linimasa, atau langsung <b>lompat ke saat hilal terlihat</b>. <a href="{{ route('moonlight-landing') }}">← Kembali ke MOONLIGHT</a> · <a href="/moonlight-demo/" target="_blank" rel="noopener">Coba dashboard demo ↗</a></p>
 </header>
 
 <main class="wrap">

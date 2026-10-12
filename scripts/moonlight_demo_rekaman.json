@@ -1,0 +1,311 @@
+{
+ "/camera/autocapture": {
+  "active_window": false,
+  "enabled": true,
+  "end_minutes_after_maghrib": 20.0,
+  "interval_minutes": 2.0,
+  "last_capture_at": null,
+  "start_minutes_before_maghrib": 20.0
+ },
+ "/camera/flat/status": {
+  "available": false,
+  "message": "flat belum dikalibrasi utk profil ini",
+  "status": "ok",
+  "tuning": "default"
+ },
+ "/camera/focus_meter": {
+  "focus": null,
+  "status": "ok",
+  "stream_active": false
+ },
+ "/camera/orientation": {
+  "current": null,
+  "jumlah_riwayat": 0
+ },
+ "/camera/settings": {
+  "ae_mode": "normal",
+  "available_resolutions": [
+   "320x240",
+   "640x480",
+   "1332x990",
+   "2028x1080",
+   "2028x1520",
+   "4056x3040"
+  ],
+  "awb": true,
+  "awb_blue": null,
+  "awb_red": null,
+  "brightness": 0.0,
+  "contrast": 1.0,
+  "ev": -0.7,
+  "exposure_locked_at": null,
+  "gain": null,
+  "jpeg_quality": 90.0,
+  "resolution": "2028x1520",
+  "saturation": 1.0,
+  "sharpness": 1.0,
+  "shutter_us": null,
+  "tuning": "default"
+ },
+ "/camera/status": {
+  "connected": false,
+  "message": "Modul picamera2 tidak tersedia"
+ },
+ "/gerhana/berikutnya": {
+  "gerhana_bulan": {
+   "gamma_deg": 1.0740529521430935,
+   "jd_puncak_ut": 2461457.4737388697,
+   "jenis": "penumbra",
+   "magnitudo_penumbra": 0.9190757363275783,
+   "magnitudo_umbra": -0.08425870814210142,
+   "radius_bulan_deg": 0.2740587792213539,
+   "radius_penumbra_deg": 1.3037557215415456,
+   "radius_umbra_deg": 0.7538104955373544,
+   "waktu_puncak_utc": "2027-02-20T23:22:11.038338+00:00"
+  },
+  "gerhana_matahari": {
+   "jd_puncak_ut": 2461974.5855140584,
+   "jenis": "sebagian",
+   "magnitudo": 0.9418213595734638,
+   "matahari_di_atas_ufuk": true,
+   "pisah_sudut_deg": 0.041435857013407955,
+   "radius_bulan_deg": 0.27327794769846786,
+   "radius_matahari_deg": 0.26237084928270704,
+   "tinggi_matahari_deg": 41.27927867033799,
+   "waktu_puncak_utc": "2028-07-22T02:03:08.414642+00:00"
+  },
+  "status": "ok"
+ },
+ "/gps/status": {
+  "age_sec": null,
+  "alt": null,
+  "connected": false,
+  "fix": false,
+  "hdop": null,
+  "lat": null,
+  "lon": null,
+  "quality": 0,
+  "satellites": null,
+  "satellites_in_view": null
+ },
+ "/mount/approach": {
+  "alt_dir": -1,
+  "az_dir": 1,
+  "enabled": false,
+  "overshoot_deg": 0.3
+ },
+ "/mount/autogoto": {
+  "enabled": false,
+  "minutes_before_maghrib": 15.0
+ },
+ "/mount/axis_calib": {
+  "alt_ratio": 1.125,
+  "az_ratio": 1.0
+ },
+ "/mount/home/status": {
+  "message": "Home otomatis belum jalan",
+  "status": "pending"
+ },
+ "/mount/installation_mode": {
+  "mode": "mobile"
+ },
+ "/mount/pointing_test": {
+  "message": "",
+  "objek": null,
+  "state": "idle",
+  "uji": null,
+  "waktu": null
+ },
+ "/mount/sensor_vs_sync": {
+  "message": "Belum pernah Sinkron Matahari/Bulan",
+  "status": "none"
+ },
+ "/mount/softtrack/status": {
+  "dev_deg": null,
+  "dev_max_deg": null,
+  "drift_deg_per_min": null,
+  "elapsed_sec": 0,
+  "ended": null,
+  "last": [],
+  "mode": null,
+  "moves": 0,
+  "offset_deg": {
+   "alt": 0.0,
+   "az": 0.0
+  },
+  "read_failures": 0,
+  "running": false,
+  "samples": 0,
+  "target": null,
+  "would_stop": {}
+ },
+ "/mount/stall_status": {
+  "diagnostic": null,
+  "stall_suspected": false,
+  "tracking_guard": {
+   "last_trip": null,
+   "limit_deg": 75.0,
+   "tripped": false
+  }
+ },
+ "/mount/titik_tetap": {
+  "berlaku": false,
+  "titik": null
+ },
+ "/mount/tracking_guard": {
+  "last_trip": null,
+  "limit_deg": 75.0,
+  "tripped": false
+ },
+ "/mount/wifi_status": {
+  "connected": null,
+  "message": "Mount memakai USB serial, bukan WiFi -- status ini tidak berlaku lagi."
+ },
+ "/network/field/profiles": [],
+ "/network/field/scan": {
+  "networks": [],
+  "status": "ok"
+ },
+ "/network/field/status": {
+  "ip": null,
+  "mode": "auto",
+  "mode_active": "disconnected",
+  "ssid": null
+ },
+ "/network/wifi/status": {
+  "connected": false,
+  "interface_present": false,
+  "ip": null,
+  "ssid": null
+ },
+ "/satellites/iss": {
+  "name": "ISS",
+  "now": {
+   "alt": -56.07,
+   "az": 56.44,
+   "range_km": 11078,
+   "sunlit": true
+  },
+  "passes": [
+   {
+    "end": "2026-10-13T08:13:05.797130+00:00",
+    "end_az": 129,
+    "max": "2026-10-13T08:08:05.797130+00:00",
+    "max_alt": 29.4,
+    "start": "2026-10-13T08:03:05.797130+00:00",
+    "start_az": 342,
+    "visible": false
+   },
+   {
+    "end": "2026-10-13T09:48:45.797130+00:00",
+    "end_az": 180,
+    "max": "2026-10-13T09:44:45.797130+00:00",
+    "max_alt": 9.2,
+    "start": "2026-10-13T09:40:45.797130+00:00",
+    "start_az": 280,
+    "visible": false
+   },
+   {
+    "end": "2026-10-13T18:06:45.797130+00:00",
+    "end_az": 101,
+    "max": "2026-10-13T18:04:05.797130+00:00",
+    "max_alt": 2.9,
+    "start": "2026-10-13T18:01:25.797130+00:00",
+    "start_az": 162,
+    "visible": false
+   },
+   {
+    "end": "2026-10-13T19:46:05.797130+00:00",
+    "end_az": 33,
+    "max": "2026-10-13T19:41:05.797130+00:00",
+    "max_alt": 75.6,
+    "start": "2026-10-13T19:35:45.797130+00:00",
+    "start_az": 218,
+    "visible": false
+   },
+   {
+    "end": "2026-10-13T21:18:25.797130+00:00",
+    "end_az": 314,
+    "max": "2026-10-13T21:17:25.797130+00:00",
+    "max_alt": 0.3,
+    "start": "2026-10-13T21:16:45.797130+00:00",
+    "start_az": 296,
+    "visible": false
+   }
+  ],
+  "status": "ok",
+  "tle_age_h": 0.0,
+  "tle_stale": false
+ },
+ "/sensors/aht10": {
+  "at": 89858.1085251,
+  "connected": false,
+  "dew_point_c": null,
+  "dew_risk": null,
+  "dew_risk_text": null,
+  "humidity_pct": null,
+  "temp_c": null
+ },
+ "/sensors/bmp280": {
+  "at": 89858.108911,
+  "connected": false,
+  "pressure_hpa": null,
+  "temp_c": null
+ },
+ "/sensors/compass": {
+  "at": 89858.109275,
+  "connected": false,
+  "heading_deg": null
+ },
+ "/sensors/compass_calib": {},
+ "/sensors/imu": {
+  "at": 89858.1100042,
+  "connected": false,
+  "raw_tilt_deg": null,
+  "tilt_alt_deg": null
+ },
+ "/sensors/sqm_estimate": {
+  "available": false,
+  "message": "Gagal baca raw kamera: No module named 'picamera2'"
+ },
+ "/sky/score": {
+  "alasan": [],
+  "cloud_cover_pct": 4,
+  "cuaca_ada": true,
+  "moon_alt_deg": -17.47,
+  "moon_ilum_pct": 5.6,
+  "precip_probability_pct": 6,
+  "score": 98,
+  "status": "ok",
+  "t": "2026-10-12T22:37:25+00:00"
+ },
+ "/system/backup_status": {
+  "last_log": null,
+  "last_success_ts": null,
+  "server_ts": 1791844646,
+  "status": "ok"
+ },
+ "/system/ota": {
+  "pending": null
+ },
+ "/tv/publisher": {
+  "aktif": false
+ },
+ "/tv/status": {
+  "aktif": true,
+  "izin_tv": false,
+  "tampilkan": false,
+  "ts": "2026-10-12T22:37:26+00:00",
+  "unit": "hilal/unit-01",
+  "versi": 1
+ },
+ "/weather/forecast": {
+  "cloud_cover_pct": 4,
+  "forecast_time": "2026-10-13T18:00",
+  "precip_probability_pct": 6,
+  "status": "ok",
+  "verdict": "baik",
+  "verdict_text": "Langit relatif cerah, peluang rukyat baik",
+  "visibility_km": 18.6
+ }
+}

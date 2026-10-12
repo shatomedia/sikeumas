@@ -37,10 +37,17 @@
                         Blog
                     </a>
                 </li>
-                <li class="nav-item mx-2">
-                    <a class="nav-link" href="{{ route('buku-teknologi-landing') }}" target="_blank">
-                        Buku
+                <li class="nav-item mx-2 dropdown">
+                    <a class="nav-link {{ Request::routeIs('taqwa-hub-landing', 'surgery-time-landing', 'jws-m3-landing', 'buku-teknologi-landing') ? 'active' : '' }} dropdown-toggle"
+                        href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Solusi
                     </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ route('taqwa-hub-landing') }}">TAQWA-Hub &middot; Smart Mosque</a></li>
+                        <li><a class="dropdown-item" href="{{ route('surgery-time-landing') }}">Surgery Time &middot; Kamar Operasi</a></li>
+                        <li><a class="dropdown-item" href="{{ route('jws-m3-landing') }}">JWS-M3 &middot; Jadwal Sholat</a></li>
+                        <li><a class="dropdown-item" href="{{ route('buku-teknologi-landing') }}">Buku Teknologi</a></li>
+                    </ul>
                 </li>
                 <li class="nav-item mx-2">
                     <a class="nav-link {{ Request::routeIs('contact') ? 'active' : '' }}"

@@ -240,6 +240,7 @@
   </style>
 </head>
 <body>
+  @include('company-theme.partials.site-bar')
   <nav class="nav">
     <div class="wrap nav-inner">
       <a class="brand" href="#top" aria-label="TAQWA-Hub">
@@ -734,7 +735,7 @@
 
   <footer>
     <div class="wrap footer-inner">
-      <span>(c) 2026 Shatomedia - TAQWA-Hub</span>
+      <span>(c) 2026 <a href="{{ route('beranda') }}" style="color:#fff">Shatomedia</a> - TAQWA-Hub &middot; <a href="{{ route('product') }}">Produk lain</a></span>
       <span>WhatsApp: +62 857-4390-9116 | Email: shatomedia@gmail.com</span>
     </div>
   </footer>

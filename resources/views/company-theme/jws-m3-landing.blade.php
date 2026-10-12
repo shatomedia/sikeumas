@@ -112,6 +112,7 @@
   </style>
 </head>
 <body>
+  @include('company-theme.partials.site-bar')
   <nav class="nav">
     <div class="wrap nav-inner">
       <a class="brand" href="#top" aria-label="JWS-M3">

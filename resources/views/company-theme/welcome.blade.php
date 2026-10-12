@@ -90,9 +90,9 @@
                     <img src="{{ asset('products/taqwa-hub.jpg') }}" class="img-fluid rounded-4 shadow" alt="TAQWA-Hub">
                 </div>
                 <div class="col-lg-6">
-                    <span class="badge rounded-pill mb-3 px-3 py-2" style="background:#1f6b4d; color:#fff;">Sistem Digital Masjid</span>
+                    <span class="badge rounded-pill mb-3 px-3 py-2" style="background:#1f6b4d; color:#fff;">Smart Mosque &middot; Versi 1.7</span>
                     <h2 class="fw-bold mb-3">TAQWA-Hub</h2>
-                    <p class="lead mb-4">Satu perangkat yang menyatukan jadwal sholat, kontrol audio, tampilan TV masjid, dan notifikasi pengurus — bekerja penuh tanpa internet.</p>
+                    <p class="lead mb-4">Satu perangkat untuk tiga pilar masjid: audio dan jadwal sholat (Riayah), falak, kegiatan dan TPQ (Imarah), serta keuangan, zakat dan aset (Idarah). Bekerja penuh tanpa internet.</p>
                     <div class="row g-3 mb-4">
                         <div class="col-sm-6 d-flex align-items-start">
                             <i class="bi bi-soundwave fs-4 me-2" style="color:#34d399;"></i>
@@ -110,10 +110,18 @@
                             <i class="bi bi-whatsapp fs-4 me-2" style="color:#34d399;"></i>
                             <span>Notifikasi WhatsApp ke pengurus</span>
                         </div>
+                        <div class="col-sm-6 d-flex align-items-start">
+                            <i class="bi bi-moon-stars fs-4 me-2" style="color:#34d399;"></i>
+                            <span>Falak, kalender Hijriah &amp; paket Ramadan</span>
+                        </div>
+                        <div class="col-sm-6 d-flex align-items-start">
+                            <i class="bi bi-cash-coin fs-4 me-2" style="color:#34d399;"></i>
+                            <span>Keuangan, zakat &amp; SIM TPQ</span>
+                        </div>
                     </div>
                     <div class="d-flex align-items-center gap-2 mb-4 p-3 rounded-3" style="background:#eaf4ee;">
                         <i class="bi bi-patch-check-fill fs-4" style="color:#34d399;"></i>
-                        <span class="fw-semibold">458/458 test case lulus &middot; aktif di masjid produksi sejak Juni 2026</span>
+                        <span class="fw-semibold">509/509 uji QA lulus &middot; aktif di masjid produksi sejak Juni 2026 &middot; mulai Rp 3,5 juta</span>
                     </div>
                     <a href="{{ route('taqwa-hub-landing') }}" class="btn" id="btn-buyNow">Selengkapnya</a>
                 </div>

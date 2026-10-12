@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ asset('buku-teknologi-assets/style.css') }}">
   </head>
   <body>
+    @include('company-theme.partials.site-bar')
     <header class="topbar">
       <a class="brand" href="#top">Buku Teknologi</a>
       <nav aria-label="Navigasi utama">

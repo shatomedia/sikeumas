@@ -638,7 +638,7 @@
         <div class="warranty-card">
           <div class="icon">TK</div>
           <b>Kunjungan Teknisi</b>
-          <p>Termasuk 1x kunjungan untuk pemasangan awal dan pelatihan singkat pengurus. Kunjungan perbaikan selama masa garansi gratis dalam radius 30 km dari kantor Shatomedia; di luar itu atau di luar masa garansi dikenakan biaya transport sesuai jarak, mulai Rp 150.000.</p>
+          <p>Termasuk 1x kunjungan untuk pemasangan awal dan pelatihan singkat pengurus. Kunjungan perbaikan selama masa garansi gratis dalam radius 30 km dari kantor pusat SHATOMEDIA di Sedayu, Bantul, Yogyakarta; di luar itu atau di luar masa garansi dikenakan biaya transport sesuai jarak, mulai Rp 150.000.</p>
         </div>
         <div class="warranty-card">
           <div class="icon">WA</div>

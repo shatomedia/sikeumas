@@ -185,7 +185,7 @@
           <div class="author-profile">
             <img src="{{ asset('buku-teknologi-assets/assets-web/safiq-rosad-profile.jpg') }}" alt="Safiq Rosad">
             <div>
-              <p>Safiq Rosad, S.T., M.Kom. adalah dosen tetap dan Kepala Program Studi Informatika UNUGHA Cilacap dengan kepakaran di bidang embedded system, cyber-physical system, Internet of Things, smart mosque, dan sistem audio masjid.</p>
+              <p>Safiq Rosad, S.T., M.Kom. adalah dosen tetap dan Kepala Program Studi Informatika dengan kepakaran di bidang embedded system, cyber-physical system, Internet of Things, smart mosque, dan sistem audio masjid.</p>
               <p>Sejak 2008, Safiq memimpin SHATOMEDIA sebagai pengembang produk digital masjid, mulai dari jadwal salat digital, media player masjid, hingga solusi <a href="{{ route('taqwa-hub-landing') }}">smart mosque</a>. Ia juga menulis sejumlah buku teknis tentang Java, NodeMCU, Arduino, optimasi sistem audio masjid, dan digitalisasi masjid.</p>
             </div>
           </div>

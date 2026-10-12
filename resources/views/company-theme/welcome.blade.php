@@ -41,10 +41,16 @@
                                 alt="Surgery Time" width="700" height="500" loading="lazy" />
                             <span class="hero-slide-label">Surgery Time</span>
                         </div>
+                        <div class="hero-slide">
+                            <img src="{{ asset('products/moonlight.webp') }}" class="d-block mx-lg-auto img-fluid"
+                                alt="MOONLIGHT" width="700" height="500" loading="lazy" />
+                            <span class="hero-slide-label">MOONLIGHT</span>
+                        </div>
                         <div class="hero-slide-dots">
                             <span class="hero-dot active" data-slide="0"></span>
                             <span class="hero-dot" data-slide="1"></span>
                             <span class="hero-dot" data-slide="2"></span>
+                            <span class="hero-dot" data-slide="3"></span>
                         </div>
                     </div>
                 </div>
@@ -163,7 +169,7 @@
             </div>
 
             <!-- JWS-M3 spotlight -->
-            <div class="row align-items-center g-5 product-spotlight reveal">
+            <div class="row align-items-center g-5 mb-5 pb-4 product-spotlight reveal">
                 <div class="col-lg-6">
                     <img src="{{ asset('products/1709590121148.jpg') }}" class="img-fluid rounded-4 shadow" alt="Jadwal Waktu Sholat JWS-M3">
                 </div>
@@ -194,6 +200,41 @@
                         <span class="fw-semibold">Dipercaya 10.000+ pelanggan di seluruh Indonesia</span>
                     </div>
                     <a href="{{ route('jws-m3-landing') }}" class="btn" id="btn-buyNow">Selengkapnya</a>
+                </div>
+            </div>
+
+            <!-- MOONLIGHT spotlight -->
+            <div class="row align-items-center g-5 flex-lg-row-reverse product-spotlight reveal">
+                <div class="col-lg-6">
+                    <img src="{{ asset('products/moonlight.webp') }}" class="img-fluid rounded-4 shadow" alt="Perangkat MOONLIGHT">
+                </div>
+                <div class="col-lg-6">
+                    <span class="badge rounded-pill mb-3 px-3 py-2" style="background:#312e81; color:#fff;">Sistem Observasi Hilal Terpadu</span>
+                    <h2 class="fw-bold mb-3">MOONLIGHT</h2>
+                    <p class="lead mb-4">Sistem IoT portabel untuk rukyatul hilal: menghitung posisi Matahari dan Bulan, mengarahkan teleskop berkamera, lalu menyimpan citra beserta waktu, lokasi, dan catatan kondisi langit sebagai bukti yang dapat diperiksa ulang.</p>
+                    <div class="row g-3 mb-4">
+                        <div class="col-sm-6 d-flex align-items-start">
+                            <i class="bi bi-stars fs-4 me-2" style="color:#a5b4fc;"></i>
+                            <span>Peta Langit &amp; perhitungan astronomi</span>
+                        </div>
+                        <div class="col-sm-6 d-flex align-items-start">
+                            <i class="bi bi-crosshair fs-4 me-2" style="color:#a5b4fc;"></i>
+                            <span>Mount Alt-Az bermotor, GoTo &amp; tracking</span>
+                        </div>
+                        <div class="col-sm-6 d-flex align-items-start">
+                            <i class="bi bi-camera fs-4 me-2" style="color:#a5b4fc;"></i>
+                            <span>Live-view kamera, burst &amp; Atlas Bulan</span>
+                        </div>
+                        <div class="col-sm-6 d-flex align-items-start">
+                            <i class="bi bi-tv fs-4 me-2" style="color:#a5b4fc;"></i>
+                            <span>Hasil rukyat tampil di TV masjid via TAQWA-Hub</span>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center gap-2 mb-4 p-3 rounded-3" style="background:#eef0fb;">
+                        <i class="bi bi-moon-stars-fill fs-4" style="color:#6366f1;"></i>
+                        <span class="fw-semibold">Status beta lapangan &middot; terbuka untuk kolaborasi riset, lembaga falak, dan demonstrasi rukyat</span>
+                    </div>
+                    <a href="https://docs.shatomedia.com/moonlight/" class="btn" id="btn-buyNow" target="_blank" rel="noopener">Selengkapnya</a>
                 </div>
             </div>
         </div>

@@ -6,9 +6,17 @@
     <title>Buku Teknologi - Buku Cetak Java, Arduino, NodeMCU, dan Audio Masjid</title>
     <meta name="description" content="Buku cetak ready stock karya Safiq Rosad untuk belajar Java, Arduino, NodeMCU ESP8266, dan optimasi sistem audio masjid.">
     <link rel="stylesheet" href="{{ asset('buku-teknologi-assets/style.css') }}">
+    <style>
+      html[data-theme="dark"] { color-scheme: dark; --ink: #e7e9ee; --muted: #9ba3af; --line: #2b2d34; --paper: #111216; --surface: #1b1c21; --green-dark: #34d399; --plum: #d8b4fe; }
+      html[data-theme="dark"] .topbar { background: rgba(17,18,22,.92) !important; }
+      html[data-theme="dark"] .trust-row span { background: rgba(255,255,255,.06); color: var(--muted); }
+      html[data-theme="dark"] .catalog-section { background: #14171a; }
+      html[data-theme="dark"] .cover-frame { background: #24262b; }
+      html[data-theme="dark"] .hero { background: linear-gradient(120deg, rgba(0,143,90,.14), transparent 34%), linear-gradient(300deg, rgba(197,138,26,.12), transparent 42%), var(--paper) !important; }
+    </style>
   </head>
   <body>
-    @include('company-theme.partials.site-bar')
+    @include('company-theme.partials.site-bar', ['themeDefault' => 'light'])
     <header class="topbar">
       <a class="brand" href="#top">Buku Teknologi</a>
       <nav aria-label="Navigasi utama">

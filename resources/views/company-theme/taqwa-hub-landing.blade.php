@@ -237,10 +237,20 @@
       .wa-float { padding: 0 15px; }
       .browser img { height: 260px; }
     }
+
+    /* Tema terang (opsional, dipilih lewat tombol tema) */
+    html[data-theme="light"] { color-scheme: light; --ink: #16241c; --muted: #56705f; --bg: #ffffff; --card: #ffffff; --soft: #f4f8f5; --line: #dbe6de; --green-800: #1f6b4d; --blue: #1d6fd1; }
+    html[data-theme="light"] .nav { background: rgba(255,255,255,.95); }
+    html[data-theme="light"] .btn-green, html[data-theme="light"] .num { color: #fff; }
+    html[data-theme="light"] .stat b, html[data-theme="light"] .update time, html[data-theme="light"] .gallery-group, html[data-theme="light"] .cond .q { color: var(--gold-deep); }
+    html[data-theme="light"] .mid-cta, html[data-theme="light"] .arch-box.core { background: linear-gradient(135deg, #e6f2ec, #fff); }
+    html[data-theme="light"] table.compare td.manual, html[data-theme="light"] .problem b { color: var(--red); }
+    html[data-theme="light"] .trust-item span, html[data-theme="light"] .check { background: #e6f2ec; }
+    html[data-theme="light"] .browser { border-color: transparent; }
   </style>
 </head>
 <body>
-  @include('company-theme.partials.site-bar')
+  @include('company-theme.partials.site-bar', ['themeDefault' => 'dark'])
   <nav class="nav">
     <div class="wrap nav-inner">
       <a class="brand" href="#top" aria-label="TAQWA-Hub">

@@ -345,7 +345,7 @@ nav.navbar .btn-login #btn-login:hover {
 
 /* section hero start */
 .hero-container {
-    background-image: url(/assets/img/png/jws-bg.png);
+    background-image: url(/company/img/png/jws-bg.png);
 }
 /* section hero end */
 
@@ -507,7 +507,7 @@ nav.navbar .btn-login #btn-login:hover {
 
 /* section about start */
 .about-hero {
-    background-image: url(/assets/img/png/jws-bg.png);
+    background-image: url(/company/img/png/jws-bg.png);
 }
 .about-hero #tittle-heroes {
     font-size: 3rem;

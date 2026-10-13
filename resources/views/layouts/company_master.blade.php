@@ -19,7 +19,7 @@
 
     <link rel="stylesheet" href="{{ asset('company/dist/css/bootstrap.css') }}" />
     <link rel="stylesheet" href="{{ asset('company/dist/css/bootstrap.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('company/css/styles.css') }}" />
+    <link rel="stylesheet" href="{{ asset('company/css/styles.css') }}?v={{ @filemtime(public_path('company/css/styles.css')) }}" />
     <link rel="stylesheet" href="{{ asset('company/css/animate.css') }}?v=2" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />

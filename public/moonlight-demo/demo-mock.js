@@ -1,17 +1,17 @@
 /* MOONLIGHT — lapisan DEMO (shatomedia.com/moonlight-demo/).
    Dimuat SEBELUM skrip dashboard asli. Semua panggilan API dijawab di browser dengan
    simulasi; TIDAK ADA koneksi ke teleskop/Pi mana pun. Foto kamera memakai rekaman
-   nyata sesi 13 September 2026 (SHATOMEDIA, Sedayu, Bantul).
+   nyata sesi 12 Oktober 2026 (SHATOMEDIA, Sedayu, Bantul).
    Disinkronkan dari repo MOONLIGHT oleh scripts/sync_moonlight_demo.py. */
 (function () {
   "use strict";
-  var FOTO = "/moonlight-assets/replay-20260913/";
-  var KAT = {                      // kategori frame kamera -> nomor foto sesi 13 Sep 2026
-    matahari: [433, 434, 435, 436, 437, 438],
-    senja: [442, 443, 444, 445, 446, 447, 448],
-    kabut: [449, 450, 451, 452, 453, 454, 455, 456, 458, 459, 460, 461, 462],
-    hilal: [463, 465, 466, 467, 468, 469, 470, 471, 472, 473, 474, 475, 476, 477, 478, 479],
-    malam: [480, 481, 482, 483, 484, 485, 486, 487]
+  var FOTO = "/moonlight-assets/replay-20261012/";
+  var KAT = {                      // kategori frame kamera -> nomor foto sesi 12 Oktober 2026
+    matahari: [893, 894, 895, 896, 897, 898, 899, 900, 901, 902, 903, 904],
+    senja: [905, 906, 907],
+    kabut: [908, 909, 910, 911, 912, 913, 914, 915],
+    hilal: [919, 920, 921, 922, 923, 924, 925, 926, 927, 928, 929, 930, 931, 932, 933, 934, 935, 936, 937, 938, 939, 940],
+    malam: [892]
   };
   var LOK = { lat: -7.80814, lon: 110.26499, alt: 120, name: "SHATOMEDIA, Sedayu, Bantul (Demo)", saved: true };
   var BATAS_LUNAK = 60, BATAS_BAWAH = -15, KECEPATAN = 8;   // deg/detik (simulasi; unit asli lebih lambat)
@@ -88,13 +88,13 @@
     return json({ status: "ok", alt: r1(alt, 2), az: r1(m.tAz, 2) });
   }
 
-  // ── Data awal: observasi dari sesi nyata 13 Sep 2026 ────────────────────
-  [[468, "2026-09-13T18:12", "terlihat"], [472, "2026-09-13T18:15", "terlihat"], [476, "2026-09-13T18:25", "terlihat"],
-   [463, "2026-09-13T17:56", "terlihat"], [455, "2026-09-13T17:39", "meragukan"], [436, "2026-09-13T16:46", "foto"]]
+  // ── Data awal: observasi dari sesi nyata 12 Okt 2026 ────────────────────
+  [[930, "2026-10-12T17:49", "terlihat"], [925, "2026-10-12T17:45", "terlihat"], [935, "2026-10-12T17:54", "terlihat"],
+   [940, "2026-10-12T17:58", "terlihat"], [917, "2026-10-12T17:40", "terlihat"], [897, "2026-10-12T17:16", "foto"]]
     .forEach(function (x) {
       obs.push({ id: x[0], time: x[1], loc: "SHATOMEDIA, Sedayu, Bantul", lat: LOK.lat, lon: LOK.lon, result: x[2],
-                 weather: "mendung", note: "Rekaman nyata sesi 13 Sep 2026", alt: 25.34, elong: 28.77, ilum: 6.2,
-                 image: "obs_" + x[0] + ".webp", auto: 0, gps_hdop: 0.8, gps_satellites: 9, target_name: x[0] >= 455 ? "Bulan" : "Matahari" });
+                 weather: "cerah", note: "Rekaman nyata sesi 12 Okt 2026", alt: 18.17, elong: 21.54, ilum: 3.5,
+                 image: "obs_" + x[0] + ".webp", auto: 0, gps_hdop: 0.8, gps_satellites: 9, target_name: x[0] >= 916 ? "Bulan" : "Matahari" });
     });
 
   // ── Rute ────────────────────────────────────────────────────────────────
@@ -164,7 +164,7 @@
         .then(function (b) { return new Response(b, { status: 200, headers: { "Content-Type": "image/webp" } }); });
     }
 
-    // Sensor (nilai khas sesi 13 Sep 2026, sedikit berfluktuasi)
+    // Sensor (nilai khas sesi 13 Sep 2026 -- sesi 12 Okt tidak mencatat sensor; sedikit berfluktuasi)
     if (p === "/sensors/aht10") return json({ connected: true, temp_c: r1(acak(27.5, 29.5)), humidity_pct: r1(acak(68, 74)),
                                               dew_point_c: r1(acak(21, 23)), dew_risk: false, dew_risk_text: "Aman", at: Date.now() / 1000 });
     if (p === "/sensors/bmp280") return json({ connected: true, pressure_hpa: r1(acak(1004, 1005.5)), temp_c: r1(acak(29, 31)), at: Date.now() / 1000 });
@@ -247,7 +247,7 @@
     bar.style.cssText = "position:fixed;left:0;right:0;bottom:0;z-index:2147483645;display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;" +
       "justify-content:center;padding:7px 12px;background:#0b0f14;color:#e7e9ee;border-top:2px solid #ffd166;font:500 13px/1.35 system-ui,Segoe UI,sans-serif;text-align:center";
     bar.innerHTML = '<b style="color:#ffd166;letter-spacing:.04em">VERSI DEMO</b>' +
-      "<span>Mount, kamera & sensor disimulasikan · foto dari rekaman nyata 13 Sep 2026 · tidak terhubung ke teleskop</span>" +
+      "<span>Mount, kamera & sensor disimulasikan · foto dari rekaman nyata 12 Okt 2026 · tidak terhubung ke teleskop</span>" +
       '<a href="/moonlight" style="color:#79d4ff">Tentang MOONLIGHT</a>' +
       '<a href="/moonlight/replay" style="color:#79d4ff">Replay sesi</a>';
     document.body.appendChild(bar);

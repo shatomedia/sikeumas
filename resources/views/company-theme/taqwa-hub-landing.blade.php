@@ -281,7 +281,8 @@
         <p class="lead">TAQWA-Hub kini mencakup tiga pilar pengelolaan masjid: <b>Riayah</b> (audio 8-kanal, jadwal sholat, TV masjid), <b>Imarah</b> (falak, kegiatan, SIM TPQ, paket Ramadan), dan <b>Idarah</b> (keuangan, zakat, aset, hak akses pengurus). Semuanya dalam satu perangkat dan bekerja penuh tanpa internet.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="https://wa.me/6285743909116?text={{ urlencode('Halo Shatomedia, saya ingin konsultasi TAQWA-Hub untuk masjid.') }}" target="_blank" rel="noopener">Konsultasi untuk Masjid Anda</a>
-          <a class="btn btn-green" href="https://taqwa-demo.shatomedia.com/login" target="_blank" rel="noopener">Coba Demo Online &#8599;</a>
+          <a class="btn btn-green" href="https://taqwa-demo.shatomedia.com/login" target="_blank" rel="noopener">Demo Dashboard &#8599;</a>
+          <a class="btn btn-green" href="https://taqwa-demo.shatomedia.com/tv" target="_blank" rel="noopener">Demo TV &#8599;</a>
           <a class="btn btn-ghost" href="#tampilan">Lihat Tampilan Aplikasi</a>
         </div>
         <div class="hero-note">Harga mulai <b style="color:var(--gold)">Rp 3,5 juta</b>, sekali beli. Update software gratis selamanya. Sudah berjalan aktif di masjid produksi sejak Juni 2026.</div>
@@ -530,7 +531,8 @@
   <div class="wrap mid-cta" style="margin-bottom:60px;">
     <div><b>Ingin melihatnya berjalan langsung?</b><p>Coba sendiri versi demo online sekarang (data fiktif, tanpa daftar), atau jadwalkan demo 10 menit bersama tim kami.</p></div>
     <div style="display:flex;flex-wrap:wrap;gap:10px;">
-    <a class="btn btn-green" href="https://taqwa-demo.shatomedia.com/login" target="_blank" rel="noopener">Coba Demo Online &#8599;</a>
+    <a class="btn btn-green" href="https://taqwa-demo.shatomedia.com/login" target="_blank" rel="noopener">Demo Dashboard &#8599;</a>
+          <a class="btn btn-green" href="https://taqwa-demo.shatomedia.com/tv" target="_blank" rel="noopener">Demo TV &#8599;</a>
     <a class="btn btn-primary" href="https://wa.me/6285743909116?text={{ urlencode('Halo Shatomedia, saya ingin jadwalkan demo 10 menit TAQWA-Hub.') }}" target="_blank" rel="noopener">Jadwalkan Demo</a>
     </div>
   </div>
@@ -740,7 +742,8 @@
       <p>Lihat demo 10 menit, lalu putuskan bersama pengurus. Scan QR atau hubungi langsung via WhatsApp.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="https://wa.me/6285743909116?text={{ urlencode('Halo Shatomedia, saya ingin konsultasi TAQWA-Hub untuk masjid.') }}" target="_blank" rel="noopener">Konsultasi via WhatsApp</a>
-        <a class="btn btn-green" href="https://taqwa-demo.shatomedia.com/login" target="_blank" rel="noopener">Coba Demo Online &#8599;</a>
+        <a class="btn btn-green" href="https://taqwa-demo.shatomedia.com/login" target="_blank" rel="noopener">Demo Dashboard &#8599;</a>
+          <a class="btn btn-green" href="https://taqwa-demo.shatomedia.com/tv" target="_blank" rel="noopener">Demo TV &#8599;</a>
         <a class="btn btn-ghost" href="mailto:shatomedia@gmail.com?subject=Konsultasi%20TAQWA-Hub">Email Shatomedia</a>
       </div>
       <div class="cta-qr"><img src="{{ asset('taqwa-hub-full/qr-wa.png') }}" alt="QR WhatsApp CS TAQWA-Hub"></div>

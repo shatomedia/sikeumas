@@ -236,6 +236,7 @@
                         <span class="fw-semibold">Status beta lapangan &middot; terbuka untuk kolaborasi riset, lembaga falak, dan demonstrasi rukyat</span>
                     </div>
                     <a href="{{ route('moonlight-landing') }}" class="btn" id="btn-buyNow">Selengkapnya</a>
+                    <a href="/moonlight-demo/" class="btn ms-2" target="_blank" rel="noopener" style="border:2px solid #a5b4fc;color:#a5b4fc;font-weight:700;">Coba Demo &#8599;</a>
                 </div>
             </div>
         </div>

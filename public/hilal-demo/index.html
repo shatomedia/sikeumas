@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="id">
+<head><script src="hilal-snapshot.js?v=2d5d1fb5"></script><script src="demo-mock.js?v=ec28ee11"></script><meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DEMO · MOONLIGHT — Hilal Fleet Control Room</title>
+<style>
+  :root{
+    --bg:#060911;--bg2:#0a0e18;--bg3:#0f1628;--bg4:#16203a;
+    --acc:#5db3f0;--acc2:#8fd6ff;--gold:#f0c040;
+    --txt:#e6ecf5;--txt2:#8a96ac;
+    --red:#f16767;--grn:#5fd996;--amber:#f0c040;
+    --border:rgba(140,170,220,.16);--border2:rgba(140,170,220,.12);
+    --card-bg:rgba(15,22,40,.66);--rad:14px;
+    --shadow:0 10px 32px rgba(0,0,0,.5);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--txt);
+    font-family:'Segoe UI',system-ui,sans-serif;height:100%;overflow-x:hidden}
+  body{
+    background:
+      radial-gradient(ellipse at top, rgba(93,179,240,.08), transparent 60%),
+      radial-gradient(ellipse at bottom, rgba(93,179,240,.05), transparent 60%),
+      var(--bg);
+    min-height:100vh;padding:22px 26px 32px;
+  }
+  header{margin-bottom:22px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+  header .top-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+  header .title{display:flex;align-items:center;gap:14px}
+  header .title .dot-pulse{width:12px;height:12px;border-radius:50%;background:var(--grn);
+    box-shadow:0 0 12px var(--grn);animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  header h1{font-size:1.15rem;letter-spacing:1.5px;margin:0;text-transform:uppercase;
+    color:var(--acc2);font-weight:600}
+  header .sub{color:var(--txt2);font-size:.78rem;margin-top:2px;letter-spacing:.4px}
+  header .clock{text-align:right;font-variant-numeric:tabular-nums}
+  header .clock .time{font-size:1.6rem;font-weight:300;color:var(--acc2)}
+  header .clock .date{font-size:.75rem;color:var(--txt2);margin-top:2px}
+
+  .summary-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .summary-card{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--rad);
+    padding:14px 18px;backdrop-filter:blur(10px)}
+  .summary-card .lbl{font-size:.7rem;color:var(--txt2);text-transform:uppercase;letter-spacing:.8px}
+  .summary-card .val{font-size:1.6rem;font-weight:600;margin-top:4px;color:var(--acc2);
+    font-variant-numeric:tabular-nums}
+  .summary-card .val.grn{color:var(--grn)}
+  .summary-card .val.red{color:var(--red)}
+
+  .chart-card{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--rad);
+    padding:16px 18px;backdrop-filter:blur(10px);margin-top:22px}
+  .chart-card h3{margin:0 0 10px;font-size:.8rem;text-transform:uppercase;letter-spacing:.8px;
+    color:var(--acc);display:flex;align-items:center;justify-content:space-between}
+  .chart-legend{display:flex;gap:16px;font-size:.72rem;color:var(--txt2)}
+  .chart-legend .item{display:flex;align-items:center;gap:6px}
+  .chart-legend .sw{width:10px;height:10px;border-radius:50%}
+  #altChart{width:100%;height:220px;display:block}
+
+  .fleet-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  @media (min-width:1400px){.fleet-grid{grid-template-columns:repeat(4,1fr)}}
+
+  .unit-card{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--rad);
+    padding:18px;box-shadow:var(--shadow);backdrop-filter:blur(14px);
+    display:flex;flex-direction:column;position:relative;overflow:hidden;
+    transition:border-color .3s}
+  .unit-card.offline{border-color:rgba(241,103,103,.35)}
+  .unit-card h3{margin:0 0 12px;font-size:.82rem;text-transform:uppercase;letter-spacing:.8px;
+    color:var(--acc);display:flex;align-items:center;justify-content:space-between;
+    padding-bottom:10px;border-bottom:1px solid var(--border)}
+  .unit-card h3 .name{display:flex;align-items:center;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--red);flex-shrink:0}
+  .dot.on{background:var(--grn);box-shadow:0 0 6px var(--grn)}
+
+  .badge{padding:2px 9px;border-radius:12px;font-size:.68rem;font-weight:700;letter-spacing:.4px}
+  .badge.ok{background:rgba(50,180,110,.18);color:var(--grn)}
+  .badge.err{background:rgba(230,70,70,.18);color:var(--red)}
+
+  .cam-frame{position:relative;background:#000;border-radius:9px;overflow:hidden;
+    margin-bottom:12px;border:1px solid var(--border2);aspect-ratio:4/3;
+    display:flex;align-items:center;justify-content:center}
+  .cam-frame img{width:100%;height:100%;object-fit:cover;display:block}
+  .cam-frame .cam-empty{color:var(--txt2);font-size:.72rem}
+  .cam-caption{position:absolute;bottom:0;left:0;right:0;
+    background:linear-gradient(transparent,rgba(0,0,0,.75));color:#e8ecf1;
+    font-size:.64rem;padding:16px 8px 5px;text-align:right}
+
+  .save-btn{display:flex;align-items:center;justify-content:center;gap:7px;
+    width:100%;padding:8px 12px;margin-bottom:12px;border:none;border-radius:8px;
+    background:var(--acc);color:#08111f;font-weight:700;font-size:.78rem;
+    cursor:pointer;transition:.15s;letter-spacing:.3px}
+  .save-btn:hover{background:var(--acc2)}
+  .save-btn:disabled{opacity:.35;cursor:not-allowed;background:var(--bg4);color:var(--txt2)}
+
+  .moon-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:10px}
+  .moon-item{background:var(--bg4);border-radius:8px;padding:9px 10px}
+  .moon-item .lbl{color:var(--txt2);font-size:.66rem;letter-spacing:.4px}
+  .moon-item .val{font-weight:600;color:var(--acc2);font-size:1.1rem;font-variant-numeric:tabular-nums}
+
+  .status-row{display:flex;justify-content:space-between;align-items:center;
+    padding:6px 0;border-bottom:1px solid var(--border2);font-size:.78rem}
+  .status-row:last-child{border-bottom:none}
+  .status-row .k{color:var(--txt2)}
+  .status-row .v{font-weight:500;font-variant-numeric:tabular-nums}
+
+  .empty-slot{background:rgba(15,22,40,.3);border:1px dashed var(--border);border-radius:var(--rad);
+    display:flex;align-items:center;justify-content:center;color:var(--txt2);
+    font-size:.8rem;min-height:340px;letter-spacing:.4px;text-transform:uppercase}
+
+  footer{margin-top:24px;text-align:center;color:var(--txt2);font-size:.7rem;letter-spacing:.4px}
+  .conn-warn{position:fixed;top:14px;right:26px;background:rgba(230,70,70,.9);color:#fff;
+    padding:6px 14px;border-radius:8px;font-size:.75rem;display:none;box-shadow:var(--shadow);z-index:10}
+</style>
+</head>
+<body>
+
+<div class="conn-warn" id="connWarn">⚠ Tidak bisa hubungi server data</div>
+
+<header>
+  <div class="top-row">
+    <div class="title">
+      <span class="dot-pulse"></span>
+      <div>
+        <h1>MOONLIGHT — Hilal Fleet Control Room</h1>
+        <div class="sub">Versi demo — armada simulasi · shatomedia.com</div>
+      </div>
+    </div>
+    <div class="clock">
+      <div class="time" id="clockTime">--:--:--</div>
+      <div class="date" id="clockDate">-</div>
+    </div>
+  </div>
+  <div class="summary-bar">
+    <div class="summary-card"><div class="lbl">Total Unit</div><div class="val" id="sumTotal">0 / 4</div></div>
+    <div class="summary-card"><div class="lbl">Online</div><div class="val grn" id="sumOnline">0</div></div>
+    <div class="summary-card"><div class="lbl">Offline</div><div class="val red" id="sumOffline">0</div></div>
+    <div class="summary-card"><div class="lbl">Update Terakhir</div><div class="val" id="sumUpdated" style="font-size:1.1rem">-</div></div>
+  </div>
+</header>
+
+<div class="fleet-grid" id="fleetGrid">
+  <div class="empty-slot">Memuat data fleet…</div>
+</div>
+
+<div class="chart-card">
+  <h3><span>Riwayat Altitude Bulan — Semua Unit</span><span class="chart-legend" id="chartLegend"></span></h3>
+  <canvas id="altChart"></canvas>
+</div>
+
+<footer>MOONLIGHT Fleet Monitor &middot; auto-refresh setiap 5 detik &middot; maksimum 4 unit</footer>
+
+<script>
+const MAX_UNITS = 4;
+const POLL_MS = 5000;
+const UNIT_COLORS = ['#5db3f0', '#f0c040', '#5fd996', '#f16767'];
+let colorMap = {}; // device_id -> color, assigned in first-seen order
+
+function colorFor(deviceId){
+  if(!colorMap[deviceId]){
+    const used = Object.keys(colorMap).length;
+    colorMap[deviceId] = UNIT_COLORS[used % UNIT_COLORS.length];
+  }
+  return colorMap[deviceId];
+}
+
+function fmtDeg(v){ return (v === undefined || v === null || v === '') ? '-' : (Number(v).toFixed(1) + '°'); }
+function fmtHours(sec){ return (!sec && sec !== 0) ? '-' : (sec/3600).toFixed(1) + ' jam'; }
+function fmtTime(iso){
+  if(!iso) return '-';
+  try { return new Date(iso).toLocaleTimeString('id-ID'); } catch(e){ return iso; }
+}
+function fmtDateTime(iso){
+  if(!iso) return '-';
+  try { return new Date(iso).toLocaleString('id-ID'); } catch(e){ return iso; }
+}
+
+// ---------- Combined altitude chart (hand-rolled canvas, no dependencies) ----------
+function drawAltChart(units){
+  const canvas = document.getElementById('altChart');
+  const dpr = window.devicePixelRatio || 1;
+  const cssW = canvas.clientWidth || canvas.parentElement.clientWidth;
+  const cssH = 220;
+  canvas.width = cssW * dpr;
+  canvas.height = cssH * dpr;
+  canvas.style.height = cssH + 'px';
+  const ctx = canvas.getContext('2d');
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.clearRect(0, 0, cssW, cssH);
+
+  const padL = 40, padR = 12, padT = 10, padB = 22;
+  const plotW = cssW - padL - padR;
+  const plotH = cssH - padT - padB;
+
+  // Collect all points across units to determine time range
+  let allTimes = [];
+  units.forEach(u => (u.altitude_history || []).forEach(p => allTimes.push(new Date(p.ts).getTime())));
+  const now = Date.now();
+  const tMax = allTimes.length ? Math.max(...allTimes, now) : now;
+  const tMin = allTimes.length ? Math.min(...allTimes) : now - 3600000;
+  const tSpan = Math.max(tMax - tMin, 60000);
+
+  const yMin = -90, yMax = 90;
+  const yToPx = alt => padT + plotH - ((alt - yMin) / (yMax - yMin)) * plotH;
+  const tToPx = t => padL + ((t - tMin) / tSpan) * plotW;
+
+  // Grid + axis labels
+  ctx.strokeStyle = 'rgba(140,170,220,.14)';
+  ctx.fillStyle = '#8a96ac';
+  ctx.font = '10px Segoe UI, sans-serif';
+  ctx.textAlign = 'right';
+  ctx.textBaseline = 'middle';
+  [-90,-60,-30,0,30,60,90].forEach(v => {
+    const y = yToPx(v);
+    ctx.beginPath();
+    ctx.moveTo(padL, y);
+    ctx.lineTo(padL + plotW, y);
+    ctx.strokeStyle = v === 0 ? 'rgba(240,192,64,.35)' : 'rgba(140,170,220,.12)';
+    ctx.lineWidth = v === 0 ? 1.4 : 1;
+    ctx.stroke();
+    ctx.fillText(v + '°', padL - 6, y);
+  });
+
+  // X axis time labels (start / mid / end)
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'top';
+  [tMin, tMin + tSpan/2, tMax].forEach(t => {
+    ctx.fillText(new Date(t).toLocaleTimeString('id-ID', {hour:'2-digit',minute:'2-digit'}), tToPx(t), padT + plotH + 4);
+  });
+
+  // Draw each unit's line
+  units.forEach(u => {
+    const hist = u.altitude_history || [];
+    if (hist.length < 1) return;
+    ctx.strokeStyle = colorFor(u.device_id);
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    hist.forEach((p, i) => {
+      const x = tToPx(new Date(p.ts).getTime());
+      const y = yToPx(p.alt);
+      if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+    });
+    ctx.stroke();
+    // last point marker
+    const last = hist[hist.length - 1];
+    ctx.fillStyle = colorFor(u.device_id);
+    ctx.beginPath();
+    ctx.arc(tToPx(new Date(last.ts).getTime()), yToPx(last.alt), 3, 0, Math.PI*2);
+    ctx.fill();
+  });
+
+  if (allTimes.length === 0) {
+    ctx.fillStyle = '#8a96ac';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.font = '12px Segoe UI, sans-serif';
+    ctx.fillText('Belum ada data riwayat', cssW/2, cssH/2);
+  }
+}
+
+function updateLegend(units){
+  const el = document.getElementById('chartLegend');
+  el.innerHTML = units.map(u =>
+    `<span class="item"><span class="sw" style="background:${colorFor(u.device_id)}"></span>${u.device_id}</span>`
+  ).join('');
+}
+
+// ---------- Save observation image (snapshot + burned-in telemetry overlay) ----------
+async function saveObservation(unitJson){
+  const u = JSON.parse(decodeURIComponent(unitJson));
+  const snap = u.snapshot || {};
+  if (!snap.image_b64) return;
+
+  const img = new Image();
+  img.src = 'data:image/jpeg;base64,' + snap.image_b64;
+  await new Promise((resolve, reject) => { img.onload = resolve; img.onerror = reject; });
+
+  const t = u.telemetry || {};
+  const mount = t.mount || {};
+  const loc = t.location || {};
+
+  const panelH = 168;
+  const canvas = document.createElement('canvas');
+  canvas.width = Math.max(img.width, 640);
+  canvas.height = img.height + panelH;
+  const ctx = canvas.getContext('2d');
+
+  ctx.fillStyle = '#060911';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.drawImage(img, (canvas.width - img.width)/2, 0);
+
+  const py = img.height;
+  ctx.fillStyle = '#0a0e18';
+  ctx.fillRect(0, py, canvas.width, panelH);
+  ctx.strokeStyle = '#5db3f0';
+  ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.moveTo(0, py); ctx.lineTo(canvas.width, py); ctx.stroke();
+
+  ctx.fillStyle = '#5db3f0';
+  ctx.font = 'bold 20px Segoe UI, sans-serif';
+  ctx.textAlign = 'left';
+  ctx.fillText('MOONLIGHT — Observasi Hilal · ' + u.device_id, 18, py + 30);
+
+  ctx.font = '15px Segoe UI, sans-serif';
+  ctx.fillStyle = '#e6ecf5';
+  const col1 = [
+    'Lokasi   : ' + (loc.name || '-'),
+    'Koordinat: ' + (loc.lat ?? '-') + ', ' + (loc.lon ?? '-'),
+    'Waktu    : ' + fmtDateTime(t.ts || snap.ts),
+  ];
+  const col2 = [
+    'Azimuth  : ' + fmtDeg(mount.az),
+    'Altitude : ' + fmtDeg(mount.alt),
+    'Tracking : ' + (mount.tracking ? 'Aktif' : 'Nonaktif') + '  (' + (mount.sync_type || '-') + ')',
+  ];
+  col1.forEach((line, i) => ctx.fillText(line, 18, py + 58 + i*24));
+  col2.forEach((line, i) => ctx.fillText(line, canvas.width/2 + 10, py + 58 + i*24));
+
+  const dataUrl = canvas.toDataURL('image/png');
+  const ts = (t.ts || snap.ts || new Date().toISOString()).replace(/[:.]/g, '-');
+  const a = document.createElement('a');
+  a.href = dataUrl;
+  a.download = `hilal_${u.device_id}_${ts}.png`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+window.saveObservation = saveObservation;
+
+// ---------- Unit cards ----------
+function unitCardHtml(u){
+  const t = u.telemetry || {};
+  const mount = t.mount || {};
+  const loc = t.location || {};
+  const snap = u.snapshot || {};
+  const online = u.status === 'online';
+  const camSrc = snap.image_b64 ? ('data:image/jpeg;base64,' + snap.image_b64) : null;
+  const canSave = !!snap.image_b64;
+  const unitJson = encodeURIComponent(JSON.stringify(u));
+
+  return `
+    <div class="unit-card ${online ? '' : 'offline'}" style="border-top:3px solid ${colorFor(u.device_id)}">
+      <h3>
+        <span class="name"><span class="dot ${online ? 'on' : ''}"></span>${u.device_id}</span>
+        <span class="badge ${online ? 'ok' : 'err'}">${online ? 'ONLINE' : 'OFFLINE'}</span>
+      </h3>
+      <div class="cam-frame">
+        ${camSrc
+          ? `<img src="${camSrc}">`
+          : `<span class="cam-empty">Belum ada snapshot</span>`}
+        ${snap.ts ? `<div class="cam-caption">Snapshot: ${fmtTime(snap.ts)}</div>` : ''}
+      </div>
+      <button class="save-btn" ${canSave ? '' : 'disabled'} onclick="saveObservation('${unitJson}')">
+        &#128190; Simpan Hasil Observasi
+      </button>
+      <div class="moon-grid">
+        <div class="moon-item"><div class="lbl">AZIMUTH</div><div class="val">${fmtDeg(mount.az)}</div></div>
+        <div class="moon-item"><div class="lbl">ALTITUDE</div><div class="val">${fmtDeg(mount.alt)}</div></div>
+      </div>
+      <div class="status-row"><span class="k">Tracking</span>
+        <span class="badge ${mount.tracking ? 'ok' : 'err'}">${mount.tracking ? 'AKTIF' : 'NONAKTIF'}</span></div>
+      <div class="status-row"><span class="k">Sync Type</span><span class="v">${mount.sync_type || '-'}</span></div>
+      <div class="status-row"><span class="k">Lokasi</span><span class="v">${loc.name || '-'}</span></div>
+      <div class="status-row"><span class="k">Koordinat</span><span class="v">${loc.lat ?? '-'}, ${loc.lon ?? '-'}</span></div>
+      <div class="status-row"><span class="k">Uptime</span><span class="v">${fmtHours(t.uptime_sec)}</span></div>
+      <div class="status-row"><span class="k">Terakhir Terlihat</span><span class="v">${fmtTime(u.last_seen_at)}</span></div>
+    </div>`;
+}
+
+function emptySlotHtml(){
+  return `<div class="empty-slot">Slot Kosong</div>`;
+}
+
+async function refresh(){
+  try{
+    const res = await fetch('/api/hilal-fleet', { cache: 'no-store' });
+    if(!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    document.getElementById('connWarn').style.display = 'none';
+
+    const units = (data.units || []).slice(0, MAX_UNITS);
+    const online = units.filter(u => u.status === 'online').length;
+
+    document.getElementById('sumTotal').textContent = units.length + ' / ' + MAX_UNITS;
+    document.getElementById('sumOnline').textContent = online;
+    document.getElementById('sumOffline').textContent = units.length - online;
+    document.getElementById('sumUpdated').textContent = fmtTime(data.server_time);
+
+    let html = units.map(unitCardHtml).join('');
+    for(let i = units.length; i < MAX_UNITS; i++) html += emptySlotHtml();
+    document.getElementById('fleetGrid').innerHTML = html;
+
+    updateLegend(units);
+    drawAltChart(units);
+  }catch(e){
+    document.getElementById('connWarn').style.display = 'block';
+  }
+}
+
+function tickClock(){
+  const now = new Date();
+  document.getElementById('clockTime').textContent = now.toLocaleTimeString('id-ID');
+  document.getElementById('clockDate').textContent = now.toLocaleDateString('id-ID', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+}
+
+window.addEventListener('resize', () => {
+  // redraw chart on resize using last-known units (cheap: just refetch)
+  refresh();
+});
+
+tickClock();
+setInterval(tickClock, 1000);
+refresh();
+setInterval(refresh, POLL_MS);
+</script>
+</body>
+</html>
